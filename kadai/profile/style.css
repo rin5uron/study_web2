@@ -1,0 +1,162 @@
+/* カラーパレット */
+:root {
+    --primary-color: #333;
+    --accent-color: #4AC4DC;
+    --sub-color: #FFE4E1;
+    --background-color: #fff;
+    --text-color: #333;
+    --header-bg: var(--accent-color);
+    --section-bg: var(--sub-color);
+    --gradient-start: #4AC4DC;
+    --gradient-end: #FFE4E1;
+}
+
+/* 基本設定 */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    background-color: var(--background-color);
+    background-image: linear-gradient(135deg, var(--sub-color) 0%, var(--background-color) 100%);
+}
+
+/* ヘッダー */
+header {
+    background-image: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    color: white;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: block;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ナビゲーション */
+.nav-section {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    padding: 0 1rem;
+}
+
+.nav-item {
+    flex: 1;
+    text-align: center;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.nav-item h2 {
+    margin: 0;
+    color: var(--accent-color);
+}
+
+/* メインコンテンツ */
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* 見出し */
+h2 {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+/* リスト */
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* フッター */
+footer {
+    background-image: linear-gradient(to right, var(--gradient-end), var(--gradient-start));
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+footer a:hover {
+    color: var(--sub-color);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    .nav-section {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    section {
+        padding: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+} 

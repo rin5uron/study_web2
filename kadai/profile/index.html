@@ -1,0 +1,90 @@
+<!--
+    課題内容（30分）
+    
+    1. 自己紹介ページの作成（20分）
+       - 以下の要素を必ず含める：
+         - 見出し（h1, h2）
+         - 段落（p）
+         - リスト（ul, ol）
+         - 太字（strong）
+         - リンク（a）
+       - オリジナルの要素も追加
+    
+    2. セマンティックHTML化（10分）
+       - 以下のセマンティック要素を追加：
+         - header：ページのヘッダー部分
+         - main：メインコンテンツ
+         - section：関連する内容のグループ化
+         - footer：ページのフッター部分
+    -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>プロフィール</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="images/profile-image.jpg" alt="プロフィール画像" class="profile-image">
+        <h1>Kotone's Portfolio</h1>
+    </header>
+
+    <div class="nav-section">
+        <a href="#skills" class="nav-item">
+            <h2>SKILLS</h2>
+            <p>プログラミングスキル</p>
+        </a>
+        <a href="#vision" class="nav-item">
+            <h2>VISION</h2>
+            <p>将来の目標</p>
+        </a>
+        <a href="#private" class="nav-item">
+            <h2>PRIVATE</h2>
+            <p>趣味・特技</p>
+        </a>
+    </div>
+
+    <main>
+        <section id="skills" class="skills">
+            <h2>SKILLS</h2>
+            <article>
+                <h3>プログラミング言語</h3>
+                <ul>
+                    <li>HTML/CSS</li>
+                    <li>JavaScript</li>
+                    <li>Python</li>
+                </ul>
+            </article>
+        </section>
+
+        <section id="vision" class="vision">
+            <h2>VISION</h2>
+            <div class="goals">
+                <ol>
+                    <li>フロントエンド開発のスキルを磨く</li>
+                    <li>バックエンド技術も習得する</li>
+                    <li>フルスタック開発者を目指す</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="private" class="private">
+            <h2>PRIVATE</h2>
+            <article>
+                <h3>趣味</h3>
+                <ul>
+                    <li>読書</li>
+                    <li>プログラミング</li>
+                    <li>音楽鑑賞</li>
+                </ul>
+            </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>Contact: <a href="mailto:contact@example.com">contact@example.com</a></p>
+    </footer>
+</body>
+</html> 
