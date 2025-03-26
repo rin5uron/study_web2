@@ -5,10 +5,27 @@
     box-sizing: border-box;
 }
 
+/* 全体のスタイル：プロフィール画像に合わせた配色とフォント */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
     line-height: 1.6;
     color: #333;
+    background-color: #f8f9fa;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+/* カラー変数 - パステルカラー */
+:root {
+    --primary-color: #b5c7ed; /* パステルブルー */
+    --secondary-color: #f8c6c6; /* パステルピンク */
+    --bg-light: #f9f9f9;
+    --bg-dark: #333;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 /* ヘッダーとハンバーガーメニュー */
@@ -30,7 +47,7 @@ body {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: #333;
+    background-color: var(--primary-color);
     position: absolute;
     transition: all 0.3s;
 }
@@ -46,7 +63,9 @@ body {
     right: 0;
     background-color: white;
     padding: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    border-top: 3px solid var(--primary-color);
 }
 
 .menu-items.active {
@@ -60,7 +79,14 @@ body {
 
 .menu-items a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+}
+
+.menu-items a:hover {
+    color: var(--primary-color);
 }
 
 /* メインコンテンツ */
@@ -83,13 +109,17 @@ main {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     object-fit: cover;
+    box-shadow: var(--shadow);
+    border: 5px solid white;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 2.6em;
     margin-bottom: 30px;
+    color: var(--primary-color);
+    letter-spacing: 1px;
 }
 
 .navigation h2 {
@@ -98,12 +128,13 @@ h1 {
 
 .navigation h2 a {
     text-decoration: none;
-    color: #333;
+    color: var(--text-primary);
     transition: color 0.3s;
+    padding: 5px 10px;
 }
 
 .navigation h2 a:hover {
-    color: #666;
+    color: var(--primary-color);
 }
 
 /* Skill & Visionページのスタイル */
@@ -115,6 +146,7 @@ h1 {
 .skill-vision h1 {
     text-align: center;
     margin-bottom: 40px;
+    color: var(--primary-color);
 }
 
 .main-sections {
@@ -126,19 +158,19 @@ h1 {
 .skill-section,
 .vision-section {
     flex: 1;
-    background-color: #f9f9f9;
-    border-radius: 10px;
+    background-color: var(--bg-light);
+    border-radius: 15px;
     padding: 30px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow);
 }
 
 .skill-section h2,
 .vision-section h2 {
     text-align: center;
-    color: #333;
+    color: var(--primary-color);
     margin-bottom: 30px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #eee;
     font-size: 2em;
 }
 
@@ -155,29 +187,31 @@ h1 {
 }
 
 .sub-section h3 {
-    color: #444;
+    color: white;
     margin-bottom: 20px;
     font-size: 1.5em;
     flex: 1;
     min-width: 200px;
     text-align: center;
     padding: 10px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
 .sub-section h4 {
-    color: #666;
+    color: var(--secondary-color);
     margin: 20px 0 10px;
     font-size: 1.2em;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 10px;
 }
 
 .content {
     background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
     width: 100%;
 }
 
@@ -186,15 +220,81 @@ h1 {
     margin-left: 20px;
 }
 
+.content ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.content ul li::before {
+    content: "•";
+    color: var(--secondary-color);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
 .content p {
     margin-bottom: 15px;
+    line-height: 1.8;
 }
 
 /* フッター */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #f5f5f5;
+    background-color: var(--bg-light);
+    border-top: 1px solid #eee;
+    color: var(--text-secondary);
+}
+
+/* Privateページのスタイル */
+.private-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.private-page h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.basic-info-section,
+.favorite-section {
+    flex: 1;
+    background-color: var(--bg-light);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.basic-info-section h2,
+.favorite-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    font-size: 2em;
+}
+
+.favorite-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.favorite-title {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.favorite-author,
+.favorite-genre {
+    color: var(--secondary-color);
+    font-style: italic;
 }
 
 /* レスポンシブデザイン */
@@ -230,5 +330,15 @@ footer {
     .sub-section h3 {
         min-width: 100%;
         margin-bottom: 10px;
+    }
+
+    .favorite-list li {
+        flex-direction: column;
+    }
+
+    .favorite-author,
+    .favorite-genre {
+        margin-top: 5px;
+        margin-left: 10px;
     }
 } 
