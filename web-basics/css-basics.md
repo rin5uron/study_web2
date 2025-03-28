@@ -1,109 +1,237 @@
-# CSS基礎
+# CSS超入門 🎨
 
-## 📝 学習目標
-1. CSSの基本概念と構文を理解する
-2. セレクタの使い方を学ぶ
-3. プロパティとその値の設定方法を理解する
-4. レイアウトの基本を習得する
+## CSSって何？
+CSSは「Cascading Style Sheets」の略で、HTMLで作った骨組みに「色」や「大きさ」「配置」などの見た目を与える言語です。
 
-## 🎯 実践課題（30分）
+HTML → 「文章の構造」
+CSS → 「見た目・デザイン」
 
-### 1. 基本的なスタイリング（10分）
-- [ ] CSSファイルの作成とHTMLへのリンク
-- [ ] 文字色、背景色の設定
-- [ ] フォントファミリー、サイズの指定
-- [ ] 余白（margin, padding）の調整
+## 基本の書き方
 
-### 2. レイアウト設定（10分）
-- [ ] Flexboxを使用した要素の配置
-- [ ] 幅と高さの設定
-- [ ] 位置調整（position）
-- [ ] ボックスモデルの理解と活用
-
-### 3. デザイン改善（10分）
-- [ ] 配色の工夫（カラーパレットの作成）
-- [ ] ホバーエフェクトの追加
-- [ ] アニメーションの実装
-- [ ] レスポンシブ対応
-
-## 💡 サンプルコード
-
-### 基本的なスタイリング
 ```css
-/* 変数定義 */
-:root {
-    --primary-color: #333;
-    --accent-color: #4a90e2;
-    --background-color: #fff;
+セレクタ {
+    プロパティ: 値;
+    プロパティ: 値;
+}
+```
+
+例：
+```css
+h1 {
+    color: blue;
+    font-size: 24px;
+}
+```
+
+これは「h1タグの文字を青色にして、大きさを24pxにする」という意味です。
+
+## HTMLにCSSを適用する3つの方法
+
+### 1. 外部ファイル（おすすめ）
+```html
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+```
+
+### 2. HTMLの中に直接書く
+```html
+<head>
+  <style>
+    h1 { color: blue; }
+  </style>
+</head>
+```
+
+### 3. タグに直接書く（インラインスタイル）
+```html
+<h1 style="color: blue;">こんにちは</h1>
+```
+
+## よく使うスタイル設定
+
+### 文字のスタイル
+```css
+p {
+    color: #333;              /* 文字の色 */
+    font-size: 16px;          /* 文字の大きさ */
+    font-family: sans-serif;  /* フォント */
+    text-align: center;       /* 文字の配置（center, left, right） */
+    font-weight: bold;        /* 太さ（bold=太字, normal=通常） */
+}
+```
+
+### 背景のスタイル
+```css
+div {
+    background-color: #f0f0f0;  /* 背景色 */
+    background-image: url('背景画像.jpg');  /* 背景画像 */
+}
+```
+
+### ボックスのスタイル
+```css
+div {
+    width: 300px;              /* 幅 */
+    height: 200px;             /* 高さ */
+    margin: 10px;              /* 外側の余白 */
+    padding: 20px;             /* 内側の余白 */
+    border: 1px solid black;   /* 枠線 */
+    border-radius: 10px;       /* 角を丸くする */
+}
+```
+
+## 3つの重要なセレクタ
+
+### 1. 要素セレクタ（タグ名）
+```css
+h1 { color: blue; }
+p { color: gray; }
+```
+
+### 2. クラスセレクタ（.クラス名）
+```html
+<p class="important">重要な文章</p>
+```
+
+```css
+.important { 
+    color: red;
+    font-weight: bold; 
+}
+```
+
+### 3. IDセレクタ（#ID名）
+```html
+<div id="header">ヘッダー</div>
+```
+
+```css
+#header {
+    background-color: black;
+    color: white;
+}
+```
+
+## 要素を並べる（Flexbox）
+
+親要素に `display: flex` を設定すると子要素が横並びになります。
+
+```css
+.container {
+    display: flex;
+    justify-content: space-between;  /* 均等に間隔をあける */
+    align-items: center;           /* 縦方向の中央揃え */
+}
+```
+
+```html
+<div class="container">
+    <div class="item">項目1</div>
+    <div class="item">項目2</div>
+    <div class="item">項目3</div>
+</div>
+```
+
+## スマホ対応（レスポンシブデザイン）
+
+```css
+/* 通常のスタイル（PC用） */
+.box {
+    width: 500px;
 }
 
-/* 基本設定 */
-body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    color: var(--primary-color);
-    line-height: 1.6;
-    margin: 0;
-    padding: 20px;
+/* 画面幅が768px以下のとき（スマホ用） */
+@media (max-width: 768px) {
+    .box {
+        width: 100%;  /* 幅いっぱいに広げる */
+    }
 }
+```
 
-/* 見出しスタイル */
-h1, h2, h3 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
+## 簡単なボタンの作り方
 
-/* リンクスタイル */
-a {
-    color: var(--accent-color);
+```css
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 5px;
     text-decoration: none;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-```
-
-### Flexboxレイアウト
-```css
-/* コンテナ設定 */
-.container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-}
-
-/* アイテム設定 */
-.item {
-    flex: 1;
-    padding: 20px;
-    background-color: #f5f5f5;
-}
-```
-
-### アニメーション
-```css
-/* ホバーエフェクト */
-.button {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
+/* ホバー時（マウスを乗せたとき） */
 .button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: #357ac5;
 }
 ```
 
-## 📚 実践例：プロフィールカード
+```html
+<a href="#" class="button">ボタン</a>
+```
+
+## 実践例：プロフィールカード
 
 ### HTML
 ```html
+<div class="profile-card">
+    <img src="avatar.jpg" alt="プロフィール画像">
+    <h2>名前</h2>
+    <p>自己紹介文をここに書きます。簡潔に自分のことを説明しましょう。</p>
+    <a href="#" class="button">もっと見る</a>
+</div>
+```
+
+### CSS
+```css
+.profile-card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: center;
+    background-color: white;
+}
+
+.profile-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+```
+
+## CSSを習得するコツ
+1. **少しずつ試す** - 一度に多くのスタイルを設定せず、少しずつ変更を確認しながら進める
+2. **実例を模倣する** - 気に入ったWebサイトのデザインを真似てみる
+3. **開発者ツールを使う** - ブラウザの開発者ツール（F12キー）でCSSの動きを確認する
+4. **基本を固める** - 配置（Flexbox）、ボックスモデル、セレクタの理解を優先する
+
+## ヘルプになるサイト
+- [CSS入門 (MDN)](https://developer.mozilla.org/ja/docs/Learn/CSS/First_steps)
+- [CSS Flexbox入門](https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet)
+- [Google Fonts](https://fonts.google.com/) - 無料のWebフォント
+
+## 🏋️ 練習課題
+
+以下の課題に取り組んで、CSSの基本を実践してみましょう。
+
+### 課題1：プロフィールカードのスタイリング
+1. 下記のHTMLを使って、自分のプロフィールカードを作成してください。
+
+```html
 <!DOCTYPE html>
-<html lang="ja">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>プロフィールカード</title>
@@ -111,134 +239,77 @@ a:hover {
 </head>
 <body>
     <div class="profile-card">
-        <div class="profile-header">
-            <h1>名前</h1>
-            <p class="title">肩書き</p>
+        <img src="自分の画像.jpg" alt="プロフィール画像">
+        <h1>あなたの名前</h1>
+        <p class="job-title">肩書き（学生・エンジニアなど）</p>
+        
+        <div class="section">
+            <h2>自己紹介</h2>
+            <p>ここに自己紹介文を書きます。簡潔に自分の特徴や興味を説明しましょう。</p>
         </div>
-        <div class="profile-content">
-            <section class="skills">
-                <h2>スキル</h2>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                </ul>
-            </section>
-            <section class="contact">
-                <h2>連絡先</h2>
-                <a href="#" class="button">メッセージを送る</a>
-            </section>
+        
+        <div class="section">
+            <h2>スキル</h2>
+            <ul class="skills">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <!-- 他のスキルを追加 -->
+            </ul>
+        </div>
+        
+        <div class="contact">
+            <a href="#" class="button">連絡する</a>
         </div>
     </div>
 </body>
 </html>
 ```
 
-### CSS
+2. `style.css`ファイルを作成し、以下の要件を満たすようにスタイリングしてください：
+
+- プロフィールカードに影をつける
+- 角を丸くする
+- 適切な余白を設定する
+- プロフィール画像を丸く表示する
+- 見出しと段落のフォントスタイルを設定する
+- スキルリストを横並びにする（Flexboxを使用）
+- 「連絡する」ボタンをスタイリングする
+- ボタンにホバーエフェクトを追加する
+
+### 課題2：レスポンシブ対応
+上記で作成したプロフィールカードを、スマホでも見やすいようにレスポンシブ対応させてください：
+
+- スマホサイズ（768px以下）では、カードの幅を画面いっぱいにする
+- スキルリストが画面幅に合わせて折り返されるようにする
+- フォントサイズを調整する
+
+### 課題3：カラーパレットを作る
+CSSに変数（カスタムプロパティ）を使って、統一感のあるデザインを実現してください：
+
 ```css
-/* 基本設定 */
 :root {
-    --primary-color: #333;
-    --accent-color: #4a90e2;
-    --background-color: #f5f5f5;
-    --card-background: #fff;
-}
-
-body {
-    background-color: var(--background-color);
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
-
-/* カードスタイル */
-.profile-card {
-    background-color: var(--card-background);
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    width: 300px;
-    overflow: hidden;
-}
-
-.profile-header {
-    background-color: var(--accent-color);
-    color: white;
-    padding: 20px;
-    text-align: center;
-}
-
-.profile-content {
-    padding: 20px;
-}
-
-/* スキルリスト */
-.skills ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.skills li {
-    background-color: var(--background-color);
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.9em;
-}
-
-/* ボタン */
-.button {
-    display: inline-block;
-    background-color: var(--accent-color);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-}
-
-/* レスポンシブ対応 */
-@media (max-width: 400px) {
-    .profile-card {
-        width: 90%;
-        margin: 10px;
-    }
+    --primary-color: #4a90e2;  /* メインカラー */
+    --text-color: #333;       /* 文字色 */
+    --background-color: #f5f5f5;  /* 背景色 */
+    --card-color: white;      /* カード背景色 */
+    --accent-color: #ff6b6b;  /* アクセントカラー */
 }
 ```
 
-## 🔍 学習のポイント
+これらの変数を使ってスタイリングし、カラーパレットの変更だけで全体の色調を変えられるようにしてください。
 
-1. **セレクタの使い分け**
-   - 要素セレクタ（h1, p など）
-   - クラスセレクタ（.profile-card など）
-   - ID セレクタ（#header など）
-   - 擬似クラス（:hover など）
+## 📕 専門用語集
 
-2. **レイアウトの考え方**
-   - Flexboxの特性を理解
-   - 親要素と子要素の関係
-   - スペースの配分方法
-
-3. **デザインの原則**
-   - 色の使い方（カラーパレット）
-   - 余白の重要性
-   - 一貫性のある装飾
-
-4. **レスポンシブデザイン**
-   - メディアクエリの使用
-   - フレキシブルな値の設定
-   - モバイルファーストの考え方
-
-## 📖 参考リソース
-- [MDN CSS リファレンス](https://developer.mozilla.org/ja/docs/Web/CSS)
-- [CSS-Tricks](https://css-tricks.com/)
-- [Google Fonts](https://fonts.google.com/) 
+| 用語 | 説明 |
+|------|------|
+| CSS | Webページの見た目を設定する言語 |
+| セレクタ | スタイルを適用する対象を指定する部分（例：`h1`、`.class`、`#id`） |
+| プロパティ | 設定する項目（例：`color`、`font-size`） |
+| 値 | 設定する内容（例：`red`、`20px`） |
+| クラス | 複数の要素に同じスタイルを適用するための名前（`.名前`で指定） |
+| ID | 一つの要素に固有のスタイルを適用するための名前（`#名前`で指定） |
+| margin | 要素の外側の余白 |
+| padding | 要素の内側の余白 |
+| Flexbox | 要素を横並びにするための仕組み |
+| レスポンシブ | 画面サイズに合わせてデザインを変える手法 | 
