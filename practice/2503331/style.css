@@ -1,0 +1,59 @@
+/* リセットスタイル */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* 以下は課題で編集する部分です */
+
+/* ボックスモデル練習用 */
+.example-box {
+    /* ここにボックスモデルのプロパティを追加します */
+}
+
+/* 色設定練習用 */
+.color-text {
+    /* ここに色のプロパティを追加します */
+}
+
+.color-box {
+    /* ここに背景色などのプロパティを追加します */
+}
+
+/* フォント練習用 */
+.font-example {
+    /* ここにフォントのプロパティを追加します */
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+} 
