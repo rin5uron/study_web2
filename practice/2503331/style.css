@@ -9,6 +9,11 @@ body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
+    background-color: #f5b8b8; /* ピンク色の背景 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 header {
@@ -22,38 +27,142 @@ h1 {
 
 section {
     margin-bottom: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
     margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid #4bc8e8; /* 水色 */
     padding-bottom: 5px;
+    color: #333333; /* 黒 */
 }
 
 /* 以下は課題で編集する部分です */
 
 /* ボックスモデル練習用 */
 .example-box {
-    /* ここにボックスモデルのプロパティを追加します */
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* 色設定練習用 */
 .color-text {
-    /* ここに色のプロパティを追加します */
+    color: #444444; /* ダークグレー */
+    background-color: #ffffff; /* 白 */
+    padding: 10px;
+    border-radius: 4px;
 }
 
 .color-box {
-    /* ここに背景色などのプロパティを追加します */
+    background-color: #4bc8e8; /* 水色 */
+    color: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
 }
 
 /* フォント練習用 */
 .font-example {
-    /* ここにフォントのプロパティを追加します */
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    color: #333333; /* 黒 */
+    text-align: center;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+/* プロフィールカード */
+.profile-card {
+    width: 350px;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.profile-card img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 20px auto;
+    display: block;
+    object-fit: cover;
+    border: 5px solid #4bc8e8; /* 水色ボーダー */
+}
+
+.profile-card h1 {
+    color: #333333;
+    margin-bottom: 5px;
+    font-size: 1.8em;
+}
+
+.job-title {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.section {
+    padding: 15px 25px;
+    text-align: left;
+    border-top: 1px solid #eee;
+}
+
+.skills {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.skills li {
+    background-color: #4bc8e8; /* 水色 */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.9em;
+}
+
+.contact {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.button {
+    display: inline-block;
+    background-color: #4bc8e8; /* 水色 */
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #3aa9c6;
+    transform: translateY(-2px);
+}
+
+/* フッター */
 footer {
     margin-top: 50px;
     text-align: center;
     font-size: 0.8em;
     color: #666;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 } 

@@ -19,27 +19,8 @@
 | GitHub | Gitリポジトリをインターネット上でホスティングするサービス。リポジトリの共有、共同作業、プルリクエスト、イシュー管理などの機能を提供するプラットフォーム | `git push origin main`でGitHubにコードをアップロード | 2025/03/23 |
 | .gitignore | Gitで追跡しないファイルを指定するための設定ファイル | `.DS_Store`や`node_modules/`などを指定してGitの管理対象から除外 | 2025/03/29 |
 
-### .DS_Storeファイルを無視する設定（Mac用）
 
-**グローバル設定（すべてのプロジェクト）**:
-```
-git config --global core.excludesfile ~/.gitignore_global
-echo ".DS_Store" >> ~/.gitignore_global
-```
 
-**単一プロジェクト設定**:
-```
-echo ".DS_Store" >> .gitignore
-```
-
-**既存の.DS_Storeファイルを削除**:
-```
-find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
-```
-
-**.DS_Storeとは**: macOSがフォルダの表示設定（アイコンの位置、背景画像など）を保存する隠しファイル。バージョン管理には不要なためGitで無視するのが一般的。
-
-**学んだ日時**: 2025/03/29
 
 ### Gitファイル状態記号一覧 (2025/03/29)
 | 記号 | 英語表記 | 意味 |
@@ -58,6 +39,8 @@ find . -name .DS_Store -print0 | xargs -0 git rm -f --ignore-unmatch
 
 | 操作 | Mac | Windows | 説明 | 学んだ日時 |
 |------|-----|---------|------|------------|
+| チャット起動 | ⌘+I | Ctrl+I | AIアシスタントのチャットを開く | 2025/04/01 |
+| コマンドパレット | ⌘+P | Ctrl+P | コマンドパレットを開く。様々な操作を検索して実行できる | 2025/04/01 |
 | チャット起動 | ⌘+Shift+L | Ctrl+Shift+L | AIアシスタントのチャットを開く | 2025/03/23 |
 | ターミナル開閉 | ⌘+J | Ctrl+J | ターミナルパネルの表示/非表示を切り替え | 2025/03/23 |
 
