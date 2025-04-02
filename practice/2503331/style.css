@@ -82,12 +82,15 @@ h2 {
 
 /* プロフィールカード */
 .profile-card {
-    width: 350px;
-    background-color: white;
+    width: 550px;
+    background-color: #fef6f0; /* 肌色に近い柔らかい色に変更 */
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin: 0 auto; /* 中央揃え */
+    padding-bottom: 20px; /* 下部に余白を追加 */
+    animation: fadeIn 0.8s ease-in-out;
 }
 
 .profile-card img {
@@ -101,37 +104,104 @@ h2 {
 }
 
 .profile-card h1 {
-    color: #333333;
+    color: #555; /* テキストカラーをグレーに変更 */
     margin-bottom: 5px;
     font-size: 1.8em;
 }
 
 .job-title {
-    color: #666;
+    color: #777; /* 少し暗いグレー */
     font-style: italic;
     margin-bottom: 20px;
 }
 
 .section {
-    padding: 15px 25px;
+    padding: 20px 30px;
     text-align: left;
     border-top: 1px solid #eee;
 }
 
+.section h2 {
+    margin-bottom: 18px;
+    border-bottom: 2px solid #4bc8e8; /* 水色 */
+    padding-bottom: 8px;
+}
+
+.section p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+/* 特定のテキスト装飾 */
+.important-text {
+    color: #f5b8b8;
+    font-weight: bold;
+}
+
+/* VISIONリスト */
+.vision-list {
+    list-style-type: none;
+    margin: 15px 0;
+}
+
+.vision-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.vision-list li:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    background-color: #f5b8b8; /* ピンク色 */
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(245, 184, 184, 0.2); /* 淡いピンクの影 */
+}
+
+/* WEB SKILLセクション */
 .skills {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 12px;
+    margin: 15px 0;
 }
 
 .skills li {
     background-color: #4bc8e8; /* 水色 */
     color: white;
-    padding: 5px 10px;
+    padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skills li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* スキル説明テキスト */
+.skill-description {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgba(75, 200, 232, 0.1); /* 淡い水色 */
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+
+.skill-description p {
+    margin-bottom: 5px;
 }
 
 .contact {
@@ -165,4 +235,92 @@ footer {
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* テキストカラーの一括変更 */
+.profile-card h1,
+.section h2,
+.section p,
+.vision-list li {
+    color: #555; /* テキストカラーをグレーに変更 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .profile-card {
+        width: 100%;
+        max-width: 450px;
+    }
+    
+    .profile-card img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .section {
+        padding: 15px 20px;
+    }
+    
+    .skills {
+        gap: 8px;
+    }
+    
+    .skills li {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .profile-card img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-card h1 {
+        font-size: 1.5em;
+    }
+    
+    .section {
+        padding: 12px 15px;
+    }
+    
+    .section h2 {
+        font-size: 1.3em;
+    }
+    
+    .vision-list li {
+        padding-left: 20px;
+        font-size: 0.95em;
+    }
+    
+    .skills {
+        gap: 6px;
+    }
+    
+    .skills li {
+        padding: 4px 8px;
+        font-size: 0.8em;
+    }
+}
+
+/* アニメーション効果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 } 
