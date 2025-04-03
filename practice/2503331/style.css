@@ -34,9 +34,11 @@ section {
 }
 
 h2 {
-    margin-bottom: 15px;
-    border-bottom: 2px solid #4bc8e8; /* 水色 */
-    padding-bottom: 5px;
+    margin-bottom: 18px;
+    margin-left: 10px; /* 見出しを内側に移動 */
+    border-bottom: 2px solid #a7e0f0; /* 水色を淡い水色に変更 */
+    padding-bottom: 8px;
+    width: 95%; /* 幅を調整して内側に配置 */
     color: #333333; /* 黒 */
 }
 
@@ -82,7 +84,7 @@ h2 {
 
 /* プロフィールカード */
 .profile-card {
-    width: 550px;
+    width: 650px; /* 幅を700pxから650pxに縮小 */
     background-color: #fef6f0; /* 肌色に近い柔らかい色に変更 */
     border-radius: 15px;
     overflow: hidden;
@@ -94,13 +96,13 @@ h2 {
 }
 
 .profile-card img {
-    width: 180px;
-    height: 180px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
-    margin: 20px auto;
+    margin: 25px auto 10px; /* 下部マージンを減らして名前との距離を縮める */
     display: block;
     object-fit: cover;
-    border: 5px solid #4bc8e8; /* 水色ボーダー */
+    border: 5px solid #a7e0f0; /* 水色を淡い水色に変更 */
 }
 
 .profile-card h1 {
@@ -113,23 +115,20 @@ h2 {
     color: #777; /* 少し暗いグレー */
     font-style: italic;
     margin-bottom: 20px;
+    width: 80%; /* 幅を制限 */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .section {
-    padding: 20px 30px;
+    padding: 20px 40px;
     text-align: left;
     border-top: 1px solid #eee;
 }
 
-.section h2 {
-    margin-bottom: 18px;
-    border-bottom: 2px solid #4bc8e8; /* 水色 */
-    padding-bottom: 8px;
-}
-
 .section p {
-    margin-bottom: 10px;
-    line-height: 1.5;
+    margin-bottom: 15px;
+    line-height: 1.6;
 }
 
 .section p:last-child {
@@ -142,87 +141,251 @@ h2 {
     font-weight: bold;
 }
 
+/* ABOUT MEとVISION共通のガイドラインスタイル */
+.guideline-text {
+    position: relative;
+    padding-left: 15px;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    margin-left: 15px; /* 25pxから15pxに変更して、左側の余白を減らす */
+    border-left: 3px solid rgba(167, 224, 240, 0.7);
+    width: 90%; /* 幅を制限して、白抜き部分を広くする */
+}
+
 /* VISIONリスト */
 .vision-list {
     list-style-type: none;
     margin: 15px 0;
-}
-
-.vision-list li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    line-height: 1.4;
+    padding-left: 0;
 }
 
 .vision-list li:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 8px;
-    width: 6px;
-    height: 6px;
-    background-color: #f5b8b8; /* ピンク色 */
-    border-radius: 50%;
-    box-shadow: 0 0 0 3px rgba(245, 184, 184, 0.2); /* 淡いピンクの影 */
+    display: none;
 }
 
 /* WEB SKILLセクション */
 .skills {
     list-style: none;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 12px;
     margin: 15px 0;
+    width: 90%;
+    margin-left: 15px; /* ガイドラインに合わせる */
 }
 
 .skills li {
-    background-color: #4bc8e8; /* 水色 */
-    color: white;
-    padding: 6px 12px;
-    border-radius: 20px;
+    background-color: rgba(167, 224, 240, 0.15);
+    color: #456;
+    padding: 8px 12px;
+    border-radius: 6px;
     font-size: 0.9em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(167, 224, 240, 0.3);
+    transition: all 0.2s ease;
 }
 
 .skills li:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #345;
+    background-color: rgba(167, 224, 240, 0.25);
+    border-color: rgba(167, 224, 240, 0.5);
+}
+
+.skills li:before {
+    display: none;
+}
+
+.skills li:hover:before {
+    display: none;
 }
 
 /* スキル説明テキスト */
 .skill-description {
-    margin-top: 15px;
-    padding: 10px;
-    background-color: rgba(75, 200, 232, 0.1); /* 淡い水色 */
-    border-radius: 10px;
-    font-size: 0.9em;
+    margin-top: 20px;
+    padding: 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    width: 90%;
+    margin-left: 15px;
 }
 
-.skill-description p {
-    margin-bottom: 5px;
+/* スキルグループのスタイル */
+.skill-group {
+    background: white;
+    margin-bottom: 15px;
+    padding: 18px 22px 18px 35px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 65px solid rgba(137, 208, 227, 0.9); /* ボーダー幅を同じ値に統一 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
-.contact {
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-.button {
-    display: inline-block;
-    background-color: #4bc8e8; /* 水色 */
+.skill-group:before {
+    content: "LEVEL";
+    position: absolute;
+    top: 50%;
+    left: -65px; /* 左端に配置 */
+    transform: translateY(-50%);
     color: white;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding-left: 3px;
+    width: 40px; /* 幅を統一 */
+    white-space: nowrap;
+}
+
+.skill-group:hover {
+    transform: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.skill-group p {
+    margin-bottom: 10px;
+}
+
+.skill-group p:last-child {
+    margin-bottom: 0;
+}
+
+/* スキル資格のスタイル */
+.skill-qualification {
+    background: white;
+    padding: 18px 22px 18px 35px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 65px solid rgba(137, 208, 227, 0.9); /* ボーダー幅を同じ値に統一 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.skill-qualification:before {
+    content: "LICENSE";
+    position: absolute;
+    top: 50%;
+    left: -65px; /* 最も左端に配置 */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.7em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: left;
+    padding-left: 3px;
+    width: 40px; /* 幅を統一 */
+    white-space: nowrap;
+}
+
+.skill-qualification:hover {
+    transform: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.skill-qualification p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* シンプルで洗練された女性向けコンタクトセクション */
+.contact {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #fff8f8; /* 淡いピンク背景 */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* シンプル＆エレガントなリンクデザイン */
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    color: #666;
     text-decoration: none;
     padding: 8px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    border-bottom: 1px solid #f5d8d8;
+}
+
+.portfolio-link:hover {
+    color: #444;
+}
+
+.portfolio-link:after {
+    display: none; /* 下線アニメーションを削除 */
+}
+
+/* シンプルなピンクボタン */
+.portfolio-button {
+    margin-left: 8px;
+    color: #e09090;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.portfolio-button:after {
+    content: ""; /* 矢印を削除 */
+    display: none;
+}
+
+.portfolio-link:hover .portfolio-button {
+    color: #d07070;
+    border-bottom: 1px solid #d07070;
+}
+
+/* 既存のボタンスタイルは維持 */
+.button {
+    display: inline-block;
+    background-color: #f0a0a0;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f0a0a0, #f5c8c8);
+    z-index: -1;
+    transition: transform 0.5s ease;
 }
 
 .button:hover {
-    background-color: #3aa9c6;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.button:hover:before {
+    transform: rotate(180deg);
 }
 
 /* フッター */
@@ -265,6 +428,10 @@ footer {
         padding: 15px 20px;
     }
     
+    .guideline-text {
+        margin-left: 15px;
+    }
+    
     .skills {
         gap: 8px;
     }
@@ -298,8 +465,9 @@ footer {
         font-size: 1.3em;
     }
     
-    .vision-list li {
-        padding-left: 20px;
+    .guideline-text {
+        padding-left: 15px;
+        margin-left: 10px;
         font-size: 0.95em;
     }
     
