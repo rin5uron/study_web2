@@ -1,0 +1,73 @@
+<!DOCTYPE html><!-- HTMLファイルであることを宣言 -->
+<html>
+<head>
+    <meta charset="UTF-8"><!-- PCに文字を文字として認識させる -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ブラウザページの表示指示：ページをデバイス幅画面に合わせる、初期表示ズーム100% -->
+
+
+    <title>プロフィールカード</title><!-- ブラウザのタブに表示されるタイトル -->
+    <link rel="stylesheet" href="style.css"><!-- 外部CSSファイルを読み込む -->
+</head>
+<body>
+    <!-- 内容のまとまりとより区切りで捉えたためsectionタグでなくdivタグを使用、クラス名で内容分けしている -->
+
+    <div class="profile-card">
+        <img src="images/profile-image.jpg" alt="プロフィール画像"><!-- imagesフォルダからプロフィール画像を挿入-->
+        <h1>Rin</h1>
+        <p class="job-title">見習いエンジニア</p>
+        
+        <div class="section">
+        
+            <h2>ABOUT ME</h2>
+            <p class="guideline-text">色彩やデザインへの興味からWEBデザインを学び、プログラミングの世界に入る。一度は将来性と適性を考え学習を中断したが、最近きっかけを得て学習を再開した。</p>
+            <p class="guideline-text">趣味はお散歩と長風呂。これらの時間から生まれる発想や考えを大切にしている。</p>
+        </div>
+
+        <div class="section">
+            <h2>VISION</h2>
+            <ul class="vision-list">
+                <li class="guideline-text">プログラミング学習を通してAI知識や言語化力を高め、これからの社会を見据えたスキルを身につけたい</li>
+                <li class="guideline-text">デザイン力や色彩感覚を深め、日々の生活を豊かにしたい</li>
+                <li class="guideline-text">新たな分野で稼げるスキルを獲得し、将来の選択肢を増やしたい</li>
+            </ul>
+        </div>
+　　　　　<!--　＊リストタグのクラス名を統一させることにより、統一デザインになるようにしている -->
+
+
+
+        
+        <div class="section">
+            <h2>WEB SKILL</h2>
+            <ul class="skills">
+                <li>HTML</li><!-- 番号なしリスト、表示形式はCSSで指定-->
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>jQuery</li>
+                <li>Illustrator</li>
+                <li>Photoshop</li>
+                <li>XD</li>
+                <li>Canva</li>
+            </ul>
+            <div class="skill-description">
+                <div class="skill-group">
+                    <p>上記言語・ツールは基礎レベルまで学習経験有</p>
+                    <p>現在、実践的なスキルの向上を目指し学習を継続中</p>
+                </div>
+                <div class="skill-qualification">
+                    <p>色彩検定1級</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact">
+            <a href="https://github.com/rin5uron/study_web" class="portfolio-link" target="_blank">
+                現在の学習状況及びポートフォリオは<span class="portfolio-button">こちら</span>
+            </a>
+        </div>
+        <!-- target="_blank"付きのリンク：クリックすると今のページはそのままで、新しいタブが開く -->
+        <!-- アンカータグでハイパーリンク（別WEBページに移動できる機能）を作成。タグhref属性でリンク先のURLを指定している -->
+        <!-- spanタグで、「こちら」という部分だけを特別にスタイリングするための区切りをつけている -->
+    </div>
+</body>
+</html>
