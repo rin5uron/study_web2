@@ -1,0 +1,661 @@
+/* 簡易的なリセットスタイル、Normalize.cssの代用 */ 
+/* ブラウザごとの見た目の違いやスタイルの干渉をなくす役割 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* WEBページ全体の内容を指定 */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;　/* 第三優先フォントまで指定-フォントフォールバックシステム */
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f5b8b8; /* ピンク色の背景 */
+    display: flex;　/* フレックスボックレイアウト（横並び）を指定 */
+    justify-content: center;
+    /* フレックスレイアウト専用プロパティ 、水平方向中央（横方向中央揃え）*/
+    align-items: center;
+    /* フレックスレイアウト専用プロパティ 、垂直方向中央*/
+    min-height: 100vh;/* スクロールなしで見える領域ぴったりの高さ、コンテンツが多い場合は自動拡張され良い感じにしてくれる*/
+    /* ビューポート（実際に見える画面の範囲）の高さを100%に指定 、画面に対して相対的なサイズを指定*/
+}
+
+header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+section {
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 18px;
+    margin-left: 10px; /* 見出しを内側に移動 */
+    border-bottom: 2px solid #a7e0f0; /* 水色を淡い水色に変更 */
+    padding-bottom: 8px;
+    width: 94%; /* 幅を微調整 */
+    color: #333333; /* 黒 */
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+/* 以下は課題で編集する部分です */
+
+/* ボックスモデル練習用 */
+.example-box {
+    width: 300px;
+    padding: 20px;
+    margin: 20px auto;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* 色設定練習用 */
+.color-text {
+    color: #444444; /* ダークグレー */
+    background-color: #ffffff; /* 白 */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.color-box {
+    background-color: #4bc8e8; /* 水色 */
+    color: white;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* フォント練習用 */
+.font-example {
+    font-size: 1.2em;
+    font-weight: bold;
+    font-style: italic;
+    color: #333333; /* 黒 */
+    text-align: center;
+    margin-top: 15px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* プロフィールカード */
+.profile-card {
+    width: 650px; /* 幅を700pxから650pxに縮小 */
+    background-color: #fef6f0; /* 肌色に近い柔らかい色に変更 */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto; /* 中央揃え */
+    padding-bottom: 20px; /* 下部に余白を追加 */
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.profile-card img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin: 25px auto 10px; /* 下部マージンを減らして名前との距離を縮める */
+    display: block;
+    object-fit: cover;
+    border: 5px solid #a7e0f0; /* 水色を淡い水色に変更 */
+}
+
+.profile-card h1 {
+    color: #555; /* テキストカラーをグレーに変更 */
+    margin-bottom: 5px;
+    font-size: 1.8em;
+}
+
+.job-title {
+    color: #777; /* 少し暗いグレー */
+    font-style: italic;
+    margin-bottom: 20px;
+    width: 80%; /* 幅を制限 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section {
+    padding: 20px 30px; /* 左右のパディングを40pxから30pxに減らして内容を詰める */
+    text-align: left;
+    border-top: 1px solid #eee;
+}
+
+.section p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.section p:last-child {
+    margin-bottom: 0;
+}
+
+/* 特定のテキスト装飾 */
+.important-text {
+    color: #f5b8b8;
+    font-weight: bold;
+}
+
+/* ABOUT MEとVISION共通のガイドラインスタイル */
+.guideline-text {
+    position: relative;
+    padding-left: 12px; /* 左パディング調整 */
+    margin-bottom: 15px;
+    line-height: 1.6;
+    margin-left: 10px; /* h2と同じマージン */
+    border-left: 3px solid rgba(167, 224, 240, 0.7);
+    width: 94%; /* h2と同じ幅 */
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+/* VISIONリスト */
+.vision-list {
+    list-style-type: none;
+    margin: 15px 0;
+    padding-left: 0;
+    width: 94%; /* h2と同じ幅 */
+    margin-left: 10px; /* h2と同じマージン */
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+.vision-list li:before {
+    display: none;
+}
+
+/* WEB SKILLセクション */
+.skills {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 4列から2列に変更 */
+    gap: 12px;
+    margin: 15px 0;
+    width: 94%; /* h2と同じ幅 */
+    margin-left: 10px; /* h2と同じマージン */
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+.skills li {
+    background-color: rgba(167, 224, 240, 0.15);
+    color: #456;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(167, 224, 240, 0.3);
+    transition: all 0.2s ease;
+}
+
+.skills li:hover {
+    color: #345;
+    background-color: rgba(167, 224, 240, 0.25);
+    border-color: rgba(167, 224, 240, 0.5);
+}
+
+.skills li:before {
+    display: none;
+}
+
+.skills li:hover:before {
+    display: none;
+}
+
+/* アコーディオンのスタイル */
+.accordion {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.accordion-item {
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+/* アコーディオンのヘッダー部分 */
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 0 20px;
+    height: 50px;
+    position: relative;
+}
+
+/* ヘッダー内の見出し */
+.accordion-header h3 {
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+    color: white;
+}
+
+/* ヘッダー内のアイコン */
+.accordion-icon {
+    color: white;
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+/* 開いている状態のアイコン（45度回転） */
+.accordion-item.active .accordion-icon {
+    transform: rotate(45deg);
+}
+
+/* アコーディオンの内容部分（初期状態は非表示） */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.2s ease;
+    padding: 0 20px;
+}
+
+/* 開いている状態の内容部分（表示） */
+.accordion-item.active .accordion-content {
+    max-height: 500px; /* 十分な高さを確保 */
+    padding: 15px 20px;
+}
+
+/* スキル一覧のコンテナスタイル */
+.skills-container {
+    background: #fef6f0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 65px solid rgba(137, 208, 227, 0.9);
+    position: relative;
+    width: 94%;
+    margin-left: 10px;
+    margin-right: 0;
+    box-sizing: border-box;
+}
+
+/* スキル一覧のヘッダーラベル */
+.skills-container:before {
+    content: "SKILLS";
+    position: absolute;
+    top: 25px;
+    left: -58px;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.75em;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 50px;
+    white-space: nowrap;
+}
+
+/* アコーディオン内のスキルリストの調整 */
+.accordion-content .skills {
+    margin: 0;
+    width: 100%;
+}
+
+/* スキル説明テキスト */
+.skill-description {
+    margin-top: 20px;
+    padding: 0;
+    font-size: 0.95em;
+    line-height: 1.6;
+    width: 100%; 
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+/* スキルグループのスタイル */
+.skill-group {
+    background: #fef6f0;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 65px solid rgba(137, 208, 227, 0.9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 94%; /* h2と同じ幅 */
+    margin-left: 10px; /* h2と同じマージン */
+    margin-right: 0;
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+.skill-group:before {
+    content: "LEVEL";
+    position: absolute;
+    top: 28px; /* アコーディオンヘッダーの中央に配置 */
+    left: -58px; /* タグの位置を調整 */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.75em; /* フォントサイズを少し大きく */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 50px; /* 幅を広げて文字を表示しやすくする */
+    white-space: nowrap;
+}
+
+.skill-group:hover {
+    transform: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.skill-group p {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px; /* ▶︎マークのスペースを確保 */
+}
+
+.skill-group p::before {
+    content: "▶︎";
+    position: absolute;
+    left: 0;
+    color: rgba(137, 208, 227, 0.9); /* 青い部分と同じ色 */
+    font-size: 1.1em; /* 少し大きめに */
+    font-weight: bold;
+    transition: none;
+}
+
+.skill-group p:hover::before {
+    transform: none;
+    color: rgba(137, 208, 227, 0.9); /* 青い色のまま */
+}
+
+.skill-group p:last-child {
+    margin-bottom: 0;
+}
+
+/* スキル資格のスタイル */
+.skill-qualification {
+    background: #fef6f0;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    border-left: 65px solid rgba(137, 208, 227, 0.9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    width: 94%; /* h2と同じ幅 */
+    margin-left: 10px; /* h2と同じマージン */
+    margin-right: 0;
+    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+}
+
+.skill-qualification:before {
+    content: "LICENSE";
+    position: absolute;
+    top: 28px; /* アコーディオンヘッダーの中央に配置 */
+    left: -58px; /* タグの位置を調整 */
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.75em; /* フォントサイズを少し大きく */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-align: center;
+    width: 50px; /* 幅を広げて文字を表示しやすくする */
+    white-space: nowrap;
+}
+
+.skill-qualification:hover {
+    transform: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.skill-qualification p {
+    margin: 0;
+    font-weight: 500;
+}
+
+/* シンプルで洗練された女性向けコンタクトセクション */
+.contact {
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #fff8f8; /* 淡いピンク背景 */
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+}
+
+/* シンプル＆エレガントなリンクデザイン */
+.portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    color: #666;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    border-bottom: 1px solid #f5d8d8;
+}
+
+.portfolio-link:hover {
+    color: #444;
+}
+
+.portfolio-link:after {
+    display: none; /* 下線アニメーションを削除 */
+}
+
+/* シンプルなピンクボタン */
+.portfolio-button {
+    margin-left: 8px;
+    color: #e09090;
+    font-weight: 600;
+    position: relative;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent;
+}
+
+.portfolio-button:after {
+    content: ""; /* 矢印を削除 */
+    display: none;
+}
+
+.portfolio-link:hover .portfolio-button {
+    color: #d07070;
+    border-bottom: 1px solid #d07070;
+}
+
+/* 既存のボタンスタイルは維持 */
+.button {
+    display: inline-block;
+    background-color: #f0a0a0;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.button:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #f0a0a0, #f5c8c8);
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    color: white;
+}
+
+.button:hover:before {
+    transform: rotate(180deg);
+}
+
+/* フッター */
+footer {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 0.8em;
+    color: #666;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* テキストカラーの一括変更 */
+.profile-card h1,
+.section h2,
+.section p,
+.vision-list li {
+    color: #555; /* テキストカラーをグレーに変更 */
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    .profile-card {
+        width: 100%;
+        max-width: 450px;
+    }
+    
+    .profile-card img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .section {
+        padding: 15px 20px;
+    }
+    
+    .guideline-text {
+        margin-left: 15px;
+    }
+    
+    .skills {
+        gap: 8px;
+    }
+    
+    .skills li {
+        padding: 5px 10px;
+        font-size: 0.85em;
+    }
+}
+
+@media (max-width: 480px) {
+    .profile-card {
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .profile-card img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .profile-card h1 {
+        font-size: 1.5em;
+    }
+    
+    .section {
+        padding: 12px 15px;
+    }
+    
+    .section h2 {
+        font-size: 1.3em;
+    }
+    
+    .guideline-text {
+        padding-left: 15px;
+        margin-left: 10px;
+        font-size: 0.95em;
+    }
+    
+    .skills {
+        gap: 6px;
+    }
+    
+    .skills li {
+        padding: 4px 8px;
+        font-size: 0.8em;
+    }
+}
+
+/* アニメーション効果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* スキルアイテムのスタイル */
+.skill-item {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/* スキルボタンのスタイル（元のliスタイルを継承） */
+.skill-button {
+    background-color: rgba(167, 224, 240, 0.15);
+    color: #456;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9em;
+    font-weight: 500;
+    text-align: center;
+    border: 1px solid rgba(167, 224, 240, 0.3);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.skill-button:hover {
+    color: #345;
+    background-color: rgba(167, 224, 240, 0.25);
+    border-color: rgba(167, 224, 240, 0.5);
+}
+
+/* スキル詳細のスタイル（初期状態は非表示） */
+.skill-detail {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.2s ease, margin 0.2s ease;
+    padding: 0 10px;
+    margin-top: 0;
+    background-color: #fff;
+    border-radius: 6px;
+    border: 1px solid rgba(167, 224, 240, 0.2);
+    font-size: 0.85em;
+    line-height: 1.4;
+    color: #555;
+}
+
+/* アクティブ状態（クリック後）のスキル詳細 */
+.skill-item.active .skill-detail {
+    max-height: 100px; /* 十分な高さを確保 */
+    padding: 10px;
+    margin-top: 8px;
+    animation: fadeIn 0.3s ease-in-out;
+} 
