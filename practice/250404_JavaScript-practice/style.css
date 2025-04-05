@@ -212,41 +212,55 @@ h2 {
     display: none;
 }
 
-/* アコーディオンのスタイル */
+/* アコーディオン全体のスタイル */
+/* 学習のために記載、このCSSにおいてはこの後のクラスで重複指定があるためこのクラスは無効になっている */
 .accordion {
     width: 100%;
     margin-top: 15px;
 }
+
+/* アコーディオンの各項目のスタイル */
 
 .accordion-item {
     margin-bottom: 15px;
     overflow: hidden;
 }
 
-/* アコーディオンのヘッダー部分 */
+/* アコーディオンのヘッダー（クリック可能部分） の全体設定*/
 .accordion-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    padding: 0 20px;
+    padding: 0 20px 0 90px; /* ：上右下左　：左側のパディングを増やして右寄せ効果 */
     height: 50px;
     position: relative;
+
+/* 　　　枠左側から70pxまで濃い青、それ以降薄い青 */
+    background: linear-gradient(to right, rgba(137, 208, 227, 0.9) 80px, rgba(137, 208, 227, 0.2) 70px);
+    border-radius: 8px;
 }
 
 /* ヘッダー内の見出し */
 .accordion-header h3 {
     margin: 0;
-    font-size: 1em;
-    font-weight: 600;
-    color: white;
+    font-size: 0.9em; /* フォントサイズを小さく */
+    font-weight: 500; /* フォントウェイトを軽く */
+    color: #555; /* 色を控えめに */
 }
 
 /* ヘッダー内のアイコン */
 .accordion-icon {
     color: white;
     font-size: 1.2em;
+    font-weight: 500;
     transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 /* 開いている状態のアイコン（45度回転） */
@@ -260,6 +274,7 @@ h2 {
     overflow: hidden;
     transition: max-height 0.4s ease-out, padding 0.2s ease;
     padding: 0 20px;
+    background-color: #fef6f0; /* 内容部分の背景色を設定 */
 }
 
 /* 開いている状態の内容部分（表示） */
@@ -270,10 +285,9 @@ h2 {
 
 /* スキル一覧のコンテナスタイル */
 .skills-container {
-    background: #fef6f0;
+    background: #fef6f0; /* グラデーションを削除し通常の背景色に */
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    border-left: 65px solid rgba(137, 208, 227, 0.9);
     position: relative;
     width: 94%;
     margin-left: 10px;
@@ -283,18 +297,19 @@ h2 {
 
 /* スキル一覧のヘッダーラベル */
 .skills-container:before {
-    content: "SKILLS";
+    content: "TOOL";
     position: absolute;
     top: 25px;
-    left: -58px;
+    left: 10px; /* より左寄せに調整 */
     transform: translateY(-50%);
     color: white;
-    font-size: 0.75em;
+    font-size: 0.85em;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     text-align: center;
-    width: 50px;
-    white-space: nowrap;
+    width: 45px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 /* アコーディオン内のスキルリストの調整 */
@@ -315,32 +330,32 @@ h2 {
 
 /* スキルグループのスタイル */
 .skill-group {
-    background: #fef6f0;
+    background: #fef6f0; /* グラデーションを削除し通常の背景色に */
     margin-bottom: 15px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    border-left: 65px solid rgba(137, 208, 227, 0.9);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    width: 94%; /* h2と同じ幅 */
-    margin-left: 10px; /* h2と同じマージン */
+    width: 94%;
+    margin-left: 10px;
     margin-right: 0;
-    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+    box-sizing: border-box;
 }
 
 .skill-group:before {
     content: "LEVEL";
     position: absolute;
-    top: 28px; /* アコーディオンヘッダーの中央に配置 */
-    left: -58px; /* タグの位置を調整 */
+    top: 25px;
+    left: 10px; /* より左寄せに調整 */
     transform: translateY(-50%);
     color: white;
-    font-size: 0.75em; /* フォントサイズを少し大きく */
+    font-size: 0.85em;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     text-align: center;
-    width: 50px; /* 幅を広げて文字を表示しやすくする */
-    white-space: nowrap;
+    width: 45px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .skill-group:hover {
@@ -375,31 +390,31 @@ h2 {
 
 /* スキル資格のスタイル */
 .skill-qualification {
-    background: #fef6f0;
+    background: #fef6f0; /* グラデーションを削除し通常の背景色に */
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-    border-left: 65px solid rgba(137, 208, 227, 0.9);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
-    width: 94%; /* h2と同じ幅 */
-    margin-left: 10px; /* h2と同じマージン */
+    width: 94%;
+    margin-left: 10px;
     margin-right: 0;
-    box-sizing: border-box; /* ボーダーとパディングを幅に含める */
+    box-sizing: border-box;
 }
 
 .skill-qualification:before {
     content: "LICENSE";
     position: absolute;
-    top: 28px; /* アコーディオンヘッダーの中央に配置 */
-    left: -58px; /* タグの位置を調整 */
+    top: 25px;
+    left: 10px; /* より左寄せに調整 */
     transform: translateY(-50%);
     color: white;
-    font-size: 0.75em; /* フォントサイズを少し大きく */
+    font-size: 0.85em;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 1px;
     text-align: center;
-    width: 50px; /* 幅を広げて文字を表示しやすくする */
-    white-space: nowrap;
+    width: 45px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .skill-qualification:hover {
