@@ -9,16 +9,14 @@
 
 /* WEBページ全体の内容を指定 */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;　/* 第三優先フォントまで指定-フォントフォールバックシステム */
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* 第三優先フォントまで指定-フォントフォールバックシステム */
     line-height: 1.6;
     padding: 20px;
     background-color: #f5b8b8; /* ピンク色の背景 */
-    display: flex;　/* フレックスボックレイアウト（横並び）を指定 */
-    justify-content: center;
-    /* フレックスレイアウト専用プロパティ 、水平方向中央（横方向中央揃え）*/
-    align-items: center;
-    /* フレックスレイアウト専用プロパティ 、垂直方向中央*/
-    min-height: 100vh;/* スクロールなしで見える領域ぴったりの高さ、コンテンツが多い場合は自動拡張され良い感じにしてくれる*/
+    display: flex; /* フレックスボックレイアウト（横並び）を指定 */
+    justify-content: center; /* フレックスレイアウト専用プロパティ 、水平方向中央（横方向中央揃え）*/
+    align-items: center; /* フレックスレイアウト専用プロパティ 、垂直方向中央*/
+    min-height: 100vh; /* スクロールなしで見える領域ぴったりの高さ、コンテンツが多い場合は自動拡張され良い感じにしてくれる*/
     /* ビューポート（実際に見える画面の範囲）の高さを100%に指定 、画面に対して相対的なサイズを指定*/
 }
 
@@ -419,14 +417,13 @@ h2 {
 
 /* フッター */
 footer {
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
     font-size: 0.8em;
     color: #666;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    background-color: transparent; /* 背景色を透明に */
+    border-top: 1px solid #eee;
 }
 
 /* テキストカラーの一括変更 */
