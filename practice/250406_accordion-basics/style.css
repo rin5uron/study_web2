@@ -1,0 +1,51 @@
+/* 簡易的なリセットスタイル、Normalize.cssの代用 */ 
+/* ブラウザごとの見た目の違いやスタイルの干渉をなくす役割 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+
+/* ページ全体の内容を指定 */
+body {
+    font-family: 'Arial', sans-serif;　/* 優先フォントを指定 */
+    background-color: #cdddbd; /* 新緑をイメージ */
+    color: #555; /* 文字色をグレーに統一 */
+}
+
+/* アコーディオン全体のスタイル */
+.accordion-container {
+    width: 100%;　/* どのデバイスでも画面いっぱいに表示する */
+     max-width: 500px;　/*画面が広くても要素が大きくなりすぎないよう最大幅を500pxに制限。小さい画面では100%幅、大きい画面では500pxで固定されます。 */
+     margin: 0 auto;　/*中央揃え */
+  }
+  
+  /* アコーディオン項目ごとのスタイル */
+  .accordion-item {
+    margin-bottom: 10px;　/*各項目の下に余白、適切な間隔を取る */
+    border: 1px solid #ddd;　/*枠線を薄いグレーに設定 */
+    border-radius: 5px;　/*角を丸くする */
+    overflow: hidden;　/*はみ出た内容を非表示にする、アコーディオンメニューが開いた時に内容がはみ出して表示されるのを防ぐ*/
+  }
+  
+  /* ヘッダー部分（最初から表示されているメニュータイトル）のスタイル */
+  .accordion-header {
+    background-color: #f4f4f4;　/*薄いグレー */
+    padding: 15px;  /*内側の余白を設定、枠と文字の間隔を調整 */
+    cursor: pointer; /* クリック可能にみせる要素。カーソルが要素上にホバーした時の見た目がてのひらマークに。 */
+    font-weight: bold;
+  }
+  
+  /* ヘッダーホバー時のスタイル */
+  .accordion-header:hover {
+    background-color: #e8e8e8;　/*濃いグレー */
+  }
+  
+  /* コンテンツ部分のスタイル */
+  .accordion-content {
+    padding: 15px;  /*内側の余白を設定、枠と文字の間隔を調整 */
+    background-color: #fff;　/*薄いベージュ*/
+    border-top: 1px solid #ddd;
+  }
+    
