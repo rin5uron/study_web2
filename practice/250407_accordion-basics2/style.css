@@ -1,0 +1,97 @@
+/* 簡易的なリセットスタイル、Normalize.cssの代用 */ 
+/* ブラウザごとの見た目の違いやスタイルの干渉をなくす役割 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} 
+
+/* カラーが適用されない！*/
+/* ページ全体の内容を指定 */
+.body {
+    font-family: 'Arial', sans-serif;/* 優先フォントを指定 */
+    background-color: #FFF9EE ; /* オフホワイト */
+    color: #555; /* 文字色をグレーに統一 */
+} 
+
+
+
+/* 適用されない！なんで？ */
+.footer {
+  text-align: center;
+  /* こっちでもダメ
+  display: flex;
+  justify-content: center;   */
+  
+  padding: 20px 0;
+  margin-top: 20px;
+}
+/* メインコンテンツのスタイル */
+.main-container {
+  width: 100%;/* どのデバイスでも画面いっぱいに表示する */
+  max-width:700px;/*画面が広くても要素が大きくなりすぎないよう最大幅を500pxに制限。小さい画面では100%幅、大きい画面では500pxで固定されます。 */
+  margin: 0 auto;/*中央揃え */
+  padding: 50px;/*内側の余白を設定、枠と文字の間隔を調整 */
+  /* display: flex;
+  flex-direction: column;  /* 子要素を縦に並べる */
+  /* align-items: center;     子要素を横方向中央に */ */
+  }
+  
+
+/* アコーディオン全体のスタイル */
+.accordion-container {
+   width: 100%;/* どのデバイスでも画面いっぱいに表示する */
+   max-width:750px;/*画面が広くても要素が大きくなりすぎないよう最大幅を500pxに制限。小さい画面では100%幅、大きい画面では500pxで固定されます。 */
+   margin: 0 auto;/*中央揃え、このコンテナ内でもさらに中央揃えにする */
+  }
+  
+  /* アコーディオン項目ごとのスタイル */
+  .accordion-item {
+    margin-bottom: 10px;/*各項目の下に余白、適切な間隔を取る */
+    border: 1px solid #ddd;/*枠線を薄いグレーに設定 */
+    border-radius: 5px;/*角を丸くする */
+    overflow: hidden;/*はみ出た内容を非表示にする、アコーディオンメニューが開いた時に内容がはみ出して表示されるのを防ぐ*/
+    width: 100%;/* どのデバイスでもボタンが画面いっぱいに広がる */
+    max-width: 500px;/*幅の最大値を設定、これによPC画面で間伸びしたヘッダーにならない */
+  }
+  
+  /* ヘッダー部分（最初から表示されているメニュータイトル）のスタイル */
+  .accordion-header {
+    background-color: rgb(83,113,105);/*モスグリーン */
+    color: #FFFEF9 ;/*文字の色、柔らかい白*/
+    padding: 15px;  /*内側の余白を設定、枠と文字の間隔を調整 */
+    cursor: pointer; /* クリック可能にみせる要素。カーソルが要素上にホバーした時の見た目がてのひらマークに。 */
+    font-weight: bold;
+  }
+  /* ヘッダーホバー時のスタイル */
+  .accordion-header:hover {
+    background-color: rgb(49, 70, 70);  /* 濃い緑 */
+  }
+  
+  /* コンテンツ部分のスタイル */
+  .accordion-content {
+    padding: 15px;  /*内側の余白を設定、枠と文字の間隔を調整 */
+    background-color:#FFFEF9 ;/* 文字の色と同じ、柔らかい白*/ 
+    border-top: 1px solid #ddd;
+  }
+
+
+  /* ヘッダーに擬似要素でアイコンを追加 */
+.accordion-header::after {/* タイトルの後にアイコンを追加したい*/
+  
+  content: '+';   /* + 記号を挿入 */
+  float: right;   /* 右側に配置 */
+  font-weight: bold;  /* 太字に */
+  font-size: 1.2em;  /* 通常フォントの1.2倍 */
+}
+
+/* アクティブ状態のヘッダーのアイコン */
+.accordion-header.active::after {
+  content: '-';
+}
+
+/* アクティブ状態のヘッダー背景色 */
+.accordion-header.active {
+  background-color: rgb(38, 55, 55);  /* より濃い緑（微妙に変わる） */
+}
+    
