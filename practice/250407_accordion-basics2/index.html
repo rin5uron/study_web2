@@ -1,7 +1,7 @@
-<!DOCTYPE html>　<!--　HTMLファイルであることを宣言 -->     
-<html lang="ja">　<!--　日本語で表示することを宣言 -->
-<head>　
-    <meta charset="UTF-8">　<!--　文字コードをUTF-8（世界標準、あらゆる文字に対応）に設定 -->
+<!DOCTYPE html><!--　HTMLファイルであることを宣言 -->     
+<html lang="ja"><!--　日本語で表示することを宣言 -->
+<head>
+    <meta charset="UTF-8"><!--　文字コードをUTF-8（世界標準、あらゆる文字に対応）に設定 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>アコーディオンメニュー基礎編</title>
     <link rel="stylesheet" href="style.css">
@@ -11,10 +11,11 @@
 <body>
 
   <div class="main-container">
-    <h1>色物薬膳茶</h1>
-    <p>お友達のおうちで飲んだ漢方茶が美味しかったので、</p>
-    <p>この漢方茶シリーズのブレンドをアコーディオンメニューにしてみました。</p>
-
+    <div class="title-container">
+      <h1>色物薬膳茶</h1>
+      <p>お友達のおうちで飲んだ漢方茶が美味しかったので、</p>
+      <p>この漢方茶シリーズのブレンドをアコーディオンメニューにしてみました。</p>
+    </div>
 
     <div class="accordion-container">
         <!-- アコーディオン項目1 -->
@@ -44,10 +45,7 @@
           <div class="accordion-content">菊・ネトルリーフ・ペパーミント・ジャスミン茶・甜茶</div>
         </div><!--class="accordion-item -->
     
-          
-      
-    
-    </div><!-- class="accordion-container
+  </div><!-- class="accordion-container
 
  <!-- コピーライト -->
  <footer>
@@ -60,42 +58,27 @@
 <!-- 以下、アコーディオン機能のJavaScript -->
 <!-- この位置に記載することでページの要素がすべて読み込まれた後にスクリプトが実行されるため、要素が確実に存在し、ページの表示速度も向上する-->
 <script>
- // すべてのアコーディオンヘッダーを取得
- // ページ内の.accordion-headerクラスを持つすべての要素を選択し、accordionHeaders変数に格納（DOM操作：avaScriptなどのプログラミング言語を使ってウェブページの内容を動的に変更すること）
+// すべてのアコーディオンヘッダーを取得
 const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-
-
-// 初期状態ですべてのコンテンツを非表示にする
-// ページ内の.accordion-contentクラスを持つすべての要素を選択し、content変数に格納
-document.querySelectorAll('.accordion-content').forEach(content => {
-  content.style.display = 'none';
-});
-
-
 // 各ヘッダーにクリックイベントを追加   
-
-// ページ内の.accordion-headerクラスを持つすべての要素を選択し、accordionHeaders変数に格納          
-// もしクリックされてらという命令
 accordionHeaders.forEach(header => {
   header.addEventListener('click', function() {
+    // 親要素（accordion-item）のactiveクラスを切り替え
+    const accordionItem = this.parentElement;
+    accordionItem.classList.toggle('active');
     
-    // 内容を表示するかしいないかを決める
-    const content = this.nextElementSibling;
-    
-    // クリックされた時にクラスを切り替える（+/- アイコン用）
+    // クリックされた時にヘッダー自体にもactiveクラスを切り替える（+/- アイコン用）
     this.classList.toggle('active');
     
-    // コンテンツの表示/非表示を切り替え
-    if (content.style.display === 'none') {
-      content.style.display = 'block';// 　見えないなら見えるようにする
-    } else {
-      content.style.display = 'none';// 見えるなら見えないようにする    
-    }
+    // コンテンツ要素を取得
+    const content = this.nextElementSibling;
+    
+    // CSSアニメーションを適用するため、display:noneの切り替えは削除
+    // display:noneを使うとCSSアニメーションが機能しないため、
+    // かわりにmax-heightプロパティを使ったCSSトランジションで対応
   });
 });
-    
-
 </script>
 
 </body> 
