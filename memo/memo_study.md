@@ -33,6 +33,11 @@
 - [Git・GitHub関連](#gitgithub関連)
   - [基本用語](#基本用語)
   - [ステージングについて](#ステージングについて)
+- [JavaScriptファイルの読み込み方法](#javascriptファイルの読み込み方法)
+  - [HTMLからJavaScriptファイルを読み込む基本](#htmlからjavascriptファイルを読み込む基本)
+  - [読み込み位置による違い](#読み込み位置による違い)
+  - [属性オプション](#属性オプション)
+  - [相対パスと絶対パス](#相対パスと絶対パス)
 
 ## 📌 メモの書き方
 - 日付と内容を明確に記載
@@ -620,3 +625,79 @@ header.addEventListener('click', function() {
 ### ステージングについて
 - 目的：どのファイルの変更をコミットに含めるかを選択すること
 - 実行方法：`git add <ファイル名>`
+
+## JavaScriptファイルの読み込み方法
+_追加日: 2025年4月9日_
+
+### HTMLからJavaScriptファイルを読み込む基本
+
+```html
+<!-- JavaScriptファイルの読み込み -->
+<script src="script.js"></script>
+```
+
+### 読み込み位置による違い
+
+1. **`</body>`タグの直前（推奨）**
+   - ページの読み込みが完了した後にJavaScriptが実行される
+   - DOM要素が全て構築された状態でJavaScriptが実行されるため安全
+   - ページの表示速度が向上する
+
+   ```html
+   <body>
+     <!-- HTMLコンテンツ -->
+     
+     <script src="script.js"></script>
+   </body>
+   ```
+
+2. **`<head>`タグ内**
+   - HTMLが読み込まれる前にJavaScriptが実行される可能性がある
+   - DOM要素にアクセスする場合、`DOMContentLoaded`イベントや`window.onload`を使用する必要がある
+   
+   ```html
+   <head>
+     <script src="script.js"></script>
+     <!-- または、deferを指定して実行タイミングを遅らせる -->
+     <script src="script.js" defer></script>
+   </head>
+   ```
+
+### 属性オプション
+
+- **`defer`属性**: HTMLの解析が完了した後に実行される（`<head>`内で使用する際に有用）
+  ```html
+  <script src="script.js" defer></script>
+  ```
+
+- **`async`属性**: ファイルのダウンロードが完了次第実行される（DOM操作を行わないスクリプトに適している）
+  ```html
+  <script src="script.js" async></script>
+  ```
+
+### 相対パスと絶対パス
+
+1. **同じディレクトリのファイル**:
+   ```html
+   <script src="script.js"></script>
+   ```
+
+2. **サブディレクトリのファイル**:
+   ```html
+   <script src="js/script.js"></script>
+   ```
+
+3. **親ディレクトリのファイル**:
+   ```html
+   <script src="../script.js"></script>
+   ```
+
+4. **絶対パス（同じドメイン内）**:
+   ```html
+   <script src="/js/script.js"></script>
+   ```
+
+5. **外部URL**:
+   ```html
+   <script src="https://example.com/script.js"></script>
+   ```

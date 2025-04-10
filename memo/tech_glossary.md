@@ -130,10 +130,14 @@
 | classList | HTML要素のクラス属性を操作するためのJavaScriptプロパティ。このプロパティを使用することで、要素のクラスを追加、削除、切り替えなどの操作が簡単にできる | `element.classList.add('active');`<br>`element.classList.remove('active');`<br>`element.classList.toggle('active');` | 2025/04/06 |
 | classList.toggle() | 指定したクラスがすでに存在する場合は削除し、存在しない場合は追加するメソッド。スイッチのように要素の状態を切り替えるのに便利 | `button.classList.toggle('active');` 実行するたびにactiveクラスが追加/削除される | 2025/04/06 |
 | this | イベントハンドラ内で使用すると、イベントが発生した要素自身を参照するキーワード | `element.addEventListener('click', function() { this.classList.toggle('active'); });` | 2025/04/06 |
-| イベント | ウェブページ上で発生する「出来事」や「アクション」。JavaScriptで検知して特定の処理を実行できる | 主な例：<br>・クリックイベント：ボタンがクリックされたとき<br>・マウスオーバー：マウスが要素の上に乗ったとき<br>・キーダウン：キーボードのキーが押されたとき<br>・スクロール：ページがスクロールされたとき<br>・ロード：ページが読み込まれたとき | 2025/04/06 |
-| クリックイベント | ユーザーがウェブページ上の要素をマウスでクリックしたときに発生するイベント。JavaScriptで検知して特定の処理を実行できる | `element.addEventListener('click', function() { alert('クリックされました'); });` | 2025/04/06 |
+| イベント | Webページ上で発生する出来事でJavaScriptが検知できるもの。例：クリックイベント、マウスオーバーイベント、キーダウンイベント、スクロールイベント、ロードイベントなど。 | 主な例：<br>・クリックイベント：ボタンがクリックされたとき<br>・マウスオーバー：マウスが要素の上に乗ったとき<br>・キーダウン：キーボードのキーが押されたとき<br>・スクロール：ページがスクロールされたとき<br>・ロード：ページが読み込まれたとき | 2025/04/06 |
+| クリックイベント | ユーザーが要素をクリックした時に発生するイベント。`addEventListener('click', function() {...})`のように使用。 | `element.addEventListener('click', function() { alert('クリックされました'); });` | 2025/04/06 |
 | JavaScriptの最適な配置場所 | HTMLの`<body>`タグの最後、閉じタグ`</body>`の直前に`<script>`タグで囲んで配置するのが最適。要素が確実に読み込まれた後に実行され、ページの表示速度も向上する | `<body><!-- コンテンツ --><script>// JavaScriptコード</script></body>` | 2025/04/06 |
 | DOM操作（DOM Manipulation） | JavaScriptなどのプログラミング言語を使ってウェブページの内容を動的に変更すること。DOMはDocument Object Modelの略で、ページの要素をツリー構造で表現したもの | `document.querySelector('button').addEventListener('click', function() { this.textContent = 'クリックされました'; });` | 2025/04/06 |
+| `<script>` タグ | HTMLファイルにJavaScriptを読み込むためのタグ。`<script src="ファイル名.js"></script>`の形式で使用。 | `<script src="script.js"></script>` | 2025/04/09 |
+| `defer` 属性 | JavaScriptの実行をHTMLの解析完了後まで遅らせる属性。`<script src="script.js" defer></script>`のように使用。 | `<script src="script.js" defer></script>` | 2025/04/09 |
+| `async` 属性 | JavaScriptをダウンロード次第非同期で実行する属性。`<script src="script.js" async></script>`のように使用。 | `<script src="script.js" async></script>` | 2025/04/09 |
+| DOMContentLoaded | HTML文書の読み込みと解析が完了した時点で発生するイベント。`document.addEventListener('DOMContentLoaded', function() {...})` | `document.addEventListener('DOMContentLoaded', function() { console.log('DOMが完全に読み込まれました'); });` | 2025/04/09 |
 
 ---
 
