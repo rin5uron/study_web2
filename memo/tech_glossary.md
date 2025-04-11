@@ -138,6 +138,8 @@
 | `defer` 属性 | JavaScriptの実行をHTMLの解析完了後まで遅らせる属性。`<script src="script.js" defer></script>`のように使用。 | `<script src="script.js" defer></script>` | 2025/04/09 |
 | `async` 属性 | JavaScriptをダウンロード次第非同期で実行する属性。`<script src="script.js" async></script>`のように使用。 | `<script src="script.js" async></script>` | 2025/04/09 |
 | DOMContentLoaded | HTML文書の読み込みと解析が完了した時点で発生するイベント。`document.addEventListener('DOMContentLoaded', function() {...})` | `document.addEventListener('DOMContentLoaded', function() { console.log('DOMが完全に読み込まれました'); });` | 2025/04/09 |
+| console | Chrome検証機能の一部で、JavaScriptコードを直接実行したり、デバッグ情報を表示したりするためのツール。`console.log()`を使って値を出力する基本的なデバッグ手段として重要。F12キーまたは右クリック→検証で開くことができる。 |
+| JavaScript実行環境 | JavaScriptコードを実行するための場所や方法。主に①ブラウザのconsoleで直接実行 ②HTMLのscriptタグ内に記述 ③外部JSファイルをHTMLから読み込む ④paiza.ioなどのオンラインツールで実行、などがある。実務では③の方法が最も一般的。 |
 
 ---
 
