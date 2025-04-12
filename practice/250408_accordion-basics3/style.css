@@ -85,12 +85,17 @@ footer {
   padding-top: 0;
   padding-bottom: 0;
   transition: all 0.5s ease; /* max-heightだけでなくpaddingも含める */
+  width: 100%; /* 幅を100%に設定して親要素いっぱいに広げる */
+  transform-origin: top; /* アニメーションが上から始まるように設定 */
+  margin: 0 auto; /* 中央揃え */
 }/*padding上下を０にすることで①完全に閉じた状態を作る②海兵のコントラストをはっきりさせてアニメーションをはっきり見せる */
 
 .accordion-item.active .accordion-content {
   min-height: 40px; /* 最小の高さを40pxに設定 */
   max-height: 1000px;/* コンテンツの最大高さを増やす - 実際のコンテンツより十分大きな値 */
-  padding: 15px;/* パディングを増やして内容を見やすく */
+  padding: 20px;/* パディングを増やして内容を見やすく */
+  line-height: 1.5; /* 行間を広げて読みやすく */
+  margin: 0 auto 10px auto; /* 上・右・下・左のマージン設定（下部に10pxのマージン） */
 }
   
 /* アイコンの回転アニメーション */
@@ -121,15 +126,48 @@ footer {
   background-color: rgb(38, 55, 55);/* より濃い緑（微妙に変わる） */
 }
 
+/* 特定の行火（Anka）アコーディオンアイテムのスタイル */
+/* 003行火-Anka-のコンテンツを固有のスタイルで装飾 */
+.accordion-content p {
+  margin-bottom: 8px; /* すべての段落に下部マージンを追加 */
+}
+
+/* 行火（Anka）アイテムをIDを使用して選択 */
+#anka-item .accordion-content {
+  width: 100%; /* 幅を100%に設定 */
+  max-width: 550px; /* 最大幅を親要素と同じに */
+}
+
+#anka-item.active .accordion-content {
+  min-height: 100px; /* 高さを増やして十分なスペースを確保 */
+  padding: 20px; /* パディングを増やして内容の周りに余白を追加 */
+  line-height: 1.5; /* 行間をさらに広げる */
+}
+
 /* コンセプト部分のスタイル */
 .accordion-container .concept-item {
     width: 100%;
     max-width: 600px;
     margin: 0 auto;
+    max-height: 700px;
 }
 
+/* コンセプト部分のコンテンツスタイルを修正 */
 .accordion-container .concept-item .accordion-content {
-    max-height: none; /* 高さ制限を解除 */
+    /* max-height: none; を削除 - これが問題の原因 */
+    max-height: 0; /* 他のアコーディオンと同様に初期状態は隠す */
+    overflow: hidden;
+    padding: 0 15px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: all 0.5s ease;
+    border: 1px solid #ddd;
+    text-align: center; /* 閉じるときも中央揃えにする */
+}
+
+/* コンセプト部分がアクティブ時のスタイル */
+.accordion-container .concept-item.active .accordion-content {
+    max-height: 1000px; /* 十分な高さを確保 */
     padding: 2em;
     text-align: center;
     line-height: 1.8;

@@ -28,9 +28,34 @@ accordionHeaders.forEach(header => {
             
             // コンテンツの高さを設定
             const content = currentItem.querySelector('.accordion-content');
-            // 実際のコンテンツの高さと最小高さ40pxのうち、大きい方を採用
-            const contentHeight = Math.max(content.scrollHeight, 40);
-            content.style.maxHeight = contentHeight + "px";
+            
+            // CONCEPTアイテムの場合は大きめの固定値を設定
+            if (currentItem.classList.contains('concept-item')) {
+                content.style.maxHeight = "600px"; // CONCEPTアイテムには十分な高さを確保
+            } 
+            // 通常のアイテム（001, 002, 003, 004）には統一された高さを設定
+            else {
+                // すべての通常アイテムに統一された高さを設定
+                content.style.maxHeight = "100px"; // 行火アイテムと同じ高さを確保
+            }
         }
     });
+});
+
+// ページ読み込み時にCONCEPT部分を自動的に開く
+window.addEventListener('DOMContentLoaded', function() {
+    // CONCEPT部分のアコーディオンアイテムを取得
+    const conceptItem = document.querySelector('.concept-item');
+    
+    if (conceptItem) {
+        // アクティブクラスを追加
+        conceptItem.classList.add('active');
+        
+        // コンテンツの高さを設定
+        const content = conceptItem.querySelector('.accordion-content');
+        if (content) {
+            // CONCEPTアイテムには大きめの固定値を設定
+            content.style.maxHeight = "600px";
+        }
+    }
 }); 
