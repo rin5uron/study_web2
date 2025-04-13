@@ -297,7 +297,7 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 # ③プロフィールカード（アコーディオン機能つき）
 
 ## 完成画面
-![プロフィールカード完成画像](images/2025-04-06-profile-card2.png)
+![プロフィールカード完成画像](images/htmlcss/2025-04-06-profile-card2.png)
 ## 完成動画
 [![プロフィールカード制作動画](https://img.youtube.com/vi/LPq7vMcZVgk/0.jpg)](https://youtu.be/LPq7vMcZVgk?si=EF6AmjeNDsuDH2Pw)
 
@@ -317,7 +317,7 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 # ②プロフィールカード
 
 ## 完成画面
-![プロフィールカード完成画像](images/2025-04-06-profile-card.png)
+![プロフィールカード完成画像](images/htmlcss/2025-04-06-profile-card.png)
 ## 完成動画
 [![CSS基礎学習参考動画](https://img.youtube.com/vi/5D8aXo7Ercc/0.jpg)](https://www.youtube.com/watch?v=5D8aXo7Ercc&list=PL18g9jZxVBO-8CnOLo_pGHu5MSDs1V-KV)
 
