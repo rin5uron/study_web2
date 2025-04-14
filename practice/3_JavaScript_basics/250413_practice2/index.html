@@ -1,25 +1,156 @@
 
+<title>JavaScript基礎練習問題2</title>
+</head>
+<body style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
+    <h1 style="text-align: center;">JavaScript 練習問題1</h1>
+
+    <div style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; background-color: #f9f9f9;">
+        <h2>練習問題2</h2>
+        <ol>
+            <li>①変数`temperature`に気温を設定し、以下の条件で結果を表示するコードを書いてください：
+                - 30度以上：「暑いです」
+                - 20度以上30度未満：「快適です」
+                - 10度以上20度未満：「涼しいです」
+                - 10度未満：「寒いです」
+            </li>
+            <li>②変数`month`に1～12の数値を入れ、対応する季節を`switch`文を使って表示してください：
+                - 3～5月：「春」
+                - 6～8月：「夏」
+                - 9～11月：「秋」
+                - 12～2月：「冬」
+            </li>
+            <li>③1から100までの数字の中で、3の倍数のときは「Fizz」、5の倍数のときは「Buzz」、
+                3と5の両方の倍数のときは「FizzBuzz」と表示し、それ以外の場合は数字をそのまま表示するプログラムを書いてください。
+                （これはFizzBuzzと呼ばれる有名なプログラミング問題です）
+            </li>
+            <li>④九九の表（1×1から9×9まで）をコンソールに表示するプログラムを書いてください。</li>
+            <li>⑤以下の配列から、「りんご」という要素が何番目にあるか探して、インデックスと共に表示するプログラムを書いてください：
+                ```javascript
+                let fruits = ["バナナ", "オレンジ", "りんご", "ぶどう", "メロン"];
+                ```
+            </li>
+
+        </ol>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h2>コードと実行画面</h2>　
+        <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between;">
+            <img src="images/html_1.png" alt="HTMLコード例1" style="max-width: 48%; margin-bottom: 15px;">
+            <img src="images/html_2.png" alt="HTMLコード例2" style="max-width: 48%; margin-bottom: 15px;">
+            <img src="images/consor.png" alt="コンソール出力" style="max-width: 48%; margin-bottom: 15px;">
+            <img src="images/chatgpt_1.jpg" alt="ChatGPT会話" style="max-width: 48%; margin-bottom: 15px;">
+            <img src="images/html_3.png" alt="HTMLコード3" style="max-width: 48%; margin-bottom: 15px;">
+        </div>
+    </div>  
+
+    <div>
+        <h2>実行結果</h2>
+    </div>          
 
 
+
+    <script>
+        // ① else if :複数条件の場合に使う
+         let temperature = 25;//変数は変更する予定があるのでletを使う
+        if (temperature >= 30) {
+            console.log("暑いです");
+            document.write("暑いです");
+        } else if (temperature >= 20) {
+            console.log("快適です");
+            document.write("快適です");
+        } else if (temperature >= 10) {
+                console.log("涼しいです");
+            document.write("涼しいです");
+        } else { //elseはすべての条件が当てはまらない場合に使う
+            console.log("寒いです");
+            document.write("寒いです");
+        }
+
+    // ② switch :複数条件の場合に使う
+    let month = 12;//変数は変更する予定があるのでletを使う  
+    switch (month) {
+    case 3:
+    case 4:
+    case 5:
+        console.log("春");
+        document.write("春");
+        break;
+    case 6:
+    case 7:
+    case 8:
+        console.log("夏");
+        document.write("夏");
+        break;
+    case 9:
+    case 10:
+    case 11:
+        console.log("秋");
+        document.write("秋");
+        break;
+    case 12:
+    case 1:
+    case 2:
+        console.log("冬");
+        document.write("冬");   
+        break;
+    default:
+        console.log("有効な季節はありません");
+        document.write("有効な季節はありません");
+    }
+
+    // ③ else-if文を使ったFizzBuzz問題
+    for (let i = 1; i <= 100; i++) {
+    // 初期化: let i = 1; → 変数iを1で初期化
+    // 継続条件: i <= 100; → iが100以下の間ループを続ける
+    // 更新処理: i++ → 各ループ後にiを1増やす（i = i + 1と同じ）
+    // このループは1〜100の数字を順番に処理します。
+    // 3で割り切れるかチェック
+    if (i % 3 === 0) {
+        console.log("Fizz");
+    } 
+    // 5で割り切れるかチェック
+    else if (i % 5 === 0) {
+        console.log("Buzz");
+    }
+    // それ以外は数字をそのまま表示
+    else {
+        console.log(i);
+    }
+}
+   
+    // ④ for文を使った九九の表
+    for (let i = 1; i <= 9; i++) {
+        for (let j = 1; j <= 9; j++) {
+            console.log(i + "×" + j + "=" + i * j);
+        }
+    }   
+
+    // ⑤ for文を使った配列の要素の検索
+    for(let i = 1; i <fruits.length; i++){
+
+        if(fyui)
+    }
+   
+    </script>
 <!-- 練習問題2
-以下の練習問題に挑戦してみましょう。
+1. 変数`temperature`に気温を設定し、以下の条件で結果を表示するコードを書いてください：
+   - 30度以上：「暑いです」
+   - 20度以上30度未満：「快適です」
+   - 10度以上20度未満：「涼しいです」
+   - 10度未満：「寒いです」
 
-1変数temperatureに気温を設定し、以下の条件で結果を表示するコードを書いてください：
+2. 変数`month`に1～12の数値を入れ、対応する季節を`switch`文を使って表示してください：
+   - 3～5月：「春」
+   - 6～8月：「夏」
+   - 9～11月：「秋」
+   - 12～2月：「冬」
 
-30度以上：「暑いです」
-20度以上30度未満：「快適です」
-10度以上20度未満：「涼しいです」
-10度未満：「寒いです」
-2変数monthに1～12の数値を入れ、対応する季節をswitch文を使って表示してください：
+3. 1から100までの数字の中で、3の倍数のときは「Fizz」、5の倍数のときは「Buzz」、3と5の両方の倍数のときは「FizzBuzz」と表示し、それ以外の場合は数字をそのまま表示するプログラムを書いてください。（これはFizzBuzzと呼ばれる有名なプログラミング問題です）
 
-3～5月：「春」
-6～8月：「夏」
-9～11月：「秋」
-12～2月：「冬」
-1から100までの数字の中で、3の倍数のときは「Fizz」、5の倍数のときは「Buzz」、3と5の両方の倍数のときは「FizzBuzz」と表示し、それ以外の場合は数字をそのまま表示するプログラムを書いてください。（これはFizzBuzzと呼ばれる有名なプログラミング問題です）
+4. 九九の表（1×1から9×9まで）をコンソールに表示するプログラムを書いてください。
 
-九九の表（1×1から9×9まで）をコンソールに表示するプログラムを書いてください。
-
-以下の配列から、「りんご」という要素が何番目にあるか探して、インデックスと共に表示するプログラムを書いてください：
-
-let fruits = ["バナナ", "オレンジ", "りんご", "ぶどう", "メロン"]; -->
+5. 以下の配列から、「りんご」という要素が何番目にあるか探して、インデックスと共に表示するプログラムを書いてください：
+   ```javascript
+   let fruits = ["バナナ", "オレンジ", "りんご", "ぶどう", "メロン"];
+   ``` -->
