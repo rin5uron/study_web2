@@ -187,7 +187,31 @@ JavaScriptの基礎固め（変数、条件分岐、繰り返し処理）とカ�
 
 # 🎯 このリポジトリで作成した制作物
 
-# ⑥JavaScript練習問題１：変数とデータ型
+# ⑦JavaScript超基礎２：条件分岐とループ
+
+## 完成画像
+![JavaScriptコード](practice/3_JavaScript_basics/250415_practice2/images/code.png)
+![JavaScriptページ](practice/3_JavaScript_basics/250415_practice2/images/p.png)
+
+## 完成動画
+[![JavaScript超基礎２：条件分岐とループ](https://img.youtube.com/vi/1N268UzQzkY/0.jpg)](https://youtu.be/1N268UzQzkY?si=pmBJTgrXC_54fD-B)
+
+## 完成日
+2025/04/15
+
+## 概要
+if文、switch文、forループを使った演習に取り組みました。
+
+- if-else文による条件分岐（気温に応じたメッセージ表示）
+- switch文による季節の判定
+- for文とFizzBuzz問題
+- 二重ループを使った九九の表示
+- 配列操作と要素の検索
+
+## 気付き
+- cursorAIに演習の復習問題をチャット上で作成してもらい取り組むことで、繰り返し自分の手でコードを書いたり内容をより深めることができた。
+
+# ⑥JavaScript超基礎１：変数とデータ型
 
 
 
@@ -226,11 +250,6 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 - オブジェクトの基本構造
   - キーと値のペアでデータを構造化
   - ドット記法でプロパティにアクセス
-- 数値計算における小数点の扱い
-  - .toFixed(0)で整数表示に調整
-- constとletの使い分け
-  - 基本ルール：変更する予定がなければconst、変更する予定があればletを使用
-  - メリット：意図しない変更を防ぐ、コードの意図が明確になる、バグ発見が容易になる
 
 # ⑤アコーディオンメニュー基礎
 
