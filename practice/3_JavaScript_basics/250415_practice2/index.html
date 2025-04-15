@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<title>JavaScript超基礎</title>
+<!-- 内部CSS -->
+<style>
+    li {
+        margin-bottom: 15px;
+    }
+    li:last-child {
+        margin-bottom: 0;
+    }
+</style>
+</head>
+<!-- 以下CSSはインラインスタイルを適用 -->
+<body style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
+    <h1 style="text-align: center;">JavaScript超基礎</h1>
+
+    <div style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; background-color: #f9f9f9;">
+        <h2>練習問題2</h2>
+        <ol>
+            <li>①変数`temperature`に気温を設定し、以下の条件で結果を表示するコードを書いてください：
+                - 30度以上：「暑いです」
+                - 20度以上30度未満：「快適です」
+                - 10度以上20度未満：「涼しいです」
+                - 10度未満：「寒いです」
+            </li>
+            
+            <li>②変数`month`に1～12の数値を入れ、対応する季節を`switch`文を使って表示してください：
+                - 3～5月：「春」
+                - 6～8月：「夏」
+                - 9～11月：「秋」
+                - 12～2月：「冬」
+            </li>
+            
+            <li>③1から100までの数字の中で、3の倍数のときは「Fizz」、5の倍数のときは「Buzz」、
+                3と5の両方の倍数のときは「FizzBuzz」と表示し、それ以外の場合は数字をそのまま表示するプログラムを書いてください。
+                （これはFizzBuzzと呼ばれる有名なプログラミング問題です）
+            </li>
+            
+            <li>④九九の表（1×1から9×9まで）をコンソールに表示するプログラムを書いてください。</li>
+            
+            <li>⑤以下の配列から、「りんご」という要素が何番目にあるか探して、インデックスと共に表示するプログラムを書いてください：
+                ```javascript
+                let fruits = ["バナナ", "オレンジ", "りんご", "ぶどう", "メロン"];
+                ```
+            </li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 30px; border: 1px solid #ddd; padding: 20px; background-color: #f9f9f9;">
+        <h2>学んだこと</h2>
+        <ul style="line-height: 1.6;">
+            <li>プログラミングでは配列のインデックスは0から始まる
+                <ul>
+                    <li>例：`const colors = ["赤", "青", "緑"]` で `colors[0]` は "赤"</li>
+                    <li>インデックスの開始が1ではなく0であることに注意が必要</li>
+                </ul>
+            </li>
+            
+            <li>switch文でbreakがない場合、「フォールスルー」という現象が起こる
+                <ul>
+                    <li>該当するcaseから下のcaseも全て実行される</li>
+                    <li>意図的に使うこともあるが、多くの場合はバグの原因になる</li>
+                </ul>
+            </li>
+            
+            <li>二重ループの役割分担の理解
+                <ul>
+                    <li>外側のループは「行」、内側のループは「列」を制御する</li>
+                    <li>例：掛け算表では外側のループが「何の段か」、内側のループが「1から9までの掛け算」</li>
+                </ul>
+
+                <li>CSSの表記方法
+                    <ul>
+                        <li>CSSの表記方法は3種類ある</li>
+                        <li>①インラインスタイル：style属性に直接記述、小さな修正に使う  </li>
+                        <li>②内部CSS：headタグ内にstyleタグを記述、ページ固有のデザインに使う</li>
+                        <li>③外部CSS：CSSファイルを作成してlinkタグで読み込む、サイト全体のデザインに使う</li>
+                    </ul>
+                </li>
+            </li>
+        </ul>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <h2>コードと実行画面</h2>　
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+            <img src="images/CSS.png" alt="CSSの表記方法" style="width: 100%; height: auto; object-fit: contain; margin-bottom: 15px;">
+            <img src="images/p-1.png" alt="練習問題1" style="width: 100%; height: auto; object-fit: contain; margin-bottom: 15px;">
+            <img src="images/p-2.png" alt="練習問題2" style="width: 100%; height: auto; object-fit: contain; margin-bottom: 15px;">
+            <img src="images/p-3.png" alt="練習問題345" style="width: 100%; height: auto; object-fit: contain; margin-bottom: 15px;">
+        
+        </div>
+    </div>
+
+    <script>
+        // ① else if :複数条件の場合に使う
+         let temperature = 25;//変数は変更する予定があるのでletを使う
+        if (temperature >= 30) {
+            console.log("暑いです");
+        } else if (temperature >= 20) {
+            console.log("快適です");
+        } else if (temperature >= 10) {
+                console.log("涼しいです");
+        } else { //elseはすべての条件が当てはまらない場合に使う
+            console.log("寒いです");
+        }
+
+
+    // ② switch :複数条件の場合に使う
+    let month = 12;//変数は変更する予定があるのでletを使う  
+    switch (month) {
+    case 3:
+    case 4:
+    case 5:
+        console.log("春");
+        break;
+    case 6:
+    case 7:
+    case 8:
+        console.log("夏");
+        break;
+    case 9:
+    case 10:
+    case 11:
+        console.log("秋");
+        break;
+    case 12:
+    case 1:
+    case 2:
+        console.log("冬");
+        break;
+    default:
+        console.log("有効な季節はありません");
+    }
+
+    // ③ else-if文を使ったFizzBuzz問題
+    for (let i = 1; i <= 100; i++) {
+    // 初期化: let i = 1; → 変数iを1で初期化
+    // 継続条件: i <= 100; → iが100以下の間ループを続ける
+    // 更新処理: i++ → 各ループ後にiを1増やす（i = i + 1と同じ）
+    // このループは1〜100の数字を順番に処理します。
+    // 3で割り切れるかチェック
+    if (i % 3 === 0) {
+        console.log("Fizz");
+    } 
+    // 5で割り切れるかチェック
+    else if (i % 5 === 0) {
+        console.log("Buzz");
+    }
+    // それ以外は数字をそのまま表示
+    else {
+        console.log(i);
+    }
+}
+   
+    // ④ for文を使った九九の表
+    for (let i = 1; i <= 9; i++) {
+        for (let j = 1; j <= 9; j++) {
+            console.log(i + "×" + j + "=" + i * j);
+        }
+    }   
+
+    // ⑤ for文を使った配列の要素の検索
+    let fruits = ["バナナ", "オレンジ", "りんご", "ぶどう", "メロン"];
+    for(let i = 0; i <fruits.length; i++){
+
+        if(fruits[i] === "りんご"){
+            console.log("りんごは" + (i + 1) + "番目にあります");
+        }
+        else{
+            console.log("見つかりません");
+        }
+    }
+   
+    </script>
+</body>
+</html>
