@@ -819,3 +819,41 @@ function 自己紹介(名前, 年齢) {
   return `私の名前は${名前}です。${年齢}歳です。`;
 }
 ```
+## includes()メソッド
+
+### 基本的な使い方
+- 配列の中に特定の値が含まれているかをチェックするメソッド
+- 結果は `true` または `false` を返す
+- 書き方：`配列.includes(探したい値)`
+
+### 使用例
+```javascript
+// 果物の配列
+const fruits = ["りんご", "バナナ", "オレンジ"];
+
+// チェック例
+console.log(fruits.includes("りんご"));  // true  （含まれている）
+console.log(fruits.includes("ぶどう"));  // false （含まれていない）
+```
+
+### if文での活用例
+```javascript
+// 31日ある月のリスト
+const longMonths = ["1月","3月","5月","7月","8月","10月","12月"];
+
+const month = "7月";
+if (longMonths.includes(month)) {
+    console.log(month + "は31日あります");
+} else {
+    console.log(month + "は31日以外の日数です");
+}
+```
+
+### メリット
+1. コードがシンプルで読みやすい
+2. 複数の値との比較を1行で書ける
+3. 配列の要素を簡単にチェックできる
+
+### 注意点
+- 大文字小文字は区別される（"Apple" と "apple" は別物として扱われる）
+- 完全一致でチェックされる（部分一致は検出されない） 

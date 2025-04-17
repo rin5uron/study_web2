@@ -951,3 +951,770 @@ console.log(すきなたべもの("カレー", "ラーメン", "プリン"));
 ```
 
 --- 
+
+## 4. DOM操作の基本
+
+みなさんがいつも見ているWebページは、実はたくさんの「箱」が組み合わさってできています。この箱のことを「要素（ようそ）」と呼びます。JavaScriptを使うと、これらの箱を見つけたり、中身を変えたり、新しい箱を作ったりすることができるんです！
+
+### 要素の取得
+
+まずは、ページの中から欲しい箱（要素）を見つける方法を学びましょう。
+
+#### IDで要素を見つける
+
+IDというのは、その箱だけの特別な名前です。名札みたいなものですね。
+
+```javascript
+// id="おにぎり"という名札がついた箱を探す
+let おにぎり要素 = document.getElementById("おにぎり");
+```
+
+これで「おにぎり」という名札（ID）がついた箱を見つけることができました！
+
+#### クラスで要素を見つける
+
+クラスは、同じグループの箱につける名前です。例えば「果物」というグループの中に「りんご」「バナナ」「みかん」があるイメージです。
+
+```javascript
+// class="くだもの"というグループの箱をすべて探す
+let くだもの要素リスト = document.getElementsByClassName("くだもの");
+
+// 最初の果物を取り出す
+let 最初のくだもの = くだもの要素リスト[0];
+```
+
+このコードでは「くだもの」というグループ名（クラス）がついた箱をすべて集めています。そして最初の一つを取り出しています。
+
+#### タグ名で要素を見つける
+
+HTMLのタグ名（例：p, div, h1など）で探すこともできます。
+
+```javascript
+// すべての<p>タグ（段落）を探す
+let 段落リスト = document.getElementsByTagName("p");
+```
+
+これでページ内のすべての段落（pタグ）を見つけることができます。
+
+#### CSSセレクタで要素を見つける
+
+もっと詳しく指定したい時は、CSSセレクタという方法が使えます。これは「魔法の言葉」みたいなもので、細かい条件で要素を探せます。
+
+```javascript
+// 一つだけ見つける
+let 要素 = document.querySelector(".くだもの");
+
+// 条件に合うものをすべて見つける
+let 要素リスト = document.querySelectorAll("ul li");
+```
+
+一つ目は「くだもの」というクラスがついた最初の要素を見つけ、二つ目はリスト（ul）の中の項目（li）をすべて見つけています。
+
+### 要素の内容変更
+
+見つけた箱の中身（テキスト）を変えることができます。
+
+```javascript
+// id="挨拶"という要素を見つける
+let 挨拶要素 = document.getElementById("挨拶");
+
+// 中のテキストを変える
+挨拶要素.textContent = "こんにちは、JavaScript！";
+
+// HTMLを含むテキストを変える
+挨拶要素.innerHTML = "<strong>こんにちは</strong>、JavaScript！";
+```
+
+`textContent`はただのテキスト、`innerHTML`はHTMLタグも含めて変更できます。強調したり、色をつけたりしたい時は`innerHTML`を使います。
+
+### スタイルの変更
+
+箱の見た目（色や大きさなど）を変えることもできます。
+
+```javascript
+// id="マイボックス"という要素を見つける
+let ボックス要素 = document.getElementById("マイボックス");
+
+// 背景色を変える
+ボックス要素.style.backgroundColor = "skyblue";
+
+// 文字の大きさを変える
+ボックス要素.style.fontSize = "20px";
+
+// 枠線を追加
+ボックス要素.style.border = "2px solid navy";
+```
+
+これで箱の色や文字の大きさを変えることができました！
+
+### 要素の追加と削除
+
+新しい箱を作ったり、いらない箱を捨てたりすることもできます。
+
+#### 新しい要素を作って追加する
+
+```javascript
+// 新しい段落（p要素）を作る
+let 新しい段落 = document.createElement("p");
+
+// 中身のテキストを設定
+新しい段落.textContent = "これは新しく作った段落です！";
+
+// id="コンテナ"の要素の中に追加
+let コンテナ = document.getElementById("コンテナ");
+コンテナ.appendChild(新しい段落);
+```
+
+このコードでは、新しい段落（p要素）を作って、「コンテナ」という箱の中に入れています。
+
+#### 要素を削除する
+
+```javascript
+// id="いらない要素"という要素を見つける
+let いらない要素 = document.getElementById("いらない要素");
+
+// その要素を削除する
+いらない要素.remove();
+```
+
+これで「いらない要素」という箱を捨てることができました。
+
+#### 要素の属性を変更する
+
+箱についている情報（属性）を変えることもできます。
+
+```javascript
+// id="プロフィール画像"という要素を見つける
+let 画像要素 = document.getElementById("プロフィール画像");
+
+// 画像のURLを変更
+画像要素.setAttribute("src", "新しい画像.jpg");
+
+// 属性を取得
+let 画像URL = 画像要素.getAttribute("src");
+console.log(画像URL); // "新しい画像.jpg"
+
+// 属性を削除
+画像要素.removeAttribute("alt");
+```
+
+このコードでは、画像（img要素）の表示する画像（src属性）を変更しています。
+
+### 練習問題4
+
+楽しく練習してみましょう！
+
+1. 以下のHTMLがあります。「変更ボタン」をJavaScriptで見つけて、コンソールに表示してください。
+```html
+<button id="変更ボタン">テキストを変更</button>
+```
+
+2. 「挨拶文」というIDの要素のテキストを「こんにちは、JavaScriptの世界へようこそ！」に変更してください。
+```html
+<p id="挨拶文">ここにテキストが入ります</p>
+```
+
+3. 「赤いボックス」というIDの要素の背景色を赤（red）に、文字色を白（white）に変更してください。
+```html
+<div id="赤いボックス">これは箱です</div>
+```
+
+4. 以下のリストに新しい項目「バナナ」を追加してください。
+```html
+<ul id="フルーツリスト">
+  <li>りんご</li>
+  <li>みかん</li>
+</ul>
+```
+
+5. 「削除対象」というクラスが付いた最初の要素を削除してください。
+```html
+<div>
+  <p class="削除対象">これは削除されます</p>
+  <p>これは残ります</p>
+  <p class="削除対象">これも削除対象ですが、最初の要素だけ削除されます</p>
+</div>
+```
+
+#### 練習問題4の解答例
+
+1. 変更ボタンを見つける
+```javascript
+let ボタン要素 = document.getElementById("変更ボタン");
+console.log(ボタン要素);
+```
+
+2. 挨拶文のテキストを変更
+```javascript
+let 挨拶要素 = document.getElementById("挨拶文");
+挨拶要素.textContent = "こんにちは、JavaScriptの世界へようこそ！";
+```
+
+3. ボックスの色を変更
+```javascript
+let ボックス要素 = document.getElementById("赤いボックス");
+ボックス要素.style.backgroundColor = "red";
+ボックス要素.style.color = "white";
+```
+
+4. リストに項目を追加
+```javascript
+// リストを見つける
+let フルーツリスト = document.getElementById("フルーツリスト");
+
+// 新しいリスト項目を作る
+let 新しい項目 = document.createElement("li");
+新しい項目.textContent = "バナナ";
+
+// リストに追加
+フルーツリスト.appendChild(新しい項目);
+```
+
+5. 要素を削除
+```javascript
+// 削除対象クラスの最初の要素を見つける
+let 削除要素 = document.querySelector(".削除対象");
+
+// 見つかったら削除
+if (削除要素) {
+    削除要素.remove();
+}
+```
+
+--- 
+
+## 5. イベント処理
+
+Webページでは、いろいろな「できごと（イベント）」が起こります。例えば、ボタンをクリックしたり、キーボードを押したり、マウスを動かしたりすることです。JavaScriptを使うと、これらの「できごと」が起きたときに、何か特別なことをするよう指示することができます。これを「イベント処理」と呼びます。
+
+### イベントの種類
+
+主なイベントには、以下のようなものがあります。
+
+#### クリック関連のイベント
+- `click`: 要素をクリックしたとき
+- `dblclick`: 要素をダブルクリックしたとき
+- `mousedown`: マウスのボタンを押したとき
+- `mouseup`: マウスのボタンを離したとき
+
+#### キーボード関連のイベント
+- `keydown`: キーボードのキーを押したとき
+- `keyup`: キーボードのキーを離したとき
+- `keypress`: キーボードのキーを押して、文字が入力されたとき
+
+#### フォーム関連のイベント
+- `submit`: フォームが送信されたとき
+- `change`: 入力欄の値が変わったとき
+- `focus`: 入力欄にフォーカスが当たったとき
+- `blur`: 入力欄からフォーカスが外れたとき
+
+#### 読み込み関連のイベント
+- `load`: ページや画像などの読み込みが完了したとき
+- `DOMContentLoaded`: HTMLの読み込みが完了したとき
+- `unload`: ページを離れるとき
+
+### イベントリスナーの設定
+
+イベントが起きたときに何かをするには、「イベントリスナー」を設定します。これは「もし〇〇が起きたら、△△をしてね」という指示を出すようなものです。
+
+#### 基本的なイベントリスナーの設定
+
+```javascript
+// ボタン要素を取得
+let ボタン = document.getElementById("マイボタン");
+
+// クリックされたときの動作を設定
+ボタン.addEventListener("click", function() {
+    alert("ボタンがクリックされました！");
+});
+```
+
+このコードでは、「マイボタン」というIDの要素がクリックされたとき、アラートメッセージを表示するよう設定しています。
+
+#### 名前をつけた関数を使う方法
+
+```javascript
+// クリックされたときの動作を関数として定義
+function ボタンクリック時の処理() {
+    alert("ボタンがクリックされました！");
+    console.log("ボタンがクリックされました！");
+}
+
+// ボタン要素を取得してイベントリスナーを設定
+let ボタン = document.getElementById("マイボタン");
+ボタン.addEventListener("click", ボタンクリック時の処理);
+```
+
+このコードでは、クリックされたときの処理を別の関数として定義しています。これは、同じ処理を複数の場所で使いたい場合に便利です。
+
+#### イベントリスナーの削除
+
+不要になったイベントリスナーは削除することもできます。
+
+```javascript
+// イベントリスナーを設定
+ボタン.addEventListener("click", ボタンクリック時の処理);
+
+// あとでイベントリスナーを削除
+ボタン.removeEventListener("click", ボタンクリック時の処理);
+```
+
+### イベントオブジェクト
+
+イベントが発生すると、そのイベントの詳細情報が「イベントオブジェクト」として渡されます。これを使うと、イベントに関するいろいろな情報を取得できます。
+
+```javascript
+// クリックされた位置を知りたい場合
+ボタン.addEventListener("click", function(イベント) {
+    console.log("クリックされた座標:", イベント.clientX, イベント.clientY);
+});
+
+// キーボードのどのキーが押されたか知りたい場合
+document.addEventListener("keydown", function(イベント) {
+    console.log("押されたキー:", イベント.key);
+});
+```
+
+#### イベントの伝播を止める
+
+通常、イベントは親要素に伝わっていきます（バブリング）。これを止めたい場合は、`stopPropagation()`メソッドを使います。
+
+```javascript
+子要素.addEventListener("click", function(イベント) {
+    イベント.stopPropagation(); // 親要素にイベントが伝わるのを防ぐ
+    console.log("子要素がクリックされました");
+});
+
+親要素.addEventListener("click", function() {
+    console.log("親要素がクリックされました"); // 子要素がクリックされても実行されない
+});
+```
+
+#### デフォルトの動作を防ぐ
+
+リンクのクリックやフォームの送信などには、ブラウザのデフォルトの動作があります。これを防ぎたい場合は、`preventDefault()`メソッドを使います。
+
+```javascript
+// リンクがクリックされてもページ遷移しないようにする
+let リンク = document.getElementById("マイリンク");
+リンク.addEventListener("click", function(イベント) {
+    イベント.preventDefault(); // デフォルトの動作を防ぐ
+    
+    let 確認結果 = confirm("本当にリンク先に移動しますか？");
+    if (確認結果) {
+        // OKが押されたら移動
+        window.location.href = this.href;
+    }
+});
+
+// フォームが送信されても実際には送信されないようにする
+let フォーム = document.getElementById("マイフォーム");
+フォーム.addEventListener("submit", function(イベント) {
+    イベント.preventDefault(); // デフォルトの動作（フォーム送信）を防ぐ
+    console.log("フォームの内容:", フォーム.elements.名前.value);
+});
+```
+
+### イベント委任（デリゲーション）
+
+多数の子要素に同じイベントリスナーを設定したい場合、それぞれに設定するのは大変です。そんなとき、親要素にイベントリスナーを設定し、どの子要素がクリックされたかを判断する方法があります。これを「イベント委任」といいます。
+
+```javascript
+// リストの親要素にイベントリスナーを設定
+let リスト = document.getElementById("フルーツリスト");
+リスト.addEventListener("click", function(イベント) {
+    // クリックされた要素がリストアイテム（li）なら処理を行う
+    if (イベント.target.tagName === "LI") {
+        console.log("クリックされたフルーツ:", イベント.target.textContent);
+    }
+});
+```
+
+### 練習問題5
+
+イベント処理の練習をしてみましょう！
+
+1. 「クリックしてね」というテキストを持つボタン要素を作成し、クリックされたらそのテキストを「クリックされました！」に変更するプログラムを書いてください。
+
+2. テキスト入力欄を作成し、何か入力されるたびにその内容をコンソールに表示するプログラムを書いてください。
+
+3. マウスを画像の上に乗せると画像が大きくなり、マウスが離れると元のサイズに戻るプログラムを書いてください。
+
+4. ページ内のすべてのリンク（aタグ）をクリックしたとき、確認ダイアログを表示し、OKが押されたときだけ実際にリンク先に移動するプログラムを書いてください。
+
+5. ボタンをクリックすると、ページ内にランダムな位置に新しい赤い丸（div要素）を作成して追加するプログラムを書いてください。
+
+#### 練習問題5の解答例
+
+1. ボタンのテキストを変更する
+```html
+<button id="マイボタン">クリックしてね</button>
+
+<script>
+let ボタン = document.getElementById("マイボタン");
+ボタン.addEventListener("click", function() {
+    this.textContent = "クリックされました！";
+});
+</script>
+```
+
+2. 入力内容をコンソールに表示する
+```html
+<input type="text" id="マイ入力欄" placeholder="ここに入力してください">
+
+<script>
+let 入力欄 = document.getElementById("マイ入力欄");
+入力欄.addEventListener("input", function() {
+    console.log("入力内容:", this.value);
+});
+</script>
+```
+
+3. マウスオーバーで画像を拡大する
+```html
+<img id="マイ画像" src="猫.jpg" style="width: 200px; transition: transform 0.3s;">
+
+<script>
+let 画像 = document.getElementById("マイ画像");
+
+画像.addEventListener("mouseover", function() {
+    this.style.transform = "scale(1.2)"; // 1.2倍に拡大
+});
+
+画像.addEventListener("mouseout", function() {
+    this.style.transform = "scale(1)"; // 元のサイズに戻す
+});
+</script>
+```
+
+4. リンククリック時に確認ダイアログを表示する
+```html
+<a href="https://www.example.com" id="マイリンク">サンプルサイトへ</a>
+
+<script>
+let リンク = document.getElementById("マイリンク");
+
+リンク.addEventListener("click", function(イベント) {
+    イベント.preventDefault(); // デフォルトの動作を防ぐ
+    
+    let 確認結果 = confirm("本当にリンク先に移動しますか？");
+    if (確認結果) {
+        // OKが押されたら移動
+        window.location.href = this.href;
+    }
+});
+</script>
+```
+
+5. ランダムな位置に赤い丸を作成する
+```html
+<button id="丸追加ボタン">赤い丸を追加</button>
+<div id="キャンバス" style="position: relative; width: 500px; height: 300px; border: 1px solid black;"></div>
+
+<script>
+let ボタン = document.getElementById("丸追加ボタン");
+let キャンバス = document.getElementById("キャンバス");
+
+ボタン.addEventListener("click", function() {
+    // 新しい丸（div要素）を作成
+    let 新しい丸 = document.createElement("div");
+    
+    // スタイルを設定
+    新しい丸.style.position = "absolute";
+    新しい丸.style.width = "30px";
+    新しい丸.style.height = "30px";
+    新しい丸.style.borderRadius = "50%"; // 円形にする
+    新しい丸.style.backgroundColor = "red";
+    
+    // ランダムな位置を設定
+    新しい丸.style.left = Math.random() * 470 + "px"; // 0～470pxの範囲
+    新しい丸.style.top = Math.random() * 270 + "px"; // 0～270pxの範囲
+    
+    // キャンバスに追加
+    キャンバス.appendChild(新しい丸);
+});
+</script>
+```
+
+--- 
+
+## 6. プロジェクト1：カウンターアプリ
+
+### プロジェクトの概要
+
+カウンターアプリは、ボタンをクリックするたびにカウントアップするアプリケーションです。
+
+### HTMLとCSSの準備
+
+HTML:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>カウンターアプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>カウンター</h1>
+        <p id="count">0</p>
+        <button id="increment">+1</button>
+        <button id="decrement">-1</button>
+        <button id="reset">リセット</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+CSS:
+```css
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#count {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 1em;
+}
+```
+
+### JavaScriptの実装
+
+```javascript
+let countElement = document.getElementById("count");
+let count = 0;
+
+function updateCount() {
+    countElement.textContent = count;
+}
+
+document.getElementById("increment").addEventListener("click", function() {
+    count++;
+    updateCount();
+});
+
+document.getElementById("decrement").addEventListener("click", function() {
+    count--;
+    updateCount();
+});
+
+document.getElementById("reset").addEventListener("click", function() {
+    count = 0;
+    updateCount();
+});
+
+updateCount();
+```
+
+### ステップアップ課題
+
+1. カウントアップの速度を変更できるようにする
+2. カウントダウンの速度を変更できるようにする
+3. カウントの上限と下限を設定する
+4. カウントの履歴を表示する
+
+--- 
+
+## 7. プロジェクト2：電卓アプリ
+
+### プロジェクトの概要
+
+電卓アプリは、四則演算を行うアプリケーションです。
+
+### HTMLとCSSの準備
+
+HTML:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>電卓アプリ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>電卓</h1>
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>/</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>*</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>-</button>
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+            <button>+</button>
+            <button>C</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+```
+
+CSS:
+```css
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#display {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: right;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 1.5em;
+}
+```
+
+### JavaScriptの実装
+
+```javascript
+let display = document.getElementById("display");
+let currentInput = "";
+let operator = null;
+let result = null;
+
+function updateDisplay() {
+    display.value = currentInput;
+}
+
+function clearDisplay() {
+    currentInput = "";
+    operator = null;
+    result = null;
+    updateDisplay();
+}
+
+function handleOperator(op) {
+    if (operator) {
+        calculate();
+    }
+    operator = op;
+    result = parseFloat(currentInput);
+    currentInput = "";
+}
+
+function calculate() {
+    if (operator) {
+        result = eval(`${result} ${operator} ${parseFloat(currentInput)}`);
+        currentInput = result.toString();
+        operator = null;
+    }
+    updateDisplay();
+}
+
+function handleNumber(num) {
+    currentInput += num;
+    updateDisplay();
+}
+
+function handleDecimal() {
+    if (!currentInput.includes(".")) {
+        currentInput += ".";
+        updateDisplay();
+    }
+}
+
+function handleClear() {
+    clearDisplay();
+    updateDisplay();
+}
+
+function handleEqual() {
+    calculate();
+    currentInput = result.toString();
+    updateDisplay();
+}
+
+function handleOperatorButton(button) {
+    const operator = button.textContent;
+    handleOperator(operator);
+}
+
+function handleNumberButton(button) {
+    const number = button.textContent;
+    handleNumber(number);
+}
+
+function handleDecimalButton(button) {
+    handleDecimal();
+}
+
+function handleClearButton(button) {
+    handleClear();
+}
+
+function handleEqualButton(button) {
+    handleEqual();
+}
+
+function setupEventListeners() {
+    const buttons = document.querySelectorAll(".buttons button");
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            if (button.textContent === "C") {
+                handleClearButton(button);
+            } else if (button.textContent === "=") {
+                handleEqualButton(button);
+            } else if (button.textContent === "/" || button.textContent === "*" || button.textContent === "-" || button.textContent === "+") {
+                handleOperatorButton(button);
+            } else if (button.textContent === ".") {
+                handleDecimalButton(button);
+            } else {
+                handleNumberButton(button);
+            }
+        });
+    });
+}
+
+setupEventListeners();
+```
+
+### ステップアップ課題
+
+1. 電卓の履歴を表示する
+2. 電卓のデザインを改善する
+3. 電卓の機能を拡張する（三角関数など）
+4. 電卓のキーボード対応を実装する
+
+--- 
