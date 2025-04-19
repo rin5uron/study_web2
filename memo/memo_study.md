@@ -35,6 +35,7 @@
 - [Git・GitHub関連](#gitgithub関連)
   - [基本用語](#基本用語)
   - [ステージングについて](#ステージングについて)
+  - [node_modulesフォルダとGitHub](#node_modulesフォルダとgithub)
 - [JavaScriptファイルの読み込み方法](#javascriptファイルの読み込み方法)
   - [HTMLからJavaScriptファイルを読み込む基本](#htmlからjavascriptファイルを読み込む基本)
   - [読み込み位置による違い](#読み込み位置による違い)
@@ -694,81 +695,98 @@ header.addEventListener('click', function() {
 - 目的：どのファイルの変更をコミットに含めるかを選択すること
 - 実行方法：`git add <ファイル名>`
 
-## JavaScriptファイルの読み込み方法
-_追加日: 2025年4月9日_
+### node_modulesフォルダとGitHub
 
-### HTMLからJavaScriptファイルを読み込む基本
+#### node_modulesをGitHubにアップロードすべきでない理由
+1. **容量が大きすぎる**
+   - 多くのライブラリと依存関係を含むため、サイズが非常に大きい（数百MB〜GB）
+   - リポジトリのダウンロード・アップロード時間が増大する
+   - GitHubのストレージ制限に達する可能性がある
 
-```html
-<!-- JavaScriptファイルの読み込み -->
-<script src="script.js"></script>
+2. **環境依存のファイルを含む**
+   - OS固有のバイナリファイルが含まれる場合がある
+   - 異なる開発環境で問題が発生する可能性がある
+
+3. **リポジトリの管理が複雑になる**
+   - 変更履歴が膨大になり、意味のある差分を確認しづらくなる
+   - コミットサイズが大きくなりすぎて操作が遅くなる
+
+#### 推奨される対処方法
+1. `.gitignore`ファイルに`node_modules/`を追加する
+2. 代わりに`package.json`と`package-lock.json`ファイルをコミットする
+3. プロジェクトをクローンした後は`npm install`コマンドで依存関係をインストールする
+
+#### .gitignoreの設定方法
+```bash
+# .gitignoreファイルがない場合は作成
+touch .gitignore
+
+# node_modules/を追加
+echo "node_modules/" >> .gitignore
+
+# もし既にステージングされていれば取り消す
+git rm -r --cached node_modules
+git add .gitignore
+git commit -m "node_modulesをgitignoreに追加"
 ```
 
-### 読み込み位置による違い
+#### .gitignoreの効果
+.gitignoreファイルにnode_modules/を追加すると、次からGitは自動的にそのフォルダを無視します。つまり：
 
-1. **`</body>`タグの直前（推奨）**
-   - ページの読み込みが完了した後にJavaScriptが実行される
-   - DOM要素が全て構築された状態でJavaScriptが実行されるため安全
-   - ページの表示速度が向上する
+- git statusを実行しても、node_modulesフォルダは「変更されたファイル」や「未追跡のファイル」として表示されなくなります
+- git add .やgit add *のようなコマンドを実行しても、node_modulesフォルダは自動的にスキップされます
+- 明示的にgit add node_modulesと指定しない限り、ステージングエリアに追加されることはありません
 
-   ```html
-   <body>
-     <!-- HTMLコンテンツ -->
-     
-     <script src="script.js"></script>
-   </body>
-   ```
+これはGitの基本機能で、.gitignoreに記載されたパターンに一致するファイルやフォルダは、Gitの追跡対象から自動的に除外されます。
 
-2. **`<head>`タグ内**
-   - HTMLが読み込まれる前にJavaScriptが実行される可能性がある
-   - DOM要素にアクセスする場合、`DOMContentLoaded`イベントや`window.onload`を使用する必要がある
-   
-   ```html
-   <head>
-     <script src="script.js"></script>
-     <!-- または、deferを指定して実行タイミングを遅らせる -->
-     <script src="script.js" defer></script>
-   </head>
-   ```
+一度設定すれば、今後意識することなく開発を続けられます。他の開発者がリポジトリをクローンした場合も、npm installコマンドでnode_modulesフォルダを再現できます。
 
-### 属性オプション
+#### 魔法（ライブラリ）の使い方
+1. まず道具箱に追加する：`npm install 魔法の名前`
+2. プログラムの中で「この魔法を使います！」と宣言する：`import { 使いたい魔法 } from '魔法の名前';`
+3. あとは魔法を使うだけ！
 
-- **`defer`属性**: HTMLの解析が完了した後に実行される（`<head>`内で使用する際に有用）
-  ```html
-  <script src="script.js" defer></script>
-  ```
+#### 便利なポイント
+- パソコンの中で直接JavaScriptが動かせる（ブラウザがなくても大丈夫！）
+- 一度書いたプログラムは、いろんなパソコンで動かせる
+- たくさんの便利な道具箱（ライブラリ）が使える
 
-- **`async`属性**: ファイルのダウンロードが完了次第実行される（DOM操作を行わないスクリプトに適している）
-  ```html
-  <script src="script.js" async></script>
-  ```
+これでNode.jsの基本が分かったね！実際に使ってみると、もっと楽しくなるよ！
 
-### 相対パスと絶対パス
+## 【2025/04/19】Web関連の基礎知識
 
-1. **同じディレクトリのファイル**:
-   ```html
-   <script src="script.js"></script>
-   ```
+### WebとWebサイト、Webページの関係
+1. **Web（WWW）とは**
+   - World Wide Webの略
+   - インターネット上の情報共有の仕組み全体
+   - 世界中の情報がハイパーリンクで繋がった巨大なネットワーク
 
-2. **サブディレクトリのファイル**:
-   ```html
-   <script src="js/script.js"></script>
-   ```
+2. **Webサイトとは**
+   - 複数のWebページをまとめたもの
+   - 例：私のGitHubリポジトリ（study_web）全体が1つのWebサイト
+   - 特定のドメインで管理される
+   - 本で例えると1冊の本全体
 
-3. **親ディレクトリのファイル**:
-   ```html
-   <script src="../script.js"></script>
-   ```
+3. **Webページとは**
+   - HTMLで作られた1つ1つの情報ページ
+   - 例：私が作成した以下のようなページ
+     - トップページ（index.html）
+     - 自己紹介ページ（profile.html）
+     - プロフィールカード（card.html）
+     - アコーディオンメニューのページ（accordion.html）
+   - 本で例えると1ページ分
+   - practice/フォルダ内の各課題ファイルは、それぞれが独立したWebページ
 
-4. **絶対パス（同じドメイン内）**:
-   ```html
-   <script src="/js/script.js"></script>
-   ```
+### 実際の制作物での例
+- **私のWebサイト（study_webリポジトリ）の構成**
+  - 複数のWebページ（HTMLファイル）が集まって1つのWebサイトを形成
+  - 各HTMLファイルは独立したWebページとして機能
+  - これらすべてがWeb（WWW）という大きなネットワークの一部
 
-5. **外部URL**:
-   ```html
-   <script src="https://example.com/script.js"></script>
-   ```
+### ポイント
+- 個々のHTMLファイルは「Webページ」と呼んでよい
+- 関連するWebページをまとめたものが「Webサイト」
+- すべてのWebサイトは「Web（WWW）」という大きな仕組みの中に存在する
 
 ## 【2025/04/16】JavaScript基本構文とよくあるエラー
 
