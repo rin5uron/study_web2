@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM操作の基本</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+        }
+        .example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        .note {
+            background-color: #fffde7;
+            padding: 10px;
+            border-left: 4px solid #ffd600;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM操作の基本</h1>
+    
+    <div style="display: flex; gap: 20px; align-items: start;">
+        <div style="flex: 1;">
+            <h2>DOMとは？</h2>
+            <p>DOM（Document Object Model）は、ウェブページを木（ツリー）のような構造で表したものです。
+            <br>PCはHTMLを読み込む時、各要素（タグ）を木の枝のように繋がっています。</p>
+            
+            <div class="note">
+                <p>DOMは、JavaScriptでWebページの要素を操作するための仕組みです。</p>
+            </div>
+        </div>
+        <div style="flex: 1;">
+            <img src="images/whatDOM1.png" alt="DOMの説明画像" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <h2>DOM操作の4つのステップ</h2>
+    
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+        <tr>
+            <th style="width: 30%; padding: 10px; border: 1px solid #ddd; background-color: #f5f5f5;">ステップ</th>
+            <th style="width: 40%; padding: 10px; border: 1px solid #ddd; background-color: #f5f5f5;">説明</th>
+            <th style="width: 30%; padding: 10px; border: 1px solid #ddd; background-color: #f5f5f5;">課題</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">1. 要素の取得</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <p>まずは、ページの中から欲しい要素を見つけます。</p>
+                <div class="example">
+                    <p>例：IDで要素を見つける</p>
+                    <code>let 要素 = document.getElementById("要素のID");</code>
+                </div>
+            </td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <div style="min-height: 100px; background-color: #f9f9f9; padding: 10px;">
+                    <!-- ここに課題を入力 -->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">2. 要素の内容変更</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <p>見つけた要素の中身（テキスト）を変更します。</p>
+                <div class="example">
+                    <p>例：テキストを変更する</p>
+                    <code>要素.textContent = "新しいテキスト";</code>
+                </div>
+            </td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <div style="min-height: 100px; background-color: #f9f9f9; padding: 10px;">
+                    <!-- ここに課題を入力 -->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">3. スタイルの変更</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <p>要素の見た目（色や大きさなど）を変更します。</p>
+                <div class="example">
+                    <p>例：背景色を変更する</p>
+                    <code>要素.style.backgroundColor = "red";</code>
+                </div>
+            </td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <div style="min-height: 100px; background-color: #f9f9f9; padding: 10px;">
+                    <!-- ここに課題を入力 -->
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">4. 要素の追加と削除</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <p>新しい要素を作ったり、いらない要素を削除したりします。</p>
+                <div class="example">
+                    <p>例：新しい要素を作成して追加する</p>
+                    <code>
+                        let 新しい要素 = document.createElement("p");<br>
+                        新しい要素.textContent = "新しい段落です";<br>
+                        親要素.appendChild(新しい要素);
+                    </code>
+                </div>
+            </td>
+            <td style="padding: 10px; border: 1px solid #ddd;">
+                <div style="min-height: 100px; background-color: #f9f9f9; padding: 10px;">
+                    <!-- ここに課題を入力 -->
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <h2>実際の例</h2>
+    <div class="example">
+        <p>以下のリストに新しい項目を追加してみましょう：</p>
+        <ul id="フルーツリスト">
+            <li>りんご</li>
+            <li>みかん</li>
+        </ul>
+    </div>
+
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 40px;">
+        <div>
+            <h3>JavaScriptコード</h3>
+            <img src="js.png" alt="JavaScriptコード" style="max-width: 100%; height: auto;">
+        </div>
+        <div>
+            <h3>実行結果</h3>
+            <img src="console.png" alt="コンソール実行結果" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 rin5uron All Rights Reserved.</p>
+    </footer>
+</body>
+</html> 
