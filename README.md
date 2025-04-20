@@ -183,31 +183,49 @@ HTML、CSS、JavaScriptの基礎を、実践的な例を通じて学んでいき
 ## 📚 学習状況
 
 ### 現在の学習フェーズ
-- Git管理における効率的な運用方法の学習
+- JavaScriptのイベントリスナーとDOM操作の基礎学習
 - ITパスポート勉強の継続
-- Node.jsとライブラリの活用
+- 実践的なWebページ制作スキルの向上
 
 ### 次のステップ
-JavaScriptの基本スキルを活かして小規模なアプリケーション開発と、Git/GitHubの運用に関する理解を深める。
+JavaScriptの基本スキルを活かして、より複雑なDOM操作とイベント処理を学習する。
 
 ### 直近の学習実績
-【2025/04/13-04/19】（今週）
+【2025/04/19-04/25】（今週）
 
 | 日付 | 合計時間 | 主な学習内容 |
 |------|----------|--------------|
-| 4/18(金) | 1h30m | GitHubプッシュエラー対応とnode_modulesの管理方法、ITパスポート参考書3章通読 |
-| 4/17(木) | 3h00m | Node.jsとdate-fnsライブラリ学習、JavaScriptで日付操作、ITパスポート参考書2章通読 |
-| 4/16(水) | 2h45m | JavaScript基礎課題１２のreadme更新、課題の振り返り、練習問題3の完了、ITパスポート参考書1章通読 |
-| 4/15(火) | 1h15m | JavaScript練習問題の復習、練習問題３のファイル作成と学習、配列インデックス・switch文・二重ループの理解 |
-| 4/14(月) | 0h15m | ITパスポート参考書1章企業活動通読、電車内学習習慣化の実践 |
-| 4/13(日) | 6h45m | JavaScript基礎教材の作成、Javascript課題練習問題１・２の実装、ITパスポート学習（テクノロジ系）、ロードマップ振り返り |
+| 4/20(土) | 7h00m | JavaScript超基礎５：イベントリスナーの学習（クリックイベント、マウスイベント、確認ダイアログ、赤丸の表示）、JavaScript超基礎４：DOM操作の学習 |
+| 4/19(金) | 2h00m | JavaScript超基礎４：DOM操作の学習開始、フルーツリストの作成 |
 
-**週間総学習時間: 15h30m**
+**週間総学習時間: 9h00m**
 
 #### 週間所感
 （週末に記載予定）
 
 # 🎯 このリポジトリで作成した演習・制作物
+
+# ⑪ JavaScript超基礎５：イベントリスナー
+
+## 完成画像
+![JavaScript超基礎５の結果1](practice/3_JavaScript_basics/250420_practice5/images/screen_1.png)
+![JavaScript超基礎５の結果2](practice/3_JavaScript_basics/250420_practice5/images/screen_2.png)
+
+## 完成動画
+[![JavaScript超基礎５：イベントリスナー](https://img.youtube.com/vi/caBhAIJgAyQ/0.jpg)](https://youtu.be/caBhAIJgAyQ)
+
+## 完成日
+2025/04/20
+
+## 概要
+イベントリスナーの基礎を実践形式で学びました。
+
+## 学んだこと
+- イベントリスナーの基本形（.getElementBy_,addEventListener）
+- 基本要素の使い方（.textcontent,input,value,confirm,.preventDefault();,createElement,appendChild();,location.href = this.href;）
+- マウスイベント（mouseenter,mouseleave）
+- CSSのtransform-originプロパティ（基準の設定、要素の設定）
+- Flexboxの配置プロパティ（align-items:start/flex-end）
 
 # ⑩ JavaScript超基礎４：DOM操作
 
