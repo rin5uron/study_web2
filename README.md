@@ -1,7 +1,7 @@
 # Web開発学習プロジェクト
 
-# 学習記録
-このリポジトリで作成した[演習・制作物はこのページの最後](#-このリポジトリで作成した演習制作物)にまとめています。
+## 学習成果
+このリポジトリで作成した[演習・制作物](#-このリポジトリで作成した演習制作物)にまとめています。
 
 ## 📁 ディレクトリ構成
 
@@ -197,13 +197,26 @@ JavaScriptの基本スキルを活かして、より複雑なDOM操作とイベ�
 #### 週間所感
 （週末に記載予定）
 
-# 🎯 作物このリポジトリで作成した演習・制
+# 🎯 このリポジトリで作成した演習・制作物
+
+## 制作物一覧
+- [⑪ JavaScript超基礎５：イベントリスナー](#-javascript超基礎５イベントリスナー)
+- [⑩ JavaScript超基礎４：DOM操作](#-javascript超基礎４dom操作)
+- [⑨ 1/1-12/31までの日付ループ](#-11231までの日付ループ)
+- [⑧ JavaScript超基礎３：関数](#-javascript超基礎３関数)
+- [⑦ JavaScript超基礎２：条件分岐とループ](#-javascript超基礎２条件分岐とループ)
+- [⑥ JavaScript超基礎１：変数とデータ型](#-javascript超基礎１変数とデータ型)
+- [⑤ アコーディオンメニュー基礎](#-アコーディオンメニュー基礎)
+- [④ アコーディオンメニュー超基礎](#-アコーディオンメニュー超基礎)
+- [③ プロフィールカード（アコーディオン機能つき）](#-プロフィールカードアコーディオン機能付)
+- [② プロフィールカード](#-プロフィールカード)
+- [① 自己紹介ページ](#-自己紹介ページ)
 
 # ⑪ JavaScript超基礎５：イベントリスナー
 
 ## 完成画像
-![JavaScript超基礎５の結果1](practice/3_JavaScript_basics/250420_practice5/images/screen_1.png)
-![JavaScript超基礎５の結果2](practice/3_JavaScript_basics/250420_practice5/images/screen_2.png)
+<img src="practice/3_JavaScript_basics/250420_practice5/images/screen_1.png" width="500" alt="JavaScript超基礎５の結果1">
+<img src="practice/3_JavaScript_basics/250420_practice5/images/screen_2.png" width="500" alt="JavaScript超基礎５の結果2">
 
 ## 完成動画
 [![JavaScript超基礎５：イベントリスナー](https://img.youtube.com/vi/caBhAIJgAyQ/0.jpg)](https://youtu.be/caBhAIJgAyQ)
@@ -222,6 +235,11 @@ JavaScriptの基本スキルを活かして、より複雑なDOM操作とイベ�
 - Flexboxの配置プロパティ（align-items:start/flex-end）
 
 # ⑩ JavaScript超基礎４：DOM操作
+
+## 完成画像
+![DOM操作の基本](practice/3_JavaScript_basics/250419_pragtice4/images/dom.png)
+![DOM操作の4つのステップ](practice/3_JavaScript_basics/250419_pragtice4/images/stepdom.png)
+![練習問題](practice/3_JavaScript_basics/250419_pragtice4/images/ex.png)
 
 ## 完成日
 2025/04/20
@@ -400,7 +418,7 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 - アコーディオンメニューの基本的実装方法を習得
 - CSSでページスタイルをより整えたい
 
-# ③プロフィールカード（アコーディオン機能つき）
+# ③プロフィールカード（アコーディオン機能付）
 
 ## 完成画面
 ![プロフィールカード完成画像](images/htmlcss/2025-04-06-profile-card2.png)
