@@ -1150,7 +1150,23 @@ HTMLでテーブル（表）を作成する際と単純なレイアウト目的�
   - 現在表示されているWebページ全体を表すJavaScriptオブジェクト
   - HTMLとJavaScriptの橋渡し役（窓口）となる
   - DOM（Document Object Model）の最上位のオブジェクト
+
+- 初心者向け簡単説明：
+  - documentは「今開いているWebページの設計図」のようなもの
+  - JavaScriptでHTMLを操作するための「リモコン」と考えられる
+  - 例えば：テレビ（HTMLページ）をリモコン（JavaScript）で操作する時、リモコンの信号を受け取る受信部が必要。これがdocumentの役割
   
+- 日常生活の例え：
+  - 遊園地での例え：
+    - document = 遊園地の全体マップ
+    - getElementById = マップ上で「観覧車はここ」と特定の場所を見つける行為
+    - textContent = 観覧車の色を変えたり、飾りつけを変えたりする行為
+  
+  - 学校での例え：
+    - document = 学校の校舎全体
+    - getElementById = 「2年1組」という教室を探す
+    - textContent = その教室の黒板に文字を書く
+
 - 主な使用方法
   - 要素の取得
     ```javascript
@@ -1199,10 +1215,21 @@ HTMLでテーブル（表）を作成する際と単純なレイアウト目的�
   });
   ```
 
-- ページの読み込み完了を待つ
+- 超初心者向け例（カウンターアプリ）：
   ```javascript
-  document.addEventListener("DOMContentLoaded", function() {
-    // DOM読み込み完了後に実行される処理
+  // HTML: <span id="counter">0</span>
+  
+  // 1. カウンターの表示部分を見つける（「counter」という名札がついた部分）
+  const 数字表示部分 = document.getElementById("counter");
+  
+  // 2. ボタンをクリックしたらカウントを増やす
+  document.getElementById("plusBtn").addEventListener("click", function() {
+    // 3. 表示されている数字を取得して1増やす
+    let 現在の数字 = Number(数字表示部分.textContent);
+    現在の数字 = 現在の数字 + 1;
+    
+    // 4. 増やした数字を画面に表示
+    数字表示部分.textContent = 現在の数字;
   });
   ```
 
@@ -1215,3 +1242,60 @@ HTMLでテーブル（表）を作成する際と単純なレイアウト目的�
   - HTMLの要素が読み込まれる前にJavaScriptが実行されると、要素が見つからずエラーになる可能性がある
   - パフォーマンスのため、`getElement`系のメソッドは`querySelector`系より高速
   - イベントリスナーを多用すると、メモリ消費が増える場合がある
+
+## JavaScriptのメソッドチェーン（メソッド連鎖）
+
+### 2025/04/22 メモ
+
+#### メソッドチェーンとは
+メソッドチェーン（Method Chaining）とは、複数のメソッドを連続して呼び出す書き方のことです。ドット（.）でつなげて書くことで、コードをより簡潔に記述できます。
+
+```javascript
+// 例: getElementById()でHTML要素を取得し、その要素に対してaddEventListenerを呼び出す
+document.getElementById("plus").addEventListener("click", function() {
+  // クリック時の処理
+});
+```
+
+#### 動作の流れ
+1. `document.getElementById("plus")` - HTMLから「plus」というID要素を取得
+2. 取得した要素に対して `.addEventListener()` メソッドを適用
+3. 結果として「plus」という要素がクリックされたときに関数が実行される
+
+#### メソッドチェーンのメリット
+- コードが短くなる（一時変数が不要になる）
+- 読みやすくなる（一連の操作がひとつの流れで表現できる）
+- 処理の連鎖が直感的に理解しやすい
+
+#### 同等の書き方（一時変数使用）
+```javascript
+// 一時変数を使った場合
+const plusButton = document.getElementById("plus");
+plusButton.addEventListener("click", function() {
+  // クリック時の処理
+});
+```
+
+#### 注意点
+- 各メソッドは何かしらの値を返す必要がある（nullやundefinedを返すとエラーになる）
+- 長すぎるチェーンは可読性が落ちる場合もある
+- デバッグが難しくなることがある（どこでエラーが発生したか分かりづらい）
+
+#### よく使われるメソッドチェーンの例
+```javascript
+// 配列操作
+const 結果 = [1, 2, 3, 4, 5]
+  .filter(num => num > 2)  // [3, 4, 5]
+  .map(num => num * 2)     // [6, 8, 10]
+  .reduce((sum, num) => sum + num, 0);  // 24
+
+// DOM操作 + スタイル変更
+document.getElementById("box")
+  .classList.add("active")
+  .style.backgroundColor = "blue";
+
+// jQuery（有名なライブラリ）のメソッドチェーン
+// $("#button").hide().text("クリック").fadeIn().on("click", doSomething);
+```
+
+メソッドチェーンは料理に例えると、「材料を用意して→切って→炒めて→盛り付ける」という一連の流れを一息で表現するようなものです。

@@ -1,39 +1,25 @@
 // カウンターアプリのJavaScriptコード 
 
+// 初期値を0に設定
 let counter = 0;
-let positive = 0;
-let negative = 0;
 
-// HTML要素の取得
-const counterElement = document.getElementById('counter');
-const plusBtn = document.getElementById('plusBtn');
-const minusBtn = document.getElementById('minusBtn');
-const resetBtn = document.getElementById('resetBtn');
+// ポジティブボタンをクリックしたらカウンターを1増やす
 
-// カウンターの更新関数
-function updateCounter() {
-    // 差分を計算して表示
-    counter = positive - negative;
-    counterElement.textContent = counter;
-}
+// .getElementByIdでIDを習得documentは今表示されているWebページそのもの
+document.getElementById("plus")
 
-// プラスボタンの処理
-plusBtn.addEventListener('click', function() {
-    positive++;
-    updateCounter();
+// .addEventListenerでボタンがクリックされたらこうするよ」という動きの登録
+    plusbtn.addEventListener("click", function() {
+     counter++; //数を１増やす
+    });
+
+
+document.getElementById("minus")
+
+     // .addEventListenerでボタンが押されたらこうするよ」という動きの登録
+     minusbtn.addEventListener("click", function() {
+          counter--; 
+
+// .textContentで表示されている文字を変える
+ document.getElementById("counter").textContent = counter;
 });
-
-// マイナスボタンの処理
-minusBtn.addEventListener('click', function() {
-    negative++;
-    updateCounter();
-});
-
-// リセットボタンの処理
-resetBtn.addEventListener('click', function() {
-    counter = 0;
-    positive = 0;
-    negative = 0;
-    updateCounter();
-});
-

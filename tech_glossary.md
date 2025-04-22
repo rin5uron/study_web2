@@ -1,3 +1,21 @@
+# 📚 技術用語・ショートカット辞典
+
+## JavaScript
+
+### メソッドチェーン（Method Chaining）
+複数のメソッド（関数）を連続して呼び出す書き方。ドット（.）でつなげることで、コードを簡潔に書ける。
+
+```javascript
+// 例: document.getElementById("id").addEventListener()
+document.getElementById("plus").addEventListener("click", function() {});
+
+// 上記は以下と同じ意味
+const button = document.getElementById("plus");
+button.addEventListener("click", function() {});
+```
+
+メリット：コードが短くなる、一時変数が不要、処理の流れが直感的
+
 ### アロー関数（Arrow Function）
 - JavaScriptの関数を書く新しい方法
 - `=>` を使って関数を定義する

@@ -1,0 +1,86 @@
+/* カウンターアプリのスタイル */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.counter-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.count-display {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #3498db;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  background-color: #ecf0f1;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+button {
+  font-size: 1.4rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+#decrement-btn {
+  background-color: #e74c3c;
+  color: white;
+}
+
+#reset-btn {
+  background-color: #95a5a6;
+  color: white;
+}
+
+#increment-btn {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-top: 1.5rem;
+  line-height: 1.4;
+} 
