@@ -1143,3 +1143,75 @@ HTMLでテーブル（表）を作成する際と単純なレイアウト目的�
 - GitHubやNotion等のプラットフォームでは、セキュリティ上の理由からHTMLタグの一部が制限されていることがある
 - マークダウンの実装によって、対応しているHTMLタグやCSSプロパティが異なる場合がある
 - 複雑なレイアウトが必要な場合は、純粋なHTMLドキュメントを作成した方が柔軟性が高い 
+
+## JavaScript関連 📝
+### documentオブジェクトについて（2025/04/22）
+- `document`オブジェクトの基本概念
+  - 現在表示されているWebページ全体を表すJavaScriptオブジェクト
+  - HTMLとJavaScriptの橋渡し役（窓口）となる
+  - DOM（Document Object Model）の最上位のオブジェクト
+  
+- 主な使用方法
+  - 要素の取得
+    ```javascript
+    // ID による要素の取得
+    const element = document.getElementById("myId");
+    
+    // CSSセレクタによる要素の取得（最初の一つ）
+    const element = document.querySelector(".myClass");
+    
+    // CSSセレクタによる要素の取得（該当するすべて）
+    const elements = document.querySelectorAll("p");
+    ```
+  
+  - 要素の操作
+    ```javascript
+    // テキスト内容の変更
+    element.textContent = "新しいテキスト";
+    
+    // HTML内容の変更
+    element.innerHTML = "<span>新しいHTML</span>";
+    
+    // 属性の変更
+    element.setAttribute("src", "new-image.jpg");
+    
+    // スタイルの変更
+    element.style.color = "red";
+    ```
+  
+  - 要素の作成と追加
+    ```javascript
+    // 新しい要素の作成
+    const newElement = document.createElement("div");
+    
+    // テキストの追加
+    newElement.textContent = "新しい要素";
+    
+    // 親要素に追加
+    document.body.appendChild(newElement);
+    ```
+  
+- イベントの登録
+  ```javascript
+  // クリックイベントの登録
+  element.addEventListener("click", function() {
+    alert("クリックされました！");
+  });
+  ```
+
+- ページの読み込み完了を待つ
+  ```javascript
+  document.addEventListener("DOMContentLoaded", function() {
+    // DOM読み込み完了後に実行される処理
+  });
+  ```
+
+- documentの実行タイミング
+  - HTMLが上から順に読み込まれると同時にdocumentオブジェクトが構築される
+  - `<script>`タグが実行されるタイミングでは、それより上のHTML要素のみdocumentで操作可能
+  - ページ下部（`</body>`タグの直前）にJavaScriptを配置するか、DOMContentLoadedイベントを使うと安全
+
+- 注意点
+  - HTMLの要素が読み込まれる前にJavaScriptが実行されると、要素が見つからずエラーになる可能性がある
+  - パフォーマンスのため、`getElement`系のメソッドは`querySelector`系より高速
+  - イベントリスナーを多用すると、メモリ消費が増える場合がある
