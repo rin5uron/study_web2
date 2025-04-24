@@ -565,6 +565,13 @@ HTMLを使って自己紹介ページを作成しました。基本的なHTMLタ
   - 例： `document.getElementById("plus").addEventListener("click", function() {});`
   - 上記の例の場合.addEventListenerはdocumentに対するものでなく、前のメソッドから連鎖しえボタンに対するメソッドになる
 
+#### 参考資料
+<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+  <img src="practice/5_application/250422_counter/images2/html.png" width="30%" alt="カウンターアプリのHTML構造">
+  <img src="practice/5_application/250422_counter/images2/js.png"width="30%" alt="カウンターアプリのJavaScript実装">
+  <img src="practice/5_application/250422_counter/images2/counter/無名関数.png" width="30%" alt="無名関数と関数宣言の違い">
+</div>
+
 ### 次のステップ
 - CSSの実装
 - 仕様書の作成
@@ -580,9 +587,7 @@ HTMLを使って自己紹介ページを作成しました。基本的なHTMLタ
 
 ## 学びの記録・気づき
 
-- `getElementById`や`addEventListener`の意味と使い方
-- 無名関数とアロー関数の違い
-- 「まず動かす」ことで流れをつかむ大切さ
+- 
 
 ---
 
