@@ -554,7 +554,7 @@ HTMLを使って自己紹介ページを作成しました。基本的なHTMLタ
   - スクリプト（JavaScriptコード）の動きを明確にするためため
     - 例　カウンターアプリの場合、スタートが０だと明確に提示
 - `addEventListener`の意味と使い方
-　- イベントリスナーを追加するメソッド
+  - イベントリスナーを追加するメソッド
   - クリックイベントを追加する際に使用した
 - 無名関数と名前あり関数(関数宣言)
 
@@ -574,9 +574,11 @@ HTMLを使って自己紹介ページを作成しました。基本的なHTMLタ
   - それぞれdocument.getElementByIdで指定したidを探すことで定義
     - 例　カウンターアプリの場合、スタートが０だと明確に提示
 - `addEventListener`の意味と使い方
-　- イベントリスナーを追加するメソッド
+  - イベントリスナーを追加するメソッド
   - クリックイベントを追加する際に使用した
-- 無名関数と名
+- 初歩的なタイプミス
+  - 小文字大文字
+  - コピペした際のペーストミス
 
 #### 参考資料
 <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
@@ -589,6 +591,55 @@ HTMLを使って自己紹介ページを作成しました。基本的なHTMLタ
 - CSSの実装
 - 仕様書の作成
 
+---
+### プロセス③：2025/04/26-27
+- CSS実装
+- 仕様書の作成
+  - ChatGPTにイメージを共有して、テーマとデザインを決めた
+  - スクリプト（JavaScriptコード）の動きを明確にするためため
+
+#### 今日の学び・気づき
+- JavaScriptで初期値を設定する理由
+  - エラーを防ぐ、状態の管理
+  - スクリプト（JavaScriptコード）の動きを明確にするためため
+    - 例　カウンターアプリの場合、スタートが０だと明確に提示
+- `addEventListener`の意味と使い方
+  - イベントリスナーを追加するメソッド
+  - クリックイベントを追加する際に使用した
+- 無名関数と名前あり関数(関数宣言)
+
+- documentオブジェクトの使い方
+  - 表示されているWebページそのものを指す
+- メソッドチェーン（連鎖）について
+  - 複数のメソッドを `.` でつなげて一気に書く方法
+  - 例： `document.getElementById("plus").addEventListener("click", function() {});`
+  - 上記の例の場合.addEventListenerはdocumentに対するものでなく、前のメソッドから連鎖しえボタンに対するメソッドになる
+- function updateDisplay() { ... }
+  - 画面の表示を更新する
+- .textContent
+  - ここに文字を入れる
+#### プログラミング中のエラーとその解決方法
+- プラスとマイナスの数が別々に表示されない
+  - plisubtnとminusbtn、数の表示場所の定義付がされていなかった
+  - それぞれdocument.getElementByIdで指定したidを探すことで定義
+    - 例　カウンターアプリの場合、スタートが０だと明確に提示
+- `addEventListener`の意味と使い方
+  - イベントリスナーを追加するメソッド
+  - クリックイベントを追加する際に使用した
+- 初歩的なタイプミス
+  - 小文字大文字
+  - コピペした際のペーストミス
+
+#### 参考資料
+<div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+  <img src="practice/5_application/250422_counter/images2/html.png" width="30%" alt="カウンターアプリのHTML構造">
+  <img src="practice/5_application/250422_counter/images2/js.png"width="30%" alt="カウンターアプリのJavaScript実装">
+  <img src="practice/5_application/250422_counter/images2/mumei-kannsu.png" width="30%" alt="無名関数と関数宣言の違い">
+</div>
+
+### 次のステップ
+- CSSの実装
+- 仕様書の作成
 ---
 ## 使用技術
 
