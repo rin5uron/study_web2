@@ -198,34 +198,24 @@ h1 {
   border-radius: 20px;
   padding: 20px 25px;
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 410px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
 }
 
-.explanation-title {
-  font-size: 18px;
-  font-weight: bold;
-  color: #F0F0F0;
-  margin-bottom: 15px;
-  text-align: left;
-  border-bottom: 1px solid #B7A07A;/* ゴールドの枠線 */
-  padding-bottom: 5px;
 
-  /* 下線を少し短く見せる */
-  display: block;  /* ブロック要素で左寄せキープ */
-  width: fit-content;  /* 中身に合わせる */
-  padding-right: 320px;  /* 右側だけ余白を追加 */
-}
 
 
 h2.explanation-title {
-  width: fit-content; 
-  display: block;   /* インラインブロックで幅を文字に合わせる */
-  font-size: 15px;
+  font-size: 16px;  /* 本文より+2px */
   font-weight: bold;
-  margin: 0 auto 10px auto;
-  /* margin: 0 0 0.5em;*/
-} 
+  color: #F0F0F0;
+  margin: 0 0 10px 0;   /* 下だけ余白 */
+  padding-bottom: 5px;
+  display: block;   /* 左揃え・親いっぱい */
+  border-bottom: 1px solid #B7A07A;  /* 控えめゴールド */
+  text-align: left;
+}
+
 
 .explanation-item {
   display: flex;
