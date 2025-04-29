@@ -1,0 +1,68 @@
+body {
+    background-color: #222;
+    font-family: 'San Francisco', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+  }
+  
+  .calculator {
+    width: 100%;/*iPhone の電卓のように画面いっぱいにしたい */
+    max-width: 400px;  /* 最大幅を400pxにする 、１５proでも３９３px*/
+    margin: 0 auto; /* 中央配置、左右に余白をつけない */      
+    background-color: #222;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  #display {
+    height: 100px;
+    color: #fff;
+    font-size: 2em;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4等分 */
+    gap: 10px;
+  }
+  
+  .number-button, .operator-button, .function-button {
+    /* gpt-4oが割り出したPC画面を想定した最適px */
+    width: 80px;
+    height: 80px;
+    font-size: 28px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1; /* ←正方形にする！ */
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* スマホサイズ（〜４００pxくらい）だけvwに切り替える */
+@media (max-width: 400px) {
+  .number-button, .operator-button, .function-button {
+    width: 22vw;
+    height: 22vw;
+    font-size: 8vw;/* ボタンの幅の35〜40%くらい */
+  }
+}
+
+  
+  .function-button {
+    background: rgb(92,92,95);
+    color: rgb(255, 255, 255);
+  }
+  
+  .number-button {
+    background: rgb(42,42,44);
+    color: rgb(255, 255, 255);
+  }
+  
+  .operator-button {
+    background: rgb(242, 163, 60);
+    color: rgb(255, 255, 255);
+  }
+  
