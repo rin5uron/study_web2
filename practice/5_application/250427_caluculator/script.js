@@ -12,10 +12,32 @@ buttons.forEach(button => {
     // もしボタンがクリックされたら
     button.addEventListener('click', function()  {
         // ボタンの文字（buttontext）を取得し、buttonという箱の中に入れる
-        const buttontext = button.textcontent
-        // ボタンの文字をdisplay表示する,
-        // +=:今の表示に追加する
-        display.textContent += buttontext
+        const buttontext = button.textContent
+        
+     // ボタンの文字をdisplay表示する設定
+
+    // ACなら強制終了
+     if (buttontext === 'AC') { //ボタンの文字の型た値がACと一致したら
+        display.textContent = '0' 
+        return // ここで処理をやめてください！」っていう意味の命令
+    }
+    
+
+    if (buttontext === '=') {
+        // ここで計算する
+        display.textContent = eval(display.textContent);// evalでtextContentの文字列を式として認識して実行する
+        return;
+    }
+      
+    // 画面の表示が０なら上書き、それ以外なら+= で追加
+    if (display.textContent === '0') {
+        display.textContent = buttontext; // 0なら上書き
+     
+    }
+    else {
+        display.textContent += buttontext; // そうじゃなければ追加
+    }
+
+
     });
 });
-
