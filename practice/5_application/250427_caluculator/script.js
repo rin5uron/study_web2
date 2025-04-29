@@ -1,5 +1,5 @@
 // 今回はボタンセレクタ全体を定義したいのでquerySelectorAllを使用
-const buttons = document.querySelectorAll('.button');
+const buttons = document.querySelectorAll('.number-button, .operator-button, .function-button');
 
 // displayを定義する
 const display = document.getElementById('display');
@@ -25,7 +25,12 @@ buttons.forEach(button => {
 
     if (buttontext === '=') {
         // ここで計算する
-        display.textContent = eval(display.textContent);// evalでtextContentの文字列を式として認識して実行する
+        display.textContent = eval(display.textContent// evalでtextContentの文字列を式として認識して実行する
+        .replace('×', '*')  // 表示の「×」を JSの掛け算「*」に変える
+        .replace('÷', '/')  // 表示の「÷」を JSの割り算「/」に変える
+        .replace('−', '-')  // 表示の「−」（全角ハイフン）を 半角の「-」に変える
+        .replace('+', '+')  // 表示の「＋」（全角）を 半角の「+」に変える
+        );
         return;
     }
       
@@ -36,6 +41,7 @@ buttons.forEach(button => {
     }
     else {
         display.textContent += buttontext; // そうじゃなければ追加
+
     }
 
 
