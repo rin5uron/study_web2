@@ -11,11 +11,6 @@ body {
     font-family: 'Arial', sans-serif;/* 優先フォントを指定 */
     background-color: #FFF9EE; /* オフホワイト */
     color: #555; /* 文字色をグレーに統一 */
-    display: flex;/*横並びにする*/
-    justify-content: center;/*中央揃え*/
-    align-items: center;/*上下揃え*/
-    min-height: 100vh;/*ページの高さを100%にする*/
-
 } 
 
 /* フッターのスタイル */
@@ -79,6 +74,42 @@ footer {
 
 
 
+
+/* 商品のブロック全体を整える */
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2列グリッド */
+  gap: 40px; /* 商品の間の余白 */
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-items: center;
+}
+/*  商品画像 */
+.product {
+  margin-bottom: 40px;
+  padding: 0 20px;
+  text-align: center;
+}
+
+/* 商品画像のサイズ調整 */
+.products img {
+  max-width: 100%;     /* 親要素に合わせる */
+  height: auto;        /* 縦横比を保持 */
+  border-radius: 10px; /* 写真の角を丸く（お好み） */
+  margin-bottom: 10px; /* 写真下に余白 */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 軽い影をつけて高級感 */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  .products {
+    grid-template-columns: 1fr; /* スマホは1列に */
+  }
+}
+
 /* アコーディオン全体のスタイル */
 .accordion-container {
    width: 100%;
@@ -129,6 +160,8 @@ footer {
   transform-origin: top; /* アニメーションが上から始まるように設定 */
   margin: 0 auto; /* 中央揃え */
 }/*padding上下を０にすることで①完全に閉じた状態を作る②海兵のコントラストをはっきりさせてアニメーションをはっきり見せる */
+
+
 
 .accordion-item.active .accordion-content {
   min-height: 40px; /* 最小の高さを40pxに設定 */
@@ -222,4 +255,10 @@ footer {
 .accordion-container .concept-item p {
     margin-bottom: 1em;
 }
-    
+  
+footer {
+  max-width: 1000px;
+  margin: 80px auto 0;
+  padding: 20px;
+  text-align: center;
+}
