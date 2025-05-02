@@ -11,6 +11,7 @@ body {
     font-family: 'Arial', sans-serif;/* 優先フォントを指定 */
     background-color: #FFF9EE; /* オフホワイト */
     color: #555; /* 文字色をグレーに統一 */
+    text-align: center;  
 } 
 
 /* フッターのスタイル */
@@ -84,7 +85,18 @@ footer {
   max-width: 1000px;
   margin: 0 auto;
   justify-items: center;
+  text-align: center;
 }
+
+.product {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+
 /*  商品画像 */
 .product {
   margin-bottom: 40px;
@@ -114,7 +126,8 @@ footer {
 .accordion-container {
    width: 100%;
    max-width: 550px; /* メインコンテナと同じ幅に統一 */
-   margin: 0;/* 左揃えにするためmarginを0に */
+   margin: 0 auto;/* 中央揃えにするためmarginを0に */
+
 }
   
 /* アコーディオン項目ごとのスタイル */
