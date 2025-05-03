@@ -1,277 +1,322 @@
-/* 簡易的なリセットスタイル、Normalize.cssの代用 */ 
-/* ブラウザごとの見た目の違いやスタイルの干渉をなくす役割 */
+/* リセットCSS */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} 
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* ページ全体の内容を指定 */
 body {
-    font-family: 'Arial', sans-serif;/* 優先フォントを指定 */
-    background-color: #FFF9EE; /* オフホワイト */
-    color: #555; /* 文字色をグレーに統一 */
-    text-align: center;  
-} 
-
-/* フッターのスタイル */
-footer {
-  text-align: center;  
-  padding: 20px 0;
-  margin-top: 20px;
+  font-family: 'Arial', sans-serif;
+  background-color: #FFF9EE;
+  color: #3F3F3F;
+  line-height: 1.6;
 }
 
-/* メインコンテンツのスタイル */
-.main-container {
-  width: 100%;
-  max-width: 550px; /* アコーディオンアイテムと同じ幅に統一 */
-  margin: 0 auto;
-  padding: 50px;
+/* ヘッダー */
+
+.header-container {
+  position: sticky;/*　ヘッダーを固定表示 */
+  height: 9vh;/*　画面の高さの9% */
+  display: flex;/*　ヘッダーを横並びに配置 */
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);/*　ヘッダーに立体感を与える */
 }
 
-.title-container {
-  text-align: left;
-  margin-bottom: 20px;
-  width: 100%; /* 幅を100%に設定 */
+.logo img {
+  height: 7vh;/*　ロゴの高さを画面の7%に設定 */
 }
 
+.sns-icons a img {
+  height: 5vh;/*　SNSアイコンの高さを画面の5%に設定 */
+  margin-left: 10px;/*　SNSアイコンの左側に10pxのマージンを設定 */
+}
 
 /* ハンバーガーメニュー */
-.navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: #fff;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
 .menu-toggle {
-    cursor: pointer;
-    width: 30px;
+  display: flex;/*　子要素を自由に配置できる箱を作る*/
+  flex-direction: column;/*　ハンバーガーを作る線をを縦並びに配置 */
+  cursor: pointer;/*　カーソルをポインターゲットに設定 */
+  margin-left: 0.5rem;/*　メニューアイコンの左側にマージンを設定 */ 
+  background: none;
+  border: none;
+  padding: 0.5rem;  /* htmlタグのフォントサイズが基準とした単位rem / 8px相当、しかし画面サイズやユーザー設定に応じて変化 */
 }
+
+
 .menu-toggle span {
-    display: block;
-    height: 3px;
-    background: #333;
-    margin: 5px 0;
+  display: block;
+  width: 2rem;      /* 固定pxよりもremを使う */
+  height: 0.2rem;   /* 細さも比率で */
+  margin-bottom: 0.4rem;
+  background-color: #3F3F3F; /* 線の色を追加 */
 }
 
-.nav-links {
-    display: none;
-    list-style: none;
-    padding: 0;
-}
-.nav-links.active {
-    display: block;
-}
-.nav-links li {
-    margin: 10px 0;
-}
-.nav-links a {
-    text-decoration: none;
-    color: #333;
-}
-
-
-
-
-/* 商品のブロック全体を整える */
-.products {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2列グリッド */
-  gap: 40px; /* 商品の間の余白 */
-  padding: 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-  justify-items: center;
-  text-align: center;
-}
-
-.product {
-  border: 1px solid #eee;
-  border-radius: 12px;
-  padding: 20px;
-  background-color: #fff;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-
-/*  商品画像 */
-.product {
-  margin-bottom: 40px;
-  padding: 0 20px;
-  text-align: center;
-}
-
-/* 商品画像のサイズ調整 */
-.products img {
-  max-width: 100%;     /* 親要素に合わせる */
-  height: auto;        /* 縦横比を保持 */
-  border-radius: 10px; /* 写真の角を丸く（お好み） */
-  margin-bottom: 10px; /* 写真下に余白 */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* 軽い影をつけて高級感 */
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-@media screen and (max-width: 768px) {
-  .products {
-    grid-template-columns: 1fr; /* スマホは1列に */
+/* iPhoneサイズ以下の画面ではハンバーガーの線を細く短くする */
+@media (max-width: 480px) {
+  .menu-toggle span {
+    height: 0.15rem;  /* 小さい画面では少し細く */
+    width: 1.8rem;    /* 少し短く */
+    margin-bottom: 0.3rem;
   }
 }
 
-/* アコーディオン全体のスタイル */
-.accordion-container {
-   width: 100%;
-   max-width: 550px; /* メインコンテナと同じ幅に統一 */
-   margin: 0 auto;/* 中央揃えにするためmarginを0に */
-
-}
-  
-/* アコーディオン項目ごとのスタイル */
-.accordion-item {
-  margin-bottom: 10px;/*各項目の下に余白、適切な間隔を取る */
-  /* 枠線を薄いグレーに設定border: 1px solid #ddd; */
-  border-radius: 5px;/*角を丸くする */
-  overflow: hidden;/*はみ出た内容を非表示にする、アコーディオンメニューが開いた時に内容がはみ出して表示されるのを防ぐ*/
-  width: 100%;/* どのデバイスでもボタンが画面いっぱいに広がる */
-  max-width: 550px;/*幅の最大値を設定、これによPC画面で間伸びしたヘッダーにならない */
-  margin: 0 auto;/*max-width中央揃え*/  
-  padding-top: 10px;
-}
-  
-/* ヘッダー部分（最初から表示されているメニュータイトル）のスタイル */
-.accordion-header {
-  background-color: rgb(83,113,105);/*モスグリーン */
-  color: #FFFEF9;/*文字の色、柔らかい白*/
-  padding: 15px;/*内側の余白を設定、枠と文字の間隔を調整 */
-  cursor: pointer;/* クリック可能にみせる要素。カーソルが要素上にホバーした時の見た目がてのひらマークに。 */
-  font-weight: bold;
-  border-radius: 5px 5px 0 0;/*左上、右上のみ角丸に */
+/* ナビゲーションメニュー */
+.nav-links {
+  display: none; /* 初期状態では非表示 */
+  position: absolute;
+  top: 100%; /* ヘッダーの下に配置 */
+  right: 0;
+  background-color: #F3F0E8;
+  width: 100%;
+  max-width: 250px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 100;
 }
 
-/* ヘッダーホバー時のスタイル */
-.accordion-header:hover {
-  background-color: rgb(49, 70, 70);/* 濃い緑 */
+.nav-links.active {
+  display: block; /* クリック時に表示 */
 }
-  
-/* コンテンツ部分のスタイル */
-.accordion-content {
-  background-color: #FFFEF9;/* 文字の色と同じ、柔らかい白*/ 
-  font-size: 0.9em;
-  border-top: 1px solid #ddd;
-  border: 1px solid #ddd; 
-  max-height: 0;/*最大値の高さを0にする */
-  overflow: hidden;/*はみ出た内容を非表示にする */
-  padding: 0 15px; /* 横方向のパディングは維持 */
-  padding-top: 0;
-  padding-bottom: 0;
-  transition: all 0.5s ease; /* max-heightだけでなくpaddingも含める */
-  width: 100%; /* 幅を100%に設定して親要素いっぱいに広げる */
-  transform-origin: top; /* アニメーションが上から始まるように設定 */
-  margin: 0 auto; /* 中央揃え */
-}/*padding上下を０にすることで①完全に閉じた状態を作る②海兵のコントラストをはっきりさせてアニメーションをはっきり見せる */
+
+.nav-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links ul li {
+  border-bottom: 1px solid #e0dcd0;
+}
+
+.nav-links ul li:last-child {
+  border-bottom: none;
+}
+
+.nav-links ul li a {
+  display: block;
+  padding: 15px 20px;
+  color: #536F69;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.nav-links ul li a:hover {
+  background-color: #e0dcd0;
+}
+
+/* メインビジュアル */
+.main-visual {
+  height: 40vh;/*　メインビジュアルの高さを画面の40%に設定 */
+  position: relative;
+  text-align: center;
+  margin-bottom: 2vh;
+}
+
+
+.main-visual img {
+  width: 100%;
+  height: 40vh; /* 画面の高さの40%  */
+  object-fit: cover; /* 中央を切り取って全体を満たす */
+  object-position: center; /* 中央に配置 */
+}
 
 
 
-.accordion-item.active .accordion-content {
-  min-height: 40px; /* 最小の高さを40pxに設定 */
-  max-height: 1000px;/* コンテンツの最大高さを増やす - 実際のコンテンツより十分大きな値 */
-  padding: 20px;/* パディングを増やして内容を見やすく */
-  line-height: 1.5; /* 行間を広げて読みやすく */
-  margin: 0 auto 10px auto; /* 上・右・下・左のマージン設定（下部に10pxのマージン） */
-}
-  
-/* アイコンの回転アニメーション */
-.accordion-icon {
-  transition: transform 1s ease;
-}
-  
-.accordion-item.active .accordion-icon {
-  transform: rotate(45deg);
+.main-visual h1 {
+  font-family: 'Hiragino Sans', Meiryo, sans-serif;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  background-color: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 5px;
 }
 
-/* アコーディオンヘッダーのプラス/マイナスアイコン */
-.accordion-header::after {
-  content: "+";  /* デフォルトは + */
-  float: right;
-  font-weight: bold;
-  margin-left: 5px;
-  transition: transform 0.3s ease;
-}
-
-/* アクティブ時（開いている時）のアイコン */
-.accordion-item.active .accordion-header::after {
-  content: "-";  /* アクティブ時は - */
-}
-
-/* アクティブ状態のヘッダー背景色 */
-.accordion-item.active .accordion-header {
-  background-color: rgb(38, 55, 55);/* より濃い緑（微妙に変わる） */
-}
-
-/* 特定の行火（Anka）アコーディオンアイテムのスタイル */
-/* 003行火-Anka-のコンテンツを固有のスタイルで装飾 */
-.accordion-content p {
-  margin-bottom: 8px; /* すべての段落に下部マージンを追加 */
-}
-
-/* 行火（Anka）アイテムをIDを使用して選択 */
-#anka-item .accordion-content {
-  width: 100%; /* 幅を100%に設定 */
-  max-width: 550px; /* 最大幅を親要素と同じに */
-}
-
-#anka-item.active .accordion-content {
-  min-height: 100px; /* 高さを増やして十分なスペースを確保 */
-  padding: 20px; /* パディングを増やして内容の周りに余白を追加 */
-  line-height: 1.5; /* 行間をさらに広げる */
-}
-
-/* コンセプト部分のスタイル */
-.accordion-container .concept-item {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    max-height: 700px;
-}
-
-/* コンセプト部分のコンテンツスタイルを修正 */
-.accordion-container .concept-item .accordion-content {
-    /* max-height: none; を削除 - これが問題の原因 */
-    max-height: 0; /* 他のアコーディオンと同様に初期状態は隠す */
-    overflow: hidden;
-    padding: 0 15px;
-    padding-top: 0;
-    padding-bottom: 0;
-    transition: all 0.5s ease;
-    border: 1px solid #ddd;
-    text-align: center; /* 閉じるときも中央揃えにする */
-}
-
-/* コンセプト部分がアクティブ時のスタイル */
-.accordion-container .concept-item.active .accordion-content {
-    max-height: 1000px; /* 十分な高さを確保 */
-    padding: 2em;
-    text-align: center;
-    line-height: 1.8;
-}
-
-.accordion-container .concept-item h2 {
-    margin-bottom: 1.5em;
-    font-size: 1.2em;
-    color: #4a4a4a;
-}
-
-.accordion-container .concept-item p {
-    margin-bottom: 1em;
-}
-  
-footer {
-  max-width: 1000px;
-  margin: 80px auto 0;
+/* スライダー仮スタイル（横並びなどはJSで対応予定） */
+.slider {
+  height: 45vh;/*　スライダーの高さを画面の50%に設定 */
+  display: flex;/*　スライダーを横並びに配置 */
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 20px;
   padding: 20px;
+}
+
+.slide {
+  min-width: 250px;
+  max-height:40vh;
+  flex: 0 0 auto;
   text-align: center;
 }
+
+.slide img {
+  width: 100%;  
+  height: 90%;
+  border-radius: 10px;
+}
+
+/* スマホ用：画面幅が768px(ipad縦)以下 */
+@media screen and (max-width: 768px) {
+  header {
+    height: 8vh;
+  }
+
+  .main-visual {
+    height: 35vh;
+  }
+
+  .product-intro {
+    height: auto; /* 内容が多いときは縦に伸ばす */
+    padding: 20px 0;
+  }
+}
+
+
+/* セクション見出しの統一スタイル */
+.section-title {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3F3F3F;
+  margin: 3rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #3F3F3F;
+  letter-spacing: 0.05em;
+}
+
+
+/* コンセプトセクション */
+.concept {
+  padding: 40px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* 商品一覧セクション */
+.product-list {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.product-list h2 {
+  margin-bottom: 30px;
+}
+
+.product {
+  display: inline-block;
+  width: 45%;
+  margin: 20px;
+  vertical-align: top;
+  text-align: center;
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+}
+
+/* お問い合わせセクション */
+.contact-section {
+  display: flex;
+  flex-direction: row; /* 横並びを明示的に指定 */
+  flex-wrap: nowrap; /* 折り返しなし（スマホでは後でオーバーライド） */
+  gap: 2rem;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.contact-left {
+  flex: 1; /* 比率1（1:2の割合で左側が1） */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 30%; /* 最大幅を30%に制限 */
+  margin-right: 20px; /* 右側に余白を作る */
+}
+
+.contact-icons {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-icons img {
+  width: 32px;
+  height: 32px;
+}
+
+.contact-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #3F3F3F;
+}
+
+.map-container {
+  flex: 2; /* 比率2（1:2の割合で右側が2） */
+  max-width: 65%; /* 最大幅を65%に制限 */
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+  display: block; /* インライン要素の余計な空白を削除 */
+}
+
+/* スマホ対応 */
+@media screen and (max-width: 768px) {
+  .contact-section {
+    flex-direction: column; /* スマホでは縦並び */
+    align-items: center;
+  }
+
+  .contact-left {
+    max-width: 100%; /* スマホでは幅いっぱい */
+    margin-right: 0; /* 右余白をリセット */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .map-container {
+    max-width: 100%; /* スマホでは幅いっぱい */
+    width: 100%;
+  }
+  
+  .map-container iframe {
+    height: 250px;
+    width: 100%;
+  }
+}
+
+/* フッター */
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  background-color: #F3F0E8;
+  font-size: 0.9em;
+}
+
+/* レスポンシブ（スマホ用） */
+@media screen and (max-width: 768px) {
+  .product {
+    width: 90%;
+    margin: 20px auto;
+  }
+
+  .concept, .product-list, .contact {
+    padding: 30px 15px;
+  }
+}
+

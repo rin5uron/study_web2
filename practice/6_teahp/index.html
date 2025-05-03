@@ -2,6 +2,7 @@
 <html lang="ja"><!--　日本語で表示することを宣言 -->
 <head>
     <meta charset="UTF-8"><!--　文字コードをUTF-8（世界標準、あらゆる文字に対応）に設定 -->
+    <!-- デバイスの画面幅に合わせる、初期拡大率100% -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>色物薬膳茶</title>
     <link rel="stylesheet" href="style.css">
@@ -9,127 +10,154 @@
 
 
 <body>
-    <!-- ハンバーガーメニュー -->
-    <nav class="navbar">
-        <div class="menu-toggle" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <!-- メニューリスト -->
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="ingredients.html">原材料一覧</a></li>
-            <li><a href="#contact">お問い合わせ</a></li>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo"><img src="images/logo.jpg" alt="ニコ酒店ロゴ"></div>
+      <div class="sns-icons">
+        <a href="#"><img src="images/icons/mail-light.svg" alt="メール"></a>
+        <a href="#"><img src="images/icons/instagram-light.svg" alt="Instagram"></a>
+        <a href="#"><img src="images/icons/x-light.svg" alt="X"></a>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">
+        <!-- ハンバーガーアイコン -->
+        <span></span><span></span><span></span>
+      </div>
+      <!-- ナビゲーションリンク -->
+      <nav id="nav-links" class="nav-links">
+        <ul>
+          <li><a href="#concept">コンセプト</a></li>
+          <li><a href="#product-list">商品一覧</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
         </ul>
-    </nav>
+      </nav>
+    </div>
+  </header>
 
-  <!-- ヘッダー -->
-  <header class="main-visual">
-    <img src="images/logo.png" alt="ニコ酒店ロゴ" class="logo">
-    <h1>色物薬膳茶</h1>
-    <p class="catchcopy">心と体に、そっと寄り添うお茶。</p>
-</header>
+  <!-- Main Content -->
+  <main>
+    <!-- メインビジュアル -->
+    <section class="main-visual">
+      <img src="images/main-visual.jpg" alt="メインビジュアル">
+      <h1>心と体に、そっと寄り添うお茶</h1>
+    </section>
 
-<!-- 商品一覧 -->
-
-    <h2>商品ラインナップ</h2>
-<section class="products">   
-    <div class="product">
-        <h3>001折衷 - Secchu</h3>
-        <img src="images/secchu.jpg" alt="折衷">
+    <!-- 商品スライダー -->
+    <section class="slider">
+      <div class="slide">
+        <img src="images/001secchu.jpg" alt="001 Secchu">
+        <h2>001 折衷 - Secchu</h2>
         <p>日々のバランスを整える、クセのない優しい味わい。</p>
-    </div>
-    <div class="product">
-        <h3>002緑蔭 - Ryokuin</h3>
-        <img src="images/ryokuin.jpg" alt="緑蔭">
+      </div>
+      <div class="slide">
+        <img src="images/002ryokuin.jpg" alt="002 Ryokuin">
+        <h2>002 緑蔭 - Ryokuin</h2>
         <p>夏の暑さを和らげる、清涼感たっぷりの水出し茶。</p>
-    </div>
-    <div class="product">
-        <h3>003行火 - Anka</h3>
-        <img src="images/anka.jpg" alt="行火">
+      </div>
+      <div class="slide">
+        <img src="images/003anka.jpg" alt="003 Anka">
+        <h2>003 行火 - Anka</h2>
         <p>スパイスの香りで体を芯から温めるチャイブレンド。</p>
-    </div>
-    <div class="product">
-        <h3>004草明-Kusamoe- - Kusamoe</h3>
-            <img src="images/kusamoe.jpg" alt="草明">
+      </div>
+      <div class="slide">
+        <img src="images/004kusamoe.jpg" alt="004 草萌">
+        <h2>004 草萌 - Kusamoe</h2>
         <p>春の高ぶるエネルギーを整える、爽やかなブレンド。</p>
-    </div>
+      </div>
+    </section>
 
-    
-</section>
+    <!-- コンセプト -->
+    <section class="concept" id="concept">
+      <h2 class="section-title">CONCEPT</h2>
+      <h2>心と身体に寄り添う、薬膳茶の贈り物</h2>
 
+      <p>忙しい毎日に、ちょっとした贅沢を。</p>
+      <p>漢方薬剤師であり、薬膳酒バーの店主が</p>
+      <p>四季の移ろいと</p>
+      <p>あなたの心に寄り添うブレンドをお届けします。</p>
 
-<div class="accordion-container">
-    <!-- コンセプト紹介 -->
-    <div class="accordion-item concept-item">
-        <div class="accordion-header">CONCEPT</div>
-        <div class="accordion-content">
-          <h2>心と身体に寄り添う、薬膳茶の贈り物</h2>
-
-          <p>忙しい毎日に、ちょっとした贅沢を。</p>
-          <p>漢方薬剤師であり、薬膳酒バーの店主が</p>
-          <p>四季の移ろいと</p>
-          <p>あなたの心に寄り添うブレンドをお届けします。</p>
-
-          <p>元気が欲しい朝に、考え事をしたい午後に、</p>
-          <p>リラックスしたい夜に...</p>
-          <p>その時々の"ちょっと"を</p>
-          <p>あなたらしく愉しむためのブレンドです。</p>
-
-          
-          <p>大切な人と過ごす時間に、自分へのご褒美に。</p>
-          <p>毎日を彩る、贅沢な一杯をどうぞ。</p>
-        </div>
-    </div><!--class="accordion-item -->
-
-    <!-- アコーディオン項目1 -->
-    <div class="accordion-item">
-    <div class="accordion-header">001折衷-Secchu-</div>
-    <div class="accordion-content">クロモジ・ハニーブッシュ・ナツメ・レモンバーム・桂枝</div>
-    </div><!--class="accordion-item -->
-
-
-    <div class="accordion-item">
-        <div class="accordion-header">002緑蔭-Ryokuin-</div>
-        <div class="accordion-content">蓮の葉・カルダモン・菊・ミント・ローリエ</div>
-    </div><!--class="accordion-item -->
-
-<!-- アコーディオン項目3 -->
-    <div class="accordion-item" id="anka-item">
-<div class="accordion-header">003行火-Anka-</div>
-<div class="accordion-content">
-  <p>紅茶・生姜・シナモン・カルダモン・八角・鶏血藤・クローブ</p>
-  <p>マーガオ・胡椒</p>
-</div>
-        </div><!--class="accordion-item --> 
-
-    <!-- アコーディオン項目2-->
-    <div class="accordion-item">
-        <div class="accordion-header">004草明-Kusamoe-</div>
-        <div class="accordion-content">菊・ネトルリーフ・ペパーミント・ジャスミン茶・甜茶</div>
-    </div><!--class="accordion-item -->
-
-</div><!-- class="accordion-container
+      <p>元気が欲しい朝に、考え事をしたい午後に、</p>
+      <p>リラックスしたい夜に...</p>
+      <p>その時々の"ちょっと"を</p>
+      <p>あなたらしく愉しむためのブレンドです。</p>
       
+      <p>大切な人と過ごす時間に、自分へのご褒美に。</p>
+      <p>毎日を彩る、贅沢な一杯をどうぞ。</p>
+    </section>
 
+    <!-- 商品一覧 -->
+    <section class="product-list" id="product-list">
+      <h2 class="section-title">商品一覧</h2>
+      <div class="product">
+        <img src="images/001secchu.jpg" alt="Secchu">
+        <h3>001折衷 - Secchu</h3>
+        <p>クロモジ・ハニーブッシュ・ナツメ・レモンバーム・桂枝</p>
+        <p>¥1,200（税込）</p>
+      </div>
+      <div class="product">
+        <img src="images/002ryokuin.jpg" alt="Ryokuin">
+        <h3>002 緑蔭 - Ryokuin</h3>
+        <p>蓮の葉・カルダモン・菊・ミント・ローリエ</p>
+        <p>¥1,200（税込）</p>
+      </div>
+      <div class="product">
+        <img src="images/003anka.jpg" alt="Anka">
+        <h3>003 行火 - Anka</h3>
+        <p>紅茶・生姜・シナモン・カルダモン・八角・鶏血藤・クローブ</p>
+        <p>¥1,200（税込）</p>
+      </div>
+      <div class="product">
+        <img src="images/004kusamoe.jpg" alt="Kusamoe">
+        <h3>004 草萌 - Kusamoe</h3>
+        <p>菊・ネトルリーフ・ペパーミント・ジャスミン茶・甜茶</p>
+        <p>¥1,200（税込）</p>
+      </div>
+    </section>
 
+    <!-- お問い合わせ -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">CONTACT/ACCESS</h2>
+        <div class="contact-left">
+            <div class="sns-icons">
+                <a href="#"><img src="images/icons/mail-light.svg" alt="メール"></a>
+                <a href="https://www.instagram.com/nicosaketen" target="_blank"><img src="images/icons/instagram-light.svg" alt="Instagram"></a>
+                <a href="https://x.com/nicosaketen" target="_blank"><img src="images/icons/x-light.svg" alt="X"></a>
+           </div>
+           <div class="contact-text">
+            <p>ニコ酒店
+                <br>東京都江東区高橋11-1 1F
+                <br>清澄白河駅から235m
+            </p>
+            <p>現在は店頭販売のみ。最新情報はInstagramとXをご確認ください。</p>
+      
+           </div>
+       </div>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.6818165654877!2d139.7961031759287!3d35.6848358725861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188900618ae02b%3A0xc4d716f6038010f0!2zTklDT-mFkuW6lw!5e0!3m2!1sja!2sus!4v1746235224649!5m2!1sja!2sus"
+             width="600" height="450" style="border:0;" allowfullscreen="
+             " loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+          
+      
+  </main>
 
+  <!-- フッター -->
+  <footer>
+    <p>&copy; 2025 色物薬膳茶</p>
+  </footer>
 
-<!-- お問い合わせ -->
-<section class="contact" id="contact">
-    <h2>お問い合わせ</h2>
-    <p>現在は店頭販売のみ。ご興味のある方はInstagramのDMよりご連絡ください。</p>
-    <a href="https://www.instagram.com/nicosaketen" target="_blank" class="btn">Instagram</a>
-</section>
-
-<footer>
-    <p>© 2025 色物薬膳茶 / ニコ酒店</p>
-    <p>© 2025 rin5uron</p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+     
 
 

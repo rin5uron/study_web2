@@ -2,64 +2,37 @@
 document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('active');
 });
-// アコーディオンの全ヘッダーを取得
-const accordionHeaders = document.querySelectorAll('.accordion-header');
 
-// 各ヘッダーにイベントリスナーを設定
-accordionHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-        // 現在のアコーディオンアイテムを取得
-        const currentItem = this.parentElement;
-        
-        // 現在のアイテムが開いているかチェック
-        const isCurrentOpen = currentItem.classList.contains('active');
-        
-        // 全てのアコーディオンアイテムを取得して閉じる
-        const allItems = document.querySelectorAll('.accordion-item');
-        allItems.forEach(item => {
-            // アクティブクラスを削除
-            item.classList.remove('active');
-            
-            // アコーディオンコンテンツの高さをリセット
-            const content = item.querySelector('.accordion-content');
-            content.style.maxHeight = null;
-        });
-        
-        // クリックしたアイテムが閉じていた場合のみ開く
-        if (!isCurrentOpen) {
-            // アクティブクラスを追加
-            currentItem.classList.add('active');
-            
-            // コンテンツの高さを設定
-            const content = currentItem.querySelector('.accordion-content');
-            
-            // CONCEPTアイテムの場合は大きめの固定値を設定
-            if (currentItem.classList.contains('concept-item')) {
-                content.style.maxHeight = "600px"; // CONCEPTアイテムには十分な高さを確保
-            } 
-            // 通常のアイテム（001, 002, 003, 004）には統一された高さを設定
-            else {
-                // すべての通常アイテムに統一された高さを設定
-                content.style.maxHeight = "100px"; // 行火アイテムと同じ高さを確保
-            }
-        }
+// スライダー動作
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.slider');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+  
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
     });
-});
-
-// ページ読み込み時にCONCEPT部分を自動的に開く
-window.addEventListener('DOMContentLoaded', function() {
-    // CONCEPT部分のアコーディオンアイテムを取得
-    const conceptItem = document.querySelector('.concept-item');
-    
-    if (conceptItem) {
-        // アクティブクラスを追加
-        conceptItem.classList.add('active');
-        
-        // コンテンツの高さを設定
-        const content = conceptItem.querySelector('.accordion-content');
-        if (content) {
-            // CONCEPTアイテムには大きめの固定値を設定
-            content.style.maxHeight = "600px";
-        }
-    }
-}); 
+  
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+  
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+  
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 3; // スクロール速度
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  });
+  
