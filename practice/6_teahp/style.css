@@ -144,6 +144,7 @@ body {
   display: flex;/*　スライダーを横並びに配置 */
   flex-wrap: nowrap;
   overflow-x: auto;
+  scroll-snap-type: x mandatory;
   gap: 20px;
   padding: 20px;
 }
@@ -153,6 +154,7 @@ body {
   max-height:40vh;
   flex: 0 0 auto;
   text-align: center;
+  scroll-snap-align: center;
 }
 
 .slide img {
@@ -175,6 +177,8 @@ body {
     height: auto; /* 内容が多いときは縦に伸ばす */
     padding: 20px 0;
   }
+  .slider {
+    min-width: 90vw;
 }
 
 
