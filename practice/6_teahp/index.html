@@ -4,8 +4,11 @@
     <meta charset="UTF-8"><!--　文字コードをUTF-8（世界標準、あらゆる文字に対応）に設定 -->
     <!-- デバイスの画面幅に合わせる、初期拡大率100% -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>色物薬膳茶</title>
+    <title>ニコ酒店</title>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho&family=Zen+Old+Mincho&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 
@@ -14,25 +17,35 @@
   <!-- Header -->
   <header>
     <div class="header-container">
-      <div class="logo"><img src="images/logo.jpg" alt="ニコ酒店ロゴ"></div>
-      <div class="sns-icons">
-        <a href="#"><img src="images/icons/mail-light.svg" alt="メール"></a>
-        <a href="#"><img src="images/icons/instagram-light.svg" alt="Instagram"></a>
-        <a href="#"><img src="images/icons/x-light.svg" alt="X"></a>
+        <div class="left-section">
+          <div class="logo">
+            <img src="images/logo.jpg" alt="ニコ酒店ロゴ">
+            <span class="shop-name">ニコ酒店</span>
+          </div>
+        </div>
+      
+        <div class="center-section">
+          <nav id="nav-links" class="nav-links">
+            <ul>
+              <li><a href="#store-concept">お店について</a></li>
+              <li><a href="#product">取扱商品</a></li>
+              <li><a href="#tea">色物薬膳茶</a></li>
+              <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+          </nav>
+        </div>
+      
+        <div class="right-section">
+          <div class="sns-icons">
+            <a href="#"><img src="images/icons/instagram-light.svg" alt="Instagram"></a>
+          </div>
+          <div class="menu-toggle" id="menu-toggle">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
       </div>
-      <div class="menu-toggle" id="menu-toggle">
-        <!-- ハンバーガーアイコン -->
-        <span></span><span></span><span></span>
-      </div>
-      <!-- ナビゲーションリンク -->
-      <nav id="nav-links" class="nav-links">
-        <ul>
-          <li><a href="#concept">コンセプト</a></li>
-          <li><a href="#product-list">商品一覧</a></li>
-          <li><a href="#contact">お問い合わせ</a></li>
-        </ul>
-      </nav>
-    </div>
+      
+      
   </header>
 
   <!-- Main Content -->
@@ -40,80 +53,127 @@
     <!-- メインビジュアル -->
     <section class="main-visual">
       <img src="images/main-visual.jpg" alt="メインビジュアル">
-      <h1>心と体に、そっと寄り添うお茶</h1>
+      <div class="main-visual-text">
+      <p>お酒のセレクトショップ　兼角打ちバー</p>
+      <h1>ニコ酒店</h1>
+      </div>
     </section>
 
-    <!-- 商品スライダー -->
-    <section class="slider">
-      <div class="slide">
+<div class="container">
+<!-- コンセプト-->
+<section class="store-concept">
+<h2 class="section-title">お店について</h2>
+<div class="store-concept-container">
+
+    <div class="section-text">
+
+<p>店内では、こだわりのお酒とともに</p>
+<p>心と体に寄り添う薬膳茶もご用意しています。</p>
+
+<p>「漢方って難しそう」「なんだか特別な人のもの」</p>
+<p>そんな印象をもつ方にも、まずは気軽に味わってほしい。</p>
+
+<p>そんなニコの想いを込めて、一杯をお届けします。</p>
+
+</div>
+  <div class="store-concept-image">
+    <img src="images/shop.jpg" alt="店舗外観の写真">
+  </div>
+</div>
+  </section>
+
+
+
+ <!-- 取扱商品 -->
+    <section class="product">
+    <h2 class="section-title">取扱商品</h2>
+
+
+<p>季節や入荷状況によって随時商品は入れ替えています。</p>
+<p>最新情報は店舗のInstagramでご確認ください。</p>
+<p></p>オンラインショップはこちら</p>
+
+ 
+ 
+   <!-- Swiperスライダーコンテナ -->
+    <div class="swiper-wrapper">
+        <!-- スライド1～4 -->
+      <div class="swiper-slide">
         <img src="images/001secchu.jpg" alt="001 Secchu">
         <h2>001 折衷 - Secchu</h2>
-        <p>日々のバランスを整える、クセのない優しい味わい。</p>
-      </div>
-      <div class="slide">
-        <img src="images/002ryokuin.jpg" alt="002 Ryokuin">
-        <h2>002 緑蔭 - Ryokuin</h2>
-        <p>夏の暑さを和らげる、清涼感たっぷりの水出し茶。</p>
-      </div>
-      <div class="slide">
-        <img src="images/003anka.jpg" alt="003 Anka">
-        <h2>003 行火 - Anka</h2>
-        <p>スパイスの香りで体を芯から温めるチャイブレンド。</p>
-      </div>
-      <div class="slide">
-        <img src="images/004kusamoe.jpg" alt="004 草萌">
-        <h2>004 草萌 - Kusamoe</h2>
-        <p>春の高ぶるエネルギーを整える、爽やかなブレンド。</p>
-      </div>
-    </section>
+      <p>日々のバランスを整える、クセのない優しい味わい。</p>
+    </div>
+    <div class="swiper-slide">
+      <img src="images/002ryokuin.jpg" alt="002 Ryokuin">
+      <h2>002 緑蔭 - Ryokuin</h2>
+      <p>夏の暑さを和らげる、清涼感たっぷりの水出し茶。</p>
+    </div>
+    <div class="swiper-slide">
+      <img src="images/003anka.jpg" alt="003 Anka">
+      <h2>003 行火 - Anka</h2>
+      <p>スパイスの香りで体を芯から温めるチャイブレンド。</p>
+    </div>
+    <div class="swiper-slide">
+      <img src="images/004kusamoe.jpg" alt="004 草萌">
+      <h2>004 草萌 - Kusamoe</h2>
+      <p>春の高ぶるエネルギーを整える、爽やかなブレンド。</p>
+    </div>
+    <!-- 現在位置を示すページネーション（ドット） -->
+    <div class="swiper-pagination"></div>
+    <!-- 前後のナビゲーション矢印ボタン -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+   </div><!-- class="swiper-container" -->
 
-    <!-- コンセプト -->
-    <section class="concept" id="concept">
-      <h2 class="section-title">CONCEPT</h2>
-      <h2>心と身体に寄り添う、薬膳茶の贈り物</h2>
+ </section><!--  class="product" -->
 
-      <p>忙しい毎日に、ちょっとした贅沢を。</p>
-      <p>漢方薬剤師であり、薬膳酒バーの店主が</p>
-      <p>四季の移ろいと</p>
-      <p>あなたの心に寄り添うブレンドをお届けします。</p>
+    <!-- 色物薬膳茶 -->
+<!-- コンセプト -->
+<section class="tea" >
+    <h2 class="section-title">色物薬膳茶</h2>
+    <h2>心と身体に寄り添う薬膳茶</h2>
 
-      <p>元気が欲しい朝に、考え事をしたい午後に、</p>
-      <p>リラックスしたい夜に...</p>
-      <p>その時々の"ちょっと"を</p>
-      <p>あなたらしく愉しむためのブレンドです。</p>
-      
-      <p>大切な人と過ごす時間に、自分へのご褒美に。</p>
-      <p>毎日を彩る、贅沢な一杯をどうぞ。</p>
-    </section>
+    <p>漢方薬剤師であり、薬膳酒バーの店主が</p>
+    <p>四季の移ろいと</p>
+    <p>あなたの心に寄り添うブレンドをお届けします。</p>
 
-    <!-- 商品一覧 -->
-    <section class="product-list" id="product-list">
-      <h2 class="section-title">商品一覧</h2>
-      <div class="product">
+    <p>現在は店舗販売のみ。</p>
+    <p>入荷状況やおすすめの飲み方はInstagramをご覧ください</p>
+ 
+<!-- お茶商品紹介 -->
+    <section class="tea-list" id="tea-list">
+      <div class="tea-item">
         <img src="images/001secchu.jpg" alt="Secchu">
         <h3>001折衷 - Secchu</h3>
+        <p>日々のバランスを整える、クセのない優しい味わい。</p>
         <p>クロモジ・ハニーブッシュ・ナツメ・レモンバーム・桂枝</p>
-        <p>¥1,200（税込）</p>
+        <p>¥750（税込）</p>
       </div>
-      <div class="product">
+      <div class="tea-item">
         <img src="images/002ryokuin.jpg" alt="Ryokuin">
         <h3>002 緑蔭 - Ryokuin</h3>
+        <p>夏の暑さを和らげる、清涼感たっぷりの水出し茶。</p>
         <p>蓮の葉・カルダモン・菊・ミント・ローリエ</p>
-        <p>¥1,200（税込）</p>
+        <p>¥750（税込）</p>
       </div>
-      <div class="product">
+      <div class="tea-item">
         <img src="images/003anka.jpg" alt="Anka">
         <h3>003 行火 - Anka</h3>
+        <p>スパイスの香りで体を芯から温めるチャイブレンド。</p>
         <p>紅茶・生姜・シナモン・カルダモン・八角・鶏血藤・クローブ</p>
-        <p>¥1,200（税込）</p>
+        <p>¥750（税込）</p>
       </div>
-      <div class="product">
+      <div class="tea-item">
         <img src="images/004kusamoe.jpg" alt="Kusamoe">
         <h3>004 草萌 - Kusamoe</h3>
+        <p>春の高ぶるエネルギーを整える、爽やかなブレンド。</p>
         <p>菊・ネトルリーフ・ペパーミント・ジャスミン茶・甜茶</p>
-        <p>¥1,200（税込）</p>
+        <p>¥750（税込）</p>
       </div>
     </section>
+ </section>
+
+
 
     <!-- お問い合わせ -->
     <section class="contact" id="contact">
@@ -140,16 +200,15 @@
              " loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
         </div>
-          
+<div>
       
   </main>
 
   <!-- フッター -->
   <footer>
-    <p>&copy; 2025 色物薬膳茶</p>
+    <p>&copy; 2025 ニコ酒店</p>
   </footer>
-
-  <script src="script.js"></script>
+  <script src="script.js"></script> <!-- Swiperの後に読み込ませることでエラーを防ぐ-->
 </body>
 </html>
 
