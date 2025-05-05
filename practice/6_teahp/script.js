@@ -3,17 +3,45 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('active');
 });
 
-
 // スライダー動作
-  const swiper = new Swiper('.swiper', {
-    loop: true,  // ループ有効
+document.addEventListener('DOMContentLoaded', function() {
+  // スライダー初期化
+  const swiper = new Swiper('.mySwiper', {
+    // 基本設定
+    loop: true,
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    centeredSlides: true,
+    speed: 500, // トランジション速度
+    observer: true, // DOMの変更を監視
+    observeParents: true, // 親要素の変更も監視
+    
+    // ページネーション
     pagination: {
       el: '.swiper-pagination',
-      clickable: true  // ●をクリック可能に
+      clickable: true
     },
+    
+    // ナビゲーション
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
+    },
+    
+    // レスポンシブ設定
+    breakpoints: {
+      // スマホ表示は1枚ずつ
+      0: {
+        slidesPerView: 1,
+      },
+      768: {
+        slidesPerView: 2,
+      }
     }
-    // autoplay（自動再生）は指定していないのでデフォルトで無効
   });
+  
+  // スライド切り替え時の処理（デバッグ用）
+  swiper.on('slideChange', function() {
+    console.log('現在のスライドインデックス:', swiper.realIndex);
+  });
+});
