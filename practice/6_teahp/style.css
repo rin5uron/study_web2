@@ -10,6 +10,7 @@ body {
   background-color: #FFF9EE;
   color: #3F3F3F;
   line-height: 1.6;
+  font-size: 1rem;
 }
 
 /* ヘッダー */
@@ -132,7 +133,7 @@ body {
 
 /* メインビジュアル */
 .main-visual {
-  height: 90vh;/*　メインビジュアルの高さを画面の40%に設定 */
+  height: 85vh;/*　メインビジュアルの高さを画面の40%に設定 */
   width: 100%;
   position: relative;
   text-align: center;
@@ -157,7 +158,7 @@ body {
   color: rgba(255, 255, 255, 0.9);
   font-family: 'Shippori Mincho', serif;
   background: none;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   line-height: 2;
 }
 
@@ -166,35 +167,39 @@ body {
 
 /* メインビジュアル下からフッター上までの統一スタイル*/
 .container {
-  max-width: 80vw;
+  max-width: 1200px;
+  width: 100%;/*　狭い画面でも100%でちぢむ */
   margin: 0 auto;
   padding: 0 5vw;
 }
 
-
 /* セクション見出しの統一スタイル */
-  .section-title {
-    font-family: 'Shippori Mincho', serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #536F69;
-    margin: 3rem 0 1.5rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #536F69;
-    letter-spacing: 0.05em;
-    text-align: left;
-    padding-left: 1vw;
-  }
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #536F69;
+  margin: 4rem 0 2rem; /* 上下の余白を統一：上3rem、下2rem */
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #536F69;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding-left: 1vw;
+}
 
-  /* 段落ごとに改行する */
-  .section-text p {
-    margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #3F3F3F;
-    padding-left: 1vw;
-  }
-  
+/* 段落ごとに改行する */
+.section-text p {
+  margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #3F3F3F;
+  padding-left: 1vw;
+}
+
+.section-text a {
+  color: #141c1a;
+
+}
 
 
 
@@ -208,23 +213,45 @@ body {
 
 
 
+
 .store-concept-container {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start; /* 上揃え（テキストと画像の高さが異なる場合） */
-  gap: 20px;               /* テキストと画像の間隔 */
+  align-items: flex-start;
+  gap: 20px;
+  flex-direction: row;
+  max-width: 100%; /* ← 幅を制限しない */
+  width: 100%;
 }
-.store-concept-text, .store-concept-image {
-  flex: 1; /* 両カラムを均等に配置（各50%程度の幅） */
+
+.store-concept-text {
+  flex: 1;
+  min-width: 280px;
 }
+
+.store-concept-text p {
+  margin-bottom: 1em; /* 好みでpxでもOK：例 margin-bottom: 16px; */
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #3F3F3F;
+    padding-left: 1vw;
+}
+
+.store-concept-image {
+  flex: 1;
+  min-width: 200px;
+  aspect-ratio: 4 / 3; 
+}
+
 
 .store-concept-image img {
   width: 100%;
-  height: 250px;         /* 表示エリアの高さを固定 */
-  object-fit: cover;     /* 比率を保ちつつ、はみ出た部分をトリミング */
-  object-position: top;  /* トリミングの基準を「上」にする */
-  border-radius: 10px;
-  display: block;
+  max-width: 450px;
+  max-height: 40vh;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 5px;
 }
 
 
@@ -241,39 +268,21 @@ body {
 /* .containerの追加要素 */
 .product-container {
   max-height: none;
-  padding: 2rem 0;
+  padding: 0 0 3rem; /* 下部に余白を追加 */
 }
 
   
 
 /* 全体の枠 */
 .swiper-container {
-  max-width: 90vw;
+  max-width: 100%;
+  height: 100%;
   margin: 0 auto;
-  padding: 2rem 0;
   position: relative;
-  overflow: hidden;
-  margin-bottom: 10rem; /* ドット表示分のスペース確保 */
+  padding-bottom: 60px; /* 下部に余白を追加してページネーション用のスペースを確保 */
 }
+  
 
-
-/* Swiper内側の設定 */
-/* .swiper に左右paddingを加える */
-/* カード下にページネーションが独立して出るように */
-.swiper-container {
-    position: relative;
-    padding-bottom: 3rem; /* ページネーションのスペース */
-  }
-
-/* ページネーション（●） */
-/* ページネーションをカード外に独立配置 */
-.swiper-pagination {
-  position: static; /* 絶対配置absoluteをやめる */
-  bottom: 0;
-  margin-top: 1rem;
-  text-align: center;
-  z-index: 1;
-}
 
 .swiper {
   max-width: 100%;
@@ -281,7 +290,19 @@ body {
   padding: 0 2rem; /* 左右に少し余白を持たせて矢印が表示されるように */;
   box-sizing: border-box;
   overflow-x: visible; /* 矢印隠れないように */
+}
 
+
+/* ページネーションをカード外に独立配置 */
+.swiper-pagination {
+  position: absolute;
+  bottom: -40px !important; /* カード下の位置をもっと下に調整 */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+  margin-top: 2rem; /* 余白増加 */
+  margin-bottom: 2rem;
 }
 
 
@@ -313,24 +334,12 @@ body {
 
 /* スライド画像 */
 .swiper-slide img {
-  border-radius: 8px;
+  border-radius: 5px;
   object-fit: cover;
   height: auto;
-  max-height: 200px;
+  max-height: 240px;
   width: 100%;
   margin-bottom: 1rem;
-}
-
-
-
-/* ページネーション（●） */
-/* ページネーションをカード外に独立配置 */
-.swiper-pagination {
-  position: static; /* 絶対配置absoluteをやめる */
-  bottom: 0;
-  margin-top: 1rem;
-  text-align: center;
-  z-index: 1;
 }
 
 
@@ -360,10 +369,9 @@ body {
 .swiper-button-prev,
 .swiper-button-next {
   color: #536F69;
-  /* background: rgba(255, 255, 255, 0.7); */
   border-radius: 50%;
-  width: 40px; /* 少し大きく */
-  height: 40px; /* 少し大きく */
+  width: 30px; /* 少し大きく */
+  height: 30px; /* 少し大きく */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -375,7 +383,7 @@ body {
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.4);
   transform: scale(1.1); /* ホバー時に少し大きく */
 }
 
@@ -409,32 +417,18 @@ body {
   text-align: center;
   transition: transform 0.2s;
   overflow: hidden; /* 画像がはみ出しても枠内 */
-  padding: 5vh 1vw;
+  padding: 3vh 1vw;
 }
-
-
-
-
 .tea-item h3 {
-  margin-bottom: 30px;
-}
-.tea-item img {
-  width: 90%;
-  height: auto;
-  aspect-ratio: 4 / 3; /* ✅ 比率を固定しつつ */
-  object-fit: cover;
-  border-radius: 10px;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  white-space: nowrap; /* 折り返さない */
 }
 
-.tea-item img:hover {
-  transform: scale(1.05);
-}
-
-.tea-description,
-.tea-ingredients {
-  margin: 1rem 0;
-  font-size: 0.95rem;
-  color: #3F3F3F;
+.tea-description {
+  font-size: 0.9rem;
+  max-width: 90%;
+  margin: 0 auto;
 }
 
 .tea-ingredients {
@@ -444,9 +438,59 @@ body {
 }
 
 .tea-price {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 1rem;
   margin-top: auto;
   font-weight: bold;
+  color: #555;
 }
+
+.tea-price .tax {
+  font-size: 0.75em;  /* 価格の0.75倍の大きさに */
+  color: #666;
+}
+
+
+.tea-item img {
+  width: 90%;
+  height: auto;
+  aspect-ratio: 4 / 3; /* ✅ 比率を固定しつつ */
+  object-fit: cover;
+  border-radius: 5px;
+  display: block;
+  margin: 0 auto;
+}
+
+.tea-item img:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+.tea-item h3,
+.tea-description,
+.tea-ingredients,
+.tea-price {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tea-item h3{
+  margin-top: 0.7rem;
+}
+
+.tea-description,
+.tea-ingredients {
+  margin: 0.8rem auto; /* 上下に1remの余白、左右は自動（中央揃え） */
+  color: #3F3F3F;
+}
+
+
+  
+
 
 /* お問い合わせセクション */
 
@@ -529,6 +573,8 @@ footer {
     height: 0.15rem;  /* 小さい画面では少し細く */
     width: 1.8rem;    /* 少し短く */
     margin-bottom: 0.3rem;
+  }
+
 
      /* スライド幅を100%にして余白防止 */
   .swiper-slide {
@@ -551,10 +597,20 @@ footer {
     margin-bottom: 2rem; /* ページネーション分のスペース */
   }
   }
+
+.tea-item h3,
+.tea-description,
+.tea-ingredients {
+  word-break: keep-all;       /* 単語の途中で折り返さない（英語） */
+  overflow-wrap: break-word;  /* 長すぎたら単語ごとに折り返す */
+  white-space: normal;        /* 通常の改行に戻す */
 }
+
+
 
 /* スマホ用：画面幅が768px(ipad縦)以下 */
 @media screen and (max-width: 770px) {
+
   header {
     height: 8vh;
   }
@@ -622,12 +678,42 @@ footer {
     display: flex;
   }
 
-  .main-visual {
-    height: 80vh;
+
+
+  body {
+    font-size: 15px;
   }
 
-  .store-concept {
-    flex-direction: column;
+.section-title {
+    font-size: 1.25rem; /* 約20px */
+  }
+
+.section-text p,
+.store-concept-text p {
+    font-size: 0.95rem; /* 約15.2px */
+  }
+
+.tea-ingredients {
+    font-size: 0.75rem; /* 約12px */
+  }
+
+
+
+  .store-concept-container {
+    flex-direction: column; /* ← スマホでは縦並びに切り替え */
+  }
+
+  .store-concept-text {
+    order: 1;
+  }
+
+  .store-concept-image {
+    order: 2;
+  }
+
+  .store-concept-image img {
+    aspect-ratio: 4 / 3;
+    object-position: center top; /* 必要なら top にしてもOK */
   }
 
   .product-intro {
@@ -635,10 +721,47 @@ footer {
     padding: 20px 0;
   }
 
-  .swiper {
-    min-width: 90vw;
+
+  /* スワイパー */
+/* スマホ幅なら1枚表示 */
+  .swiper-slide {
+    width: 100% !important;  /* 横幅を画面いっぱいに */
+    margin: 0 auto !important; /* 中央寄せ */
   }
 
+  .swiper-wrapper {
+    display: flex;
+    align-items: stretch;
+  }
+
+  .swiper {
+    padding: 0 0 2rem !important; /* ページネーション分 */
+  }
+
+  .swiper-container {
+    padding: 0;
+    margin-bottom: 3rem;
+  }
+
+  .swiper-pagination {
+    position: static !important;
+    margin-top: 1rem;
+  }
+
+  
+  
+.swiper-button-prev,
+.swiper-button-next {
+  width: 3em !important; /* 強制的に小さく */
+  height: 3em !important; /* 強制的に小さく */
+  top: 40% !important; /* 上から40%の位置に配置 */
+  margin-top: 0 !important; /* デフォルトのマージンをリセット */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 1em !important; /* 矢印アイコン自体も小さく */
+} 
   .product {
     width: 90%;
     margin: 20px auto;
@@ -652,13 +775,13 @@ footer {
     padding: 30px 15px;
   }
 
-  .contact-section {
+
+  .contact-container {
     flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
   }
 
   .contact-left {
+    order: 1; /* 先に表示（テキスト） */
     max-width: 100%;
     margin-right: 0;
     align-items: center;
@@ -667,9 +790,11 @@ footer {
   }
 
   .map-container {
+    order: 2; /* 後に表示（地図） */
     max-width: 100%;
     width: 100%;
   }
+
 
   .map-container iframe {
     height: 250px;
@@ -678,14 +803,8 @@ footer {
   
 
 
-.swiper-slide {
-  width: 90% !important; /* 1枚しか表示されないように幅指定 */
-  margin: 0 auto;
-}
 
-.swiper {
-  padding: 0 0 3rem; /* ページネーション分の余白 */
-}
+
 
 
 }

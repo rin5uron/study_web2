@@ -3,6 +3,8 @@ document.getElementById('menu-toggle').addEventListener('click', function() {
     document.getElementById('nav-links').classList.toggle('active');
 });
 
+
+
 // スライダー動作
 document.addEventListener('DOMContentLoaded', function() {
   // スライダー初期化
@@ -33,9 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
       // スマホ表示は1枚ずつ
       0: {
         slidesPerView: 1,
+        spaceBetween: 0,
+        centeredSlides: false // ✅ スマホ時は中央寄せを解除！
       },
       768: {
         slidesPerView: 2,
+        spaceBetween: 20,
+        centeredSlides: true // ✅ デスクトップ時は中央寄せを有効化！
       }
     }
   });
