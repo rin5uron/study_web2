@@ -1,3 +1,55 @@
+## 【2025/05/07】GitHubとローカル連携成功
+
+### 完了したこと ✅
+- 新しいリポジトリをローカル環境とGitHubで連携することに成功
+- リモートリポジトリの確認と削除
+- 新しいリモートリポジトリの設定
+- ファイルの追加とコミット
+- GitHubへのプッシュ
+
+### 学んだこと 📚
+- リモートリポジトリの設定方法について詳しく理解できた
+- トークンをURLに埋め込まない方法のほうが安全で確実
+- 詳細な手順は以下のファイルで確認できます：
+  - [git_study.md](./git_study.md)
+  - [git_use.md](./git_use.md)
+
+### 参考資料 📖
+- [git_github_setup.md](./git_github_setup.md)
+- [github.md](./github.md)
+
+
+### メモ 📌
+- gitとgithubの難しさをようやく実感した
+- githubマニュアルを作ってくれていた師匠に大感謝
+- まだまだ奥深い世界、深掘りしなければいけない
+
+---
+
+## 【2025/05/06】GitHubとローカル連携失敗
+
+### 完了したこと ✅
+- GitHubとローカルの連携を試みるが失敗
+- 様々なエラー対応と原因調査
+- GitHub Desktop活用の検討
+
+### 学んだこと 📚
+- GitHubがパスワード認証を廃止し、トークン認証が必要なこと
+- URLにトークンを埋め込む形式が間違っていたこと
+- 詳細は以下のファイルを参照してください：
+  - [git_study.md](./git_study.md)
+  - [git_use.md](./git_use.md)
+
+### 発生した主なエラー 🐛
+- `fatal: Authentication failed for ...`
+- `error: RPC failed; curl 22 The requested URL returned error: 400`
+- GitHub Desktopに反映されない問題
+
+
+
+
+
+
 ## 【2025/05/04】お茶サイトラフ案完成
 
 ### 完了したこと ✅
