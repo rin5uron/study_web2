@@ -35,7 +35,7 @@
 　　```
 3. **新しいリポジトリのURLを登録する**
    ```bash
-   git remote add origin 新しいリポジトリのURL
+   git remote add origin https://github.com/rin5uron/100y_memento新しいリポジトリのURL
    ```
    - **意味**：このパソコンのフォルダと、GitHubの新しいリポジトリをつなげます。
 
@@ -47,7 +47,7 @@
 
 5. **変更を記録する**
    ```bash
-   git commit -m "最初のコミット"
+   git commit -m "First launch"
    ```
    - **意味**：今の状態を"写真"のように記録します。
      `"最初のコミット"`はメモのようなものなので、好きな言葉に変えてもOK！
