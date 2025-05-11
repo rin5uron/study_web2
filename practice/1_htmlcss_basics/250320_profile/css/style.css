@@ -1,0 +1,344 @@
+/* リセットCSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 全体のスタイル：プロフィール画像に合わせた配色とフォント */
+body {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+a {
+    transition: all 0.3s ease;
+}
+
+/* カラー変数 - パステルカラー */
+:root {
+    --primary-color: #b5c7ed; /* パステルブルー */
+    --secondary-color: #f8c6c6; /* パステルピンク */
+    --bg-light: #f9f9f9;
+    --bg-dark: #333;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* ヘッダーとハンバーガーメニュー */
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.menu-icon {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.menu-icon span:nth-child(1) { top: 0; }
+.menu-icon span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.menu-icon span:nth-child(3) { bottom: 0; }
+
+.menu-items {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+    border-top: 3px solid var(--primary-color);
+}
+
+.menu-items.active {
+    display: block;
+}
+
+.menu-items li {
+    list-style: none;
+    margin: 10px 0;
+}
+
+.menu-items a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    padding: 5px 0;
+    display: block;
+}
+
+.menu-items a:hover {
+    color: var(--primary-color);
+}
+
+/* メインコンテンツ */
+main {
+    min-height: 100vh;
+    padding: 80px 20px 20px;
+}
+
+/* トップページのスタイル */
+.profile {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 100px);
+}
+
+.profile-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 30px;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+    border: 5px solid white;
+}
+
+h1 {
+    font-size: 2.6em;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    letter-spacing: 1px;
+}
+
+.navigation h2 {
+    margin: 20px 0;
+}
+
+.navigation h2 a {
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.3s;
+    padding: 5px 10px;
+}
+
+.navigation h2 a:hover {
+    color: var(--primary-color);
+}
+
+/* Skill & Visionページのスタイル */
+.skill-vision {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skill-vision h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.main-sections {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.skill-section,
+.vision-section {
+    flex: 1;
+    background-color: var(--bg-light);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.skill-section h2,
+.vision-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    font-size: 2em;
+}
+
+.sub-section {
+    margin-bottom: 30px;
+}
+
+/* h3タグを横並びにする */
+.skill-section .sub-section,
+.vision-section .sub-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sub-section h3 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    padding: 10px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.sub-section h4 {
+    color: var(--secondary-color);
+    margin: 20px 0 10px;
+    font-size: 1.2em;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 10px;
+}
+
+.content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+.content ul {
+    list-style-position: inside;
+    margin-left: 20px;
+}
+
+.content ul li {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.content ul li::before {
+    content: "•";
+    color: var(--secondary-color);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+.content p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--bg-light);
+    border-top: 1px solid #eee;
+    color: var(--text-secondary);
+}
+
+/* Privateページのスタイル */
+.private-page {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.private-page h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
+.basic-info-section,
+.favorite-section {
+    flex: 1;
+    background-color: var(--bg-light);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.basic-info-section h2,
+.favorite-section h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    font-size: 2em;
+}
+
+.favorite-list li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dotted #ddd;
+}
+
+.favorite-title {
+    font-weight: bold;
+    color: var(--text-primary);
+}
+
+.favorite-author,
+.favorite-genre {
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* レスポンシブデザイン */
+@media (max-width: 768px) {
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .navigation h2 {
+        font-size: 1.5em;
+    }
+
+    .main-sections {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .skill-section,
+    .vision-section {
+        padding: 20px;
+    }
+
+    .sub-section {
+        margin-bottom: 20px;
+    }
+
+    /* モバイル表示時のh3タグ */
+    .sub-section h3 {
+        min-width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .favorite-list li {
+        flex-direction: column;
+    }
+
+    .favorite-author,
+    .favorite-genre {
+        margin-top: 5px;
+        margin-left: 10px;
+    }
+} 

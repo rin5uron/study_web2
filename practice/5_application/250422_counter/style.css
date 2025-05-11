@@ -1,0 +1,216 @@
+/* 全体のスタイル */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #FAF3E0;
+  color: #555;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+/* キャプション */
+.caption {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 20px;
+  color: #999;
+  font-style: italic;
+}
+
+
+/* タイトル */
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* カウンター */
+.counter-container {
+  margin: 30px 0;
+  margin-bottom: 40px;
+}
+
+#counter {
+  font-size: 80px;
+  font-weight: bold;
+  display: inline-block;
+  background-color: #FFFCF7;
+  width: 150px;
+  height: 150px;
+  line-height: 150px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ボタンコンテナ */
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* アクションボタン共通スタイル */
+.action-btn {
+  display: flex;
+  flex-direction: column; /* 縦並びにする */
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: none;
+  border-radius: 12px;  /* 丸から角丸へ */
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  padding: 10px 20px;
+ }
+
+
+.action-btn:hover {
+  opacity: 0.9;
+}
+
+.action-btn:active {
+  /* transform: scale(0.95); */
+  transition: transform 0.1s ease;
+}
+
+
+/* 記号は小さめに,デフォルトフォントの個体差を軽減 */
+.symbol {
+  font-size: 28px;  /* サイズを大きく */
+  display: inline-block;
+  width: 24px;     /* 幅を大きく */
+  height: 24px;    /* 高さも設定 */
+  text-align: center;
+  line-height: 1;  /* 行の高さを調整 */
+  font-weight: bold; /* 太字に */
+}
+
+
+/* プラスボタンスタイル */
+.plus-btn {
+  background-color: #F4CFC3;
+}
+.plusbtn:active {
+  background-color: #ebc0b3;  /* プラスボタンなら */
+}
+/* マイナスボタンスタイル */
+.minus-btn {
+  background-color: #C9D6DD;
+}
+.minus-btn:active {
+  background-color: #b9c6cd;
+  transform: scale(0.95);
+}
+
+
+.count-animate {
+  animation: pop 0.2s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+
+/* プラス/マイナス記号とカウント表示 */
+#plus, #minus {
+  margin-bottom: 5px;
+}
+#plus, #minus {
+  font-size: 32px;
+  line-height: 1;
+}
+/* 特にマイナス記号の調整 */
+#minus {
+  font-size: 45px; /* マイナス記号をさらに大きく */
+  line-height: 0.5; /* 行の高さを調整 */
+}
+#plusCountDisplay, #minusCountDisplay {
+  font-size: 25px;
+}
+
+/* リセットボタン */
+.reset-btn {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 8px 20px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+  background-color: #f8f8f8;
+}
+
+/* 説明エリア */
+.explanation {
+  background-color: #FFFAF2;
+  border-radius: 20px;
+  padding: 15px 20px;   /* 縦の余白を少し減らす */
+  margin-top: 50px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  margin: 0 auto;   /* 上下の余白＋左右autoで中央寄せ */
+  max-width: 400px;  /* 横幅をカウンターと揃える意識 */
+}
+
+.explanation-item {
+  display: flex;
+  align-items: center;  /* 縦方向の中央揃え */
+  margin-bottom: 10px;
+  justify-content: flex-start;  /* 横方向は左揃えのまま */
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  margin-right: 15px;
+  font-weight: bold;
+  flex-shrink: 0;  /* アイコンのサイズを固定 */
+}
+
+.text {
+  font-size: 14px;
+  line-height: 1.4;  /* 行間を少し調整 */
+  flex: 1;  /* テキストが長い場合の調整 */
+  text-align: left;  /* テキストを左揃えに */
+}
+
+.plus-icon {
+  background-color: #F4CFC3;
+}
+
+.minus-icon {
+  background-color: #C9D6DD;
+}
+
+/* メッセージスタイル */
+
+.message {
+  margin-top: 60px;
+  font-size: 14px;
+  color: #AAA;
+  font-style: italic;
+  text-align: center;
+  border-top: none;
+}

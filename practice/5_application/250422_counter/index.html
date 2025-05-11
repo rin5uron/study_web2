@@ -1,0 +1,62 @@
+<!-- カウンターアプリのHTMLコード -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>きもちメーター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--デザイン原案
+     <h1>今日のほっこりメーター</h1>
+        <span id="counter">0</span>
+        
+    <p>ポジティブ<span id="plus">+</span></p>
+    <p>ネガティブ<span id="minus">-</span></p>
+    <button id="plusbtn">+</button>
+    <button id="minusbtn">-</button>
+    <button id="resetbtn">reset</button> -->
+    <div class="container">
+        <h1>今日のきもちメーター</h1>
+        <p class="caption">
+            今日のきもち、そっと集めてみよう。<br>
+            心が動いたぶんだけ、今のあなたがある。<br>
+        </p>
+        <div class="counter-container">
+            <span id="counter">0</span>
+        </div>
+
+        <div class="buttons-container">
+            <button id="minusbtn" class="action-btn minus-btn">
+                <span class="count-number" id="minusCountDisplay">0</span>
+                <span class="symbol" id="minus">-</span>
+                
+            </button>
+            <button id="plusbtn" class="action-btn plus-btn">
+                <span class="count-number" id="plusCountDisplay">0</span>
+                <span class="symbol" id="plus">+</span>
+                
+            </button>
+        </div>
+        
+        <button id="resetbtn" class="reset-btn">RESET</button>
+
+        <div class="explanation">
+            <p class="explanation-item positive">   
+                <span class="icon plus-icon">＋</span>
+                <span class="text">嬉しかったりほっこりしたこと・ときめきやワクワク</span>
+            </p>
+            <p class="explanation-item negative">
+                <span class="icon minus-icon">−</span>
+                <span class="text">もやもやしたこと・心がぎゅってなったこと</span>
+            </p>
+        </div>
+        
+        <p class="message">今日もおつかれさま。そんなに悪くない1日だったでしょ？</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

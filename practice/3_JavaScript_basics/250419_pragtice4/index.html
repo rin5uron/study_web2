@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM操作の基本</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            color: #333;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #444;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+        .note {
+            background-color: #fffde7;
+            padding: 10px;
+            border-left: 4px solid #ffd600;
+            margin: 20px 0;
+        }
+        .task-image {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .task-images-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .task-images-container img {
+            max-width: 48%;
+        }
+
+        /* シンプル化したカードスタイル */
+        .steps-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .step-card {
+            flex: 1 1 350px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .step-header {
+            padding: 15px;
+            color: white;
+            background-color: #999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .step-number {
+            font-size: 24px;
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .step-title {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .step-body {
+            padding: 20px;
+        }
+        
+        /* 全てのカードで線の位置を揃えるために高さを固定 */
+        .step-explanation {
+            height: 200px; /* より大きい高さに調整 */
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            overflow: visible; /* スクロールなしに変更 */
+        }
+        
+        .step-task {
+            padding: 5px 0;
+        }
+        
+        .task-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #555;
+        }
+        
+        /* 練習問題画像のスタイル */
+        .practice-example {
+            margin: 40px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .practice-example img {
+            width: 100%;
+            display: block;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM操作の基本</h1>
+    
+    <div style="display: flex; gap: 20px; align-items: start;">
+        <div style="flex: 1;">
+            <h2>DOMとは？</h2>
+            <p>DOM（Document Object Model）は、ウェブページを木（ツリー）のような構造で表したもの。
+            <br>PCはHTMLを読み込む時、各要素（タグ）を木の枝のように繋げる。</p>
+            
+            <div class="note">
+                <p>DOMとは<br>JavaScriptでWebページの要素を動かす仕組み</p>
+            </div>
+        </div>
+        <div style="flex: 1;">  
+            <img src="images/whatDOM1.png" alt="DOMの説明画像" style="max-width: 100%; height: auto;">
+        </div>
+    </div>
+
+    <h2>DOM操作の4つのステップ</h2>
+    
+    <div class="steps-container">
+        <!-- ステップ1 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">要素の取得</div>
+            </div>
+            <div class="step-body">
+                <div class="step-explanation">
+                    <p>まずは、ページの中から欲しい要素を見つける。</p>
+                    <div class="example">
+                        <p>例：IDで要素を見つける</p>
+                        <code>let 要素 = document.getElementById("要素のID");</code>
+                    </div>
+                </div>
+                <div class="step-task">
+                    <div class="task-title">練習問題</div>
+                    <img src="images/1.png" alt="「変更ボタン」をJavaScriptで見つけてコンソールに表示" class="task-image">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ステップ2 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">要素の内容変更</div>
+            </div>
+            <div class="step-body">
+                <div class="step-explanation">
+                    <p>見つけた要素の中身（テキスト）を変更する。</p>
+                    <div class="example">
+                        <p>例：テキストを変更する</p>
+                        <code>要素.textContent = "新しいテキスト";</code>
+                    </div>
+                </div>
+                <div class="step-task">
+                    <div class="task-title">練習問題</div>
+                    <img src="images/2.png" alt="「挨拶文」というIDの要素のテキストを変更" class="task-image">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ステップ3 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">スタイルの変更</div>
+            </div>
+            <div class="step-body">
+                <div class="step-explanation">
+                    <p>要素の見た目（色や大きさなど）を変更する。</p>
+                    <div class="example">
+                        <p>例：背景色を変更する</p>
+                        <code>要素.style.backgroundColor = "red";</code>
+                    </div>
+                </div>
+                <div class="step-task">
+                    <div class="task-title">練習問題</div>
+                    <img src="images/3.png" alt="「赤いボックス」というIDの要素の背景色を赤色に変更" class="task-image">
+                </div>
+            </div>
+        </div>
+        
+        <!-- ステップ4 -->
+        <div class="step-card">
+            <div class="step-header">
+                <div class="step-number">4</div>
+                <div class="step-title">要素の追加と削除</div>
+            </div>
+            <div class="step-body">
+                <div class="step-explanation">
+                    <p>要素を新しく作ったり削除する</p>
+                    <div class="example">
+                        <p>例：新しい要素を作成して追加する</p>
+                        <code>
+                            let 新しい要素 = document.createElement("p");<br>
+                            新しい要素.textContent = "新しい段落";<br>
+                            親要素.appendChild(新しい要素);
+                        </code>
+                    </div>
+                </div>
+                <div class="step-task">
+                    <div class="task-title">練習問題</div>
+                    <div class="task-images-container">
+                        <img src="images/4.png" alt="リストに新しい項目を追加">
+                        <img src="images/5.png" alt="「削除対象」というクラスが付いた最初の要素を削除">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="practice-example">
+        <img src="images/ex.png" alt="DOM操作の練習問題例">
+    </div>
+    <footer>
+        <p>© 2025 rin5uron All Rights Reserved.</p>
+    </footer>
+</body>
+</html> 

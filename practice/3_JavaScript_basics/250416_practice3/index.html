@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+<title>JavaScript超基礎</title>
+<!-- 内部CSS -->
+<style>
+    li {
+        margin-bottom: 15px;
+    }
+    li:last-child {
+        margin-bottom: 0;
+    }
+</style>
+</head>
+<!-- 以下CSSはインラインスタイルを適用 -->
+<body style="max-width: 800px; margin: 0 auto; padding: 20px; font-family: sans-serif;">
+    <h1 style="text-align: center;">JavaScript超基礎</h1>
+
+    <div style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; background-color: #f9f9f9; list-style-type: none;">
+        <h2>練習問題3</h2>
+        <ol>
+            <li>りんごの値段を計算するりんごけいさんという関数を作ってください。りんごの個数を入れると、1個100円として合計金額を返します。</li>
+            <li> おやつを選ぶおやつえらびという関数を作ってください。好きな食べ物を入れると「〇〇をおやつに食べます」と返します。</li>
+            <li> 名前と年齢を入れると「〇〇ちゃんは△△歳です」と返すじこしょうかい関数を作ってください。</li>
+            <li> 2つの数字のうち大きい方を返すおおきいほう関数を作ってください。</li>
+            <li> 好きな食べ物を3つ入れると「好きな食べ物は〇〇と△△と□□です」と返すすきなたべもの関数を作ってください。</li>
+        </ol>
+    </div>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 40px;">
+        <div>
+                <h3>JavaScriptコード</h3>
+                <img src="images/js.png" alt="JavaScriptコード" style="max-width: 100%; height: auto;">
+        </div>
+        <div>
+            <h3>実行結果</h3>
+            <img src="images/console.png" alt="コンソール実行結果" style="max-width: 100%; height: auto;">
+        </div>
+    
+
+<script>
+    // ①りんご計算
+    function りんご計算(個数) {
+        return "りんごの値段は" + (個数 * 100) + "円です";
+    }
+    console.log(りんご計算(5));
+
+    // ②おやつ選び
+    function おやつ選び(食べ物) {
+        return "今日はおやつに" + 食べ物 + "を食べます";
+    }
+    console.log(おやつ選び("カステラ"));
+
+    // ③自己紹介
+    function 自己紹介(名前, 年齢) {
+        return 名前 + "ちゃんは" + 年齢 + "歳です";
+    }
+    console.log(自己紹介("しょうこ", 27));
+
+    // ④大きい方
+    function 大きい方(a, b) {
+        if (a > b) {
+            return "大きい数字は" + a + "です";
+        }
+        if (a < b) {
+            return "大きい数字は" + b + "です";
+        }
+        else {
+            return "同じ数字です";
+        }
+    }
+    console.log(大きい方(3, 7));
+
+    // ⑤好きな食べ物
+    function 好きな食べ物(食べ物1, 食べ物2, 食べ物3) {
+        return "好きな食べ物は" + 食べ物1 + "と" + 食べ物2 + "と" + 食べ物3 + "です";
+    }
+    console.log(好きな食べ物("りんご", "みかん", "バナナ"));
+</script>
+
+    
+</body>
+
+</html>

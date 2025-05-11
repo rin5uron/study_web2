@@ -1,0 +1,66 @@
+<!-- カウンターアプリのHTMLコード -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0">
+    <title>むらむら管理カウンター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--デザイン原案
+     <h1>今日のほっこりメーター</h1>
+        <span id="counter">0</span>
+        
+    <p>ポジティブ<span id="plus">+</span></p>
+    <p>ネガティブ<span id="minus">-</span></p>
+    <button id="plusbtn">+</button>
+    <button id="minusbtn">-</button>
+    <button id="resetbtn">reset</button> -->
+    <div class="container">
+        <h1 class="title">むらむら管理カウンター</h1>
+        <p class="caption">0をキープで…あなたも立派な賢者！</p>
+        
+
+        <div class="counter-container">
+            <span id="counter">0</span>
+        </div> 
+        <div class="buttons-container">
+            <button id="minusbtn" class="action-btn minus-btn">
+                <span class="count-number" id="minusCountDisplay">0</span>
+                <span class="symbol" id="minus">-</span>
+                
+            </button>
+            <button id="plusbtn" class="action-btn plus-btn">
+                <span class="count-number" id="plusCountDisplay">0</span>
+                <span class="symbol" id="plus">+</span>
+                
+            </button>
+        </div>
+        
+        <button id="resetbtn" class="reset-btn">RESET</button>
+
+        <div class="explanation">
+            <h2 class="explanation-title">使い方</h2>
+            <div class="explanation-item">
+              <span class="icon plus-icon">+</span>
+              <span class="text">むらむら、えっちなことを考えたら、<strong>ポチッ</strong>&nbsp;</span>
+            </div>
+            <div class="explanation-item">
+              <span class="icon minus-icon">−</span>
+              <span class="text">おなにーしたら、ポチッと<strong>マイナス10カウント！</strong>&nbsp;</span>
+            </div>
+          </div>
+          
+        
+       
+
+        
+        
+        <p class="message">しっかり貯めて、ちゃんと出す。賢くえっちに自己管理しよ？</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
