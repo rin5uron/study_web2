@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>envelop</title>
+</head>
+<body>
+ <h1>css封筒イラストを作る</h1>
+  <p>[概要]</p>
+ <div class="envelope">
+  <div class="line_left"></div>
+  <div class="liner_right"></div>
+  <div class="heart"></div>
+</div>
+
+<style>
+.envelope {
+  position: relative;/*子要素の絶対位置を指定 */
+  width: 200px;/*長方形横 */
+  height: 120px;/*長方形縦 */
+  background-color: rgb(250,241,214);
+  border: 2px solid rgb(247,224,147);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* 左斜めライン */
+.line_left {
+  position: absolute;/*親要素内に配置 */
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  transform: rotate(35deg);
+  transform-origin: top left;
+}
+
+/* 右斜めライン */
+.line_right {
+  position: absolute;/*親要素内に配置 */
+  top: 0;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background-color: white;
+  transform: rotate(-35deg);
+  transform-origin: top right;
+}
+
+/* ❤️ ハート */
+.heart {
+  position: absolute;/*親要素内に配置 */
+  top: 40%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  z-index: 2;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  top: 0;
+  l
+
+</style>
+</body>
+</html>
