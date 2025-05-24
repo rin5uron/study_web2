@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フールプルーフ演習①</title>
+  <style>
+    body { 
+      font-family: sans-serif;
+      padding: 20px;
+      display: flex;
+  height: 100vh; /* ビューポート全体の高さを使用 */
+  margin: 0;
+    }
+    input, button { 
+      margin: 10px; 
+      padding: 5px; 
+    }
+    #message { 
+      color: rgb(0, 242, 255); 
+    }
+    .input { 
+      width: 500px; 
+    }
+    .input-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .input, button {
+      display: block;
+      margin: 0 auto;
+    }
+    /* セクションのスタイル */
+    .section {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    
+    /* 学んだことセクション */
+    .learned {
+      margin-bottom: 20px;
+    }
+    
+    /* メインコンテナ */
+    .main-container {
+      display: flex;
+      gap: 20px;
+    }
+    
+    /* 左側：演習内容と学んだこと */
+    .left-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    /* 右側：コード解説 */
+    .right-side {
+      flex: 1;
+    }
+    
+    /* 演習内容とコード解説 */
+    .exercise, .code-explanation {
+      flex: 1;
+    }
+    
+    h3 {
+      margin-top: 0;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+<div class="input-container">
+  <input type="number" id="ageInput" class="input" placeholder="あなたの年齢を半角数字で入力" oninput="convertToHalfWidth(this)">
+  <button onclick="checkAge()">送信</button>
+</div>
+
+<p id="message">ここにあなたの年齢が表示されます</p>
+
+<div class="main-container">
+  <!-- 左側：演習内容と学んだこと -->
+  <div class="left-side">
+    <!-- 演習内容セクション -->
+    <div class="section exercise">
+      <h3>【演習内容】</h3>
+      <p>⭐️入力ミスのチェック</p>
+      <ul>
+        <li>入力欄に年齢を入力して送信ボタンを押すと、「あなたの年齢は　歳です」と表示される関数を作る</li>
+        <li>空欄、数字以外、０歳以下、100歳以上の場合は、「有効な年齢を入力してください」と表示される</li>
+        <li>全角数字を半角数字に変換する関数を作る</li>
+        <li>全角数字が入力された場合は、「全角数字が入力されました。半角数字に変換します。」と表示される</li>
+        <li>１００歳以上の場合「ご長寿ですね！」と表示される</li>
+      </ul>
+    </div>
+
+    <!-- 学んだことセクション -->
+    <div class="section learned">
+      <h3>【学んだこと】</h3>
+      <ul>
+        <li>inputタグでブラウザに自動で入力欄が表示される</li>
+        <li>||はorを表す論理演算子</li>
+        <li>&&はかつ、両方ともを表す論理演算子</li>
+        <li>JavaScriptの ! は「否定（not）」を表す演算子</li>
+        <li>ボタンタグを設定するとinputとbutton2つはインライン要素なので、通常のHTMLのルールに従い左から右に横並びになる</li>
+        <li>isNaN関数について：
+          <ul>
+            <li>「Not a Number（数字じゃない）」かどうかをチェックする関数</li>
+            <li>is（〜かどうか） + NaN（数字じゃない） → 「これは数字か否か」を判定する</li>
+          </ul>
+        </li>
+        <li>全角数字と半角数字について：
+          <ul>
+            <li>全角数字「１２３４５」を半角数字「12345」に変換できる</li>
+            <li>String.fromCharCode()とcharCodeAt()を使って文字コード操作ができる</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 右側：コード解説 -->
+  <div class="right-side">
+    <div class="section code-explanation">
+      <h3>【コード解説】</h3>
+      <h4>HTML</h4>
+      <ul>
+        <li>head内のstyleタグでCSS要素を設定</li>
+        <li>inputタグでブラウザに自動で入力欄が表示させる</li>
+        <li>inputタグ内に以下を設定
+          <ul>
+            <li>入力欄の設定（typeで数字のみの表示、placeholderで入力欄内の文字）</li>
+            <li>idとclassの設定</li>
+            <li>oninput="convertToHalfWidth(this)"で入力欄に入力された文字を半角数字に変換する関数を設定</li>
+          </ul>
+        </li>
+        <li>クリックしたらcheckAge()関数が実行されるように設定</li>
+        <li>pタグで表示されるメッセージを設定</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<img src="https://i.imgur.com/1234567890.png" alt="フールプルーフ演習①">
+
+<script>
+    // 全角数字を半角数字に変換する関数
+    function convertToHalfWidth(input) {
+        const fullWidthValue = input.value;
+        // 全角数字が含まれているかをチェック
+        const fullWidthPattern = /[０-９]/g;
+        
+        // 全角数字が含まれている場合のみ変換を実行
+        if (fullWidthPattern.test(fullWidthValue)) {
+            // 全角数字を半角に変換
+            const halfWidthValue = fullWidthValue.replace(fullWidthPattern, function(s) {
+                return String.fromCharCode(s.charCodeAt(0) - 0xFEE0);
+            });
+            
+            // 変換結果をinputに設定し、アラートを表示
+            alert('全角数字が入力されました。半角数字に変換します。');
+            input.value = halfWidthValue;
+            
+            // 変換後に即時チェックを実行
+            checkAge();
+        }
+    }
+
+    function checkAge() {
+        const ageInput = document.getElementById('ageInput');
+        const age = Number(ageInput.value);
+        const message = document.getElementById('message');
+
+        // 入力チェック
+        if (!ageInput.value || isNaN(age)) {
+          message.textContent = '有効な年齢を入力してください。';
+        } 
+        else if (age <= 0) {
+          message.textContent = 'あなたはまだ生まれていません。';
+        }
+        else if (age > 0 && age <= 15) {
+          message.textContent = `あなたの年齢は ${age} 歳です。たくさんの経験と勉強を大切にしましょう！`;
+        }
+        else if (age >= 16 && age <= 18) {
+          message.textContent = `あなたの年齢は ${age} 歳です。大人か子どもが絶妙な時期ですね。`;
+        }
+        else if (age >= 19 && age <= 26) {
+          message.textContent = `あなたの年齢は ${age} 歳です。あなたはもう良い大人ですよ。`;
+        }
+        else if (age >= 27 && age <= 35) {
+          message.textContent = `あなたの年齢は ${age} 歳です。人生で一番輝ける時期です。`;
+        }
+        else if (age >= 36 && age <= 50) {
+          message.textContent = `あなたの年齢は ${age} 歳です。お肌のケアに差が出ます。`;
+        }
+        else if (age >= 51 && age <= 64) {
+          message.textContent = `あなたの年齢は ${age} 歳です。定年なんてまだまだです。`;
+        } 
+        else if (age >= 65 && age <= 74) {
+          message.textContent = `あなたの年齢は ${age} 歳です。元気に輝くシニアを目指しましょう！`;
+        }
+        else if (age >= 75 && age <= 84) {
+          message.textContent = `あなたの年齢は ${age} 歳です。後期高齢者なんて言われたら言い返してやりましょう。`;
+        }
+        else if (age >= 85 && age <= 99) {
+          message.textContent = `あなたの年齢は ${age} 歳です。可愛いおじいちゃんおばあちゃんでいましょう。`;
+        }
+        else if (age >= 100) {
+          message.textContent = `あなたの年齢は ${age} 歳です。ご長寿ですね。`;
+        }
+        else {
+          message.textContent = `あなたの年齢は ${age} 歳です。`;
+        }
+    }
+</script>
+</body>
+</html>
