@@ -268,7 +268,7 @@ HTML、CSS、JavaScriptの基礎を、実践的な例を通じて学んでいき
 - [② プロフィールカード](#-プロフィールカード)
 - [① 自己紹介ページ](#-自己紹介ページ)
 
-# 12 CSSでイラストを描く
+# 13 CSSでイラストを描く
 ## 完成画像
 <img src="practice/3_JavaScript_basics/250420_practice5/images/screen_1.png" width="500" alt="JavaScript超基礎５の結果1">
 <img src="practice/3_JavaScript_basics/250420_practice5/images/screen_2.png" width="500" alt="JavaScript超基礎５の結果2">
@@ -283,11 +283,40 @@ HTML、CSS、JavaScriptの基礎を、実践的な例を通じて学んでいき
 CSSでイラストを描くイメージを掴む為、簡単な図形でイラストを描きました。chat GPTにサンプルコードを作成してもらい、自分で調整しました。gptが完全なコードを書くことは難しく苦戦した部分も多かった。
 
 ## 学んだこと
-- イベントリスナーの基本形（.getElementBy_,addEventListener）
-- 基本要素の使い方（.textcontent,input,value,confirm,.preventDefault();,createElement,appendChild();,location.href = this.href;）
-- マウスイベント（mouseenter,mouseleave）
-- CSSのtransform-originプロパティ（基準の設定、要素の設定）
-- Flexboxの配置プロパティ（align-items:start/flex-end）
+- 
+# 12 フールプルーフの実装
+## 完成画像
+<img src="practice/6_JavaScript_advanced/foolproof_1/images/image1.png" width="500" alt="完成画面">
+<img src="practice/6_JavaScript_advanced/foolproof_1/images/code.png" width="500" alt="JavaScriptコード">
+
+
+## 完成リンク
+[![フールプルーフ演習①](https://study-web-y9ua.vercel.app/)]
+
+## 完成日
+2025/05/25
+
+## 概要
+ ITパスポートで「フールプルーフ」という用語を学び、実際にJavaScriptで実装して理解を深めました。
+ChatGPTにサンプルコードを作ってもらい、コードの分析とデザインの調整を自分で行いました。
+学んだ内容はHTML内にまとめ、振り返りやすく可視化しています。
+
+また、「リファクタリング」という用語も学んだため、Cursor AIを活用してコードの整理や改善をしました。
+用語理解から実装・記録・改善まで、一連の学習として取り組んだ演習です。
+
+
+
+## 学んだこと
+- 完成ページ参照
+- 全角数字を半角数字に直す関数
+ - 完全なコード理解はできていないので、学習が進んだらまた振り返りたい
+ - `<input type="number">` を指定していたため、コードが実行されないエラーが出た→`<input type="text">`を指定している 
+- レスポンシブルデザイン
+ - スマホでは縦並び、入力欄をスマホでも使いやすくするデザインにした
+
+ ## 次の課題
+- フールプルーフの他パターンの実装
+- スマホだと文字の入力と送信ボタンを押す際にズームされてしまうので、演習２の課題としたい
 
 # ⑪ JavaScript超基礎５：イベントリスナー
 
