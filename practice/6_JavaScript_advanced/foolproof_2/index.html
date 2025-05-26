@@ -10,8 +10,16 @@
       padding: 100px 20px;
       color: rgb(74 74, 74);
       background-color: rgb(244, 241, 226);
-    }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 0 20px;
+}
 
+.container {
+  margin: 0; /* 中央にするので不要 */
+}
     button {
       padding: 15px 30px;
       font-size: 1.2em;
@@ -34,15 +42,36 @@
     #message {  
       margin-top: 30px;
     }
+
+    @media (max-width: 768px) {
+    body {
+    padding-top: 30px; /* ← 100px を縮める！ */
+    }
+
+    .container {
+      margin-top: 30vh;
+    }
+
+    #message {
+    font-size: 1.4em;
+    }
+
+    button {
+    font-size: 1.2em;
+    padding: 12px 24px;
+    }
+    }
+
   </style>
 </head>
 
 
 <body>
+ <div class="container">
   <p>私のこと、好き？</p>
   <button onclick="askLove()">YES</button>
   <p id="message"></p>
-
+</div>
   <script>
     function askLove() {
       const msg = document.getElementById("message");
@@ -59,9 +88,8 @@
       const really2 = confirm("ほんとにほんと？");
       if (really2) {
         msg.textContent = "私も大好きだよ♡";
-        msg.style.color = "rgb(206, 106, 118)";
-        msg.style.fontSize = "2em";
-
+        msg.className = "happy";
+        
       } else {
         msg.textContent = "きらーい！！！！！！";
         msg.className = "angry";
