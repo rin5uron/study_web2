@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フールプルーフ演習②</title>
+  <style>
+    body {
+      font-family: Noto Sans JP, sans-serif;
+      text-align: center;
+      padding: 100px 20px;
+      color: rgb(74 74, 74);
+      background-color: rgb(244, 241, 226);
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 8px;
+      background-color: rgb(234, 195, 186);
+      cursor: pointer;
+    }
+    
+    .happy {
+      color: rgb(206, 106, 118);
+      font-size: 2em;
+      font-weight: bold;
+    }
+    
+    .angry {
+      color: rgb(142, 164, 181);
+    }
+    
+    #message {  
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+
+<body>
+  <p>私のこと、好き？</p>
+  <button onclick="askLove()">YES</button>
+  <p id="message"></p>
+
+  <script>
+    function askLove() {
+      const msg = document.getElementById("message");
+
+      const really = confirm("え、、ほんとに好き？");
+      if (!really) {
+      msg.textContent = "なんでよーーーーーーー！";
+      msg.className = "angry";
+      msg.style.fontSize = "1.5em";
+      return; // ここで終了（次の confirm に行かない！）
+    }
+
+
+      const really2 = confirm("ほんとにほんと？");
+      if (really2) {
+        msg.textContent = "私も大好きだよ♡";
+        msg.style.color = "rgb(206, 106, 118)";
+        msg.style.fontSize = "2em";
+
+      } else {
+        msg.textContent = "きらーい！！！！！！";
+        msg.className = "angry";
+        msg.style.fontSize = "2em";
+        msg.style.fontWeight = "bold";
+      }
+    }
+
+    
+
+  </script>
+
+</body>
+</html>
