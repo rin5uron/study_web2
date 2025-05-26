@@ -284,14 +284,67 @@ CSSでイラストを描くイメージを掴む為、簡単な図形でイラ�
 
 ## 学んだこと
 - 
-# 12 フールプルーフの実装
+# 12 フールプルーフの実装②
+## 完成画像
+<img src="practice/6_JavaScript_advanced/foolproof_2/images/image1.png" width="500" alt="完成画面">
+
+
+
+## 完成リンク
+[[フールプルーフ演習②](https://study-web-foolproof.vercel.app)]
+
+## 完成日
+2025/05/26
+
+# 概要  
+フールプルーフ演習①に続き、演習②では `confirm()` を活用したインタラクションを実装。  
+ユーザーの反応に応じてメッセージとスタイルを切り替え、「フールプルーフ＋感情UI」の応用練習とした。  
+さらにレスポンシブ対応、Vercelの運用制限にも直面し、実践的な学びが詰まった演習となった。
+
+---
+
+## ✅ 学んだこと  
+- `confirm()`, `return`, `!（否定）` を使った分岐処理の理解  
+- スクリプト内での `if/else` による条件分岐とスタイル操作  
+- `clamp()` でフォントサイズの最小・最大・推奨値を柔軟に指定する方法  
+- レスポンシブデザインの工夫  
+  - `vw`（画面幅に応じた文字サイズ）と `em`（相対サイズ）の使い分け  
+  - スマホ時の `white-space: nowrap` による改行防止  
+- スタイルの適用方法  
+  - `className` による切り替えよりも、`script` で直接 `style` を指定したほうが確実な場合もある
+
+---
+
+## 🐞 エラー・調整とその解決  
+
+- **スマホで文字が小さく見える**  
+  → `font-size: clamp(1.2em, 2.5vw, 2em);` で柔軟に調整  
+
+- **メッセージが改行されてしまう**  
+  → `white-space: nowrap;` を適用して防止  
+
+- **クラス指定が反映されない**  
+  → `msg.className = 'angry'` が効かない場面では `msg.style.color` など直接指定へ切り替え  
+
+- **Vercelで新規デプロイできない**  
+  → Gitリポジトリごとのプロジェクト接続数が「10件制限」に達していた  
+  → 使用していないプロジェクトを削除し、制限を解除して再デプロイに成功  
+
+---
+
+
+ ## 次の課題
+- レスポンシブルデザインを意識したサイト作り経験を増やす
+- スマホだとボタンの文字が青化けするエラーが出る、色は特に直接指定していく
+
+# 12 フールプルーフの実装①
 ## 完成画像
 <img src="practice/6_JavaScript_advanced/foolproof_1/images/image1.png" width="500" alt="完成画面">
 <img src="practice/6_JavaScript_advanced/foolproof_1/images/code.png" width="500" alt="JavaScriptコード">
 
 
 ## 完成リンク
-[![フールプルーフ演習①](https://study-web-y9ua.vercel.app/)]
+[[フールプルーフ演習①](https://study-web-y9ua.vercel.app/)]
 
 ## 完成日
 2025/05/25
