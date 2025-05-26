@@ -15,6 +15,7 @@
   align-items: center;
   height: 100vh;
   padding: 0 10vw;
+  width: 100vw;
 }
 
 .container {
@@ -53,6 +54,8 @@
 
     .container {
       margin-top: 20vh;
+      font-size: 10vw;
+      
     }
 
     #message {
@@ -82,7 +85,7 @@
       const really = confirm("え、、ほんとに好き？");
       if (!really) {
       msg.textContent = "なんでよーーーーーーー！";
-      msg.className = "angry";
+      msg.style.color = "rgb(142, 164, 181)";
       msg.style.fontSize = "2.5vw";
       return; // ここで終了（次の confirm に行かない！）
     }
@@ -94,8 +97,8 @@
         msg.className = "happy";
         
       } else {
-        msg.textContent = "きらーい！！！！！！";
-        msg.className = "angry";
+        msg.textContent = "きらーい！！！！";
+        msg.style.color = "rgb(142, 164, 181)";
         msg.style.fontSize = "3vw";
         msg.style.fontWeight = "bold";
       }
