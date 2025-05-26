@@ -14,15 +14,18 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 0 20px;
+  padding: 0 10vw;
 }
 
 .container {
   margin: 0; /* 中央にするので不要 */
+  font-size: 1.5vw;
 }
+
+
     button {
-      padding: 15px 30px;
-      font-size: 1.2em;
+      padding: 1vw 2vw;
+      font-size: 2vw;
       border: none;
       border-radius: 8px;
       background-color: rgb(234, 195, 186);
@@ -31,7 +34,7 @@
     
     .happy {
       color: rgb(206, 106, 118);
-      font-size: 2em;
+      font-size: 3vw;
       font-weight: bold;
     }
     
@@ -49,7 +52,7 @@
     }
 
     .container {
-      margin-top: 30vh;
+      margin-top: 20vh;
     }
 
     #message {
@@ -80,7 +83,7 @@
       if (!really) {
       msg.textContent = "なんでよーーーーーーー！";
       msg.className = "angry";
-      msg.style.fontSize = "1.5em";
+      msg.style.fontSize = "2.5vw";
       return; // ここで終了（次の confirm に行かない！）
     }
 
@@ -93,7 +96,7 @@
       } else {
         msg.textContent = "きらーい！！！！！！";
         msg.className = "angry";
-        msg.style.fontSize = "2em";
+        msg.style.fontSize = "3vw";
         msg.style.fontWeight = "bold";
       }
     }
