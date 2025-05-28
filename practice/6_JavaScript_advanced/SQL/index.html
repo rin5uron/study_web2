@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>パスワード入力フォームとSQLインジェクション対策</title>
+</head>
+<body>
+  <h2>ログインフォーム</h2>
+  <form id="loginForm">
+    <label for="username">ユーザー名：</label>
+    <input type="text" id="username" name="username" required />
+    <br><br>
+    <label for="password">パスワード：</label>
+    <input type="password" id="password" name="password" required />
+    <br><br>
+    <button type="submit">ログイン</button>
+  </form>
+
+  <p id="message"></p>
+
+  <script>
+    const form = document.getElementById('loginForm');
+    const message = document.getElementById('message');
+
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // フォームの送信を止める、ページリロードされてコンソールが見えなくならないように指定
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+
+  // 入力確認（開発用）
+  console.log('ユーザー名:', username);
+  console.log('パスワード:', password);
+
+  // ログイン判定
+  if (username === 'admin' && password === '1234') {
+    message.textContent = '♡';
+    message.style.color = 'green';
+  } else {
+    message.textContent = 'ユーザー名またはパスワードが違います';
+    message.style.color = 'red';
+  }
+});
+
+// SQLインジェクション対策
+const dangerousChars = ["'", '"', ";", "--", "=", " OR "];
+
+for (let char of dangerousChars) {
+  if (username.includes(char) || password.includes(char)) {
+    message.innerHTML = `
+      🚨 ハッキングしようとしましたね？<br>
+      （例：' OR '1'='1 のような命令文は使えません）`;
+      message.innerHTML = `
+  🚫 このサイトをハッキングしようとしましたか？<br>
+  セキュリティは甘くないですよ…👀`;
+  message.innerHTML = `
+  ⚠️ 『' OR '1'='1』は攻撃コードです！<br>
+  安全な入力をお願いします♡`;
+
+    message.style.color = "crimson";
+    return;
+  }
+}
+
+  </script>
+</body>
+</html>

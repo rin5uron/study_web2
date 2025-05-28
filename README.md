@@ -256,54 +256,145 @@ HTML、CSS、JavaScriptの基礎を、実践的な例を通じて学んでいき
 # 🎯 このリポジトリで作成した演習・制作物
 
 ## 制作物一覧
-- [⑪ JavaScript超基礎５：イベントリスナー](#-javascript超基礎５イベントリスナー)
-- [⑩ JavaScript超基礎４：DOM操作](#-javascript超基礎４dom操作)
-- [⑨ 1/1-12/31までの日付ループ](#-11231までの日付ループ)
-- [⑧ JavaScript超基礎３：関数](#-javascript超基礎３関数)
-- [⑦ JavaScript超基礎２：条件分岐とループ](#-javascript超基礎２条件分岐とループ)
-- [⑥ JavaScript超基礎１：変数とデータ型](#-javascript超基礎１変数とデータ型)
-- [⑤ アコーディオンメニュー基礎](#-アコーディオンメニュー基礎)
-- [④ アコーディオンメニュー超基礎](#-アコーディオンメニュー超基礎)
-- [③ プロフィールカード（アコーディオン機能つき）](#-プロフィールカードアコーディオン機能付)
-- [② プロフィールカード](#-プロフィールカード)
-- [① 自己紹介ページ](#-自己紹介ページ)
+- [⑮ CSSでイラストを描く](#⑮-cssでイラストを描く)
+- [⑭ パスワード入力フォームとSQLインジェクション](#⑭-パスワード入力フォームとsqlインジェクション)
+- [⑬ RSS・WEB監視ツールの実践](#⑬-rssweb監視ツールの実践)
+- [⑫ フールプルーフの実装②](#⑫-フールプルーフの実装②)
+- [⑪ フールプルーフの実装①](#⑪-フールプルーフの実装①)
+- [⑩ JavaScript超基礎５：イベントリスナー](#⑩-javascript超基礎５イベントリスナー)
+- [⑨ JavaScript超基礎４：DOM操作](#⑨-javascript超基礎４dom操作)
+- [⑧ 1/1-12/31までの日付ループ](#⑧-11231までの日付ループ)
+- [⑦ JavaScript超基礎３：関数](#⑦-javascript超基礎３関数)
+- [⑥ JavaScript超基礎２：条件分岐とループ](#⑥-javascript超基礎２条件分岐とループ)
+- [⑤ JavaScript超基礎１：変数とデータ型](#⑤-javascript超基礎１変数とデータ型)
+- [④ アコーディオンメニュー基礎](#④-アコーディオンメニュー基礎)
+- [③ アコーディオンメニュー超基礎](#③-アコーディオンメニュー超基礎)
+- [② プロフィールカード（アコーディオン機能つき）](#②-プロフィールカードアコーディオン機能付)
+- [① プロフィールカード](#①-プロフィールカード)
+- [⓪ 自己紹介ページ](#⓪-自己紹介ページ)
 
-# 13 CSSでイラストを描く
+<br>
+<br>
+
+## ⑮ CSSでイラストを描く
+
 ## 完成画像
-<img src="practice/3_JavaScript_basics/250420_practice5/images/screen_1.png" width="500" alt="JavaScript超基礎５の結果1">
-<img src="practice/3_JavaScript_basics/250420_practice5/images/screen_2.png" width="500" alt="JavaScript超基礎５の結果2">
+<img src="practice/6_JavaScript_advanced/CSS_illustration/images/screen_1.png" width="500" alt="CSS イラスト完成画面">
 
 ## 完成動画
-[![JavaScript超基礎５：イベントリスナー](https://img.youtube.com/vi/caBhAIJgAyQ/0.jpg)](https://youtu.be/caBhAIJgAyQ)
+[![CSSでイラストを描く](https://img.youtube.com/vi/placeholder/0.jpg)](https://youtu.be/placeholder)
 
 ## 完成日
 2025/05/22
 
 ## 概要
-CSSでイラストを描くイメージを掴む為、簡単な図形でイラストを描きました。chat GPTにサンプルコードを作成してもらい、自分で調整しました。gptが完全なコードを書くことは難しく苦戦した部分も多かった。
+CSSでイラストを描くイメージを掴む為、簡単な図形でイラストを描きました。ChatGPTにサンプルコードを作成してもらい、自分で調整しました。GPTが完全なコードを書くことは難しく苦戦した部分も多かったです。
 
 ## 学んだこと
-- 
-# 12 フールプルーフの実装②
+- CSSの図形作成（border-radius、transform等）
+- 複数の要素を組み合わせたイラスト制作
+- position（absolute、relative）を使った要素配置
+- ChatGPTとの協働開発の限界と活用方法
+
+## 次の課題
+- より複雑なイラストの制作
+- アニメーション効果の追加
+- SVGとの使い分けの理解
+
+<br>
+<br>
+
+## ⑭ パスワード入力フォームとSQLインジェクション
+
+## 完成画像
+<img src="practice/6_JavaScript_advanced/SQL/images/image1.png" width="500" alt="パスワード入力フォーム完成画面">
+
+## 完成リンク
+[サイバー攻撃体験フォーム](https://study-web-foolproof.vercel.app)
+
+## 完成日
+2025/05/27
+
+## 概要
+HTMLフォームとJavaScriptを使ったログイン認証システムを実装しました。フォームからの入力値取得、条件分岐による認証処理、SQLインジェクション対策の基礎を学びました。
+
+## 学んだこと
+- HTMLフォームの基本構造（form、label、input、button）
+- JavaScriptでの入力値取得（getElementById().value）
+- 厳密な比較演算子（===）と論理積（&&）の使用
+- event.preventDefault()によるフォーム送信の制御
+- SQLインジェクション攻撃の概念と基本的な対策
+
+## 次の課題
+- より高度なバリデーション機能の実装
+- セキュリティ対策の強化
+- データベース連携の学習
+
+<br>
+<br>
+
+## ⑬ RSS・WEB監視ツールの実践
+## 完成画像  
+<br>
+RSSリーダーFeedlyを使って、IT系ニュースの各サイトの更新情報をRSSで取得
+<img src="practice/images/feedly.png" width="500" alt="feedly">
+
+<br>
+<br>
+WEB監視ツールVisualping
+<img src="practice/images/Visualping.png" width="500" alt="Visualping">  
+
+
+## 実践日
+2025/05/28
+
+## 概要  
+ITパスポートでイメージしづらく、なかなか頭に入ってこなかった「RSS」について、実際に使ってみることで理解を深めた。  
+Feedlyを使って、IT系ニュースの各サイトの更新情報をRSSで取得できるようにした。
+また、RSS非対応のサイトでは、WEB監視ツールVisualpingを使って更新情報が追えるように登録できることが分かった。
+
+## 学んだこと
+
+- **RSSとは**  
+  Webサイトの更新情報（記事・ニュースなど）をまとめて取得できる仕組み。  
+  Really Simple Syndicationの略。
+
+- **RSSの活用事例**  
+  - ブログやニュースサイトの更新チェック  
+  - 勉強ネタの収集（Qiita・Zennなど）  
+  - 好きなアーティストやパチンコ情報の追跡
+
+- **Feedlyの使い方と注意点**  
+  - 無料でも複数のサイトをまとめてチェックできる  
+  - キーワードでのフォローはProプラン限定  
+  - タグやカテゴリのRSSを使うことで代替可能
+
+- **更新＝記事とは限らない！**
+  - Visualping や Distill.io を使えば、Webページの**デザインや構成変更**も監視できる  
+  - RSS非対応サイトの更新を「見た目の変化」で追跡することが可能
+
+[RSSまとめノート](memo/memo_study.md#rssまとめノート)
+
+<br>
+<br>
+
+## ⑫ フールプルーフ実装２
+
 ## 完成画像
 <img src="practice/6_JavaScript_advanced/foolproof_2/images/image1.png" width="500" alt="完成画面">
 
-
-
 ## 完成リンク
-[[フールプルーフ演習②](https://study-web-foolproof.vercel.app)]
+[フールプルーフ演習②](https://study-web-foolproof.vercel.app)
 
 ## 完成日
 2025/05/26
 
-# 概要  
+## 概要  
 フールプルーフ演習①に続き、演習②では `confirm()` を活用したインタラクションを実装。  
 ユーザーの反応に応じてメッセージとスタイルを切り替え、「フールプルーフ＋感情UI」の応用練習とした。  
 さらにレスポンシブ対応、Vercelの運用制限にも直面し、実践的な学びが詰まった演習となった。
 
----
-
-## ✅ 学んだこと  
+## 学んだこと  
 - `confirm()`, `return`, `!（否定）` を使った分岐処理の理解  
 - スクリプト内での `if/else` による条件分岐とスタイル操作  
 - `clamp()` でフォントサイズの最小・最大・推奨値を柔軟に指定する方法  
@@ -313,9 +404,7 @@ CSSでイラストを描くイメージを掴む為、簡単な図形でイラ�
 - スタイルの適用方法  
   - `className` による切り替えよりも、`script` で直接 `style` を指定したほうが確実な場合もある
 
----
-
-## 🐞 エラー・調整とその解決  
+## エラー・調整とその解決  
 
 - **スマホで文字が小さく見える**  
   → `font-size: clamp(1.2em, 2.5vw, 2em);` で柔軟に調整  
@@ -330,34 +419,32 @@ CSSでイラストを描くイメージを掴む為、簡単な図形でイラ�
   → Gitリポジトリごとのプロジェクト接続数が「10件制限」に達していた  
   → 使用していないプロジェクトを削除し、制限を解除して再デプロイに成功  
 
----
-
-
- ## 次の課題
+## 次の課題
 - レスポンシブルデザインを意識したサイト作り経験を増やす
 - スマホだとボタンの文字が青化けするエラーが出る、色は特に直接指定していく
 
-# 12 フールプルーフの実装①
+<br>
+<br>
+
+## ⑪ フールプルーフ実装１
+
 ## 完成画像
 <img src="practice/6_JavaScript_advanced/foolproof_1/images/image1.png" width="500" alt="完成画面">
 <img src="practice/6_JavaScript_advanced/foolproof_1/images/code.png" width="500" alt="JavaScriptコード">
 
-
 ## 完成リンク
-[[フールプルーフ演習①](https://study-web-y9ua.vercel.app/)]
+[フールプルーフ演習①](https://study-web-y9ua.vercel.app/)
 
 ## 完成日
 2025/05/25
 
 ## 概要
- ITパスポートで「フールプルーフ」という用語を学び、実際にJavaScriptで実装して理解を深めました。
+ITパスポートで「フールプルーフ」という用語を学び、実際にJavaScriptで実装して理解を深めました。
 ChatGPTにサンプルコードを作ってもらい、コードの分析とデザインの調整を自分で行いました。
 学んだ内容はHTML内にまとめ、振り返りやすく可視化しています。
 
 また、「リファクタリング」という用語も学んだため、Cursor AIを活用してコードの整理や改善をしました。
 用語理解から実装・記録・改善まで、一連の学習として取り組んだ演習です。
-
-
 
 ## 学んだこと
 - 完成ページ参照
@@ -367,11 +454,14 @@ ChatGPTにサンプルコードを作ってもらい、コードの分析とデ�
 - レスポンシブルデザイン
  - スマホでは縦並び、入力欄をスマホでも使いやすくするデザインにした
 
- ## 次の課題
+## 次の課題
 - フールプルーフの他パターンの実装
 - スマホだと文字の入力と送信ボタンを押す際にズームされてしまうので、演習２の課題としたい
 
-# ⑪ JavaScript超基礎５：イベントリスナー
+<br>
+<br>
+
+## ⑩ JavaScript超基礎５：イベントリスナー
 
 ## 完成画像
 <img src="practice/3_JavaScript_basics/250420_practice5/images/screen_1.png" width="500" alt="JavaScript超基礎５の結果1">
@@ -393,7 +483,10 @@ ChatGPTにサンプルコードを作ってもらい、コードの分析とデ�
 - CSSのtransform-originプロパティ（基準の設定、要素の設定）
 - Flexboxの配置プロパティ（align-items:start/flex-end）
 
-# ⑩ JavaScript超基礎４：DOM操作
+<br>
+<br>
+
+## ⑨ JavaScript超基礎４：DOM操作
 
 ## 完成画像
 ![DOM操作の基本](practice/3_JavaScript_basics/250419_pragtice4/images/dom.png)
@@ -411,16 +504,15 @@ DOM操作について具体的なイメージを持つことが難しかった�
 - DOM操作の基本的コード例
 - WEBページを作ることによるサイト構造の理解
 
+<br>
+<br>
 
-
-
-# ⑨1/1-12/31までの日付ループ
+## ⑧ 1/1-12/31までの日付ループ
 
 ## 完成画像
 ![学んだこと](practice/4_JavaScript0/images/readme/study.png)
 ![1/1-12/31までの日付ループ実装手順](practice/4_JavaScript0/images/readme/process.png)
 ![JavaScriptのプログラミング概念理解](practice/4_JavaScript0/images/readme/programing.png)
-
 
 ## 完成日
 2025/04/16
@@ -436,10 +528,17 @@ DOM操作について具体的なイメージを持つことが難しかった�
 - 量をこなす
 - JavaScriptの他の使い方を知る
 
-# ⑧ JavaScript超基礎３：関数
-## 完成画像
+<br>
+<br>
 
+## ⑦ JavaScript超基礎３：関数
+
+## 完成画像
 ![実行結果](practice/3_JavaScript_basics/250416_practice3/images/result.png)
+
+## 完成日
+2025/04/16
+
 ## 概要
 JavaScript関数の超基礎概念を、初めて学習する小学生でもわかるような教材を設定して学びました。
 
@@ -450,8 +549,10 @@ JavaScript関数の超基礎概念を、初めて学習する小学生でもわ�
 - returnの概念
 - if文
 
+<br>
+<br>
 
-# ⑦JavaScript超基礎２：条件分岐とループ
+## ⑥ JavaScript超基礎２：条件分岐とループ
 
 ## 完成画像
 ![JavaScriptコード](practice/3_JavaScript_basics/250415_practice2/images/code.png)
@@ -475,12 +576,12 @@ if文、switch文、forループを使った演習に取り組みました。
 ## 気付き
 - cursorAIに演習の復習問題をチャット上で作成してもらい取り組むことで、繰り返し自分の手でコードを書いたり内容をより深めることができた。
 
-# ⑥JavaScript超基礎１：変数とデータ型
+<br>
+<br>
 
-
+## ⑤ JavaScript超基礎１：変数とデータ型
 
 ## 完成画像
-
 ![JavaScript練習問題1の結果](practice/3_JavaScript_basics/250413_practice1/images/screen.png)
 ![JavaScript練習問題1の結果](practice/3_JavaScript_basics/250413_practice1/images/screen_2.png)
 ![JavaScript練習問題1の結果](practice/3_JavaScript_basics/250413_practice1/images/html_3.png)
@@ -500,7 +601,6 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 ## 課題のポイント
 内容に合わせて出力ドキュメントを考えることで、ファイル構造の理解を深めました。
 
-
 ## 学んだこと
 - JavaScriptのデータを作るにはまず箱（変数）が必要
   - 変数宣言をする（constは定数、letは変更可能な変数）
@@ -515,7 +615,10 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
   - キーと値のペアでデータを構造化
   - ドット記法でプロパティにアクセス
 
-# ⑤アコーディオンメニュー基礎
+<br>
+<br>
+
+## ④ アコーディオンメニュー基礎
 
 ## 完成動画
 [![アコーディオンメニュー基礎](https://img.youtube.com/vi/2L8PWjsRZwg/0.jpg)](https://youtu.be/2L8PWjsRZwg)
@@ -544,7 +647,10 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 - 配置を指定するCSS
 - Chrome検証の活用方法
 
-# ④アコーディオンメニュー超基礎
+<br>
+<br>
+
+## ③ アコーディオンメニュー超基礎
 
 ## 完成動画
 [![アコーディオンメニュー超基礎](https://img.youtube.com/vi/k-gIOcAkGHA/0.jpg)](https://youtu.be/k-gIOcAkGHA)
@@ -577,10 +683,14 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 - アコーディオンメニューの基本的実装方法を習得
 - CSSでページスタイルをより整えたい
 
-# ③プロフィールカード（アコーディオン機能付）
+<br>
+<br>
+
+## ② プロフィールカード（アコーディオン機能付）
 
 ## 完成画面
 ![プロフィールカード完成画像](1_htmlcss_basics/images/htmlcss/2025-04-06-profile-card2.png)
+
 ## 完成動画
 [![プロフィールカード制作動画](https://img.youtube.com/vi/LPq7vMcZVgk/0.jpg)](https://youtu.be/LPq7vMcZVgk?si=EF6AmjeNDsuDH2Pw)
 
@@ -597,10 +707,14 @@ JavaScriptの基礎として、変数の宣言と使用方法を学ぶ練習問�
 - CSSファイルの内容をまだ理解しきれていない
 - JavaScriptは一歩ずつ丁寧に学習を進める
 
-# ②プロフィールカード
+<br>
+<br>
+
+## ① プロフィールカード
 
 ## 完成画面
 ![プロフィールカード完成画像](1_htmlcss_basics/images/htmlcss/2025-04-06-profile-card.png)
+
 ## 完成動画
 [![CSS基礎学習参考動画](https://img.youtube.com/vi/5D8aXo7Ercc/0.jpg)](https://www.youtube.com/watch?v=5D8aXo7Ercc&list=PL18g9jZxVBO-8CnOLo_pGHu5MSDs1V-KV)
 
@@ -620,7 +734,10 @@ CSSを使ってプロフィールカードを作成しました。背景色や�
 - CSSファイルの内容を理解しきれていない
 - ガイドラインが揃っていない
 
-# ①自己紹介ページ
+<br>
+<br>
+
+## ⓪ 自己紹介ページ
 
 ## 完成画面
 ![自己紹介ページ完成画像](practice/1_htmlcss_basics/images/htmlcss/2025-03-25-self-intro.png)
@@ -636,7 +753,7 @@ HTMLを使って自己紹介ページを作成しました。基本的なHTMLタ
 - セマンティックタグ（header、main、section、footer）
 - リストの作成（ul、ol、li）
 - リストマーカーの非表示方法（list-style-type: none）
-- リンクの作成方法（aタグ）  
+- リンクの作成方法（aタグ）
 
 
 
