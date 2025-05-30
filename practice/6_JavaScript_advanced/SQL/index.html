@@ -3,9 +3,189 @@
 <head>
   <meta charset="UTF-8" />
   <title>パスワード入力フォームとSQLインジェクション対策</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background-color: #FFF9F2;
+      color: #555; /* わずかにグレーな文字色 */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1.7;
+    }
+
+    form {
+      background-color: #FFF9F2;
+      padding: 2em;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      margin: 2em auto;
+    }
+    /* フォーム・テーブル */
+  form, .instructions {
+  background-color: #FFF9F2;
+  color: #555; /* 全体文字色 */
+}
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+   
+    button {  
+      background-color: #B8D8BA;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    button:hover {
+      background-color: #add6af;
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .instructions {
+      background-color: #FFF9F2;
+      border-radius: 15px;
+      padding: 2em;
+      margin: 2em auto;
+      width: 90%;
+      max-width: 700px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    /* コードタグ */
+.instructions .SQL-text code {
+  background-color: #FFE5B4; /* 薄いオレンジ背景 */
+  padding: 0.3em 0.5em;
+  border-radius: 5px;
+  cursor: pointer; /* 手のアイコンに */
+  transition: background-color 0.3s;
+  color: #555;
+  text-decoration: none; /* 下線なし */
+}
+
+/* ホバー時 */
+.instructions code:hover {
+  background-color: #FFD1A4; /* 濃くなる */
+}
+.instructions code::after {
+  content: ' copy';
+  font-size: 0.7em;
+  color: #aaa;
+}
+
+
+    .instructions h3 {
+      font-weight: bold;
+      border-bottom: 2px solid #B9D8BA;
+      display: inline-block;
+      padding-bottom: 0.3em;
+      margin-bottom: 0; /* ← 余白詰めた！ */
+    }
+
+    .attack-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1.5em;
+      font-size: 1em;
+    }
+
+    /* テーブル */
+.attack-table th {
+  font-size: 0.9em; /* 小さくする */
+  padding: 0.5em; /* 高さも詰める */
+  background-color: #f8f8f8; /* ほんのり灰色ベース */
+  color: #555;
+}
+
+
+.attack-table th, .attack-table td {
+  border: 1px solid #ccc; /* 薄いグレー */
+  padding: 0.8em;
+  text-align: center;
+}
+
+/* コード */
+.attack-table td code {
+  background: transparent; /* 背景なし */
+  padding: 0.2em 0.4em;
+  border-radius: 5px;
+  color: #555; /* 文字と同じ色 */
+}
+
+/* コピーエリアを横並びに */
+.copy-area {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+/* コピー用コードブロック */
+.code-block {
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: 'Courier New', monospace;
+  position: relative;
+  flex: 1;
+}
+
+/* コピーボタン */
+.copy-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: #F4C7AB;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+thead {
+  background-color: #cbdccc;
+  font-size: 0.8em;
+}
+
+    
+
+    .SQL-text {
+      margin-top: 2em;
+    }
+
+    @media (max-width: 600px) {
+      input {
+        width: 100%;
+        padding: 0.8em;
+        box-sizing: border-box;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <h2>ログインフォーム</h2>
+  
   <form id="loginForm">
     <label for="username">ユーザー名：</label>
     <input type="text" id="username" name="username" required />
@@ -14,54 +194,182 @@
     <input type="password" id="password" name="password" required />
     <br><br>
     <button type="submit">ログイン</button>
+    <p id="message"></p>
   </form>
 
-  <p id="message"></p>
+  <section class="instructions">
+    <div class="instructions-text">
+      <h2>入力フォームからこのサイトを攻撃してみよう！</h2>
+      <p>このフォームは「入力による攻撃」を体験できるセキュリティ学習ページです。<br>
+      以下の入力内容を試して、フォームの反応を確認してみてください。
+      <br>
+      <p>SQLインジェクションとXSSの２つの攻撃手法を用います。(詳しくは下部ページを参照)</p>
+      
+    </div>  
+
+    <div class="SQL-text">
+      <h3>Let's try！</h3>
+      <p>①<code>' OR '1'='1</code>または<code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code>の文字列を含んだ任意のハッキングコードを作る<br>
+         ②ログインフォームに入力する<br>
+      </p>
+    
+
+  <p>◉ログインIDは<code id="loginID">hack_me</code>です。パスワードは<code id="loginPass">loginok</code>です。
+    <br>◉この他にも下の表の文字列を使い、さまざまなパターンで攻撃を仕掛けてみてください<br>
+ </p>
+</div>
+
+    <div class="SQL-text">
+      <h3>攻撃手法と使われる文字列</h3>
+      <table class="attack-table">
+        <thead>
+          <tr>
+            <th>攻撃手法</th>
+            <th>コード例</th>
+            <th>説明</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="6">SQLi</td>
+            <td><code>'</code></td>
+            <td>文字列を強制終了し、SQL文を壊す</td>
+          </tr>
+          <tr>
+            <td><code>"</code></td>
+            <td>ダブルクォート版。上と同様</td>
+          </tr>
+          <tr>
+            <td><code>;</code></td>
+            <td>新しいSQL文を挿入できる</td>
+          </tr>
+          <tr>
+            <td><code>--</code></td>
+            <td>後続のSQLコードをコメントアウトして無効化</td>
+          </tr>
+          <tr>
+            <td><code>=</code></td>
+            <td>値を比較してログイン突破を狙う</td>
+          </tr>
+          <tr>
+            <td><code>' OR '1'='1</code></td>
+            <td>常にtrueになる条件を作りログイン突破</td>
+          </tr>
+          <tr>
+            <td rowspan="4">XSS</td>
+            <td><code>&lt;script&gt;alert('XSS')&lt;/script&gt;</code></td>
+            <td>スクリプトを実行。アラートを表示</td>
+          </tr>
+          <tr>
+            <td><code>&lt;img src="x" onerror="alert(1)"&gt;</code></td>
+            <td>画像エラー時にスクリプトを実行</td>
+          </tr>
+          <tr>
+            <td><code>onload=</code></td>
+            <td>HTML要素読み込み時にスクリプト実行</td>
+          </tr>
+          <tr>
+            <td><code>"&gt;</code></td>
+            <td>HTML属性を切り上げスクリプト挿入</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
 
   <script>
-    const form = document.getElementById('loginForm');
-    const message = document.getElementById('message');
+    // ページ読み込み完了後に実行
+    document.addEventListener('DOMContentLoaded', function() {
+      
+      // コピー対象コードボタン
+      document.querySelectorAll('.copy-btn').forEach(button => {
+        button.addEventListener('click', () => {
+          const code = button.nextElementSibling.textContent;
+          navigator.clipboard.writeText(code).then(() => {
+            alert("コピーしました！");
+          }).catch(err => {
+            console.error('コピーに失敗しました:', err);
+            alert("コピーに失敗しました。手動でコピーしてください。");
+          });
+        });
+      });
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault(); // フォームの送信を止める、ページリロードされてコンソールが見えなくならないように指定
+      // ID・パスワードコピー用（codeタグ全体）
+      document.querySelectorAll('code').forEach(codeTag => {
+        codeTag.addEventListener('click', () => {
+          const text = codeTag.textContent.trim();
+          navigator.clipboard.writeText(text).then(() => {
+            alert(`「${text}」をコピーしました！`);
+          }).catch(err => {
+            console.error('コピーに失敗しました:', err);
+            // フォールバック: テキストを選択状態にする
+            const range = document.createRange();
+            range.selectNodeContents(codeTag);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            alert("手動でCtrl+C（Mac: Cmd+C）でコピーしてください");
+          });
+        });
+      });
 
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
+      // ログインフォーム設定
+      const form = document.getElementById('loginForm');
+      const message = document.getElementById('message');
 
+      form.addEventListener('submit', function(event) {
+        event.preventDefault(); // フォームの送信を止める
 
-  // 入力確認（開発用）
-  console.log('ユーザー名:', username);
-  console.log('パスワード:', password);
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-  // ログイン判定
-  if (username === 'admin' && password === '1234') {
-    message.textContent = '♡';
-    message.style.color = 'green';
-  } else {
-    message.textContent = 'ユーザー名またはパスワードが違います';
-    message.style.color = 'red';
-  }
-});
+        // 入力確認（開発用）
+        console.log('ユーザー名:', username);
+        console.log('パスワード:', password);
 
-// SQLインジェクション対策
-const dangerousChars = ["'", '"', ";", "--", "=", " OR "];
+        // SQLインジェクション対策
+        const dangerousChars = ["'", '"', ";", "--", "=", " OR "];
+        let isSQLAttack = false;
+        
+        for (let char of dangerousChars) {
+          if (username.includes(char) || password.includes(char)) {
+            isSQLAttack = true;
+            if (username.includes("' OR '1'='1") || password.includes("' OR '1'='1")) {
+              message.innerHTML = `
+                ⚠️ 『' OR '1'='1』は攻撃コードです！<br>
+                安全な入力をお願いします♡`;
+            } else {
+              message.innerHTML = `
+                🚫 このサイトをハッキングしようとしましたか？<br>
+                セキュリティは甘くないですよ…👀`;
+            }
+            message.style.color = "crimson";
+            return;
+          }
+        }
 
-for (let char of dangerousChars) {
-  if (username.includes(char) || password.includes(char)) {
-    message.innerHTML = `
-      🚨 ハッキングしようとしましたね？<br>
-      （例：' OR '1'='1 のような命令文は使えません）`;
-      message.innerHTML = `
-  🚫 このサイトをハッキングしようとしましたか？<br>
-  セキュリティは甘くないですよ…👀`;
-  message.innerHTML = `
-  ⚠️ 『' OR '1'='1』は攻撃コードです！<br>
-  安全な入力をお願いします♡`;
+        // XSS検出
+        const dangerousXSS = ["<", ">", "script", "onload", "onerror"];
+        for (let tag of dangerousXSS) {
+          if (username.includes(tag) || password.includes(tag)) {
+            message.textContent = "⚠️ クロスサイトスクリプティングが検出されました（XSS攻撃の可能性）";
+            message.style.color = "crimson";
+            return;
+          }
+        }
 
-    message.style.color = "crimson";
-    return;
-  }
-}
+        // ログイン判定
+        if (username === 'hack_me' && password === 'loginok') {
+          message.textContent = '♡ ログイン成功！';
+          message.style.color = 'green';
+        } else {
+          message.textContent = 'ユーザー名またはパスワードが違います';
+          message.style.color = 'red';
+        }
+      });
+
+    }); // DOMContentLoaded終了
 
   </script>
 </body>
