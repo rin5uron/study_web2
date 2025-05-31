@@ -5,6 +5,26 @@
 - SQLインジェクションとXSSを応用した入力フォームの作成
 
 ## 学んだこと 📚
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 全部中央揃え！ */
+}
+で全体センター寄せ
+
+### 今日学んだ用語 📖
+- **SQL（Structured Query Language）**：データベースを操作するための言語
+- **SQLインジェクション**：入力フォームを悪用してデータベースに不正なSQL文を送り込む攻撃手法
+- **XSS（Cross-Site Scripting）**：Webサイトに悪意のあるスクリプトを埋め込む攻撃手法
+
+
+# 【2025/05/28】RSS・WEB監視ツールの実践とセキュリティ学習
+
+## 完了したこと ✅
+- RSSリーダーを使ってRSSを取得
+- SQLインジェクションとXSSを応用した入力フォームの作成
+
+## 学んだこと 📚
 
 ### 今日学んだ用語 📖
 - **SQL（Structured Query Language）**：データベースを操作するための言語
