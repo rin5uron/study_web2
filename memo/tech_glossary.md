@@ -341,3 +341,136 @@ Macショートカットに新しい項目を追加する場合：
 - フールプルーフ → 全角数字なら変換・不正入力は警告
 
 ---
+
+# CSSでカラーチャートを作る方法（完全版）
+
+## ✅ 1. そもそも、なぜカラーチャートを作るのか？
+
+* デザインの統一感を出せる
+* 保守・変更が楽（後から色をまとめて変えられる）
+* ダークモード／ライトモードの切り替えがしやすくなる
+* コーディングのミス防止（同じ色を繰り返しコピペしない）
+
+---
+
+## ✅ 2. \:rootにカラーチャートを宣言する
+
+* `:root` はHTML全体に対するグローバルスコープ。
+* `--変数名: 値;` という形でカスタムプロパティ（CSS変数）を定義する。
+
+```css
+:root {
+  --primary-bg: #111111;        /* ベース背景色 */
+  --text-color: #CCCCCC;         /* 通常テキスト色 */
+  --button-bg: #00FF88;          /* ボタン色 */
+  --button-hover: #00CC6A;       /* ボタンホバー色 */
+  --input-hover: #1F1F1F;        /* 入力欄ホバー */
+  --code-bg: #1F1F1F;            /* コード背景色 */
+  --code-hover: #2A2A2A;         /* コードホバー */
+  --border-color: #333333;       /* 通常ボーダー */
+  --border-accent: #00FF88;      /* アクセントボーダー */
+}
+```
+
+---
+
+## ✅ 3. 宣言したカラーチャートを使う
+
+* `var(--変数名)` で呼び出して使うだけ！
+
+```css
+body {
+  background-color: var(--primary-bg);
+  color: var(--text-color);
+}
+button {
+  background-color: var(--button-bg);
+}
+button:hover {
+  background-color: var(--button-hover);
+}
+code {
+  background-color: var(--code-bg);
+}
+```
+
+---
+
+## ✅ 4. カラーチャート設計のコツ
+
+* 【ベースカラー】
+
+  * 背景、ボディ全体の色
+* 【テキストカラー】
+
+  * 通常文字、サブ文字、リンクなど
+* 【アクセントカラー】
+
+  * ボタン、強調表示、リンクホバー
+* 【ホバーカラー】
+
+  * マウスオーバーした時の色
+* 【コード／ボーダーカラー】
+
+  * コードブロック、境界線、入力欄など
+
+---
+
+## ✅ 5. ライトモード／ダークモード切り替え（応用）
+
+* `@media (prefers-color-scheme: dark)` を使うと、ダークモードに合わせて色を変更できる！
+
+```css
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-bg: #000000;
+    --text-color: #FFFFFF;
+    --button-bg: #1E90FF;
+    --button-hover: #1C86EE;
+  }
+}
+```
+
+---
+
+## ✅ 6. サンプルカラーチャート
+
+### 🎨 ライトテーマ
+
+```css
+:root {
+  --primary-bg: #FFF9F2;
+  --text-color: #555;
+  --button-bg: #B8D8BA;
+  --button-hover: #C8E6CA;
+  --input-hover: #E8F4EA;
+  --code-bg: #FFE5B4;
+  --code-hover: #FFD1A4;
+  --border-color: #bbb;
+  --border-accent: #B9D8BA;
+}
+```
+
+### 🌙 ダークテーマ
+
+```css
+:root {
+  --primary-bg: #111111;
+  --text-color: #CCCCCC;
+  --button-bg: #00FF88;
+  --button-hover: #00CC6A;
+  --input-hover: #1F1F1F;
+  --code-bg: #1F1F1F;
+  --code-hover: #2A2A2A;
+  --border-color: #333333;
+  --border-accent: #00FF88;
+}
+```
+
+---
+
+## ✅ 7. まとめ
+
+* \:rootに色を定義して、`var(--変数名)`で呼び出すだけ！
+* テーマ切り替えやリファクタリングも簡単！
+* **カラーチャートはサイト設計の基盤**になる！
