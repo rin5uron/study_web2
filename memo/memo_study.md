@@ -3310,8 +3310,5 @@ form.addEventListener('submit', (event) => {
   - 鮮明／複雑な表現可能／`aria-label`などでアクセシブルに使える
 - JavaScriptでは
   - `input.type = ...` の直接操作がすっきり書けておすすめ
-
-## 🔗 関連リンク・参考資料
-- Font Awesome公式ドキュメント（[fa-eye],[fa-eye-slash]）
-- SVGアイコンでアクセシビリティ対応する実装例
-- JavaScript: `classList.toggle()` の使い方まとめ
+- 実際に100y_mementoプロジェクトで実装した際の感情の流れ設計メモ：[感情の流れ設計](../../100y_memento/docs/emotional-flow.md)
+- プロジェクト全体の技術的な詳細：[100y_mementoプロジェクト概要](../../100y_memento/README.md)
