@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テーマ切り替えデモ</title>
+    <style>
+        /* 1. ライトモードをデフォルトとして、色の変数を定義 */
+        :root {
+          --background-color: #ffffff;
+          --text-color: #333333;
+          --accent-color: #007bff;
+          --button-bg-color: #f0f0f0;
+          
+          /* スムーズな色の切り替え */
+          transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* 2. ダークモードの時の色の変数を定義 */
+        html[data-theme='dark'] {
+          --background-color: #121212;
+          --text-color: #eeeeee;
+          --accent-color: #bb86fc;
+          --button-bg-color: #333333;
+        }
+
+        /* 3. 変数を使って全体のスタイルを適用 */
+        body {
+          background-color: var(--background-color);
+          color: var(--text-color);
+          font-family: sans-serif;
+          padding: 2em;
+        }
+
+        a {
+          color: var(--accent-color);
+        }
+
+        button {
+            background-color: var(--button-bg-color);
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            padding: 0.5em 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button id="theme-toggle-button">テーマを切り替え</button>
+    </header>
+    <main>
+        <h1>シンプルなブログ記事</h1>
+        <p>これは、ダークモードとライトモードの切り替えを実装するためのデモページです。CSSの:rootとカスタムプロパティを使用しています。</p>
+        <p>ボタンをクリックすると、ページのテーマが切り替わります。背景色、テキスト色、リンクの色が変わるのを確認してください。</p>
+        <p><a href="#">これはリンクです。</a></p>
+    </main>
+    <script>
+        const themeToggleButton = document.getElementById('theme-toggle-button');
+        const htmlElement = document.documentElement;
+
+        themeToggleButton.addEventListener('click', () => {
+          // 現在のテーマを取得（なければ'light'）
+          const currentTheme = htmlElement.getAttribute('data-theme');
+          
+          // テーマを切り替える
+          if (currentTheme === 'dark') {
+            htmlElement.setAttribute('data-theme', 'light');
+          } else {
+            htmlElement.setAttribute('data-theme', 'dark');
+          }
+        });
+    </script>
+</body>
+</html>
