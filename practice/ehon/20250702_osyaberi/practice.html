@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2july2025_practice</title>
+</head>
+<body>
+<h1>身の回りのものをオブジェクトとして認識してみる</h1>
+<h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
+<p>プロパティnameにりんちゃんという値を入れ、りんちゃんの行動メソッド（関数）を定義してみる</p>
+<p>objiect：person</p>
+<p>プロパティ：name</p>
+<p>メソッド：walk, speak</p>
+'''
+<script>
+const person = {
+    name: 'りんちゃん',//nameという名のプロパティにりんちゃんという値を入れる
+    walk: function(step){//walkという名のメソッドを定義。引数にstepを取る
+        console.log(person.name + 'は'+ step + '歩歩けます');
+        document.write(person.name + 'は'+ step + '歩歩けます');
+    },
+    speak:function(who){//speakと いう名のメソッドを定義。引数にwhoを取る
+         console.log(person.name + 'は'+ who + 'とおしゃべりします。');
+         document.write(person.name + 'は'+ who + 'とおしゃべりします。');
+    },
+    cooking:function(food){//cookingという名のメソッドを定義。引数にfoodを取る
+        console.log('今日の'+ person.name + 'は'+ food + 'を作りました。');
+        document.write('今日の'+ person.name + 'は'+ food + 'を作りました。');
+        return food;//foodの値を次にも使えるようにする
+    }
+};
+// オブジェクト定義が終わったあとに呼び出す！メソッドを呼び出し()内の引数を渡す
+person.walk(10)
+person.speak('うーろんくん')
+person.cooking('チキン南蛮')
+</script>
+'''
+
+<h2>(2)メソッドで区切って複雑な処理もオブジェクトで表す/オブジェクトの中にオブジェクト</h2>
+<p>朝の準備オブジェクトの中に、複数のオブジェクトを作る
+<br>キー名: { ... } として中にまた {} でオブジェクトを作る</p>
+<p>論理値を用いて定義し、if文で朝の行動を表す</p>
+
+
+
+
+
+<h2>(3)細かい動作を表す</h2>
+<h3>複数引数を使う</h3>
+
+'''
+<script>
+const person = {
+    name: "りんちゃん",
+    
+    walk: function(forward, sideways) {
+        console.log(`${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！`);
+        return forward + sideways;  // 合計歩数を返す
+    }
+};
+// 呼び出し例
+let totalSteps = person.walk(10, 5);  // → りんちゃんは前に10歩、横に5歩進んだよ！
+console.log(`合計${totalSteps}歩歩いたね！`);  // → 合計15歩歩いたね！
+</script>
+'''
+
+
+<h3>戻り値returnを使う</h3>
+<p>return:次の処理でその値を使えるようになる
+</p>
+
+'''
+<script>
+    function digest(food) {
+    console.log(`食べ物「${food}」を食べました。`);
+    return "うんこ";  // 食べた結果としてうんこを返す
+}
+
+let result = digest("カレー");
+console.log(`体から出てきたもの：${result}`); // → 体から出てきたもの：うんこ
+
+
+function onanii() {
+    console.log("おナニーしました。");
+    return "せいえき";  // 処理の結果として戻り値を返す
+}
+
+let result = onanii();
+console.log(`出てきたもの：${result}`);  // → 出てきたもの：せいえき
+
+</script>
+'''
+
+<h2>(4)ライブラリを使う</h2>
+<p></p>ライブラリ：機能付きオブジェクトの集まり</p>
+<p>「ライブラリ名.機能()」みたいに使える</p>
+
+    <h1>色々な型</h1>
+    <p>string型：10＋10＝１０１０</p>
+    <p>int型：10＋10＝２０</p>
+    <p>date型：2025/7/2＋10＝2035/7/12</p>
+
+    <div id="string"></div>
+    <div id="int"></div>
+    <div id="date"></div>
+'''
+    <script>
+        // string型の例
+        let str1 = "10";
+        let str2 = "10";
+        document.getElementById("string").innerHTML = `string型：${str1}＋${str2}＝${str1 + str2}`;
+        // → 文字列連結になるので 1010
+
+        // int型の例
+        let int1 = 10;
+        let int2 = 10;
+        document.getElementById("int").innerHTML = `int型：${int1}＋${int2}＝${int1 + int2}`;
+        // → 数値の計算になるので 20
+
+        // date型の例
+        let date = new Date("2025/07/02");
+        date.setDate(date.getDate() + 10);  // 10日後を計算
+        let y = date.getFullYear();
+        let m = (date.getMonth() + 1).toString().padStart(2, "0");
+        let d = date.getDate().toString().padStart(2, "0");
+        document.getElementById("date").innerHTML = `date型：2025/7/2＋10日＝${y}/${m}/${d}`;
+        // → 10日後の日付を表示
+    </script>
+'''
+
+
+<h1>for文を使ったループ処理</h1>
+<h2>日付</h2>
+<p>日付オブジェクト</p>
+<p>プロパティ：年・月・日</p>
+<p>for文の基本構文</p>
+'''
+<script>
+for(初期化; 条件; 増減) {
+    // 処理
+}
+</script>
+ '''   
+<script>
+    //年
+    const year = (year) => {
+        for(i = 2025; i < 2100; i++){
+            return year;
+        }   
+    }
+console.log(year);
+
+    //月
+    const month = (month) => {
+        for(i = 0; i < 12; i++){    
+            return month;
+    }
+
+
+    //日
+    const day = (day) => {
+        for(if(month === 1,3,5,7,8,10,12){
+            let i = 0; i < 31; i++
+        }else if(month === 4,6,9,11){
+            let i = 0; i < 30; i++
+        }else if(month === 2 && year % 400 === 0){
+            let i = 0; i < 29; i++
+        }else if(month === 2 && year % 4 === 0){
+            let i = 0; i < 28; i++
+        }else{month === 2
+            let i = 0; i < 29; i++
+        })
+    }
+    }   
+
+    //年・月・日
+    const date = (year, month, day) 
+    console.log(date(year, month, day));
+</script>
+'''
+
+
+
+<h2>グラフィック表示してみる</h2>
+    (1)日付
+    日付オブジェクト
+    プロパティ
+    日月。曜日、年、分秒
+    
+    
+    (2)ループでグラフィックを表現
+    足し算
+    dateタイムライブラリ
+    
+    日付にするってことで
+    翌日の日付になる
+    
+    
+    オブジェクトとしてまとまってる
+    ライブラリ
+    
+    </h1>
+
+
+
+
+
+    
+</body>
+</html>
