@@ -1,57 +1,122 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2july2025_practice</title>
+    <title>レスポンシブREM対応</title>
+    <style>
+        html {
+            font-size: 16px; /* 基準1rem=16px */
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;
+            font-size: 1rem;           /* 16px相当 */
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 1.25rem;          /* 20px相当 */
+            background-color: #f9f9f9;
+        }
+        section {
+            margin-bottom: 2.5rem;     /* 40px相当 */
+            padding: 1.25rem;          /* 20px相当 */
+            background: white;
+            border-radius: 0.75rem;    /* 12px相当 */
+            box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.1); /* 2px 8px相当 */
+        }
+        h1 { font-size: 1.75rem; border-left: 0.375rem solid #007aff; padding-left: 0.625rem; margin-bottom: 1.25rem; }
+        h2 { font-size: 1.5rem; color: #007aff; margin-top: 1.875rem; margin-bottom: 0.9375rem; }
+        h3 { font-size: 1.25rem; margin-top: 1.25rem; margin-bottom: 0.625rem; }
+        h4 { font-size: 1.125rem; margin-top: 0.9375rem; margin-bottom: 0.5rem; }
+        pre {
+            background: #f0f0f5;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-top: 0.625rem;
+            margin-bottom: 1.25rem;
+            font-family: Menlo, Monaco, Consolas, monospace;
+        }
+        .result {
+            background: #e6f7ff;
+            padding: 0.625rem;
+            border-left: 0.25rem solid #007aff;
+            border-radius: 0.375rem;
+            margin-top: 0.625rem;
+            white-space: pre-wrap;
+        }
+
+        /* スマホ向け (〜37.5rem = 600px) */
+        @media screen and (max-width: 37.5rem) {
+            body { padding: 0.625rem; font-size: 0.875rem; } /* 14px相当 */
+            section { padding: 0.9375rem; }
+            h1 { font-size: 1.375rem; }
+            h2 { font-size: 1.125rem; }
+            h3 { font-size: 1rem; }
+            h4 { font-size: 0.875rem; }
+        }
+
+        /* タブレット向け (37.5625rem〜64rem = 601px〜1024px) */
+        @media screen and (min-width: 37.5625rem) and (max-width: 64rem) {
+            body { padding: 0.9375rem; font-size: 0.9375rem; } /* 15px相当 */
+            section { padding: 1.125rem; }
+            h1 { font-size: 1.625rem; }
+            h2 { font-size: 1.25rem; }
+            h3 { font-size: 1.125rem; }
+            h4 { font-size: 1rem; }
+        }
+    </style>
 </head>
 <body>
-<h1>身の回りのものをオブジェクトとして認識してみる</h1>
-<h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
-<p>プロパティnameにりんちゃんという値を入れ、りんちゃんの行動メソッド（関数）を定義してみる</p>
-<p>objiect：person</p>
-<p>プロパティ：name</p>
-<p>メソッド：walk, speak</p>
-'''
-<script>
-const person = {
+<section>
+    <h1>身の回りのものをオブジェクトとして認識してみる</h1>
+    <h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
+    <p>プロパティnameにりんちゃんという値を入れ、りんちゃんの行動メソッド（関数）を定義してみる</p>
+    <p>objiect：person</p>
+    <p>プロパティ：name</p>
+    <p>メソッド：walk, speak</p>
+    
+    <pre>
+const person1 = {
     name: 'りんちゃん',//nameという名のプロパティにりんちゃんという値を入れる
     walk: function(step){//walkという名のメソッドを定義。引数にstepを取る
-        console.log(person.name + 'は'+ step + '歩歩けます');
-        document.write(person.name + 'は'+ step + '歩歩けます');
+        console.log(person1.name + 'は'+ step + '歩歩けます');
+        document.write(person1.name + 'は'+ step + '歩歩けます');
     },
     speak:function(who){//speakと いう名のメソッドを定義。引数にwhoを取る
-         console.log(person.name + 'は'+ who + 'とおしゃべりします。');
-         document.write(person.name + 'は'+ who + 'とおしゃべりします。');
+         console.log(person1.name + 'は'+ who + 'とおしゃべりします。');
+         document.write(person1.name + 'は'+ who + 'とおしゃべりします。');
     },
     cooking:function(food){//cookingという名のメソッドを定義。引数にfoodを取る
-        console.log('今日の'+ person.name + 'は'+ food + 'を作りました。');
-        document.write('今日の'+ person.name + 'は'+ food + 'を作りました。');
+        console.log('今日の'+ person1.name + 'は'+ food + 'を作りました。');
+        document.write('今日の'+ person1.name + 'は'+ food + 'を作りました。');
         return food;//foodの値を次にも使えるようにする
     }
 };
 // オブジェクト定義が終わったあとに呼び出す！メソッドを呼び出し()内の引数を渡す
-person.walk(10)
-person.speak('うーろんくん')
-person.cooking('チキン南蛮')
-</script>
-'''
+person1.walk(10)
+person1.speak('うーろんくん')
+person1.cooking('チキン南蛮')
+    </pre>
+    
+    <div class="result" id="result1">
+実行結果がここに表示されます
+    </div>
+</section>
 
-<h2>(2)メソッドで区切って複雑な処理もオブジェクトで表す/オブジェクトの中にオブジェクト</h2>
-<p>朝の準備オブジェクトの中に、複数のオブジェクトを作る
-<br>キー名: { ... } として中にまた {} でオブジェクトを作る</p>
-<p>論理値を用いて定義し、if文で朝の行動を表す</p>
+<section>
+    <h2>(2)メソッドで区切って複雑な処理もオブジェクトで表す/オブジェクトの中にオブジェクト</h2>
+    <p>朝の準備オブジェクトの中に、複数のオブジェクトを作る
+    <br>キー名: { ... } として中にまた {} でオブジェクトを作る</p>
+    <p>論理値を用いて定義し、if文で朝の行動を表す</p>
+</section>
 
-
-
-
-
-<h2>(3)細かい動作を表す</h2>
-<h3>複数引数を使う</h3>
-
-'''
-<script>
-const person = {
+<section>
+    <h2>(3)細かい動作を表す</h2>
+    <h3>複数引数を使う</h3>
+    
+    <pre>
+const person2 = {
     name: "りんちゃん",
     
     walk: function(forward, sideways) {
@@ -60,25 +125,25 @@ const person = {
     }
 };
 // 呼び出し例
-let totalSteps = person.walk(10, 5);  // → りんちゃんは前に10歩、横に5歩進んだよ！
+let totalSteps = person2.walk(10, 5);  // → りんちゃんは前に10歩、横に5歩進んだよ！
 console.log(`合計${totalSteps}歩歩いたね！`);  // → 合計15歩歩いたね！
-</script>
-'''
+    </pre>
+    
+    <div class="result" id="result2">
+実行結果がここに表示されます
+    </div>
 
-
-<h3>戻り値returnを使う</h3>
-<p>return:次の処理でその値を使えるようになる
-</p>
-
-'''
-<script>
-    function digest(food) {
+    <h3>戻り値returnを使う</h3>
+    <p>return:次の処理でその値を使えるようになる</p>
+    
+    <pre>
+function digest(food) {
     console.log(`食べ物「${food}」を食べました。`);
     return "うんこ";  // 食べた結果としてうんこを返す
 }
 
-let result = digest("カレー");
-console.log(`体から出てきたもの：${result}`); // → 体から出てきたもの：うんこ
+let result1 = digest("カレー");
+console.log(`体から出てきたもの：${result1}`); // → 体から出てきたもの：うんこ
 
 
 function onanii() {
@@ -86,126 +151,234 @@ function onanii() {
     return "せいえき";  // 処理の結果として戻り値を返す
 }
 
-let result = onanii();
-console.log(`出てきたもの：${result}`);  // → 出てきたもの：せいえき
+let result2 = onanii();
+console.log(`出てきたもの：${result2}`);  // → 出てきたもの：せいえき
+    </pre>
+    
+    <div class="result" id="result3">
+実行結果がここに表示されます
+    </div>
+</section>
 
-</script>
-'''
+<section>
+    <h2>(4)ライブラリを使う</h2>
+    <p>ライブラリ：機能付きオブジェクトの集まり</p>
+    <p>「ライブラリ名.機能()」みたいに使える</p>
+</section>
 
-<h2>(4)ライブラリを使う</h2>
-<p></p>ライブラリ：機能付きオブジェクトの集まり</p>
-<p>「ライブラリ名.機能()」みたいに使える</p>
-
+<section>
     <h1>色々な型</h1>
-    <p>string型：10＋10＝１０１０</p>
+    <p>string型：10＋10＝１０１０</p>文字列として認識されるから、数字としては計算されない
     <p>int型：10＋10＝２０</p>
-    <p>date型：2025/7/2＋10＝2035/7/12</p>
+    <p>date型：2025/7/2＋10＝2035/7/12</p>：日付け型にすることで、1タスと翌日に日付になる
 
     <div id="string"></div>
     <div id="int"></div>
     <div id="date"></div>
-'''
-    <script>
-        // string型の例
-        let str1 = "10";
-        let str2 = "10";
-        document.getElementById("string").innerHTML = `string型：${str1}＋${str2}＝${str1 + str2}`;
-        // → 文字列連結になるので 1010
+    
+    <pre>
+// string型の例
+let str1 = "10";
+let str2 = "10";
+document.getElementById("string").innerHTML = `string型：${str1}＋${str2}＝${str1 + str2}`;
+// → 文字列連結になるので 1010
 
-        // int型の例
-        let int1 = 10;
-        let int2 = 10;
-        document.getElementById("int").innerHTML = `int型：${int1}＋${int2}＝${int1 + int2}`;
-        // → 数値の計算になるので 20
+// int型の例
+let int1 = 10;
+let int2 = 10;
+document.getElementById("int").innerHTML = `int型：${int1}＋${int2}＝${int1 + int2}`;
+// → 数値の計算になるので 20
 
-        // date型の例
-        let date = new Date("2025/07/02");
-        date.setDate(date.getDate() + 10);  // 10日後を計算
-        let y = date.getFullYear();
-        let m = (date.getMonth() + 1).toString().padStart(2, "0");
-        let d = date.getDate().toString().padStart(2, "0");
-        document.getElementById("date").innerHTML = `date型：2025/7/2＋10日＝${y}/${m}/${d}`;
-        // → 10日後の日付を表示
-    </script>
-'''
+// date型の例
+let dateObj = new Date("2025/07/02");
+dateObj.setDate(dateObj.getDate() + 10);  // 10日後を計算
+let y = dateObj.getFullYear();
+let m = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+let d = dateObj.getDate().toString().padStart(2, "0");
+document.getElementById("date").innerHTML = `date型：2025/7/2＋10日＝${y}/${m}/${d}`;
+// → 10日後の日付を表示
+    </pre>
+    
+    <div class="result">
+実行結果：
+上記のコードが実行されると、このセクションの上にある3つのdivに結果が表示されます
+    </div>
+</section>
 
-
-<h1>for文を使ったループ処理</h1>
-<h2>日付</h2>
-<p>日付オブジェクト</p>
-<p>プロパティ：年・月・日</p>
-<p>for文の基本構文</p>
-'''
-<script>
+<section>
+    <h1>for文を使ったループ処理</h1>
+    <h2>日付</h2>
+    <p>日付オブジェクト</p>
+    <p>プロパティ：年・月・日</p>
+    <p>for文の基本構文</p>
+    
+    <pre>
 for(初期化; 条件; 増減) {
     // 処理
 }
-</script>
- '''   
-<script>
-    //年
-    const year = (year) => {
-        for(i = 2025; i < 2100; i++){
-            return year;
-        }   
-    }
-console.log(year);
-
-    //月
-    const month = (month) => {
-        for(i = 0; i < 12; i++){    
-            return month;
-    }
-
-
-    //日
-    const day = (day) => {
-        for(if(month === 1,3,5,7,8,10,12){
-            let i = 0; i < 31; i++
-        }else if(month === 4,6,9,11){
-            let i = 0; i < 30; i++
-        }else if(month === 2 && year % 400 === 0){
-            let i = 0; i < 29; i++
-        }else if(month === 2 && year % 4 === 0){
-            let i = 0; i < 28; i++
-        }else{month === 2
-            let i = 0; i < 29; i++
-        })
-    }
+    </pre>
+    
+    <div class="result">
+基本構文の説明：
+for(初期化; 条件; 増減) {
+    // 処理
+}
+    </div>
+    
+    <pre>
+//年
+const year = (yearParam) => {
+    for(let i = 2025; i < 2100; i++){
+        return yearParam;
     }   
+}
+console.log(year(2025));
 
-    //年・月・日
-    const date = (year, month, day) 
-    console.log(date(year, month, day));
+//月
+const month = (monthParam) => {
+    for(let i = 0; i < 12; i++){    
+        return monthParam;
+    }
+}
+
+//日（構文エラーがあるため、コメントアウト）
+/*
+const day = (dayParam) => {
+    // 正しい構文で書き直す必要があります
+    // 月によって日数が違うロジックを実装する予定
+}
+*/
+
+//年・月・日
+const dateFunc = (year, month, day) => {
+    return `${year}/${month}/${day}`;
+}
+console.log(dateFunc(2025, 7, 4));
+    </pre>
+    
+    <div class="result" id="result4">
+実行結果がここに表示されます
+    </div>
+</section>
+
+<section>
+    <h2>グラフィック表示してみる</h2>
+    <p>(2)ループでグラフィックを表現</p>
+    
+    <pre>
+let row = 10;
+for(let i = 0; i < 5; i++){
+    console.log("行" + i);
+}
+
+let line = 10;
+for(let j = 0; j < 5; j++){
+    document.write('<br>');
+}
+    </pre>
+    
+    <div class="result" id="result5">
+実行結果がここに表示されます
+    </div>
+</section>
+
+<!-- 実際に実行されるJavaScript -->
+<script>
+// (1)人間オブジェクトの実行
+const person1 = {
+    name: 'りんちゃん',
+    walk: function(step){
+        let output = person1.name + 'は'+ step + '歩歩けます<br>';
+        console.log(person1.name + 'は'+ step + '歩歩けます');
+        return output;
+    },
+    speak:function(who){
+        let output = person1.name + 'は'+ who + 'とおしゃべりします。<br>';
+        console.log(person1.name + 'は'+ who + 'とおしゃべりします。');
+        return output;
+    },
+    cooking:function(food){
+        let output = '今日の'+ person1.name + 'は'+ food + 'を作りました。<br>';
+        console.log('今日の'+ person1.name + 'は'+ food + 'を作りました。');
+        return output;
+    }
+};
+
+let result1Html = '';
+result1Html += person1.walk(10);
+result1Html += person1.speak('うーろんくん');
+result1Html += person1.cooking('チキン南蛮');
+document.getElementById('result1').innerHTML = '実行結果：<br>' + result1Html;
+
+// (3)複数引数の実行
+const person2 = {
+    name: "りんちゃん",
+    walk: function(forward, sideways) {
+        let output = `${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！<br>`;
+        console.log(`${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！`);
+        return forward + sideways;
+    }
+};
+
+let totalSteps = person2.walk(10, 5);
+let result2Html = `りんちゃんは前に10歩、横に5歩進んだよ！<br>合計${totalSteps}歩歩いたね！`;
+document.getElementById('result2').innerHTML = '実行結果：<br>' + result2Html;
+
+// 戻り値の実行
+function digest(food) {
+    console.log(`食べ物「${food}」を食べました。`);
+    return "うんこ";
+}
+
+function onanii() {
+    console.log("おナニーしました。");
+    return "せいえき";
+}
+
+let digestResult = digest("カレー");
+let onaniiResult = onanii();
+let result3Html = `食べ物「カレー」を食べました。<br>体から出てきたもの：${digestResult}<br>おナニーしました。<br>出てきたもの：${onaniiResult}`;
+document.getElementById('result3').innerHTML = '実行結果：<br>' + result3Html;
+
+// 型の実行
+let str1 = "10";
+let str2 = "10";
+document.getElementById("string").innerHTML = `string型：${str1}＋${str2}＝${str1 + str2}`;
+
+let int1 = 10;
+let int2 = 10;
+document.getElementById("int").innerHTML = `int型：${int1}＋${int2}＝${int1 + int2}`;
+
+let dateObj = new Date("2025/07/02");
+dateObj.setDate(dateObj.getDate() + 10);
+let y = dateObj.getFullYear();
+let m = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+let d = dateObj.getDate().toString().padStart(2, "0");
+document.getElementById("date").innerHTML = `date型：2025/7/2＋10日＝${y}/${m}/${d}`;
+
+// for文の実行
+const year = (yearParam) => {
+    for(let i = 2025; i < 2100; i++){
+        return yearParam;
+    }   
+}
+
+const dateFunc = (year, month, day) => {
+    return `${year}/${month}/${day}`;
+}
+
+let result4Html = `年の関数実行結果：${year(2025)}<br>日付関数実行結果：${dateFunc(2025, 7, 4)}`;
+document.getElementById('result4').innerHTML = '実行結果：<br>' + result4Html;
+
+// グラフィック表示の実行
+let result5Html = '';
+for(let i = 0; i < 5; i++){
+    result5Html += '行' + i + '<br>';
+    console.log("行" + i);
+}
+result5Html += '（5つの改行も出力される）';
+document.getElementById('result5').innerHTML = '実行結果：<br>' + result5Html;
 </script>
-'''
 
-
-
-<h2>グラフィック表示してみる</h2>
-    (1)日付
-    日付オブジェクト
-    プロパティ
-    日月。曜日、年、分秒
-    
-    
-    (2)ループでグラフィックを表現
-    足し算
-    dateタイムライブラリ
-    
-    日付にするってことで
-    翌日の日付になる
-    
-    
-    オブジェクトとしてまとまってる
-    ライブラリ
-    
-    </h1>
-
-
-
-
-
-    
 </body>
 </html>
