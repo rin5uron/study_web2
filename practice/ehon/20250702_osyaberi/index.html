@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>おしゃべりノート</title>
+    <title>2025-07-02_osyaberi</title>
     <link href="https://cdn.jsdelivr.net/npm/prismjs@1/themes/prism-tomorrow.min.css" rel="stylesheet"/>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/prism.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
@@ -69,10 +69,11 @@
         h4 {
             font-size: 1.125rem;
             font-weight: 600;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
+            margin-top: 0;
+            margin-bottom: 0;
         }
         p {
+            margin-top: 0;
             margin-bottom: 1.5rem; /* より大胆な余白 */
         }
         code {
@@ -142,10 +143,10 @@
 </head>
 <body>
 <section>
-    <h1>身の回りのものをオブジェクトとして認識してみる</h1>
+<h1>身の回りのものをオブジェクトとして認識してみる</h1>
     
     <div class="h2">
-        <h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
+<h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
         <p>プロパティ<code>name</code>に『りんちゃん』という値を入れ、<br>りんちゃんの行動メソッド（関数）を定義してみる</p>
         <p>オブジェクト：<code>person</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             プロパティ：<code>name</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -175,15 +176,21 @@ person1.cooking('チキン南蛮')
         </code></pre>
         
         <div class="result" id="result1">
-実行結果がここに表示されます
         </div>
     </div>
 
+
+
+
+
     <div class="h2">
-        <h2>(2)メソッドで区切って複雑な処理もオブジェクトで表す/オブジェクトの中にオブジェクト</h2>
-        <p>朝の準備オブジェクトの中に、複数のオブジェクトを作る
-        <br>キー名: { ... } として中にまた {} でオブジェクトを作る</p>
-        <p>論理値を用いて定義し、if文で朝の行動を表す</p>
+        <h2>(2)複雑な処理のオブジェクト</h2>
+        
+        <p>メソッドで区切ることで、複雑な処理もオブジェクトで表すことができる。
+        <br>(オブジェクトの中にオブジェクトを入れる)
+        <br><code>大オブジェクト名: { ... }</code> として中にまた <code>{}</code> に小オブジェクトを複数作ることで表わせる</p>
+        <p>朝の準備オブジェクトを作ってみたよ！
+        <br>論理値を用いて定義し、if文で朝の行動を表してみた。</p>
         <pre><code class="language-javascript">
 const morningrutine = {  // ← モーニングルーティーンオブジェクトを内包
     wakeup: {
@@ -230,7 +237,7 @@ if(morningrutine.ready.makeup && morningrutine.ready.combhair){
 
 //朝食
 if(morningrutine.wakeup.doskincare &&  morningrutine.breakfast.eatfruit && morningrutine.breakfast.takesupplements){
-    console.log(' 朝からビタミンCでお肌もピカピカ！');
+    console.log('朝からビタミンCでお肌もピカピカ！');
 };
 
 //早起きできたか
@@ -257,10 +264,10 @@ if(morningrutine.ready.changeclothes && morningrutine.ready.grabbag){
     </div>
 
     <div class="h2">
-        <h2>(3)細かい動作を表す</h2>
+<h2>(3)細かい動作を表す</h2>
         
         <div class="h3">
-            <h3>複数引数を使う</h3>
+<h3>複数引数を使う</h3>
             <p>引数を複数つけると、より複雑な動作を表せる。<br>marginやpadding設定と同じイメージ。</p>
             <pre><code class="language-javascript">
 const person2 = {
@@ -275,75 +282,82 @@ const person2 = {
 let totalSteps = person2.walk(10, 5);  // → りんちゃんは前に10歩、横に5歩進んだよ！
 console.log(`合計${totalSteps}歩歩いたね！`);  // → 合計15歩歩いたね！
             </code></pre>
-            
+
             <div class="result" id="result2">
 実行結果がここに表示されます
             </div>
         </div>
 
         <div class="h3">
-            <h3>戻り値returnを使う</h3>
+<h3>戻り値returnを使う</h3>
             <p><code>return</code>を使うと、次の処理でもその値を使えるようになる</p>
-            
+
             <pre><code class="language-javascript">
 function eat(food) {
-    console.log(`食べ物「${food}」を食べました。`);
+    console.log(`・食べ物「${food}」を食べました。`);
+    console.log(`　出てきたもの：💩`);
     return "💩";  // 食べた結果
 }
 
 let result1 = eat("トマト");
-console.log(`出てきたもの：${result1}`); // → 出てきたもの：💩
+// → ・食べ物「トマト」を食べました。
+// → 　出てきたもの：💩
 
 
 function selfControl() {
-    console.log("オナニーしました。");
+    console.log("・オナニーしました。");
+    console.log("　出てきたもの：🤍");
     return "🤍";  // 処理の結果として戻り値を返す
 }
 
 let result2 = selfControl();
-console.log(`出てきたもの：${result2}`);  // → 出てきたもの：🤍
+// → ・オナニーしました。
+// → 　出てきたもの：🤍
             </code></pre>
             
             <div class="result" id="result3">
-実行結果がここに表示されます
             </div>
         </div>
     </div>
 
     <div class="h2">
-        <h2>(4)ライブラリを使う</h2>
-        <p><strong>ライブラリ</strong>：機能付きオブジェクトの集まり</p>
-        <br>「<code>ライブラリ名.機能()</code>」で呼び出せる</p>
-        <ul>
-            <li>１自作ライブラリ：自分で便利な機能をまとめて作ったオブジェクト。</li>
-            <li>１標準ライブラリ：JavaScriptに最初から備わっている便利な機能群。</li>
-            <li>外部ライブラリ：他人が作った便利な機能をCDNやnpmで読み込んで使うもの。</li>
-        </ul>
+<h2>(4)ライブラリを使う</h2>
+        <p><strong>ライブラリ</strong>：機能付きオブジェクトの集まり
+        <br>「<code>ライブラリ名.機能()</code>」で、任意の機能を呼び出せる</p>
+        <h4>ライブラリの種類</h4>
+        <p>
+        ①自作ライブラリ：自分で便利な機能をまとめて作ったオブジェクト。
+        <br>②標準ライブラリ：JavaScriptに最初から備わっている便利な機能群。
+        <br>③外部ライブラリ：他人が作った便利な機能をCDNやnpmで読み込んで使うもの。
+        </p>
+        <p>自作ライブラリとして、おやすみライブラリを作ってみたよ！</p>
         <pre><code class="language-javascript">
-            const MyLibrary = {
-                greet: function(name) {
-                    console.log(`こんにちは、${name}！`);
-                },
-                add: function(a, b) {
-                    return a + b;
-                },
-                square: function(x) {
-                    return x * x;
-                }
-            };
-            
-            // 呼び出し例
-            MyLibrary.greet("りんちゃん");      // → こんにちは、りんちゃん！
-            console.log(MyLibrary.add(2, 3));   // → 5
-            console.log(MyLibrary.square(4));   // → 16
-            
+const OyasumiLib = {
+    saynemui: function() {
+        console.log("(｡•́︿•̀｡) もうねむい");
+    },
+    sweetDreams: function() {
+        console.log("(ღ˘⌣˘ღ) 続きは夢でおしゃべりしよ♡");
+    },
+    sayGoodnight: function(name) {
+        console.log(`(*˘︶˘*).｡.:*☆ おやすみ、${name}。また夢でね！`);
+    }
+};
+
+// 呼び出し例
+OyasumiLib.saynemui();                   // → (｡•́︿•̀｡) もうねむい
+OyasumiLib.sweetDreams();                // → (ღ˘⌣˘ღ) 続きは夢でおしゃべりしよ♡
+OyasumiLib.sayGoodnight("うーろんくん"); // → (*˘︶˘*).｡.:*☆ おやすみ、うーろんくん。また夢でね！
         </code></pre>
+        <div class="result" id="result4">
+        </div>
+        </div>
     </div>
 </section>
 
 <section>
-    <h1>色々な型</h1>
-    <p>同じ足し算でも、型によって結果が違う</p>
+    <h1>文字列型</h1>
+    <p>同じ足し算でも、文字列型によって結果が違う</p>
     <p><strong>string型</strong>：10＋10＝1010 （文字列として認識されるから、数字としては計算されない）
     <br><strong>int型</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;：10＋10＝20
     <br><strong>date型</strong>&nbsp;&nbsp;：2025/7/2＋10＝2035/7/12 （日付け型にすることで、1日足すと翌日に日付になる）</p>
@@ -351,83 +365,148 @@ console.log(`出てきたもの：${result2}`);  // → 出てきたもの：�
     
     
     <pre><code class="language-javascript">
-// string型の例
-let str1 = "10";
-let str2 = "10";
+        // string型の例
+        let str1 = "10";
+        let str2 = "10";
 console.log(`string型：${str1}＋${str2}＝${str1 + str2}`);
-// → 文字列連結になるので 1010
+        // → 文字列連結になるので 1010
 
-// int型の例
-let int1 = 10;
-let int2 = 10;
+        // int型の例
+        let int1 = 10;
+        let int2 = 10;
 console.log(`int型：${int1}＋${int2}＝${int1 + int2}`);
-// → 数値の計算になるので 20
+        // → 数値の計算になるので 20
 
-// date型の例
+        // date型の例
 let dateObj = new Date("2025/07/02");
 dateObj.setDate(dateObj.getDate() + 10);  // 10日後を計算
 let y = dateObj.getFullYear();
 let m = (dateObj.getMonth() + 1).toString().padStart(2, "0");
 let d = dateObj.getDate().toString().padStart(2, "0");
 console.log(`date型：2025/7/2＋10日＝${y}/${m}/${d}`);
-// → 10日後の日付を表示
+        // → 10日後の日付を表示
     </code></pre>
-    
-    <div class="result">
+
+    <div class="result" id="result5">
+    </div>
 
     </div>
 </section>
 
 <section>
-    <h1>for文を使ったループ処理</h1>
+<h1>for文を使ったループ処理</h1>
     
     <div class="h2">
         <h2>日付表示</h2>
-        <p>日付は</p>
+        <p>日付は多重ループで表せる。</p>
         <pre><code class="language-javascript">
 //for文の基本構文
 for(初期化; 条件; 増減) {
     // 処理
 }
         </code></pre>
-        
-        
-        
-        <pre><code class="language-javascript">
-//年
-const year = (yearParam) => {
-    for(let i = 2025; i < 2100; i++){
-        return yearParam;
-    }   
-}
-console.log(year(2025));
 
-//月
-const month = (monthParam) => {
-    for(let i = 0; i < 12; i++){    
-        return monthParam;
+        <pre><code class="language-javascript">
+/* ===============================
+100日前くらいに配列を用いて書いたコード
+=============================== */
+
+
+const month_list = ["1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月"];
+
+//任意の日付をコンソール表示するために指定
+const targetMonth = "7月";
+const targetDay = 2;
+
+// 月と日を組み合わせて表示
+month_list.forEach((month) =>{// アロー関数：矢印（=>）を使うと短く書ける、「=>」は「この計算をするよ」という意味
+    let month_days;
+    
+    // includes（）で各月の日数を設定配列の中に、指定した値が含まれているかどうかを確認
+    if (["1月","3月","5月","7月","8月","10月","12月"].includes(month)) {
+        month_days = 31;
+    } else if (["4月","6月","9月","11月"].includes(month)) {
+        month_days = 30;
+    } else {  // 2月の場合
+        month_days = 28;
+    }
+    
+    /*1月1日〜12月31日まで表示させるには
+    for (let day = 1; day <= month_days; day++) {
+        console.log(month + day + "日");
+    }*/
+
+    //任意の日付をコンソール表示
+    for (let day = 1; day <= month_days; day++) {
+        if (month === targetMonth && day === targetDay) {
+            console.log("見つけた！ " + month + day + "日");
+        }
+    }
+});
+        </code></pre>
+        
+        <div class="result" id="result6">
+        </div>
+
+        <pre><code class="language-javascript">
+/* ===============================
+   今の実力で配列を使わずに書いてみたコード
+=============================== */
+//年月日分秒全てこのようにループで表せる
+const year = (nth) => {           
+    let count = 1;
+    for(let i = 2025; i < 2100; i++){
+        if (count === nth) {
+            return i;
+        }
+        count++;
+    }
+    return "範囲外"; // ループを抜けた場合
+};
+
+let n = 3; // 3年後の西暦を表示したい
+console.log(n + "年後の西暦は " + year(n) + "年です。"); // → 3年後の西暦は2027年です。
+
+=============================== */
+//2025年から2100年まで、年月日で表示するループ
+//年
+const year = (year) => {
+    for(let i = 2025; i < 2100; i++){
+        return year;
     }
 }
 
-//日（構文エラーがあるため、コメントアウト）
-/*
-const day = (dayParam) => {
-    // 正しい構文で書き直す必要があります
-    // 月によって日数が違うロジックを実装する予定
+//月
+const month = (month) => {
+    for(let i = 0; i < 12; i++){    
+        return month;
+    }
 }
-*/
 
-//年・月・日
-const dateFunc = (year, month, day) => {
-    return `${year}/${month}/${day}`;
+//日
+まずは月毎の日数を設定
+if(month === 4 || month === 6 || month === 9 || month === 11){
+    month_days = 30; // 30日
+}else if(month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12){
+    month_days = 31; // 31日
+}else if(month === 2 && year % 4 === 0){ // 2月は閏年の場合29日、平年の場合28日
+    month_days = 29;
+}else{
+    month_days = 28;
 }
-console.log(dateFunc(2025, 7, 4));
+for(let i = 1; i < month_days; i++){
+    return day;
+}
+
+console.log(year, month, day);
+
+
         </code></pre>
         
-        <div class="result" id="result4">
-実行結果がここに表示されます
+        <div class="result" id="result7">
         </div>
     </div>
+
 
     <div class="h2">
         <h2>グラフィック表示</h2>
@@ -457,197 +536,13 @@ for (let y = 0; y < 5; y++) {
 }
         </code></pre>
         
-        <div class="result" id="result5">
+        <div class="result" id="result8">
         </div>
     </div>
 </section>
 
 <!-- 実際に実行されるJavaScript -->
-<script>
-// (1)人間オブジェクトの実行
-const person1 = {
-    name: 'りんちゃん',
-    walk: function(step){
-        let output = person1.name + 'は'+ step + '歩歩けます<br>';
-        console.log(person1.name + 'は'+ step + '歩歩けます');
-        return output;
-    },
-    speak:function(who){
-        let output = person1.name + 'は'+ who + 'とおしゃべりします。<br>';
-        console.log(person1.name + 'は'+ who + 'とおしゃべりします。');
-        return output;
-    },
-    cooking:function(food){
-        let output = '今日の'+ person1.name + 'は'+ food + 'を作りました。<br>';
-        console.log('今日の'+ person1.name + 'は'+ food + 'を作りました。');
-        return output;
-    }
-};
-
-let result1Html = '';
-result1Html += person1.walk(10);
-result1Html += person1.speak('うーろんくん');
-result1Html += person1.cooking('チキン南蛮');
-document.getElementById('result1').innerHTML = result1Html;
-
-// (2)モーニングルーティンオブジェクトの実行
-const morningrutine = {
-    wakeup: {
-        time: '7:00',
-        boilwater: true,
-        washface: true,
-        drinkwater: true,
-        doskincare: true,
-    },
-    breakfast: {
-        drinkhotwater: true,
-        eat: true,
-        takesupplements: true
-    },
-    ready: {
-        changeclothes: true,
-        combhair: true,
-        makeup: true,
-        grabbag: true,
-    },
-    freetime: {
-        study: true,
-        readbooks: true,
-    }
-}
-
-let result2MorningHtml = '';
-
-//朝の準備が全てできたか
-if(morningrutine.wakeup.time && morningrutine.wakeup.boilwater && morningrutine.wakeup.washface 
-&& morningrutine.wakeup.drinkwater && morningrutine.wakeup.doskincare && morningrutine.breakfast.drinkhotwater 
-&& morningrutine.breakfast.eat && morningrutine.breakfast.takesupplements && morningrutine.ready.changeclothes 
-&& morningrutine.ready.combhair && morningrutine.ready.makeup && morningrutine.ready.grabbag 
-&& morningrutine.freetime.study && morningrutine.freetime.readbooks){
-    result2MorningHtml += '朝の準備は完璧！<br>';
-    console.log('朝の準備は完璧！');
-}else{
-    console.log();
-};
-
-//髪の毛とメイク
-if(morningrutine.ready.makeup && morningrutine.ready.combhair){
-    result2MorningHtml += '髪の毛サラサラにしてお化粧もしたよ〜<br>';
-    console.log('髪の毛サラサラにしてお化粧もしたよ〜');
-};
-
-//早起きできたか
-if(morningrutine.wakeup.time && morningrutine.freetime.study ){
-    result2MorningHtml += '早起きして勉強もした！<br>';
-    console.log('早起きして勉強もした！');
-}else if(morningrutine.wakeup.time && morningrutine.freetime.readbooks ){
-    result2MorningHtml += '早起きして本も読んだ！<br>';
-    console.log('早起きして本も読んだ！');
-}else if(morningrutine.wakeup.time ){
-    result2MorningHtml += '今日は早起きした！<br>';
-    console.log('今日は早起きした！');
-}else{
-    result2MorningHtml += '今日は寝坊しちゃった。。。<br>';
-    console.log('今日は寝坊しちゃった。。。');
-};
-
-//出勤日か否か
-if(morningrutine.ready.changeclothes && morningrutine.ready.grabbag){
-    result2MorningHtml += 'じゃ、お仕事行ってくるね〜<br>';
-    console.log('じゃ、お仕事行ってくるね〜');
-}else{
-    result2MorningHtml += 'でも今日はお仕事お休みなんだ〜<br>';
-    console.log('でも今日はお仕事お休みなんだ〜');
-};
-
-document.getElementById('result2_morning').innerHTML = result2MorningHtml;
-
-// (3)複数引数の実行
-const person2 = {
-    name: "りんちゃん",
-    walk: function(forward, sideways) {
-        let output = `${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！<br>`;
-        console.log(`${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！`);
-        return forward + sideways;
-    }
-};
-
-let totalSteps = person2.walk(10, 5);
-let result2Html = `りんちゃんは前に10歩、横に5歩進んだよ！<br>合計${totalSteps}歩歩いたね！`;
-document.getElementById('result2').innerHTML = result2Html;
-
-// 戻り値の実行（更新されたコードに合わせて修正）
-function eat(food) {
-    console.log(`食べ物「${food}」を食べました。`);
-    return "💩";
-}
-
-function selfControl() {
-    console.log("オナニーしました。");
-    return "🤍";
-}
-
-let eatResult = eat("トマト");
-let selfControlResult = selfControl();
-let result3Html = `食べ物「トマト」を食べました。<br>出てきたもの：${eatResult}<br>オナニーしました。<br>出てきたもの：${selfControlResult}`;
-document.getElementById('result3').innerHTML = result3Html;
-
-// 型の実行（consoleログに変更）
-let str1 = "10";
-let str2 = "10";
-console.log(`string型：${str1}＋${str2}＝${str1 + str2}`);
-
-let int1 = 10;
-let int2 = 10;
-console.log(`int型：${int1}＋${int2}＝${int1 + int2}`);
-
-let dateObj = new Date("2025/07/02");
-dateObj.setDate(dateObj.getDate() + 10);
-let y = dateObj.getFullYear();
-let m = (dateObj.getMonth() + 1).toString().padStart(2, "0");
-let d = dateObj.getDate().toString().padStart(2, "0");
-console.log(`date型：2025/7/2＋10日＝${y}/${m}/${d}`);
-
-// for文の実行
-const year = (yearParam) => {
-    for(let i = 2025; i < 2100; i++){
-        return yearParam;
-    }   
-}
-
-const dateFunc = (year, month, day) => {
-    return `${year}/${month}/${day}`;
-}
-
-let result4Html = `年の関数実行結果：${year(2025)}<br>日付関数実行結果：${dateFunc(2025, 7, 4)}`;
-document.getElementById('result4').innerHTML = result4Html;
-
-// グラフィック表示の実行（新しいHELLOコードに更新）
-let result5Html = '';
-let text = "HELLO";
-
-for (let y = 0; y < 5; y++) {
-    let line = "";
-    for (let x = 0; x < 10; x++) {
-        if (y === 0 || y === 4) {
-            // 一番上か一番下は全部枠
-            line += "*";
-        } else if (x === 0 || x === 9) {
-            // 左右の枠
-            line += "*";
-        } else if (y === 2 && x >= 2 && x < 2 + text.length) {
-            // y=2行目のx=2~6に文字を置く
-            line += text[x - 2];
-        } else {
-            // それ以外は空白
-            line += " ";
-        }
-    }
-    result5Html += line + '<br>';
-    console.log(line);
-}
-document.getElementById('result5').innerHTML = result5Html;
-</script>
-
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
+
