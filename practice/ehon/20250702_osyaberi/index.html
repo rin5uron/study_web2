@@ -128,6 +128,7 @@
             h2 { font-size: 1.25rem; }
             h3 { font-size: 1.125rem; }
             h4 { font-size: 1rem; }
+            .result { font-size: 0.875rem; }
         }
 
         /* タブレット向け (37.5625rem〜64rem = 601px〜1024px) */
@@ -450,7 +451,7 @@ month_list.forEach((month) =>{// アロー関数：矢印（=>）を使うと短
 
         <pre><code class="language-javascript">
 /* ===============================
-   今の実力で配列を使わずに書いてみたコード
+   配列を使わずに書いてみたコード
 =============================== */
 //年月日分秒全てこのようにループで表せる
 const year = (nth) => {           
@@ -469,36 +470,28 @@ console.log(n + "年後の西暦は " + year(n) + "年です。"); // → 3年�
 
 =============================== */
 //2025年から2100年まで、年月日で表示するループ
-//年
-const year = (year) => {
-    for(let i = 2025; i < 2100; i++){
-        return year;
-    }
-}
-
-//月
-const month = (month) => {
-    for(let i = 0; i < 12; i++){    
-        return month;
-    }
-}
-
-//日
-まずは月毎の日数を設定
+for(let year = 2025; year < 2999; year++){
+    for(let month = 0; month < 12; month++){
+//まずは月毎の日数を設定
 if(month === 4 || month === 6 || month === 9 || month === 11){
     month_days = 30; // 30日
 }else if(month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12){
     month_days = 31; // 31日
 }else if(month === 2 && year % 4 === 0){ // 2月は閏年の場合29日、平年の場合28日
     month_days = 29;
+}else if(month === 2 && year % 400 === 0){ // 400で割り切れる年もは閏年で29日
+    month_days = 29;
 }else{
     month_days = 28;
 }
-for(let i = 1; i < month_days; i++){
-    return day;
+for(let day = 1; day < month_days; day++){
+    console.log(year, month, day);
+        }
+    }
 }
 
-console.log(year, month, day);
+
+
 
 
         </code></pre>
