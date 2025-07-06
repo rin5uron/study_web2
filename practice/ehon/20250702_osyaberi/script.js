@@ -2,7 +2,7 @@
 const person1 = {
     name: 'りんちゃん',
     walk: function(step){
-        let output = person1.name + 'は'+ step + '歩歩けます<br>';
+        let output = person1.name + 'は'+ step + '歩歩けます。<br>';
         console.log(person1.name + 'は'+ step + '歩歩けます');
         return output;
     },
@@ -142,8 +142,8 @@ const OyasumiLib = {
         return "(｡•́︿•̀｡) もうねむい";
     },
     sweetDreams: function() {
-        console.log("(ღ˘⌣˘ღ) 続きは夢でおしゃべりしよ♡");
-        return "(ღ˘⌣˘ღ) 続きは夢でおしゃべりしよ♡";
+        console.log("(ღ˘⌣˘ღ) 続きは夢でしよ♡");
+        return "(ღ˘⌣˘ღ) 続きは夢でしよ♡";
     },
     sayGoodnight: function(name) {
         console.log(`(*˘︶˘*).｡.:*☆ おやすみ、${name}。また夢でね！`);
@@ -199,13 +199,13 @@ month_list.forEach((month) =>{
     for (let day = 1; day <= month_days; day++) {
         if (month === targetMonth && day === targetDay) {
             result6Html += "見つけた！ " + month + day + "日<br>";
-            console.log("見つけた！ " + month + day + "日");
+            console.log("見つけた！ " + month + day + "日！");
         }
     }
 });
 document.getElementById('result6').innerHTML = result6Html;
 
-// for文の実行
+// for文の実行（index.htmlの内容に合わせて更新）
 const year = (nth) => {           
     let count = 1;
     for(let i = 2025; i < 2100; i++){
@@ -220,13 +220,29 @@ const year = (nth) => {
 let n = 3; // 3年後の西暦を表示したい
 console.log(n + "年後の西暦は " + year(n) + "年です。"); // → 3年後の西暦は2027年です。
 
-const dateFunc = (year, month, day) => {
-    return `${year}/${month}/${day}`;
+//2025年から2100年まで、年月日で表示するループ
+for(let year = 2025; year < 2999; year++){
+    for(let month = 0; month < 12; month++){
+        //まずは月毎の日数を設定
+        let month_days;
+        if(month === 4 || month === 6 || month === 9 || month === 11){
+            month_days = 30; // 30日
+        }else if(month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12){
+            month_days = 31; // 31日
+        }else if(month === 2 && year % 4 === 0){ // 2月は閏年の場合29日、平年の場合28日
+            month_days = 29;
+        }else if(month === 2 && year % 400 === 0){ // 400で割り切れる年もは閏年で29日
+            month_days = 29;
+        }else{
+            month_days = 28;
+        }
+        for(let day = 1; day < month_days; day++){
+            console.log(year, month, day);
+        }
+    }
 }
 
-console.log(dateFunc(2025, 7, 2)); // → 2025/7/2
-
-let result7Html = `${n}年後の西暦は ${year(n)}年です。<br>日付関数実行結果：${dateFunc(2025, 7, 2)}`;
+let result7Html = `${n}年後の西暦は ${year(n)}年です。<br>年月日ループ処理も実行中...`;
 document.getElementById('result7').innerHTML = result7Html;
 
 // グラフィック表示の実行（新しいHELLOコードに更新）

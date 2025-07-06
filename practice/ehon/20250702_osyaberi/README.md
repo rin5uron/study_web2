@@ -16,7 +16,7 @@ JavaScriptの基本的なオブジェクト指向プログラミングを学習�
 
 ```css
 :root {
-    --accent-color: #00A2E8; /* アクセントカラー*/
+    --accent-color: #00A2E8; /* アクセントカラー */
 }
 html {
     font-size: 16px;
@@ -33,55 +33,76 @@ body {
     background-color: #f9f9f9;
 }
 section {
-    margin-bottom: 5rem; /* より大胆な余白 */
-    padding: 3rem; /* より大胆な余白 */
+    margin-bottom: 8rem;
+    padding: 3rem;
     background: white;
-    border-radius: 1rem; /* より丸く */
-    box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.08); /* より柔らかい影 */
+    border-radius: 1rem;
+    box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.08);
+}
+.h2 {
+    margin-bottom: 10rem;
+}
+.h3 {
+    margin-bottom: 6rem;
+}
+.h4 {
+    margin-bottom: 5rem;
+}
+section .h2:last-child {
+    margin-bottom: 0;
 }
 h1 {
-    font-size: 2rem; /* より大きく */
-    font-weight: 600; /* Apple風の太さ */
-    border-left: 0.375rem solid var(--accent-color); /* タイトルの帯を戻す */
-    padding-left: 1rem; /* 左側の余白を追加 */
-    margin-bottom: 2rem; /* より大胆な余白 */
+    font-size: 1.8rem;
+    font-weight: 600;
+    border-left: 0.375rem solid var(--accent-color);
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
     color: #333;
 }
 h2 {
-    font-size: 1.75rem; /* より大きく */
-    font-weight: 500; /* Apple風の太さ */
+    font-size: 1.3rem;
+    font-weight: 600;
     color: var(--accent-color);
-    margin-top: 4rem; /* より大胆な余白 */
-    margin-bottom: 1.5rem; /* より大胆な余白 */
+    margin-top: 0;
+    margin-bottom: 1.2rem;
 }
 h3 {
-    font-size: 1.375rem;
-    font-weight: 500;
-    margin-top: 2rem; 
-    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1rem;
 }
 h4 {
     font-size: 1.125rem;
-    font-weight: 500;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 p {
+    margin-top: 0;
     margin-bottom: 1.5rem; /* より大胆な余白 */
 }
+code {
+    background: #f1f3f4;
+    padding: 0.125rem 0.25rem;
+    border-radius: 0.25rem;
+    font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+    font-size: 0.875em;
+    color: #d63384;
+}
 pre {
-    margin-top: 1.5rem; 
-    margin-bottom: 2rem; 
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
 }
 .result {
     background: linear-gradient(135deg, #fafcff 0%, #f0f7ff 100%); /* より薄いグラデーション背景 */
-    padding: 1.5rem; 
+    padding: 2rem;
     border: 1px solid rgba(0, 162, 232, 0.1); /* より薄いボーダー */
-    border-radius: 0.75rem; 
-    margin-top: 1rem; 
+    border-radius: 0.75rem;
+    margin-top: 1rem;
     box-shadow: 0 0.125rem 0.75rem rgba(0, 162, 232, 0.05); /* より薄い影 */
     font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace; /* モノスペースフォント */
-    font-size: 0.9rem;
+    font-size: 1.1rem;/* 少し大きめ */
     font-weight: 400;
     white-space: pre-wrap;
     position: relative;
@@ -92,7 +113,7 @@ pre {
     box-shadow: 0 0.25rem 1rem rgba(0, 162, 232, 0.1);
 }
 .result::before {
-    content: "RESULT"; 
+    content: "result";
     display: block;
     font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;
     font-size: 0.75rem;
@@ -100,8 +121,8 @@ pre {
     color: var(--accent-color);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    margin-bottom: 1rem; 
-    padding-bottom: 0.75rem; 
+    margin-bottom: 1rem; /* より大胆な余白 */
+    padding-bottom: 0.75rem; /* より大胆な余白 */
     border-bottom: 1px solid rgba(0, 162, 232, 0.15); /* より薄いボーダー */
 }
 
@@ -113,6 +134,7 @@ pre {
     h2 { font-size: 1.25rem; }
     h3 { font-size: 1.125rem; }
     h4 { font-size: 1rem; }
+    .result { font-size: 0.875rem; }
 }
 
 /* タブレット向け (37.5625rem〜64rem = 601px〜1024px) */
@@ -128,7 +150,7 @@ pre {
 
 ## 使い方
 
-1. `practice.html`をブラウザで開く
+1. `index.html`をブラウザで開く
 2. JavaScriptのコードを確認
 3. 実行結果を確認
 4. 必要に応じてコードをコピー&ペースト

@@ -158,7 +158,7 @@ const person1 = {
     name: 'りんちゃん',//nameという名のプロパティにりんちゃんという値を入れる
     walk: function(step){//walkという名のメソッドを定義。引数にstepを取る
         console.log(person1.name + 'は'+ step + '歩歩けます');
-        document.write(person1.name + 'は'+ step + '歩歩けます');
+        document.write(person1.name + 'は'+ step + '歩歩けます。');
     },
     speak:function(who){//speakと いう名のメソッドを定義。引数にwhoを取る
          console.log(person1.name + 'は'+ who + 'とおしゃべりします。');
@@ -339,7 +339,7 @@ const OyasumiLib = {
         console.log("(｡•́︿•̀｡) もうねむい");
     },
     sweetDreams: function() {
-        console.log("(ღ˘⌣˘ღ) 続きは夢でおしゃべりしよ♡");
+        console.log("(ღ˘⌣˘ღ) 続きは夢でしよ♡");
     },
     sayGoodnight: function(name) {
         console.log(`(*˘︶˘*).｡.:*☆ おやすみ、${name}。また夢でね！`);
@@ -348,7 +348,7 @@ const OyasumiLib = {
 
 // 呼び出し例
 OyasumiLib.saynemui();                   // → (｡•́︿•̀｡) もうねむい
-OyasumiLib.sweetDreams();                // → (ღ˘⌣˘ღ) 続きは夢でおしゃべりしよ♡
+OyasumiLib.sweetDreams();                // → (ღ˘⌣˘ღ) 続きは夢でしよ♡
 OyasumiLib.sayGoodnight("うーろんくん"); // → (*˘︶˘*).｡.:*☆ おやすみ、うーろんくん。また夢でね！
         </code></pre>
         <div class="result" id="result4">
@@ -441,7 +441,7 @@ month_list.forEach((month) =>{// アロー関数：矢印（=>）を使うと短
     //任意の日付をコンソール表示
     for (let day = 1; day <= month_days; day++) {
         if (month === targetMonth && day === targetDay) {
-            console.log("見つけた！ " + month + day + "日");
+            console.log("見つけた！ " + month + day + "日！");
         }
     }
 });
@@ -486,9 +486,8 @@ if(month === 4 || month === 6 || month === 9 || month === 11){
     month_days = 28;
 }
 for(let day = 1; day < month_days; day++){
-    console.log(year, month, day);
         }
-    }
+    }console.log(year, month, day);
 }
 
 
