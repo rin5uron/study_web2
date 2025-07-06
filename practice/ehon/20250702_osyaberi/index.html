@@ -148,7 +148,7 @@
     
     <div class="h2">
 <h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
-        <p>プロパティ<code>name</code>に『りんちゃん』という値を入れ、<br>りんちゃんの行動メソッド（関数）を定義してみる</p>
+        <p>プロパティ<code>name</code>に『りんちゃん』という値を入れ、<br>りんちゃんの行動メソッド（関数）を定義してみる。</p>
         <p>オブジェクト：<code>person</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             プロパティ：<code>name</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             メソッド：<code>walk</code>, <code>speak</code>, <code>cooking</code></p>
@@ -187,9 +187,9 @@ person1.cooking('チキン南蛮')
     <div class="h2">
         <h2>(2)複雑な処理のオブジェクト</h2>
         
-        <p>メソッドで区切ることで、複雑な処理もオブジェクトで表すことができる。
+        <p>複雑な処理もメソッドで区切ることで、オブジェクトとして分かりやすく表すことができる。
         <br>(オブジェクトの中にオブジェクトを入れる)
-        <br><code>大オブジェクト名: { ... }</code> として中にまた <code>{}</code> に小オブジェクトを複数作ることで表わせる</p>
+        <br><code>大オブジェクト名: { ... }</code> として中にまた <code>{}</code> に小オブジェクトを複数作ることで表わすことができる。</p>
         <p>朝の準備オブジェクトを作ってみたよ！
         <br>論理値を用いて定義し、if文で朝の行動を表してみた。</p>
         <pre><code class="language-javascript">
@@ -291,7 +291,8 @@ console.log(`合計${totalSteps}歩歩いたね！`);  // → 合計15歩歩い�
 
         <div class="h3">
 <h3>戻り値returnを使う</h3>
-            <p><code>return</code>を使うと、次の処理でもその値を使えるようになる</p>
+            <p><code>return</code>を使うと、次の処理でもその値を使えるようになる。
+                <br>関数の処理を終わらせて、その値を返すことができる。</p>
 
             <pre><code class="language-javascript">
 function eat(food) {
@@ -308,7 +309,7 @@ let result1 = eat("トマト");
 function selfControl() {
     console.log("・オナニーしました。");
     console.log("　出てきたもの：🤍");
-    return "🤍";  // 処理の結果として戻り値を返す
+    return "🤍";  // 処理の結果
 }
 
 let result2 = selfControl();
@@ -503,7 +504,7 @@ for(let day = 1; day < month_days; day++){
 
     <div class="h2">
         <h2>グラフィック表示</h2>
-        <p>ループで看板風のグラフィックを作る</p>
+        <p>for文で看板風のグラフィックを作ってみた。</p>
         
         <pre><code class="language-javascript">
 let text = "HELLO";

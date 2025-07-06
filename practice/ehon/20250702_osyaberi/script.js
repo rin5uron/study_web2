@@ -152,7 +152,7 @@ const OyasumiLib = {
 };
 
 let result4Html = '';
-result4Html += '<br><br>--- おやすみライブラリ ---<br>';
+result4Html += '--- おやすみライブラリ ---<br>';
 result4Html += OyasumiLib.saynemui() + '<br>';
 result4Html += OyasumiLib.sweetDreams() + '<br>';
 result4Html += OyasumiLib.sayGoodnight("うーろんくん") + '<br>';
