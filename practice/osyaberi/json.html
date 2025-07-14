@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>プロフィール保存</title>
+</head>
+<body>
+  <h1>プロフィールを保存しよう</h1>
+  <label>名前：<input type="text" id="name" /></label><br />
+  <label>好きな食べ物：<input type="text" id="food" /></label><br />
+  <button id="saveBtn">保存する</button>
+  <button id="showBtn">表示する</button>
+
+  <h2>保存された情報</h2>
+  <pre id="output"></pre>
+
+  <script src="script.js">
+    // 名前と食べ物を取得する
+    const nameinput = document.getElementById('name').value;
+    const foodinput = document.getElementById('food').value;
+
+    document.getElementById('saveBtn').addEventListener('click', () => {
+    // 保存する
+  </script>
+</body>
+</html>

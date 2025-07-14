@@ -20,6 +20,9 @@
   - it-terms-labブラッシュアップ版
     - https://sqli-xss.vercel.app/
 
+- n進数と基数変換
+　- https://vercel.com/rs-projects-9c94598c/learn-n-bases
+
 #### ニコデモ
 - https://nico-demo-green.vercel.app/
 
@@ -29,6 +32,8 @@
 <br><br><br><br><br>
 # 🌱vercelプロジェクト一覧
 #### おしゃべり
+- 2025/07/14
+  - ポチョムキン理論
 - 2025/07/02
   - オブジェクトについて：https://20250702osyaberi.vercel.app/
 
@@ -63,6 +68,8 @@ https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81
 
 <br><br><br><br><br>
 # 🔗共有デモサイト
+## 2025/07/12
+- https://www.aiable.jp/
 ## 2025/07/08
 - パチスロサイト:サブドメインについて
   - slomap.com

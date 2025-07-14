@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>インスタンス</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>クラスとインスタンスの例</title>
+</head>
+<body>
+  <h1>JavaScript クラスとインスタンスの基本</h1>
+
+  <pre>
+1️クラスを定義する（設計図をつくる）
+2️ new でインスタンスを作る（実物をつくる）
+3️ メソッドでふるまいを使う
+  </pre>
+
+  <script>
+    // ① クラスを定義
+    class Human {
+      constructor(name) {
+        this.name = name; // 名前をプロパティに保存
+      }
+
+      walk(step) {
+        console.log(this.name + 'は' + step + '歩歩けます');
+      }
+
+      speak(who) {
+        console.log(this.name + 'は' + who + 'とおしゃべりします。');
+      }
+
+      cooking(food) {
+        console.log('今日の' + this.name + 'のご飯は' + food + 'を作りました。');
+      }
+    }
+
+    // ② インスタンスを作成
+    const person1 = new Human('Aちゃん');
+    const person2 = new Human('Bくん');
+
+    // ③ メソッドを実行
+    person1.walk(10);
+    person1.speak('Bくん');
+    person1.cooking('オムライス');
+
+    person2.walk(5);
+    person2.speak('Aちゃん');
+    person2.cooking('カレーライス');
+  </script>
+
+
+    <script>
+    class Human {
+         constructor(name) {　//初期値を決める
+            this.name = name;
+        }
+    
+
+    walk(step){
+        console.log(this.name + 'は'+ step + '歩歩けます');
+    }
+
+    speak(who){
+        console.log(this.name + 'は'+ who + 'とおしゃべりします。');
+    }
+
+    cooking(food){
+        console.log('今日の'+ this.name + 'のご飯は'+ food + 'でした。');
+    }
+    }
+    const person1 = new Human('りんちゃん');
+    const person2 = new Human('うーろんくん');
+
+    console.log(person1.name);
+    console.log(person2.name);
+
+    person1.walk(10);
+    person1.speak('うーろんくん');
+    person1.cooking('パイナップル');
+
+    person2.walk(3);
+    person2.speak('りんちゃん');
+    person2.cooking('カレー');
+    
+    </script>
+    
+</body>
+</html>
