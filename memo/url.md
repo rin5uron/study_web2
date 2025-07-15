@@ -51,6 +51,9 @@ https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81
 - 独自ドメイン
 <br><br><br><br><br>
 # 🕊️共有サイト
+## 2025/7/15
+有料級サイト、開発これに沿って
+- https://izanami.dev/kojin-kaihatsu
 
 ## 2025/6/22
 - これ便利そうって https://zenn.dev/yutafujii/articles/41c137eca83177

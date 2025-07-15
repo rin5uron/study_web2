@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>プロフィール保存</title>
+  <style>
+    :root {
+      --primary-color: #007aff;
+      --primary-light: #5ac8fa;
+      --primary-dark: #0056cc;
+      --secondary-color: #3a3a3c;
+      --text-color: #1d1d1f;
+      --background-color: #f5f5f7;
+      --section-bg: #ffffff;
+      --border-color: rgba(0, 0, 0, 0.1);
+      --shadow-color: rgba(0, 0, 0, 0.08);
+      --highlight-bg: linear-gradient(135deg, #f2f2f7 0%, #e5e5ea 100%);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: var(--background-color);
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      color: var(--text-color);
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      color: var(--text-color);
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      margin-top: 3rem;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      color: var(--primary-color);
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .form-section {
+      background: var(--section-bg);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--text-color);
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 1rem 1.25rem;
+      border: 2px solid #e5e7eb;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      background: var(--section-bg);
+      color: var(--text-color);
+    }
+
+    input[type="text"]:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 122, 255, 0.2);
+    }
+
+    button:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    }
+
+    .output-section {
+      background: var(--section-bg);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    pre {
+      background: linear-gradient(135deg, #f8f9fa 0%, #f1f3f4 100%);
+      padding: 2rem;
+      border-radius: 1rem;
+      overflow-x: auto;
+      font-family: SF Mono, Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #374151;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .learning-section {
+      background: var(--section-bg);
+      padding: 3rem;
+      border-radius: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .learning-box {
+      padding: 2rem;
+      border-radius: 1rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .learning-box:nth-child(2) {
+      background: linear-gradient(135deg, #f0f8ff 0%, #e0f2fe 100%);
+    }
+
+    .learning-box:nth-child(3) {
+      background: linear-gradient(135deg, #f0fff0 0%, #e8f5e8 100%);
+    }
+
+    .learning-box:nth-child(4) {
+      background: linear-gradient(135deg, #fff8f0 0%, #fef3e9 100%);
+    }
+
+    .learning-box h3 {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+
+    .learning-box p {
+      margin: 1rem 0;
+      font-size: 1.125rem;
+      line-height: 1.8;
+      color: var(--secondary-color);
+    }
+
+    .learning-box code {
+      background: rgba(0, 0, 0, 0.05);
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.25rem;
+      font-family: SF Mono, Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 0.9rem;
+    }
+
+    hr {
+      border: none;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+      margin: 3rem 0;
+    }
+
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      body {
+        padding: 1.5rem;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+      
+      h3 {
+        font-size: 1.375rem;
+      }
+      
+      .form-section,
+      .output-section,
+      .learning-section {
+        padding: 2rem;
+      }
+      
+      .learning-box {
+        padding: 1.5rem;
+      }
+      
+      .button-group {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>プロフィールを保存しよう</h1>
+  </header>
+
+  <div class="form-section">
+    <div class="form-group">
+      <label for="name">名前：</label>
+      <input type="text" id="name" />
+    </div>
+    <div class="form-group">
+      <label for="food">好きな食べ物：</label>
+      <input type="text" id="food" />
+    </div>
+    <div class="button-group">
+      <button id="saveBtn">保存する</button>
+      <button id="showBtn">表示する</button>
+    </div>
+  </div>
+
+  <div class="output-section">
+    <h2>保存された情報</h2>
+    <pre id="output"></pre>
+  </div>
+
+  <hr>
+
+  <div class="learning-section">
+    <h2>📚 学んだこと</h2>
+    
+    <div class="learning-box">
+      <h3>1. .valueプロパティ</h3>
+      <p><strong>入力欄に入力されたテキストの中身を取り出すプロパティ</strong></p>
+      <code>const name = document.getElementById('name').value;</code>
+      <p>→ input要素の値を取得できる</p>
+    </div>
+
+    <div class="learning-box">
+      <h3>2. JSON.stringify()</h3>
+      <p><strong>オブジェクトをJSON文字列に変換できる</strong></p>
+      <code>const jsonText = JSON.stringify(data);</code>
+      <p>→ JavaScriptオブジェクトを文字列に変換してlocalStorageに保存可能</p>
+    </div>
+
+    <div class="learning-box">
+      <h3>3. null（ぬる）</h3>
+      <p><strong>意図的に無効・未設定であることを示す値</strong></p>
+      <code>JSON.stringify(obj, null, 2)</code>
+      <p>→ 第2引数にnullを渡し、第3引数に2を渡すと、オブジェクトの各行の冒頭に2文字分のインデントが入る</p>
+      <p>例：見やすい形式で表示される</p>
+    </div>
+  </div>
+
+  <script>
+    // 保存ボタンの処理
+    document.getElementById('saveBtn').addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const food = document.getElementById('food').value;
+
+        const data = {
+            name: name,
+            food: food
+        };
+        const jsonText = JSON.stringify(data);
+        localStorage.setItem("myProfile", jsonText);
+        
+        alert('プロフィールを保存しました！');
+    });
+
+    // 表示ボタンの処理
+    document.getElementById("showBtn").addEventListener("click", () => {
+        const json = localStorage.getItem("myProfile");
+        
+        // データがない場合の処理
+        if (!json) {
+            alert('保存されたデータがありません。まず保存してください。');
+            return;
+        }
+        
+        try {
+            const obj = JSON.parse(json);
+            const output = document.getElementById("output");
+            // textContentでHTMLの中に書き込む、\nは改行
+            output.textContent = `名前：${obj.name}\n好きな食べ物：${obj.food}`;
+            
+            // デバッグ用にコンソールにも出力
+            console.log('保存されたデータ:', JSON.stringify(obj, null, 2));
+        } catch (error) {
+            alert('データの読み込みに失敗しました。');
+            console.error('JSONパースエラー:', error);
+        }
+    });
+
+  </script>
+</body>
+</html>
