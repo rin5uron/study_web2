@@ -22,6 +22,7 @@
 
 - n進数と基数変換
 　- https://vercel.com/rs-projects-9c94598c/learn-n-bases
+- シフト変換
 
 #### ニコデモ
 - https://nico-demo-green.vercel.app/
@@ -55,6 +56,10 @@ https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81
 有料級サイト、開発これに沿って
 - https://izanami.dev/kojin-kaihatsu
 
+## 2025/7/14
+- ポチョムキン理論
+　- https://www.youtube.com/watch?v=-Roj2TFpEgc
+
 ## 2025/6/22
 - これ便利そうって https://zenn.dev/yutafujii/articles/41c137eca83177
 
@@ -72,12 +77,16 @@ https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81
 <br><br><br><br><br>
 # 🔗共有デモサイト
 ## 2025/07/12
-- https://www.aiable.jp/
+- slo-map.com
+　- https://izanami.dev/post/54bb99d2-c5d9-4b9c-a299-faf6587417ae
+## 2025/07/12
+- aiable
+　- https://www.aiable.jp/
 ## 2025/07/08
 - パチスロサイト:サブドメインについて
-  - slomap.com
-  - stg.slomap.com
-  - dev.slomap.com
+  - slo-map.com
+  - stg.slo-map.com
+  - dev.slo-map.com
 ## 2025/06/03
 - キャバ嬢向け顧客管理アプリ：UI、UX
   - http://18.178.214.78/crm/visits/

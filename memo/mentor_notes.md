@@ -1,7 +1,13 @@
-## 【2025/07/08】ジェイソン
-- URLをgoogleに登録しないようにする
+## 【2025/07/16】kiro
+- kiro
 
-## 【2025/07/08】ジェイソン
+## 【2025/07/15】サブドメイン、開発マップ
+- URLをgoogleに登録しないようにする
+- 開発マップ
+  - https://izanami.dev/kojin-kaihatsu
+- [開発メモ](../../memo/dev.md)※../../ = 二つ上の階層に移動（work_log → Desktop）
+
+## 【2025/07/13】ジェイソン
 - データの受け渡しは世界共通でjson：共通規格（ダンボール、畳み方）
 - フロントはJavaScript、バックはpythonでもデータ受け渡しは
 - Chrome書いたプロファイルChrome専用でも、jsontn
