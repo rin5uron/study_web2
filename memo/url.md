@@ -52,6 +52,8 @@ https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81
 - 独自ドメイン
 <br><br><br><br><br>
 # 🕊️共有サイト
+## 2025/7/18 
+- https://four-seven-website-main-git-develop-slotdata2020s-projects.vercel.app/
 ## 2025/7/15
 有料級サイト、開発これに沿って
 - https://izanami.dev/kojin-kaihatsu
