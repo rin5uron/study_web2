@@ -1,0 +1,73 @@
+# プログラミング学習プロジェクト (101日目以降)
+
+> プログラミングを勉強し始めて101日目以降の学び。毎日の記録と振り返り、目標設定は[work_logリポジトリ](../work_log/)にまとめています。
+
+---
+
+## 📊 学習の経緯
+
+**100日目まで**: [study_webリポジトリ](https://github.com/rin5uron/study_web)参照  
+**101日目以降**: このリポジトリで継続的な学習を記録
+
+各学びの詳細は各リポジトリのREADMEやprocesslogを参照してください。
+
+---
+
+## 📚 主な学習内容
+
+### 🧠 学習ノート
+**ファイル**: [`memo/memo_study.md`](memo/memo_study.md)
+
+101日目以降に学んだ技術概念やツールをまとめた学習メモ。
+- Bootstrap
+- Markdownリンク作成ルール  
+- Whisper（音声認識AI）
+- その他の技術メモ
+
+### 💻 JavaScript体系学習
+**フォルダ**: [`practice/`](practice/)
+
+JavaScriptを体系的に学ぶための実践的な演習とプロジェクト。
+- JavaScript絵本での基礎学習
+- オブジェクト指向プログラミング
+- 実践的なコーディング演習
+
+### 🔍 IT用語実践学習
+**リポジトリ**: [it-terms-lab](https://github.com/rin5uron/it-terms-lab)
+
+IT用語を実践的に学び、体験デモ付きの学習サイトを構築。
+**最終目標**: 基本情報技術者試験の取得
+
+**主な成果**:
+- フールプルーフ体験ページ
+- SQLインジェクション・XSS体験ページ  
+- 基数変換・シフト演算学習ページ
+- 実践型IT用語辞典サイト
+
+### 📖 IT用語サイト運営
+**内容**: 学んだIT用語を用いたWebサイトの企画・制作・運営
+
+実践的なIT用語学習と並行して、学習成果をWebサイトとして形にする実務的なプロジェクト。
+
+---
+
+## 🔗 関連リンク
+
+- **📝 daily記録**: [work_log/logs/work_log.md](../work_log/logs/work_log.md)
+- **📋 学習計画**: [work_log/learning_roadmap.md](../work_log/learning_roadmap.md)  
+- **🎯 IT用語Lab**: [https://github.com/rin5uron/it-terms-lab](https://github.com/rin5uron/it-terms-lab)
+- **🚀 デモサイト**: [sqli-xss.vercel.app](https://sqli-xss.vercel.app)
+
+---
+
+## 📈 学習管理について
+
+**毎日の記録**: work_logリポジトリの`timelog.md`と`work_log.md`で日々の学習内容を記録
+
+**振り返り**: 週間・月間で学習データをもとに振り返りを実施し、継続的な改善を図っています
+
+---
+
+## �� 最終更新日
+
+2025年7月19日
