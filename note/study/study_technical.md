@@ -237,6 +237,73 @@ Markdownでリンクを作成する際の基本的なルールと、プロジェ
 [Whisperの詳細](memo_study.md)
 [GitHubリポジトリ](https://github.com/user/repo)
 ```
+###  🖼️ 画像表示とサイズ調整
+
+####  基本的な画像表示（Markdown）
+```markdown
+![alt属性のテキスト](画像のパス)
+```
+
+**例**：
+```markdown
+![スクリーンショット](images/screenshot.png)
+![Day1実践結果](../screenshots/cli_day1.png)
+```
+
+### HTMLタグでのサイズ調整
+Markdownだけでは画像サイズを調整できないため、HTMLタグを使用：
+
+```html
+<img src="画像のパス" alt="説明" width="サイズ" height="サイズ">
+```
+
+**サイズ指定の例**：
+```html
+<!-- 幅を指定（高さは自動調整） -->
+<img src="images/screenshot.png" alt="CLI実行結果" width="500">
+
+<!-- 幅と高さを指定 -->
+<img src="images/screenshot.png" alt="CLI実行結果" width="400" height="300">
+
+<!-- パーセンテージで指定 -->
+<img src="images/screenshot.png" alt="CLI実行結果" width="80%">
+```
+
+####  よく使う画像パス例
+```markdown
+<!-- 同じフォルダ内 -->
+![説明](screenshot.png)
+
+<!-- imagesフォルダ内 -->
+![説明](images/day1_result.png)
+
+<!-- 上位フォルダのimagesフォルダ -->
+![説明](../images/cli_practice.png)
+
+<!-- プロジェクトルートのimagesフォルダ -->
+![説明](../../images/global_screenshot.png)
+```
+
+####  画像とキャプションのセット
+```html
+<div align="center">
+<img src="images/screenshot.png" alt="CLI実行結果" width="600">
+<br>
+<small>CLI Day1の実行結果</small>
+</div>
+```
+
+
+###  💡 よく使うパターン
+- **ワークログ→メモ**: `[詳細](../../memo/ファイル名.md)`
+- **メモ→ワークログ**: `[ワークログ](../../work_log/logs/work_log.md)`
+- **同じフォルダ内**: `[ファイル名](ファイル名.md)`
+- **特定セクション**: `[セクション名](ファイル名.md#アンカー名)`
+
+
+
+####  ✅ まとめ
+リンク作成は `[表示テキスト](パス)` の基本形式を覚えることが重要。相対パスと絶対パスを使い分け、アンカーリンクで詳細なナビゲーションを実現できる。
 
 ---
 
@@ -284,14 +351,6 @@ Desktop/
 
 [今日のメモ](../../memo/mentor_notes.md#20250713ジェイソン)
 ```
-
----
-
-## 💡 よく使うパターン
-- **ワークログ→メモ**: `[詳細](../../memo/ファイル名.md)`
-- **メモ→ワークログ**: `[ワークログ](../../work_log/logs/work_log.md)`
-- **同じフォルダ内**: `[ファイル名](ファイル名.md)`
-- **特定セクション**: `[セクション名](ファイル名.md#アンカー名)`
 
 ---
 

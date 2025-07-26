@@ -23,7 +23,8 @@
 - n進数と基数変換
 　- https://vercel.com/rs-projects-9c94598c/learn-n-bases
 - シフト変換
-
+　- https://learn-bit-shift.vercel.app/
+ 
 #### ニコデモ
 - https://nico-demo-green.vercel.app/
 
@@ -31,6 +32,7 @@
 - ネガポジ
   - https://negaposi-counter.vercel.app/
 <br><br><br><br><br>
+
 # 🌱vercelプロジェクト一覧
 #### おしゃべり
 - 2025/07/14
