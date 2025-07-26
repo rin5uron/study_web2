@@ -1,24 +1,55 @@
 # プログラミング学習プロジェクト (101日目以降)
 
-> プログラミングを勉強し始めて101日目以降の学び。毎日の記録と振り返り、目標設定は[work_logリポジトリ](../work_log/)にまとめています。
+> プログラミングを勉強し始めて101日目以降の学び。毎日の記録と振り返り、目標設定や日々の学習記録は[work_logリポジトリ](../work_log/)にまとめています。
 
 ---
 
-## 📊 学習の経緯
+## このリポジトリについて
+プログラミング学習101日目以降の学習ポートフォリオ。
+学習内容・制作物・成果を、このREADMEからアクセスできます。
+<br>
+**100日目まで**　：[study_webリポジトリ](https://github.com/rin5uron/study_web)参照  
+**101日目以降**　：このリポジトリで記録
 
-**100日目まで**: [study_webリポジトリ](https://github.com/rin5uron/study_web)参照  
-**101日目以降**: このリポジトリで継続的な学習を記録
-
-各学びの詳細は各リポジトリのREADMEやprocesslogを参照してください。
 
 ---
+<br><br><br>
 
-## 主な学習内容
+## ディレクトリ構成
 
-### 学習ノート
-**ファイル**: [`memo/memo_study.md`](memo/memo_study.md)
+```
+study_web2/
+├── note/ # 学習・開発記録
+│   ├── study/ # 学習記録
+│   │   ├── study_technical.md    # 技術学習記録
+│   │   ├── study_errors.md       # エラー解決記録
+│   │   └── study_mentorship.md   # メンター記録
+│   │
+│   └── dev/ # 開発記録
+│       ├── dev_url_projects.md   # プロジェクト一覧
+│       ├── dev_process.md        # 開発手法・テンプレート
+│       └── dev_vision.md         # エンジニア像・目標
+│
+└── practice/ # 実践演習
+    └── （JavaScript学習・実践コード）
+```
 
-101日目以降に学んだ技術概念やツールをまとめた学習メモ。
+### 🗒️学習ノート
+**フォルダ**: [`note/`](note/)
+
+101日目以降に学んだ技術概念やツールを体系的に整理した学習記録。
+
+#### 📚 学習記録 (`note/study/`)
+- **技術学習**: [`study_technical.md`](note/study/study_technical.md) - 技術概念・ツールの学習記録
+- **エラー解決**: [`study_errors.md`](note/study/study_errors.md) - エラーと解決方法の記録・学習
+- **メンター記録**: [`study_mentorship.md`](note/study/study_mentorship.md) 
+
+#### 🔧 開発記録 (`note/dev/`)
+- **プロジェクト**: [`dev_url_projects.md`](note/dev/dev_url_projects.md) - 作成したURL・プロジェクト一覧
+- **開発手法**: [`dev_process.md`](note/dev/dev_process.md) - 開発プロセス・テンプレート
+- **目標設定**: [`dev_vision.md`](note/dev/dev_vision.md) - エンジニア像・キャリア目標
+
+<br><br><br>
 
 ### 💻 JavaScript体系学習
 **フォルダ**: [`practice/`](practice/)
@@ -28,6 +59,13 @@ JavaScriptを体系的に学ぶための実践的な演習とプロジェクト�
 - オブジェクト指向プログラミング
 - 実践的なコーディング演習
 
+**詳細・成果物**: [`practice/readme.md`](practice/readme.md)を参照してください
+
+<br><br><br>
+## 別リポジトリでの学び
+
+プロジェクトや別リポジトリにしています。
+101日目以降に作成、継続しているリポジトリは以下の通りです。
 ### 🔍 IT用語実践学習
 **リポジトリ**: [it-terms-lab](https://github.com/rin5uron/it-terms-lab)
 
