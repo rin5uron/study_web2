@@ -3,93 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>インスタンス</title>
+    <title>クラス＆インスタンス 入門演習</title>
 </head>
 <body>
-    <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>クラスとインスタンスの例</title>
-</head>
-<body>
-  <h1>JavaScript クラスとインスタンスの基本</h1>
-
-  <pre>
-1️クラスを定義する（設計図をつくる）
-2️ new でインスタンスを作る（実物をつくる）
-3️ メソッドでふるまいを使う
-  </pre>
+  <h1>JavaScript クラス＆インスタンス 入門演習</h1>
+  <p>
+    この演習では、<strong>オブジェクト</strong>、<strong>プロパティ</strong>、<strong>メソッド</strong>の定義を学び、
+    クラスとインスタンスで実際に動かすことで仕組みを認識します。さらに、<strong>入れ子構造</strong>の理解を深めるトレーニングです。
+  </p>
+  <ol>
+    <li>クラスを定義してオブジェクトの「設計図」を作成する</li>
+    <li><code>new</code>キーワードでインスタンスを生成し、実物のオブジェクトを作成する</li>
+    <li>インスタンスのメソッドを呼び出して処理を実行する</li>
+    <li>入れ子構造（クラスの中に別クラスのインスタンスを保持する関係）を確認する</li>
+  </ol>
+</body>
 
   <script>
-    // ① クラスを定義
-    class Human {
-      constructor(name) {
-        this.name = name; // 名前をプロパティに保存
-      }
+    // ① Humanクラス：人間についてメソッドで定義
+class Human {
+  constructor(name) {         // 初期値設定、これをインスタンス生成のために使う
+    this.name = name;
+  }
+  walk(step) {                // 歩くメソッド
+    console.log(`${this.name}は${step}歩歩けます`);
+  }
 
-      walk(step) {
-        console.log(this.name + 'は' + step + '歩歩けます');
-      }
+  speak(who) {                // 会話メソッド
+    console.log(`${this.name}は${who}とおしゃべりします。`);
+  }
 
-      speak(who) {
-        console.log(this.name + 'は' + who + 'とおしゃべりします。');
-      }
+  cooking(food) {             // 食べたものメソッド
+    console.log(`今日の${this.name}のご飯は${food}でした。`);
+  }
+}
 
-      cooking(food) {
-        console.log('今日の' + this.name + 'のご飯は' + food + 'を作りました。');
-      }
+// インスタンス生成＆メソッド呼び出し
+const person1 = new Human('りんちゃん');
+const person2 = new Human('うーろんくん');
+
+person1.walk(10);
+person1.speak('うーろんくん');
+person1.cooking('パイナップル');
+
+person2.walk(3);
+person2.speak('りんちゃん');
+person2.cooking('カレー');
+
+
+
+// ② Sweetsクラス：お菓子の情報をまとめ、表示メソッドを用いてコンソールに表示する
+// 前だけ先に設定してから別メソッドで残りをまとめて設定するパターン
+class Sweets {
+  constructor(name) {
+    this.name = name;   // お菓子の名前
+    this.taste = '';
+    this.flavor = '';
+    this.point = '';
+    this.place = '';
+  }
+  // printTaste メソッド：引数で受け取った taste をthis.tasteに格納して表示
+  printTaste(taste) {          // 味の説明
+    this.taste = taste;
+    console.log(`${this.name}は${this.taste}です`);
+  }
+
+  printFlavor(flavor) {        // 風味の説明
+    this.flavor = flavor;
+    console.log(`${this.name}のお気に入りの味は${this.flavor}です`);
+  }
+
+  printPoint(point) {          // ポイントの説明
+    this.point = point;
+    console.log(`${this.flavor}味のポイントは${this.point}です`);
+  }
+
+  printBuy(place) {            // 購入場所の説明
+    this.place = place;
+    console.log(`${this.flavor}は${this.place}で買えます`);
+  }
+}
+
+// インスタンス生成＆メソッド呼び出し
+const sweets1 = new Sweets('ハーゲンダッツ');
+sweets1.printTaste('美味しい');
+sweets1.printFlavor('マカダミアナッツ');
+sweets1.printPoint('期待以上のマカダミアナッツ感');
+sweets1.printBuy('どこでも');
+
+const sweets2 = new Sweets('ポテトチップス');
+sweets2.printTaste('無限に食べられるお菓子');
+sweets2.printFlavor('カルビーのうす塩');
+sweets2.printPoint('パリパリ感');
+sweets2.printBuy('どこでも');
+
+// ③アイスクリームクラス：複数のアイスクリームを一括説明する
+// インスタンス生成時に全プロパティを一気に初期化するパターン：
+class FrozenDesert {
+    constructor(name,taste,howeat) {
+        this.name = name;
+        this.taste = taste;
+        this.howeat = howeat;
     }
 
-    // ② インスタンスを作成
-    const person1 = new Human('Aちゃん');
-    const person2 = new Human('Bくん');
+describe(){
+    console.log(this.name + 'は' + this.taste + 'です。' this.howeat + 'のがおすすめの食べ方です。' );
+}
+}
 
-    // ③ メソッドを実行
-    person1.walk(10);
-    person1.speak('Bくん');
-    person1.cooking('オムライス');
+const icecream1 = new FrozenDesert
+('ハーゲンダッツマカダミアナッツ味','ごろごろマカダミアナッツが嬉しい美味しさ','好きな人と一緒に食べる');
+const icecream2 = new FrozenDesert
+('パリッテ','パリパリチョコが存分に楽しめるアイス','とにかくパリパリを楽しみたい時に食べる');
+const icecream3 = new FrozenDesert
+('パルム','絶妙な口溶けがなんとも言えない','可愛いフォルムをそっと愛でながらやさしい気持ちで味わう');
+const icecream3 = new icecream
+('ガリガリくんパイン味','リアルパイナップルを思わせる食感','パイナップルに想いを馳せて食べる');
 
-    person2.walk(5);
-    person2.speak('Aちゃん');
-    person2.cooking('カレーライス');
-  </script>
+// 配列にまとめて一括説明
+const menu = [ice1, ice2, ice3, ice4];
+menu.forEach(item => item.describe());
 
 
-    <script>
-    class Human {
-         constructor(name) {　//初期値を決める
-            this.name = name;
-        }
-    
-
-    walk(step){
-        console.log(this.name + 'は'+ step + '歩歩けます');
-    }
-
-    speak(who){
-        console.log(this.name + 'は'+ who + 'とおしゃべりします。');
-    }
-
-    cooking(food){
-        console.log('今日の'+ this.name + 'のご飯は'+ food + 'でした。');
-    }
-    }
-    const person1 = new Human('りんちゃん');
-    const person2 = new Human('うーろんくん');
-
-    console.log(person1.name);
-    console.log(person2.name);
-
-    person1.walk(10);
-    person1.speak('うーろんくん');
-    person1.cooking('パイナップル');
-
-    person2.walk(3);
-    person2.speak('りんちゃん');
-    person2.cooking('カレー');
-    
-    </script>
+</script>
     
 </body>
 </html>
