@@ -16,7 +16,7 @@
         }
         @media (min-width: 768px) {
             body {
-                max-width: 800px;
+                max-width: 600px;
                 margin: 0 auto;
                 padding: 3rem; /* Increased padding for desktop */
             }
@@ -31,6 +31,11 @@
         h1 { font-size: 2.2em; }
         h2 { font-size: 1.8em; }
         h3 { font-size: 1.4em; }
+        
+        /* スマホ表示でh1のフォントサイズを調整 */
+        @media (max-width: 767px) {
+            h1 { font-size: 1.8em; }
+        }
         pre {
             background-color: #2d2d2d;
             color: #f8f8f2;
@@ -106,9 +111,9 @@
 演習目安：1日5分</small>
 <hr>
 <h2>🗓 Day 1：CLIの基本の「き」</h2>
-<h3>📌 目標</h3>
+<h3>目標</h3>
 <p>- ターミナルを開いて、自分の場所（フォルダ）を知ろう<br>- フォルダの中を見て、移動してみよう</p>
-<h3>🧪 実践コマンドと解説</h3>
+<h3>実践コマンドと解説</h3>
 <pre><code>pwd</code></pre>
 <p>- 🔍 <strong><code>pwd</code> = "Print Working Directory"</strong><br>- ✅ 今いる場所（パス）を表示する。マウスでいうと「今どのフォルダを見てるか」。</p>
 <pre><code>ls</code></pre>
@@ -118,7 +123,7 @@
 <pre><code>pwd
 ls</code></pre>
 <p>- ✅ デスクトップに移動できたか再確認！</p>
-<h3>✍️ 実践記録</h3>
+<h3>実践記録</h3>
 <img src="images/day1.png" alt="day1">
 <br>
 <p><strong>メモ</strong>: <br>・bquote> 状態:<br>入力待ち状態（マルチラインモード）でターミナルが迷子。タグの閉じ忘れやエラー文字の入力等が原因になることがい多い。<br>bquote> 状態になったら：<br>Ctrl + C を押してリセット！（一番安全）</p>
@@ -127,9 +132,9 @@ ls</code></pre>
 <br><br><br>
 <hr>
 <h2>🗓 Day 2：ファイルとフォルダを「作る」</h2>
-<h3>📌 目標</h3>
+<h3>目標</h3>
 <p>- フォルダやファイルをコマンドで作れるようになる</p>
-<h3>🧪 実践コマンドと解説</h3>
+<h3>実践コマンドと解説</h3>
 <pre><code># リポジトリ直下にディレクトリ作成
 mkdir cli_day2
 # practice/CLI/cli_day2を作成（親ディレクトリがない場合は同時作成）
@@ -146,7 +151,7 @@ cd "practice/CLI/脱マウス初級編/cli_day2"</code></pre>
 <p>- 🔍 <strong><code>echo</code> = 文字列を表示（出力）するコマンド</strong><br>- ✅ <code>></code>でファイルに書き込み。上書き保存される。</p>
 <pre><code>cat hello.txt</code></pre>
 <p>- 🔍 <strong><code>cat</code> = "concatenate"（つなげる）の略</strong><br>- ✅ ファイルの中身を表示（読み取り専用）</p>
-<h3>✍️ 実践記録</h3>
+<h3>実践記録</h3>
 <div class="image-gallery">
 <img src="images/day2_1.png" alt="day2_1">
 <img src="images/day2_2.png" alt="day2_2">
@@ -156,9 +161,9 @@ cd "practice/CLI/脱マウス初級編/cli_day2"</code></pre>
 <p><strong>メモ</strong>: <br>・コマンドとファイル名の区切り等は半角スペースを空ける<br>・日本語を含むパスには必ずクォートを付ける<br>・ルート直下にファイルを置いた後に、同ファイル名で違うディレクトリに作ったらターミナルが混乱してエラー。削除してから実行してもエラー。一度リセットするが吉。紛らわしいことはしない方が吉。<br>・Ctrl+Cはターミナルの状態はリセットしない<br>・cd,mv,mkdirの違い<br>✅ コマンド実行の停止のみ<br><a href="../../../note/study/study_errors.md">[エラー内容と解決方法]</a><br>コマンドの使い分け<br>| 目的 | コマンド | 例 |</p>
 <hr>
 <h2>🗓 Day 3：ファイルの名前変更・コピー・削除</h2>
-<h3>📌 目標</h3>
+<h3>目標</h3>
 <p>- 基本的なファイル操作をマウスなしで行う</p>
-<h3>🧪 実践コマンドと解説</h3>
+<h3>実践コマンドと解説</h3>
 <pre><code>mv hello.txt intro.txt</code></pre>
 <p>- 🔍 <strong><code>mv</code> = "Move"（移動）</strong><br>- ✅ ファイル名の変更にも使える。ここではリネーム。</p>
 <pre><code>cp intro.txt intro_copy.txt</code></pre>
@@ -167,14 +172,21 @@ cd "practice/CLI/脱マウス初級編/cli_day2"</code></pre>
 <p>- 🔍 <strong><code>rm</code> = "Remove"</strong><br>- ⚠️ 完全削除。ゴミ箱はなし！慎重に。</p>
 <pre><code>ls</code></pre>
 <p>- ✅ ファイルがどう変化したか確認</p>
-<h3>✍️ 実践記録</h3>
-<p><strong>スクリーンショット</strong>: </p>
-<p><strong>一言メモ</strong>: </p>
+<h3>実践記録</h3>
+<div class="image-gallery">
+<img src="images/day3_1.png" alt="day3_1">
+<img src="images/day3_2.png" alt="day3_2">
+</div>
+<br>
+<p><strong>メモ</strong>: <br>・<strong>Tab補完</strong>がとても便利！ファイル名やディレクトリ名の途中まで入力してTabキーを押すと、自動で補完してくれる<br>・長いファイル名やパスを全部手入力する必要がなくなって、タイピングミスも防げる<br>・特に日本語を含むパスでは、Tab補完を使うとクォートも自動でつけてくれるので安心<br>・ファイル操作の基本（mv, cp, rm）をマスターすると、マウスでの右クリックメニューが不要になる<br></p>
+<br>
+2025/7/28
+<br><br><br>
 <hr>
 <h2>🗓 Day 4：パスの感覚を身につけよう</h2>
-<h3>📌 目標</h3>
+<h3>目標</h3>
 <p>- パス（場所の指定）に慣れよう。マウス感覚を言語化！</p>
-<h3>🧪 実践コマンドと解説</h3>
+<h3>実践コマンドと解説</h3>
 <pre><code>cd ..</code></pre>
 <p>- 🔍 <strong><code>..</code> = 1つ上のフォルダ</strong><br>- ✅ 1階層上に戻る</p>
 <pre><code>cd ~/Desktop</code></pre>
@@ -182,14 +194,14 @@ cd "practice/CLI/脱マウス初級編/cli_day2"</code></pre>
 <pre><code>cd cli_day2
 cd ..</code></pre>
 <p>- ✅ これが「相対パス」。現在地からの距離感で移動する。</p>
-<h3>✍️ 実践記録</h3>
+<h3>実践記録</h3>
 <p><strong>スクリーンショット</strong>: </p>
 <p><strong>一言メモ</strong>: </p>
 <hr>
 <h2>🗓 Day 5：脱マウスを完成させる「小技集」</h2>
-<h3>📌 目標</h3>
+<h3>目標</h3>
 <p>- マウスを使わずに高速操作できるショートカットを習得</p>
-<h3>🎹 小技集</h3>
+<h3>小技集</h3>
 <table>
 <thead>
 <tr><th>操作</th><th>効果</th></tr>
@@ -204,14 +216,14 @@ cd ..</code></pre>
 </tbody>
 </table>
 <hr>
-<h3>🎯 最終チャレンジ（仕上げ）</h3>
+<h3>最終チャレンジ（仕上げ）</h3>
 <pre><code>cd ~/Desktop
 mkdir cli_final
 cd cli_final
 touch final.txt
 echo "脱マウス達成！" > final.txt
 cat final.txt</code></pre>
-<h3>✍️ 実践記録</h3>
+<h3>実践記録</h3>
 <p><strong>スクリーンショット</strong>: </p>
 <p><strong>一言メモ</strong>: </p>
 <hr>
