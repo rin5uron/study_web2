@@ -7,24 +7,27 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.8; /* Increased line-height */
+            line-height: 1.8;
             margin: 0;
-            padding: 2rem; /* Increased padding */
+            padding: 2rem;
             background-color: #fff;
             color: #333;
-            font-size: 17px; /* Increased font size */
+            font-size: 17px;
+        }
+        p {
+            margin-bottom: 1.2em; /* Add space between paragraphs */
         }
         @media (min-width: 768px) {
             body {
                 max-width: 600px;
                 margin: 0 auto;
-                padding: 3rem; /* Increased padding for desktop */
+                padding: 3rem;
             }
         }
         h1, h2, h3 {
             line-height: 1.3;
-            margin-top: 2.5em; /* Increased margin-top */
-            margin-bottom: 1em; /* Increased margin-bottom */
+            margin-top: 2.5em;
+            margin-bottom: 1em;
             padding-bottom: 0.4em;
             border-bottom: 1px solid #eaecef;
         }
@@ -32,15 +35,28 @@
         h2 { font-size: 1.8em; }
         h3 { font-size: 1.4em; }
         
-        /* スマホ表示でh1のフォントサイズを調整 */
+        /* Mobile-specific adjustments for better readability */
         @media (max-width: 767px) {
-            h1 { font-size: 1.8em; }
+            body {
+                padding: 1.5rem; /* Adjust padding for more content space */
+                font-size: 16px; /* Slightly smaller base font */
+            }
+            h1 { 
+                font-size: 1.7em; /* Adjust h1 font size */
+            }
+            h2 {
+                font-size: 1.4em; /* Adjust h2 font size */
+            }
+            h3 {
+                font-size: 1.15em; /* Adjust h3 font size */
+                margin-top: 2em; /* Reduce top margin for h3 */
+            }
         }
         pre {
             background-color: #2d2d2d;
             color: #f8f8f2;
-            padding: 1.5em; /* Increased padding */
-            border-radius: 8px; /* Slightly more rounded */
+            padding: 1.5em;
+            border-radius: 8px;
             overflow-x: auto;
             white-space: pre-wrap;
             word-wrap: break-word;
@@ -48,7 +64,7 @@
         code {
             font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
             font-size: 0.95em;
-            background-color: rgba(27,31,35,0.07); /* Slightly darker background */
+            background-color: rgba(27,31,35,0.07);
             padding: .2em .4em;
             margin: 0;
             border-radius: 4px;
@@ -62,19 +78,19 @@
         img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px; /* Slightly more rounded */
-            margin-bottom: 1rem; /* Add space below images */
+            border-radius: 8px;
+            margin-bottom: 1rem;
         }
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2em 0; /* Increased margin */
+            margin: 2em 0;
             display: block;
             overflow-x: auto;
         }
         th, td {
             border: 1px solid #dfe2e5;
-            padding: 0.8em 1.2em; /* Increased padding */
+            padding: 0.8em 1.2em;
         }
         th {
             background-color: #f6f8fa;
@@ -83,23 +99,23 @@
         hr {
             border: 0;
             border-top: 1px solid #dfe2e5;
-            margin: 3em 0; /* Increased margin */
+            margin: 3em 0;
         }
         /* Responsive image container */
         .image-gallery {
             display: flex;
-            flex-direction: column; /* Stack images vertically by default */
-            gap: 15px; /* Space between images */
+            flex-direction: column;
+            gap: 15px;
         }
 
         /* On screens wider than 768px, display images in a row */
         @media (min-width: 768px) {
             .image-gallery {
-                flex-direction: row; /* Align images horizontally */
+                flex-direction: row;
                 align-items: flex-start;
             }
             .image-gallery img {
-                flex: 1; /* Allow images to share space */
+                flex: 1;
                 min-width: 0;
             }
         }
@@ -107,9 +123,10 @@
 </head>
 <body>
 <h1>💻 脱マウス入門！CLIトレーニング  【初級編】</h1>
-<small>取得期間：5日間　<br>
-演習目安：1日5分</small>
+<small>取得期間：10日間　<br>
+演習目安：1日10-15分</small>
 <hr>
+
 <h2>🗓 Day 1：CLIの基本の「き」</h2>
 <h3>目標</h3>
 <p>- ターミナルを開いて、自分の場所（フォルダ）を知ろう<br>- フォルダの中を見て、移動してみよう</p>
@@ -124,13 +141,15 @@
 ls</code></pre>
 <p>- ✅ デスクトップに移動できたか再確認！</p>
 <h3>実践記録</h3>
-<img src="images/day1.png" alt="day1">
+<img src="images/day1.png" alt="day1" width="80%"> 
 <br>
 <p><strong>メモ</strong>: <br>・bquote> 状態:<br>入力待ち状態（マルチラインモード）でターミナルが迷子。タグの閉じ忘れやエラー文字の入力等が原因になることがい多い。<br>bquote> 状態になったら：<br>Ctrl + C を押してリセット！（一番安全）</p>
 <br>
 2025/7/26
 <br><br><br>
+
 <hr>
+
 <h2>🗓 Day 2：ファイルとフォルダを「作る」</h2>
 <h3>目標</h3>
 <p>- フォルダやファイルをコマンドで作れるようになる</p>
@@ -158,8 +177,13 @@ cd "practice/CLI/脱マウス初級編/cli_day2"</code></pre>
 <img src="images/day2_3.png" alt="day2_3">
 </div>
 <br>
-<p><strong>メモ</strong>: <br>・コマンドとファイル名の区切り等は半角スペースを空ける<br>・日本語を含むパスには必ずクォートを付ける<br>・ルート直下にファイルを置いた後に、同ファイル名で違うディレクトリに作ったらターミナルが混乱してエラー。削除してから実行してもエラー。一度リセットするが吉。紛らわしいことはしない方が吉。<br>・Ctrl+Cはターミナルの状態はリセットしない<br>・cd,mv,mkdirの違い<br>✅ コマンド実行の停止のみ<br><a href="../../../note/study/study_errors.md">[エラー内容と解決方法]</a><br>コマンドの使い分け<br>| 目的 | コマンド | 例 |</p>
+<p><strong>メモ</strong>: <br>・コマンドとファイル名の区切り等は半角スペースを空ける<br>・日本語を含むパスには必ずクォートを付ける<br>・ルート直下にファイルを置いた後に、同ファイル名で違うディレクトリに作ったらターミナルが混乱してエラー。削除してから実行してもエラー。一度リセットするが吉。紛らわしいことはしない方が吉。<br>・Ctrl+Cはターミナルの状態はリセットしない<br><br><a href="../../study_errors/## CLI同名ディレクトリ混乱エラー">[エラー内容と解決方法]</a></p>
+<br>
+2025/7/27
+<br><br><br>
+
 <hr>
+
 <h2>🗓 Day 3：ファイルの名前変更・コピー・削除</h2>
 <h3>目標</h3>
 <p>- 基本的なファイル操作をマウスなしで行う</p>
@@ -178,57 +202,216 @@ cd "practice/CLI/脱マウス初級編/cli_day2"</code></pre>
 <img src="images/day3_2.png" alt="day3_2">
 </div>
 <br>
-<p><strong>メモ</strong>: <br>・<strong>Tab補完</strong>がとても便利！ファイル名やディレクトリ名の途中まで入力してTabキーを押すと、自動で補完してくれる<br>・長いファイル名やパスを全部手入力する必要がなくなって、タイピングミスも防げる<br>・特に日本語を含むパスでは、Tab補完を使うとクォートも自動でつけてくれるので安心<br>・ファイル操作の基本（mv, cp, rm）をマスターすると、マウスでの右クリックメニューが不要になる<br></p>
+<p><strong>一言メモ</strong>: <br>・<strong>Tab補完</strong>がとても便利！ファイル名やディレクトリ名の途中まで入力してTabキーを押すと、自動で補完してくれる<br>・長いファイル名やパスを全部手入力する必要がなくなって、タイピングミスも防げる<br>・特に日本語を含むパスでは、Tab補完を使うとクォートも自動でつけてくれるので便利<br>・ファイル操作の基本（mv, cp, rm）をマスターすると、マウスでの右クリックメニューが不要になる<br><br><strong>今日の気づき：</strong><br>cdコマンドはフォルダ専用、ファイルの中身を見るときはcatコマンド - コマンドには適材適所がある！</p>
 <br>
 2025/7/28
 <br><br><br>
+
 <hr>
-<h2>🗓 Day 4：パスの感覚を身につけよう</h2>
+
+<h2>🗓 Day 4：パス操作の完全マスター</h2>
 <h3>目標</h3>
-<p>- パス（場所の指定）に慣れよう。マウス感覚を言語化！</p>
+<p>- 絶対パスと相対パスを自由自在に使い分けられるようになる<br>- フォルダ間の移動で迷わなくなる</p>
 <h3>実践コマンドと解説</h3>
 <pre><code>cd ..</code></pre>
 <p>- 🔍 <strong><code>..</code> = 1つ上のフォルダ</strong><br>- ✅ 1階層上に戻る</p>
+<pre><code>cd ../..</code></pre>
+<p>- ✅ 2階層上に戻る（<code>..</code> を続けて使える）</p>
 <pre><code>cd ~/Desktop</code></pre>
 <p>- 🔍 <strong><code>~</code> = ホームディレクトリ</strong><br>- ✅ デスクトップへ一気に戻る「絶対パス」</p>
-<pre><code>cd cli_day2
-cd ..</code></pre>
-<p>- ✅ これが「相対パス」。現在地からの距離感で移動する。</p>
+<pre><code>cd "practice/CLI/脱マウス初級編"</code></pre>
+<p>- ✅ これが「相対パス」。現在地からの距離感で移動する</p>
+<pre><code>pwd
+cd ./cli_day2
+pwd</code></pre>
+<p>- 🔍 <strong><code>./</code> = 現在のディレクトリ</strong><br>- ✅ 明示的に「今いる場所から」を示す</p>
+<h3>パス練習問題</h3>
+<p>1. <strong>問題1</strong>: ホームディレクトリから、一発でDesktopに移動してください<br>2. <strong>問題2</strong>: 現在地から2つ上の階層に移動してください<br>3. <strong>問題3</strong>: 絶対パスを使って、study_web2フォルダに移動してください</p>
+<h3>実践記録</h3>
+<img src="images/day4.png" alt="day4_1" width="48%">
+<p><strong>一言メモ</strong>: <br>・絶対パス（～から始まる）は「住所」、相対パス（..や./）は「道案内」の感覚<br>・迷ったら <code>pwd</code> で現在地確認！</p>
+<br>
+2025/7/29
+<br><br><br>
+
+<hr>
+
+<h2>🗓 Day 5：ファイル探索＆検索テクニック</h2>
+<h3>目標</h3>
+<p>- マウスでの「ファイル検索」をコマンドで実現<br>- 大量のファイルから目的のものを素早く見つける</p>
+<h3>実践コマンドと解説</h3>
+<pre><code>find . -name "*.txt"</code></pre>
+<p>- 🔍 <strong><code>find</code> = ファイル・フォルダ検索</strong><br>- ✅ 現在地（.）から、.txtで終わるファイルを全て検索</p>
+<pre><code>find ~ -name "intro*"</code></pre>
+<p>- ✅ ホームディレクトリから、introで始まるファイルを検索</p>
+<pre><code>ls -la</code></pre>
+<p>- 🔍 <strong><code>ls -la</code> = 詳細リスト表示</strong><br>- ✅ 隠しファイル（.で始まる）も含めて、権限・サイズ・更新日時を表示</p>
+<pre><code>grep "CLI" *.txt</code></pre>
+<p>- 🔍 <strong><code>grep</code> = テキスト検索</strong><br>- ✅ .txtファイルの中から「CLI」という文字を含む行を検索</p>
+<pre><code>history | grep "cd"</code></pre>
+<p>- 🔍 <strong><code>history</code> = コマンド履歴</strong><br>- ✅ 過去に実行したcdコマンドを検索</p>
+<h3>探索練習問題</h3>
+<p>1. <strong>問題1</strong>: 現在のディレクトリから、<code>.md</code>ファイルを全て見つけてください<br>2. <strong>問題2</strong>: ファイルの中身に「脱マウス」という文字が含まれるファイルを見つけてください<br>3. <strong>問題3</strong>: 過去に実行した<code>mkdir</code>コマンドの履歴を表示してください</p>
+<h3>実践記録</h3>
+<img src="images/day5.png" alt="day5" width="48%">
+<p><strong>一言メモ</strong>: <br>・find + grep の組み合わせで、マウスの「検索機能」完全再現！</p>
+<br>
+2025/7/30
+<br><br><br>
+
+<hr>
+
+<h2>🗓 Day 6：テキスト編集の基礎</h2>
+<h3>目標</h3>
+<p>- コマンドラインでファイル編集ができるようになる<br>- メモ帳感覚でテキスト作成・編集</p>
+<h3>実践コマンドと解説</h3>
+<pre><code>nano sample.txt</code></pre>
+<p>- 🔍 <strong><code>nano</code> = 初心者向けテキストエディタ</strong><br>- ✅ 直感的にファイル編集が可能</p>
+<p><strong>nanoの基本操作</strong>:<br>- <code>Ctrl + O</code>: 保存<br>- <code>Ctrl + X</code>: 終了<br>- <code>Ctrl + K</code>: 行を切り取り<br>- <code>Ctrl + U</code>: 貼り付け</p>
+<pre><code>echo "1行目のテキスト" >> log.txt
+echo "2行目のテキスト" >> log.txt</code></pre>
+<p>- 🔍 <strong><code>>></code> = 追記モード</strong><br>- ✅ ファイルの末尾に内容を追加（上書きしない）</p>
+<pre><code>head -5 log.txt
+tail -5 log.txt</code></pre>
+<p>- 🔍 <strong><code>head</code> = 先頭行表示, <code>tail</code> = 末尾行表示</strong><br>- ✅ 大きなファイルの一部だけを確認</p>
+<h3>編集練習問題</h3>
+<p>1. <strong>問題1</strong>: <code>memo.txt</code>ファイルを作成し、今日の感想を3行書いてください<br>2. <strong>問題2</strong>: 既存ファイルの末尾に「追記テスト」を追加してください<br>3. <strong>問題3</strong>: 長いファイルの最初の10行だけを表示してください</p>
 <h3>実践記録</h3>
 <p><strong>スクリーンショット</strong>: </p>
-<p><strong>一言メモ</strong>: </p>
+<p><strong>一言メモ</strong>: <br>・nanoなら「メモ帳」感覚でテキスト編集が可能！</p>
+<br>
+2025/7/31
+<br><br><br>
+
 <hr>
-<h2>🗓 Day 5：脱マウスを完成させる「小技集」</h2>
+
+<h2>🗓 Day 7：脱マウス小技集＋実践演習</h2>
 <h3>目標</h3>
-<p>- マウスを使わずに高速操作できるショートカットを習得</p>
-<h3>小技集</h3>
+<p>- 高速操作のためのショートカットをマスター<br>- 実際の作業シーンで小技を活用</p>
+<h3>必須小技一覧</h3>
 <table>
 <thead>
-<tr><th>操作</th><th>効果</th></tr>
+<tr><th>操作</th><th>効果</th><th>実用度</th></tr>
 </thead>
 <tbody>
-<tr><td>↑ / ↓</td><td>入力履歴の呼び出し</td></tr>
-<tr><td><code>Tab</code>キー</td><td>コマンド・ファイル名の補完</td></tr>
-<tr><td><code>Ctrl + C</code></td><td>実行中のコマンドを止める</td></tr>
-<tr><td><code>Ctrl + L</code></td><td>画面をクリア（<code>clear</code>と同じ）</td></tr>
-<tr><td><code>Ctrl + A</code></td><td>カーソルを行頭に移動</td></tr>
-<tr><td><code>Ctrl + E</code></td><td>カーソルを行末に移動</td></tr>
+<tr><td>↑ / ↓</td><td>入力履歴の呼び出し</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td><code>Tab</code>キー</td><td>コマンド・ファイル名の補完</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + C</code></td><td>実行中のコマンドを止める</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + L</code></td><td>画面をクリア（<code>clear</code>と同じ）</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + A</code></td><td>カーソルを行頭に移動</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + E</code></td><td>カーソルを行末に移動</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + U</code></td><td>行全体を削除</td><td>⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + K</code></td><td>カーソル位置から行末まで削除</td><td>⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + W</code></td><td>前の単語を削除</td><td>⭐⭐⭐</td></tr>
+<tr><td><code>Ctrl + R</code></td><td>コマンド履歴から検索</td><td>⭐⭐⭐⭐</td></tr>
 </tbody>
 </table>
-<hr>
-<h3>最終チャレンジ（仕上げ）</h3>
-<pre><code>cd ~/Desktop
-mkdir cli_final
-cd cli_final
-touch final.txt
-echo "脱マウス達成！" > final.txt
-cat final.txt</code></pre>
+<h3>小技実践演習（10問）</h3>
+<p><strong>【演習1】履歴活用</strong><br>先ほど実行した<code>ls -la</code>コマンドを履歴から呼び出して再実行してください</p>
+<p><strong>【演習2】Tab補完マスター</strong><br><code>practice/CLI/脱マウス初級編/</code>まで、Tabキーだけで入力してください</p>
+<p><strong>【演習3】高速画面整理</strong><br>ターミナルが情報だらけになったら、一瞬で画面をクリアしてください</p>
+<p><strong>【演習4】間違い修正</strong><br>長いコマンドを入力中に、行頭に戻って修正してください</p>
+<p><strong>【演習5】カーソル操作</strong><br>コマンド入力中に、行末に一瞬でジャンプしてください</p>
+<p><strong>【演習6】一括削除</strong><br>入力中のコマンド行を全部消去してください</p>
+<p><strong>【演習7】部分削除</strong><br>カーソル位置から行末まで削除してください</p>
+<p><strong>【演習8】単語削除</strong><br>入力中の最後の単語だけを削除してください</p>
+<p><strong>【演習9】履歴検索</strong><br>過去のcdコマンドを検索機能で見つけてください</p>
+<p><strong>【演習10】コンボ技</strong><br>履歴検索→Tab補完→実行を1つの流れで行ってください</p>
 <h3>実践記録</h3>
 <p><strong>スクリーンショット</strong>: </p>
-<p><strong>一言メモ</strong>: </p>
+<p><strong>小技習得度チェック</strong>: <br>- [ ] 履歴呼び出し（↑↓）<br>- [ ] Tab補完<br>- [ ] 画面クリア（Ctrl+L）<br>- [ ] カーソル移動（Ctrl+A, Ctrl+E）<br>- [ ] 各種削除技（Ctrl+U, Ctrl+K, Ctrl+W）<br>- [ ] 履歴検索（Ctrl+R）</p>
+<p><strong>一言メモ</strong>: <br>・</p>
+<br>
+2025/8/1
+<br><br><br>
+
 <hr>
-<h2>🎉 お疲れさま！</h2>
-<p>これであなたはターミナルで移動・作成・削除・表示・編集の<strong>基本5技</strong>をマスター！<br>GUIに頼らず、<strong>キーボードだけで作業できる強いエンジニアの土台</strong>ができました💪</p>
+
+<h2>🗓 Day 8：プロセス管理とシステム情報</h2>
+<h3>目標</h3>
+<p>- 実行中のプログラムを管理できるようになる<br>- システムの状態を把握する</p>
+<h3>実践コマンドと解説</h3>
+<pre><code>ps aux</code></pre>
+<p>- 🔍 <strong><code>ps</code> = 実行中のプロセス一覧</strong><br>- ✅ 現在動いているプログラムを確認</p>
+<pre><code>top</code></pre>
+<p>- 🔍 <strong><code>top</code> = リアルタイムシステム監視</strong><br>- ✅ CPU使用率、メモリ使用量をリアルタイム表示（qで終了）</p>
+<pre><code>df -h</code></pre>
+<p>- 🔍 <strong><code>df -h</code> = ディスク使用量表示</strong><br>- ✅ ハードディスクの空き容量を確認</p>
+<pre><code>date
+cal</code></pre>
+<p>- ✅ 現在の日時とカレンダー表示</p>
+<pre><code>whoami</code></pre>
+<p>- ✅ 現在ログインしているユーザー名を表示</p>
+<h3>システム管理練習</h3>
+<p>1. <strong>問題1</strong>: 現在実行中のプロセスでCPU使用率が高いものを見つけてください<br>2. <strong>問題2</strong>: ディスクの使用率を確認してください<br>3. <strong>問題3</strong>: 自分のユーザー名を確認してください</p>
+<h3>実践記録</h3>
+<p><strong>スクリーンショット</strong>: </p>
+<p><strong>一言メモ</strong>: <br>・システム管理もマウス不要！コマンドで全て把握可能</p>
+<br>
+2025/8/2
+<br><br><br>
+
 <hr>
+
+<h2>🗓 Day 9：実践総合演習（シナリオ問題）</h2>
+<h3>目標</h3>
+<p>- 実際の作業シーンを想定した総合問題に挑戦<br>- 脱マウススキルの総仕上げ</p>
+<h3>実践シナリオ問題</h3>
+<p><strong>🎯 シナリオ1：プロジェクト準備</strong><br>新しいプロジェクト「web_project」を作成し、以下の作業をしてください：<br>1. ホームディレクトリに「web_project」フォルダを作成<br>2. その中に「html」「css」「js」の3つのサブフォルダを作成<br>3. htmlフォルダに「index.html」ファイルを作成<br>4. index.htmlに「Hello, World!」と書き込む<br>5. 最終的なフォルダ構造を確認</p>
+<p><strong>🎯 シナリオ2：ファイル整理</strong><br>現在のディレクトリが散らかっているので整理してください：<br>1. 全ての.txtファイルを見つける<br>2. 「backup」フォルダを作成<br>3. .txtファイルを全てbackupフォルダにコピー<br>4. 元の.txtファイルは削除<br>5. 作業結果を確認</p>
+<p><strong>🎯 シナリオ3：ログ調査</strong><br>システムの問題を調査してください：<br>1. 現在実行中のプロセスを確認<br>2. ディスク使用量をチェック<br>3. 過去に実行したコマンド履歴から、問題がありそうなコマンドを探す<br>4. 調査結果をreport.txtにまとめる</p>
+<p><strong>🎯 シナリオ4：緊急対応</strong><br>間違って重要なファイルを変更してしまいました：<br>1. バックアップからファイルを復元<br>2. 変更履歴を確認<br>3. 再発防止のためのメモをcaution.txtに作成<br>4. 今後気をつけるポイントを記載</p>
+<h3>評価チェックリスト</h3>
+<p>- [ ] マウスを一切使わずに作業完了<br>- [ ] Tab補完を効果的に活用<br>- [ ] ショートカットキーを5種類以上使用<br>- [ ] エラーが発生した際、自力で解決<br>- [ ] 作業時間：各シナリオ10分以内</p>
+<h3>実践記録</h3>
+<p><strong>完了シナリオ</strong>: <br>- [ ] シナリオ1<br>- [ ] シナリオ2  <br>- [ ] シナリオ3<br>- [ ] シナリオ4</p>
+<p><strong>一言メモ</strong>: <br>・</p>
+<br>
+2025/8/3
+<br><br><br>
+
+<hr>
+
+<h2>🗓 Day 10：最終チャレンジ（完全脱マウス認定試験）</h2>
+<h3>目標</h3>
+<p>- ドラッグ&ドロップ以外の全操作をマウスなしで実行<br>- 脱マウスマスター認定を獲得！</p>
+<h3>最終認定試験</h3>
+<p><strong>制限時間：30分</strong><br><strong>条件：マウス・トラックパッド使用禁止</strong></p>
+<h3>認定課題</h3>
+<p><strong>課題1：環境構築（5分）</strong></p>
+<pre><code>project_final/
+├── src/
+│   ├── components/
+│   └── utils/
+├── tests/
+├── docs/
+└── README.md</code></pre>
+<p>この構造のプロジェクトを作成し、README.mdに「脱マウス達成！」と記載</p>
+<p><strong>課題2：ファイル操作（10分）</strong><br>1. 5つのテストファイル（test1.txt〜test5.txt）を作成<br>2. 各ファイルに異なる内容を書き込み<br>3. test3.txtをtest3_backup.txtにコピー<br>4. test4.txtとtest5.txtを削除<br>5. 残ったファイルをbackupフォルダに移動</p>
+<p><strong>課題3：情報収集（10分）</strong><br>1. システムの現在時刻を確認<br>2. ディスク使用量を調査<br>3. 実行中プロセスの中で最もCPUを使用しているものを特定<br>4. 今日実行した全コマンドの履歴をcommand_log.txtに保存</p>
+<p><strong>課題4：総合実践（5分）</strong><br>1. 作業ディレクトリを任意の場所に変更<br>2. 隠しファイルも含めて全ファイルをリスト表示<br>3. 特定の文字列を含むファイルを検索<br>4. 最終的な成果をfinal_report.txtにまとめ</p>
+<h3>認定基準</h3>
+<p><strong>🥇 脱マウスマスター（90点以上）</strong><br>- 全課題を制限時間内に完了<br>- ショートカットキーを自然に使用<br>- エラー発生時も冷静に対処</p>
+<p><strong>🥈 脱マウス上級者（75点以上）</strong><br>- 8割以上の課題を完了<br>- 基本操作は完全習得</p>
+<p><strong>🥉 脱マウス中級者（60点以上）</strong><br>- 6割以上の課題を完了<br>- 基本的なファイル操作は可能</p>
+<h3>最終記録</h3>
+<p><strong>達成課題</strong>: <br>- [ ] 課題1：環境構築<br>- [ ] 課題2：ファイル操作<br>- [ ] 課題3：情報収集<br>- [ ] 課題4：総合実践</p>
+<p><strong>認定レベル</strong>: </p>
+<p><strong>学習の振り返り</strong>: <br>・</p>
+<p><strong>今後の目標</strong>: <br>・</p>
+<br>
+2025/8/4
+<br><br><br>
+
+<hr>
+
+<h2>🎉 おめでとうございます！</h2>
+<p>これであなたは<strong>完全脱マウス</strong>を達成しました！🎊</p>
+<h3>習得したスキル</h3>
+<p>✅ <strong>基本操作</strong>: pwd, ls, cd, mkdir, touch, cat  <br>✅ <strong>ファイル操作</strong>: mv, cp, rm, nano  <br>✅ <strong>探索・検索</strong>: find, grep, history  <br>✅ <strong>システム管理</strong>: ps, top, df  <br>✅ <strong>効率化</strong>: Tab補完、履歴活用、ショートカット  </p>
+<h3>次のステップ</h3>
+<p>- <strong>中級編</strong>: Git操作、SSH接続、shell scripting<br>- <strong>上級編</strong>: vim mastery、正規表現、system administration<br>- <strong>実践編</strong>: 実際の開発プロジェクトでの脱マウス活用</p>
+<hr>
+<p><strong>あなたは今、キーボードだけで自由自在にコンピュータを操る強いエンジニアです！</strong> 💪✨</p>
 </body>
 </html>

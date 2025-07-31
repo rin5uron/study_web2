@@ -399,7 +399,7 @@
     <!-- 演習②: Sweetsクラス -->
     <div class="accordion">
         <div class="accordion-header" onclick="toggleAccordion(1)">
-            <span>② Sweets（お菓子お菓子の情報）</span>
+            <span>② Sweets（お菓子の情報）</span>
             <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -415,10 +415,10 @@
         </div>
     </div>
 
-    <!-- 演習③: FrozenDesertクラス -->
+    <!-- 演習③: FrozenDessertクラス -->
     <div class="accordion">
         <div class="accordion-header" onclick="toggleAccordion(2)">
-            <span>③ FrozenDesert（アイスの紹介）</span>
+            <span>③ FrozenDessert（アイスクリーム類と氷菓）</span>
             <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -434,7 +434,45 @@
         </div>
     </div>
 
+    <!-- 演習④: アイスクリーム-->
+    <div class="accordion">
+        <div class="accordion-header" onclick="toggleAccordion(3)">
+            <span>④IcecreamBrand（アイスクリーム）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code4"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- 演習⑤: 職業クラス -->
+<div class="accordion">
+    <div class="accordion-header" onclick="toggleAccordion(4)">
+        <span>⑤ HumanJob（職業）</span>
+        <span class="accordion-icon">▼</span>
+    </div>
+    <div class="accordion-content">
+        <div class="content-section">
+            <div class="code-section">
+                <h2 class="section-title">コード</h2>
+                <pre><code class="language-javascript" id="code5"></code></pre>
+            </div>
+            <div class="result-section">
+                <div class="result-block" id="result5"></div>
+            </div>
+        </div>
+    </div>
+</div>
     
+
 
     <script>
         // アコーディオンの開閉機能
@@ -526,37 +564,110 @@ sweets2.printPoint('パリパリ感');
 sweets2.printBuy('どこでも');`;
 
             // 演習③のコード
-            const code3 = `// ③アイスクリームクラス：複数のアイスクリームを一括説明する
+            const code3 = `// ③アイスクラス：複数のアイスクリームを一括説明する
 // インスタンス生成時に全プロパティを一気に初期化するパターン：
-class FrozenDesert {
-    constructor(name, taste, howeat) {
+class FrozenDessert {
+    constructor(name,taste,howeat) {
         this.name = name;
+        this.type = type;
         this.taste = taste;
         this.howeat = howeat;
     }
 
+describe(){
+    console.log(this.name + 'は' + this.type + 'です。'+ this.taste + 'で、' + this.howeat + 'のがおすすめの食べ方です。' );
+}
+}
+
+const ice1 = new FrozenDessert
+('パルム','アイスクリーム','絶妙な口溶けがなんとも言えないの','可愛いフォルムをそっと愛でながらやさしい気持ちで味わう');
+const ice2 = new FrozenDessert
+('パリッテ','アイスミルク','パリパリチョコが存分に楽しめるの','とにかくパリパリを楽しみたい時に食べる');
+const ice3 = new FrozenDessert
+('ブルーシールアイス','ラクトアイス','種類が多くて楽しいの','気分によってフレーバーを選ぶ');
+const ice4 = new FrozenDessert
+('ガリガリくん大人のパイン','氷菓','リアルパイナップルを思わせる食感','パイナップルに想いを馳せて食べる');
+
+// 配列にまとめて一括説明
+const menu = [ice1, ice2, ice3,ice4 ];
+menu.forEach(item => item.describe());`;
+
+            // 演習④のコード
+            const code3 = `// ④IcecreamBrand（アイスクリーム）
+// アイスクリームクラス:ブランドごとにアイスクリームをまとめる
+// アイスクリームクラスの中にフレーバーオブジェクトを入れる
+
+// アイスクリームブランドクラス（親）
+class IcecreamBrand {
+    constructor(brand) {
+      this.brand = brand;
+      this.flavors = []; // フレーバーをしまっておく場所
+    }
+
+    // addFlavorメソッドを使用してflavorプロパティを登録できるようにする
+    addFlavor({ brand, name, taste, eatfeel }) {
+        const flavor = new Flavor({
+          brand,name,taste,eatfeel
+        });
+        this.flavors.push(flavor); // ブランドに登録！
+        return flavor; // 外でも使えるように返す
+      }
+    }
+
+// フレーバークラス（子）
+class Flavor {
+    constructor({ brand, name, taste, eatfeel }) {
+      this.brand = brand;
+      this.name = name;
+      this.taste = taste;
+      this.eatfeel = eatfeel;  
+    }
+
+  
     describe() {
-        console.log(this.name + 'は' + this.taste + 'です。' + this.howeat + 'のがおすすめの食べ方です。');
+      console.log(
+        `${this.brand}「${this.name}」味は${this.taste}ます。${this.eatfeel}気分の時に一緒に食べよ？`);
     }
 }
 
-const icecream1 = new FrozenDesert
-('ハーゲンダッツマカダミアナッツ味','ごろごろマカダミアナッツが嬉しい美味しさ','好きな人と一緒に食べる');
-const icecream2 = new FrozenDesert
-('パリッテ','パリパリチョコが存分に楽しめるアイス','とにかくパリパリを楽しみたい時に食べる');
-const icecream3 = new FrozenDesert
-('パルム','絶妙な口溶けがなんとも言えない','可愛いフォルムをそっと愛でながらやさしい気持ちで味わう');
-const icecream4 = new FrozenDesert
-('ガリガリくんパイン味','リアルパイナップルを思わせる食感','パイナップルに想いを馳せて食べる');
+// （ブランドオブジェクト）
+const icecream1 = new IcecreamBrand('ハーゲンダッツ');
+const icecream2 = new IcecreamBrand('レディボーデン');
+const icecream3 = new IcecreamBrand('ピノ');
+  
+// （インスタンスオブジェクト）
 
-// 配列にまとめて一括説明
-const menu = [icecream1, icecream2, icecream3, icecream4];
-menu.forEach(item => item.describe());`;
+  const macadamia = icecream1.addFlavor({
+    brand: 'ハーゲンダッツ',
+    name: 'マカダミアナッツ',
+    taste: '期待以上のマカダミアナッツ感があり',
+    eatfeel: '美味しいナッツが食べた'
+  });
+
+  const strawberry = icecream2.addFlavor({
+    brand: 'レディボーデン',
+    name: 'ストロベリー',
+    taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',
+    eatfeel: '思う存分満足するまでアイスクリームを食べたい'
+  });
+
+  const pinot = icecream3.addFlavor({
+    brand: 'ピノ',
+    name: 'アーモンド',
+    taste: '３種類の中で私の断トツお気に入りになり',
+    eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'
+  });`;
+
+            // 演習⑤のコード
+            const code3 = `
+            `;
 
             // コードを各要素に設定
             document.getElementById('code1').textContent = code1;
             document.getElementById('code2').textContent = code2;
             document.getElementById('code3').textContent = code3;
+            document.getElementById('code4').textContent = code4;
+            document.getElementById('code5').textContent = code5;
         }
 
         // 実際のコード実行と結果表示
@@ -565,6 +676,8 @@ menu.forEach(item => item.describe());`;
             let results1 = [];
             let results2 = [];
             let results3 = [];
+            let results4 = [];
+            let results5 = [];
 
             // console.logを一時的に上書きして結果をキャプチャ
             const originalLog = console.log;
@@ -667,6 +780,81 @@ menu.forEach(item => item.describe());`;
             const menu = [icecream1, icecream2, icecream3, icecream4];
             menu.forEach(item => item.describe());
 
+      // 演習④の実行
+      console.log = (message) => results4.push(message);
+      // ④IcecreamBrand（アイスクリーム）
+// アイスクリームクラス:ブランドごとにアイスクリームをまとめる
+// アイスクリームクラスの中にフレーバーオブジェクトを入れる
+
+// アイスクリームブランドクラス（親）
+class IcecreamBrand {
+    constructor(brand) {
+      this.brand = brand;
+      this.flavors = []; // フレーバーをしまっておく場所
+    }
+
+    // addFlavorメソッドを使用してflavorプロパティを登録できるようにする
+    addFlavor({ brand, name, taste, eatfeel }) {
+        const flavor = new Flavor({
+          brand,name,taste,eatfeel
+        });
+        this.flavors.push(flavor); // ブランドに登録！
+        return flavor; // 外でも使えるように返す
+      }
+    }
+
+// フレーバークラス（子）
+class Flavor {
+    constructor({ brand, name, taste, eatfeel }) {
+      this.brand = brand;
+      this.name = name;
+      this.taste = taste;
+      this.eatfeel = eatfeel;  
+    }
+
+  
+    describe() {
+      console.log(
+        `${this.brand}「${this.name}」味は${this.taste}ます。${this.eatfeel}気分の時に一緒に食べよ？`);
+    }
+}
+
+// （ブランドオブジェクト）
+const icecream1 = new IcecreamBrand('ハーゲンダッツ');
+const icecream2 = new IcecreamBrand('レディボーデン');
+const icecream3 = new IcecreamBrand('ピノ');
+  
+// （インスタンスオブジェクト）
+
+  const macadamia = icecream1.addFlavor({
+    brand: 'ハーゲンダッツ',
+    name: 'マカダミアナッツ',
+    taste: '期待以上のマカダミアナッツ感があり',
+    eatfeel: '美味しいナッツが食べた'
+  });
+
+  const strawberry = icecream2.addFlavor({
+    brand: 'レディボーデン',
+    name: 'ストロベリー',
+    taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',
+    eatfeel: '思う存分満足するまでアイスクリームを食べたい'
+  });
+
+  const pinot = icecream3.addFlavor({
+    brand: 'ピノ',
+    name: 'アーモンド',
+    taste: '３種類の中で私の断トツお気に入りになり',
+    eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'
+  });
+  
+
+
+
+      // 演習⑤の実行
+      console.log = (message) => results5.push(message);
+
+
+
             // console.logを元に戻す
             console.log = originalLog;
 
@@ -688,6 +876,8 @@ menu.forEach(item => item.describe());`;
             document.getElementById('result1').innerHTML = formatResults(results1);
             document.getElementById('result2').innerHTML = formatResults2(results2);
             document.getElementById('result3').innerHTML = formatResults(results3);
+            document.getElementById('result4').innerHTML = formatResults(results4);
+            document.getElementById('result5').innerHTML = formatResults(results5); 
         }
 
         // PrismJSの初期化と実行
