@@ -76,10 +76,10 @@ sweets1.printPoint('期待以上のマカダミアナッツ感');
 sweets1.printBuy('どこでも');
 
 const sweets2 = new sweets('ポテトチップス');
-sweets1.printTaste('無限に食べられるお菓子');
-sweets1.printFlavor('カルビーのうす塩');
-sweets1.printPoint('パリパリ感');
-sweets1.printBuy('どこでも');
+sweets2.printTaste('無限に食べられるお菓子');
+sweets2.printFlavor('カルビーのうす塩');
+sweets2.printPoint('パリパリ感');
+sweets2.printBuy('どこでも');
 
 
 
@@ -270,3 +270,23 @@ h.describe([1,3], [2,3]); //配列から呼び出す
 //   const shop = new IndianCurryShop();
 //   shop.makeCurry(); // → インドカレー完成！
   
+// class Salad {
+  //     constructor(name) {
+  //       this.name = name;
+  //     }
+
+  //     mix() {
+  //       console.log(${this.name}を混ぜます);
+  //     }
+  //   }
+
+  //   class CaesarSalad extends Salad {
+  //     constructor(name, dressing) {
+  //       super(name);
+  //       this.dressing = dressing;
+  //     }
+
+  //     addDressing() {
+  //       console.log(${this.dressing}ドレッシングをかけます);
+  //     }
+  //   }
