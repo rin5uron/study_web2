@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クラス＆インスタンス 入門演習</title>
+    <!-- PrismJS CSS - Okaidia Theme -->
+    <link href="https://unpkg.com/prismjs@1.29.0/themes/prism-okaidia.css" rel="stylesheet" />
+    <!-- PrismJS JS -->
+    <script src="https://unpkg.com/prismjs@1.29.0/components/prism-core.min.js"></script>
+	<script src="https://unpkg.com/prismjs@1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <style>
+        :root {
+            --accent-color: #E8F6F3; /* より薄いパステルミント */
+            --accent-hover: #D4EDDA;
+            --accent-border: #C3E6CB;
+        }
+        
+        html {
+            font-size: 16px;
+        }
+        
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            border-left: 0.375rem solid var(--accent-border);
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
+        
+        .intro {
+            margin-bottom: 2rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08);
+        }
+        
+        .intro p {
+            margin-top: 0;
+            margin-bottom: 1.2rem;
+        }
+        
+        .intro ol {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        
+        .accordion {
+            margin-bottom: 1.5rem;
+            background: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+        
+        .accordion-header {
+            background: var(--accent-color);
+            color: #2c3e50;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 500;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .accordion-header:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+        
+        .accordion-icon {
+            transition: transform 0.3s ease;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+        
+        .accordion-header.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        
+        .accordion-content.active {
+            max-height: 3000px;
+        }
+        
+        .content-section {
+            padding: 2rem;
+        }
+        
+        .code-section, .result-section {
+            margin-bottom: 2rem;
+        }
+        
+        .code-section:last-child, .result-section:last-child {
+            margin-bottom: 0;
+        }
+        
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        /* PrismJSコードブロックのスタイル調整 */
+        pre[class*="language-"] {
+            background: #272822 !important;
+            border: 1px solid #3e3d32 !important;
+            border-radius: 0.5rem !important;
+            padding: 1.5rem !important;
+            margin: 0 !important;
+            overflow-x: auto;
+            box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.2);
+            font-size: 0.875rem !important;
+            line-height: 1.6 !important;
+        }
+        
+        code[class*="language-"] {
+            background: transparent !important;
+            color: #f8f8f2 !important;
+            font-family: 'SF Mono', Menlo, Monaco, Consolas, 'Courier New', monospace !important;
+            text-shadow: 0 1px rgba(0, 0, 0, 0.3) !important;
+            font-weight: 400 !important;
+        }
+        
+        /* PrismJS Okaidiaテーマのカスタマイズ */
+        .token.comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: #8292a2 !important;
+            font-style: italic !important;
+        }
+        
+        .token.punctuation {
+            color: #f8f8f2 !important;
+        }
+        
+        .token.namespace {
+            opacity: .7 !important;
+        }
+        
+        .token.property,
+        .token.tag,
+        .token.constant,
+        .token.symbol,
+        .token.deleted {
+            color: #f92672 !important;
+        }
+        
+        .token.boolean,
+        .token.number {
+            color: #ae81ff !important;
+        }
+        
+        .token.selector,
+        .token.attr-name,
+        .token.string,
+        .token.char,
+        .token.builtin,
+        .token.inserted {
+            color: #a6e22e !important;
+        }
+        
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .language-css .token.string,
+        .style .token.string,
+        .token.variable {
+            color: #f8f8f2 !important;
+        }
+        
+        .token.atrule,
+        .token.attr-value,
+        .token.function,
+        .token.class-name {
+            color: #e6db74 !important;
+        }
+        
+        .token.keyword {
+            color: #66d9ef !important;
+            font-weight: 500 !important;
+        }
+        
+        .token.regex,
+        .token.important {
+            color: #fd971f !important;
+        }
+        
+        .token.important,
+        .token.bold {
+            font-weight: bold !important;
+        }
+        
+        .token.italic {
+            font-style: italic !important;
+        }
+        
+        .token.entity {
+            cursor: help !important;
+        }
+        
+        .result-block {
+            background: linear-gradient(135deg, #fafcff 0%, #f0f7ff 100%);
+            padding: 1.5rem;
+            border: 1px solid var(--accent-border);
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            box-shadow: 0 0.125rem 0.5rem rgba(195, 230, 203, 0.15);
+            font-family: 'SF Mono', Menlo, Monaco, Consolas, monospace;
+            font-size: 0.9rem;
+            font-weight: 400;
+            white-space: pre-wrap;
+            position: relative;
+            transition: all 0.2s ease;
+            line-height: 1.8;
+        }
+        
+        .result-block:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0.25rem 0.75rem rgba(195, 230, 203, 0.2);
+        }
+        
+        .result-block::before {
+            content: "result";
+            display: block;
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Hiragino Kaku Gothic ProN", sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--accent-border);
+        }
+
+        /* resultの各行に余白を追加 */
+        .result-item {
+            margin-bottom: 0.8rem;
+            padding: 0.3rem 0;
+        }
+        
+        .result-item:last-child {
+            margin-bottom: 0;
+        }
+
+        /* スマホ向け (〜37.5rem = 600px) */
+        @media screen and (max-width: 37.5rem) {
+            body { 
+                padding: 0.75rem; 
+                font-size: 0.8rem; /* さらに小さく */
+            }
+            
+            h1 { 
+                font-size: 1.3rem; /* より小さく */
+                text-align: left;
+                padding-left: 0.75rem;
+            }
+            
+            .intro { 
+                padding: 1.25rem; 
+                margin-bottom: 1.5rem; 
+            }
+            
+            .accordion { 
+                margin-bottom: 1.25rem; 
+            }
+            
+            .content-section { 
+                padding: 1.25rem; 
+            }
+            
+            .code-section, .result-section { 
+                margin-bottom: 1.25rem; 
+            }
+            
+            .section-title { 
+                font-size: 0.95rem; /*より小さく */
+            }
+            
+            .accordion-header { 
+                padding: 0.75rem 1rem; /* より詰める */
+                font-size: 0.9rem; /* より小さく */
+            }
+            
+            pre[class*="language-"] {
+                font-size: 0.7rem !important; /* さらに小さく */
+                padding: 0.875rem !important; 
+            }
+            
+            .result-block { 
+                font-size: 0.75rem; /* より小さく */
+                padding: 1rem;
+                line-height: 1.5; 
+            }
+            
+            .result-item {
+                margin-bottom: 0.6rem;
+                padding: 0.2rem 0;
+            }
+        }
+
+        /* タブレット向け (37.5625rem〜64rem = 601px〜1024px) */
+        @media screen and (min-width: 37.5625rem) and (max-width: 64rem) {
+            body { 
+                padding: 1.5rem; 
+                font-size: 0.9rem; 
+            }
+            
+            h1 { 
+                font-size: 1.6rem; 
+            }
+            
+            .intro { 
+                padding: 1.75rem; 
+                margin-bottom: 1.75rem; 
+            }
+            
+            .accordion { 
+                margin-bottom: 1.25rem; 
+            }
+            
+            .content-section { 
+                padding: 1.75rem; 
+            }
+            
+            .section-title {
+                font-size: 1rem; 
+            }
+            
+            .accordion-header { 
+                font-size: 1rem; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript クラス＆インスタンス演習</h1>
+    
+    <div class="intro">
+        <p>
+            この演習では、<strong>オブジェクト</strong>、<strong>プロパティ</strong>、<strong>メソッド</strong>の定義を学び、
+            クラスとインスタンスで実際に動かすことで仕組みを認識します。さらに、<strong>入れ子構造</strong>の理解を深めるトレーニングです。
+        </p>
+        <ol>
+            <li>クラスを定義してオブジェクトの「設計図」を作成する</li>
+            <li><code>new</code>キーワードでインスタンスを生成し、実物のオブジェクトを作成する</li>
+            <li>インスタンスのメソッドを呼び出して処理を実行する</li>
+            <li>入れ子構造（クラスの中に別クラスのインスタンスを保持する関係）を確認する</li>
+        </ol>
+    </div>
+
+    <!-- 演習①: Humanクラス -->
+    <div class="accordion">
+        <div class="accordion-header">
+            <span>① Human（人間についてメソッドで定義）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code1"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result1"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 演習②: Sweetsクラス -->
+    <div class="accordion">
+        <div class="accordion-header">
+            <span>② Sweets（お菓子の情報）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code2"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 演習③: FrozenDessertクラス -->
+    <div class="accordion">
+        <div class="accordion-header">
+            <span>③ FrozenDessert（アイスクリーム類と氷菓）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code3"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 演習④: アイスクリーム-->
+    <div class="accordion">
+        <div class="accordion-header">
+            <span>④IcecreamBrand（アイスクリーム）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code4"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 演習⑤: MorningRoutineクラス -->
+    <div class="accordion">
+        <div class="accordion-header">
+            <span>⑤ MorningRoutine（朝の習慣）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code5"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 演習⑥: HumanJobクラス -->
+    <div class="accordion">
+        <div class="accordion-header">
+            <span>⑥ HumanJob（職業と日課）</span>
+            <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+            <div class="content-section">
+                <div class="code-section">
+                    <h2 class="section-title">コード</h2>
+                    <pre><code class="language-javascript" id="code6"></code></pre>
+                </div>
+                <div class="result-section">
+                    <div class="result-block" id="result6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <script>
+        // アコーディオンのイベントリスナーを設定する関数
+        function setupAccordion() {
+            const headers = document.querySelectorAll('.accordion-header');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const wasActive = header.classList.contains('active');
+
+                    // すべてのアコーディオンを閉じる
+                    document.querySelectorAll('.accordion-header').forEach(h => {
+                        h.classList.remove('active');
+                        h.nextElementSibling.classList.remove('active');
+                    });
+
+                    // クリックされたものが閉じていた場合、開く
+                    if (!wasActive) {
+                        header.classList.add('active');
+                        content.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // コードを表示する関数
+        function displayCode() {
+            // 演習①のコード
+            const code1 = `// ① Humanクラス：人間についてメソッドで定義\nclass Human {\n  constructor(name) {         // 初期値設定、これをインスタンス生成のために使う\n    this.name = name;\n  }\n  walk(step) {                // 歩くメソッド\n    console.log(\`\${this.name}は\${step}歩歩けます\`);\n  }\n\n  speak(who) {                // 会話メソッド\n    console.log(\`\${this.name}は\${who}とおしゃべりします。\`);\n  }\n\n  cooking(food) {             // 食べたものメソッド\n    console.log(\`今日の\${this.name}のご飯は\${food}でした。\`);\n  }\n}\n\n// インスタンス生成＆メソッド呼び出し\nconst person1 = new Human('りんちゃん');\nconst person2 = new Human('うーろんくん');\n\nperson1.walk(10);\nperson1.speak('うーろんくん');\nperson1.cooking('パイナップル');\n\nperson2.walk(3);\nperson2.speak('りんちゃん');\nperson2.cooking('カレー');`;
+
+            // 演習②のコード
+            const code2 = `// ② Sweetsクラス：お菓子の情報をまとめ、表示メソッドを用いてコンソールに表示する\n// 前だけ先に設定してから別メソッドで残りをまとめて設定するパターン\nclass Sweets {\n  constructor(name) {\n    this.name = name;   // お菓子の名前\n    this.taste = '';\n    this.flavor = '';\n    this.point = '';\n    this.place = '';\n  }\n  // printTaste メソッド：引数で受け取った taste をthis.tasteに格納して表示\n  printTaste(taste) {          // 味の説明\n    this.taste = taste;\n    console.log(\`\${this.name}は\${this.taste}です。\`);\n  }\n\n  printFlavor(flavor) {        // 風味の説明\n    this.flavor = flavor;\n    console.log(\`\${this.name}のお気に入りの味は\${this.flavor}です。\`);\n  }\n\n  printPoint(point) {          // ポイントの説明\n    this.point = point;\n    console.log(\`\${this.flavor}味のポイントは\${this.point}です。\`);\n  }\n\n  printBuy(place) {            // 購入場所の説明\n    this.place = place;\n    console.log(\`\${this.flavor}は\${this.place}で買えます。\`);\n  }\n}\n\n// インスタンス生成＆メソッド呼び出し\nconst sweets1 = new Sweets('ハーゲンダッツ');\nsweets1.printTaste('美味しい');\nsweets1.printFlavor('マカダミアナッツ');\nsweets1.printPoint('期待以上のマカダミアナッツ感');\nsweets1.printBuy('どこでも');\n\nconst sweets2 = new Sweets('ポテトチップス');\nsweets2.printTaste('無限に食べられるお菓子');\nsweets2.printFlavor('カルビーのうす塩');\nsweets2.printPoint('パリパリ感');\nsweets2.printBuy('どこでも');`;
+
+            // 演習③のコード
+            const code3 = `// ③アイスクラス：複数のアイスクリームを一括説明する\n// インスタンス生成時に全プロパティを一気に初期化するパターン：\nclass FrozenDessert {\n    constructor(name, type, taste, howeat) {\n        this.name = name;\n        this.type = type;\n        this.taste = taste;\n        this.howeat = howeat;\n    }\n\n    describe(){\n        console.log(this.name + 'は' + this.type + 'です。'+ this.taste + 'で、' + this.howeat + 'のがおすすめの食べ方です。' );\n    }\n}\n\nconst ice1 = new FrozenDessert('パルム', 'アイスクリーム', '絶妙な口溶けがなんとも言えないの', '可愛いフォルムをそっと愛でながらやさしい気持ちで味わう');\nconst ice2 = new FrozenDessert('パリッテ', 'アイスミルク', 'パリパリチョコが存分に楽しめるの', 'とにかくパリパリを楽しみたい時に食べる');\nconst ice3 = new FrozenDessert('ブルーシールアイス', 'ラクトアイス', '種類が多くて楽しいの', '気分によってフレーバーを選ぶ');\nconst ice4 = new FrozenDessert('ガリガリくん大人のパイン', '氷菓', 'リアルパイナップルを思わせる食感', 'パイナップルに想いを馳せて食べる');\n\n// 配列にまとめて一括説明\nconst menu = [ice1, ice2, ice3,ice4 ];\nmenu.forEach(item => item.describe());`;
+
+            // 演習④のコード
+            const code4 = `// ④IcecreamBrand（アイスクリーム）\n// アイスクリームクラス:ブランドごとにアイスクリームをまとめる\n// アイスクリームクラスの中にフレーバーオブジェクトを入れる\n\n// アイスクリームブランドクラス（親）\nclass IcecreamBrand {\n    constructor(brand) {\n      this.brand = brand;\n      this.flavors = []; // フレーバーをしまっておく場所\n    }\n\n    // addFlavorメソッドを使用してflavorプロパティを登録できるようにする\n    addFlavor({ brand, name, taste, eatfeel }) {\n        const flavor = new Flavor({\n          brand,name,taste,eatfeel\n        });\n        this.flavors.push(flavor); // ブランドに登録！\n        return flavor; // 外でも使えるように返す\n      }\n    }\n\n// フレーバークラス（子）\nclass Flavor {\n    constructor({ brand, name, taste, eatfeel }) {\n      this.brand = brand;\n      this.name = name;\n      this.taste = taste;\n      this.eatfeel = eatfeel;  \n    }\n\n  \n    describe() {\n      console.log(\n        \`\${this.brand}「\${this.name}」味は\${this.taste}ます。\${this.eatfeel}気分の時に一緒に食べよ？\`\n);\n    }\n}\n\n// （ブランドオブジェクト）\nconst icecreamBrand1 = new IcecreamBrand('ハーゲンダッツ');\nconst icecreamBrand2 = new IcecreamBrand('レディボーデン');\nconst icecreamBrand3 = new IcecreamBrand('ピノ');\n  \n// （インスタンスオブジェクト）\n\n  const macadamia = icecreamBrand1.addFlavor({\n    brand: 'ハーゲンダッツ',\n    name: 'マカダミアナッツ',\n    taste: '期待以上のマカダミアナッツ感があり',\n    eatfeel: '美味しいナッツが食べた'\n  });\n\n  const strawberry = icecreamBrand2.addFlavor({\n    brand: 'レディボーデン',\n    name: 'ストロベリー',\n    taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',\n    eatfeel: '思う存分満足するまでアイスクリームを食べたい'\n  });\n\n  const pinot = icecreamBrand3.addFlavor({\n    brand: 'ピノ',\n    name: 'アーモンド',\n    taste: '３種類の中で私の断トツお気に入りになり',\n    eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'\n  });\n  \n  macadamia.describe();\n  strawberry.describe();\n  pinot.describe();\n  `;
+
+            // 演習⑤のコード
+            const code5 = `// 演習⑤のコード\n// 朝のやることリストを入れ子構造で定義\n// ① 朝のやることリスト（子要素）\nconst morning = [ "顔を洗う", "歯を磨く", "朝ごはんを食べる", "服を着る" ];\n\n// ② お仕事クラス（親要素）\nclass MorningRoutine {\n  constructor(name) {\n    this.name = name;\n    this.routine = morning;  // 朝のリストをセット\n  }\n\n  // ここがポイント！m1とm2には「何番目のやること」を入れるよ\n  // 引数なし → m1=0, m2=1 になる（デフォルト値）\n  describe(m1 = 0, m2 = 1) {\n    console.log(this.name + "の朝のやること：");\n    console.log("１つ目 → " + this.routine[m1]);\n    console.log("２つ目 → " + this.routine[m2]);\n  }\n}\n\n// インスタンスを作ってみる\nconst rin = new MorningRoutine("りんちゃん");\n\n// デフォルト(0番目と1番目)を使うなら…\nrin.describe();\n\n// もし「2番目と3番目」を見せたければ、こうする\nrin.describe(2, 3);\n`;
+            // 演習⑥のコード\n            const code6 = `// 演習⑥のコード\n// HumanJobクラス: 職業と日課を入れ子構造で定義\n//(子要素) \nclass JobRoutine  {\n  constructor() {\n    this.AmRoutine = ["麦茶を沸かす","野菜を切る","重たいお鍋を持つ","お皿を洗う"];\n    this.PmRoutine = ["slackを開く","献立ソフトと睨めっこ","子どもとおやつを食べる"];\n  }\n};\n\n// 親要素  \nclass HumanJob {\n  constructor(name, job, year, item) {\n    this.name = name;\n    this.job = job;\n    this.year = year;\n    this.item = item;\n    this.routine = new JobRoutine(); //クラスを呼び出す時はnewを使う\n  }\n  \n  describe(amIdx , pmIdx) {\n    console.log(\`\${this.name}のお仕事は\${this.job}です。このお仕事をして\${this.year}年目です。\n      必須アイテムは\${this.item.join('、')}です。\`\n);//join('、')を使うことで、配列を使って複数のアイテムを表示できる\n    console.log(\`午前の日課: \${this.routine.AmRoutine[amIdx[0]]} ・ \${this.routine.AmRoutine[amIdx[1]]}。\`\n);\n    console.log(\`午後の日課: \${this.routine.PmRoutine[pmIdx[0]]} ・ \${this.routine.PmRoutine[pmIdx[1]]}。\`\n);\n  }\n}\n\nconst h = new HumanJob('りんちゃん','栄養士',7,['包丁']);\n// OK:\nh.describe([1,3], [0,2]); //配列から呼び出す\n`;
+
+            // コードを各要素に設定
+            document.getElementById('code1').textContent = code1;
+            document.getElementById('code2').textContent = code2;
+            document.getElementById('code3').textContent = code3;
+            document.getElementById('code4').textContent = code4;
+            document.getElementById('code5').textContent = code5;
+            document.getElementById('code6').textContent = code6;
+        }
+
+        // 実際のコード実行と結果表示
+        function runCode() {
+            // 結果を保存する配列
+            let results1 = [];
+            let results2 = [];
+            let results3 = [];
+            let results4 = [];
+            let results5 = [];
+            let results6 = [];
+
+            // console.logを一時的に上書きして結果をキャプチャ
+            const originalLog = console.log;
+
+            // 演習①の実行
+            console.log = (message) => results1.push(message);
+            
+            // ① Humanクラス：人間についてメソッドで定義
+            class Human {
+              constructor(name) {
+                this.name = name;
+              }
+              walk(step) {
+                console.log(`${this.name}は${step}歩歩けます`);
+              }
+              speak(who) {
+                console.log(`${this.name}は${who}とおしゃべりします。`);
+              }
+              cooking(food) {
+                console.log(`今日の${this.name}のご飯は${food}でした。`);
+              }
+            }
+
+            const person1 = new Human('りんちゃん');
+            const person2 = new Human('うーろんくん');
+
+            person1.walk(10);
+            person1.speak('うーろんくん');
+            person1.cooking('パイナップル');
+
+            person2.walk(3);
+            person2.speak('りんちゃん');
+            person2.cooking('カレー');
+
+            // 演習②の実行
+            console.log = (message) => results2.push(message);
+
+            class Sweets {
+              constructor(name) {
+                this.name = name;
+                this.taste = '';
+                this.flavor = '';
+                this.point = '';
+                this.place = '';
+              }
+              printTaste(taste) {
+                this.taste = taste;
+                console.log(`${this.name}は${this.taste}です。`);
+              }
+              printFlavor(flavor) {
+                this.flavor = flavor;
+                console.log(`${this.name}のお気に入りの味は${this.flavor}です。`);
+              }
+              printPoint(point) {
+                this.point = point;
+                console.log(`${this.flavor}味のポイントは${this.point}です。`);
+              }
+              printBuy(place) {
+                this.place = place;
+                console.log(`${this.flavor}は${this.place}で買えます。`);
+              }
+            }
+
+            const sweets1 = new Sweets('ハーゲンダッツ');
+            sweets1.printTaste('美味しい');
+            sweets1.printFlavor('マカダミアナッツ');
+            sweets1.printPoint('期待以上のマカダミアナッツ感');
+            sweets1.printBuy('どこでも');
+
+            const sweets2 = new Sweets('ポテトチップス');
+            sweets2.printTaste('無限に食べられるお菓子');
+            sweets2.printFlavor('カルビーのうす塩');
+            sweets2.printPoint('パリパリ感');
+            sweets2.printBuy('どこでも');
+
+            // 演習③の実行
+            console.log = (message) => results3.push(message);
+
+            class FrozenDessert {
+                constructor(name, type, taste, howeat) {
+                    this.name = name;
+                    this.type = type;
+                    this.taste = taste;
+                    this.howeat = howeat;
+                }
+
+                describe() {
+                    console.log(this.name + 'は' + this.type + 'です。'+ this.taste + 'で、' + this.howeat + 'のがおすすめの食べ方です。' );
+                }
+            }
+
+            const ice1 = new FrozenDessert('パルム', 'アイスクリーム', '絶妙な口溶けがなんとも言えないの', '可愛いフォルムをそっと愛でながらやさしい気持ちで味わう');
+            const ice2 = new FrozenDessert('パリッテ', 'アイスミルク', 'パリパリチョコが存分に楽しめるの', 'とにかくパリパリを楽しみたい時に食べる');
+            const ice3 = new FrozenDessert('ブルーシールアイス', 'ラクトアイス', '種類が多くて楽しいの', '気分によってフレーバーを選ぶ');
+            const ice4 = new FrozenDessert('ガリガリくん大人のパイン', '氷菓', 'リアルパイナップルを思わせる食感', 'パイナップルに想いを馳せて食べる');
+
+            const menu = [ice1, ice2, ice3,ice4 ];
+            menu.forEach(item => item.describe());
+
+            // 演習④の実行
+            console.log = (message) => results4.push(message);
+            class IcecreamBrand {
+                constructor(brand) {
+                  this.brand = brand;
+                  this.flavors = [];
+                }
+                addFlavor({ brand, name, taste, eatfeel }) {
+                    const flavor = new Flavor({ brand,name,taste,eatfeel });
+                    this.flavors.push(flavor);
+                    return flavor;
+                  }
+                }
+            class Flavor {
+                constructor({ brand, name, taste, eatfeel }) {
+                  this.brand = brand;
+                  this.name = name;
+                  this.taste = taste;
+                  this.eatfeel = eatfeel;  
+                }
+                describe() {
+                  console.log(
+                    `${this.brand}「${this.name}」味は${this.taste}ます。${this.eatfeel}気分の時に一緒に食べよ?`);
+                }
+            }
+            const icecreamBrand1 = new IcecreamBrand('ハーゲンダッツ');
+            const icecreamBrand2 = new IcecreamBrand('レディボーデン');
+            const icecreamBrand3 = new IcecreamBrand('ピノ');
+            const macadamia = icecreamBrand1.addFlavor({
+                brand: 'ハーゲンダッツ',
+                name: 'マカダミアナッツ',
+                taste: '期待以上のマカダミアナッツ感があり',
+                eatfeel: '美味しいナッツが食べた'
+              });
+            const strawberry = icecreamBrand2.addFlavor({
+                brand: 'レディボーデン',
+                name: 'ストロベリー',
+                taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',
+                eatfeel: '思う存分満足するまでアイスクリームを食べたい'
+              });
+            const pinot = icecreamBrand3.addFlavor({
+                brand: 'ピノ',
+                name: 'アーモンド',
+                taste: '３種類の中で私の断トツお気に入りになり',
+                eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'
+              });
+            macadamia.describe();
+            strawberry.describe();
+            pinot.describe();
+
+            // 演習⑤の実行
+            console.log = (message) => results5.push(message);
+            const morning = [ "顔を洗う", "歯を磨く", "朝ごはんを食べる", "服を着る" ];
+            class MorningRoutine {
+              constructor(name) {
+                this.name = name;
+                this.routine = morning;
+              }
+              describe(m1 = 0, m2 = 1) {
+                console.log(this.name + "の朝のやること：");
+                console.log("１つ目 → " + this.routine[m1]);
+                console.log("２つ目 → " + this.routine[m2]);
+              }
+            }
+            const rin = new MorningRoutine("りんちゃん");
+            rin.describe();
+            rin.describe(2, 3);
+
+            // 演習⑥の実行
+            console.log = (message) => results6.push(message);
+            class JobRoutine  {
+              constructor() {
+                this.AmRoutine = ["麦茶を沸かす","野菜を切る","重たいお鍋を持つ","お皿を洗う"];
+                this.PmRoutine = ["slackを開く","献立ソフトと睨めっこ","子どもとおやつを食べる"];
+              }
+            };
+            class HumanJob {
+              constructor(name, job, year, item) {
+                this.name = name;
+                this.job = job;
+                this.year = year;
+                this.item = item;
+                this.routine = new JobRoutine();
+              }
+              describe(amIdx , pmIdx) {
+                console.log(`${this.name}のお仕事は${this.job}です。このお仕事をして${this.year}年目です.\n      必須アイテムは${this.item.join('、')}です.`);
+                console.log(`午前の日課: ${this.routine.AmRoutine[amIdx[0]]} ・ ${this.routine.AmRoutine[amIdx[1]]}。`);
+                console.log(`午後の日課: ${this.routine.PmRoutine[pmIdx[0]]} ・ ${this.routine.PmRoutine[pmIdx[1]]}。`);
+              }
+            }
+            const h = new HumanJob('りんちゃん','栄養士',7,['包丁']);
+            h.describe([1,3], [0,2]);
+
+
+            // console.logを元に戻す
+            console.log = originalLog;
+
+            // 結果を項目ごとに余白を追加して表示
+            function formatResults(results) {
+                return results.map(result => `<div class="result-item">${result}</div>`).join('');
+            }
+
+            // 演習②専用の結果フォーマット（ハーゲンダッツとポテトチップスでグループ分け）
+            function formatResults2(results) {
+                const formatted = results.map(result => `<div class="result-item">${result}</div>`);
+                // ハーゲンダッツ（最初の4項目）とポテトチップス（次の4項目）の間に改行を追加
+                if (formatted.length >= 8) {
+                    formatted.splice(4, 0, '<br>');
+                }
+                return formatted.join('');
+            }
+
+            document.getElementById('result1').innerHTML = formatResults(results1);
+            document.getElementById('result2').innerHTML = formatResults2(results2);
+            document.getElementById('result3').innerHTML = formatResults(results3);
+            document.getElementById('result4').innerHTML = formatResults(results4);
+            document.getElementById('result5').innerHTML = formatResults(results5); 
+            document.getElementById('result6').innerHTML = formatResults(results6); 
+        }
+
+        // PrismJSの初期化と実行
+        function initializeApp() {
+            // 最初にアコーディオンの機能を設定
+            setupAccordion();
+            
+            try {
+                // 次にコードの表示と実行
+                displayCode();
+                runCode();
+            } catch (e) {
+                console.error("コードの実行中にエラーが発生しました:", e);
+            }
+            
+            // 最後にシンタックスハイライトを適用
+            if (typeof Prism !== 'undefined') {
+                Prism.highlightAll();
+            } else {
+                console.error('PrismJS not loaded');
+            }
+        }
+
+        // ページ読み込み時に実行
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initializeApp);
+        } else {
+            initializeApp();
+        }
+    </script>
+</body>
+</html>

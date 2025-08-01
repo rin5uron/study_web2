@@ -35,8 +35,8 @@
 
 # 🌱vercelプロジェクト一覧
 #### おしゃべり
-- 2025/07/14
-  - ポチョムキン理論
+- オブジェクト30個PJ
+  - https://objectclass30.vercel.app/
 - 2025/07/02
   - オブジェクトについて：https://20250702osyaberi.vercel.app/
 
