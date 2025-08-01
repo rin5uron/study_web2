@@ -34,6 +34,9 @@
 <br><br><br><br><br>
 
 # 🌱vercelプロジェクト一覧
+#### CLI
+- 脱マウス
+https://basiccli.vercel.app/
 #### おしゃべり
 - オブジェクト30個PJ
   - https://objectclass30.vercel.app/

@@ -351,7 +351,7 @@
                 padding: 1.75rem; 
             }
             
-            .section-title { 
+            .section-title {
                 font-size: 1rem; 
             }
             
@@ -379,7 +379,7 @@
 
     <!-- 演習①: Humanクラス -->
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
             <span>① Human（人間についてメソッドで定義）</span>
             <span class="accordion-icon">▼</span>
         </div>
@@ -398,7 +398,7 @@
 
     <!-- 演習②: Sweetsクラス -->
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
             <span>② Sweets（お菓子の情報）</span>
             <span class="accordion-icon">▼</span>
         </div>
@@ -417,7 +417,7 @@
 
     <!-- 演習③: FrozenDessertクラス -->
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
             <span>③ FrozenDessert（アイスクリーム類と氷菓）</span>
             <span class="accordion-icon">▼</span>
         </div>
@@ -436,7 +436,7 @@
 
     <!-- 演習④: アイスクリーム-->
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
             <span>④IcecreamBrand（アイスクリーム）</span>
             <span class="accordion-icon">▼</span>
         </div>
@@ -455,7 +455,7 @@
 
     <!-- 演習⑤: MorningRoutineクラス -->
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
             <span>⑤ MorningRoutine（朝の習慣）</span>
             <span class="accordion-icon">▼</span>
         </div>
@@ -474,7 +474,7 @@
 
     <!-- 演習⑥: HumanJobクラス -->
     <div class="accordion">
-        <div class="accordion-header" onclick="toggleAccordion(this)">
+        <div class="accordion-header">
             <span>⑥ HumanJob（職業と日課）</span>
             <span class="accordion-icon">▼</span>
         </div>
@@ -494,22 +494,27 @@
 
 
     <script>
-        // アコーディオンの開閉機能
-        function toggleAccordion(clickedHeader) {
-            const content = clickedHeader.nextElementSibling;
-            const wasActive = clickedHeader.classList.contains('active');
+        // アコーディオンのイベントリスナーを設定する関数
+        function setupAccordion() {
+            const headers = document.querySelectorAll('.accordion-header');
+            headers.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const wasActive = header.classList.contains('active');
 
-            // すべてのアコーディオンを閉じる
-            document.querySelectorAll('.accordion-header').forEach(header => {
-                header.classList.remove('active');
-                header.nextElementSibling.classList.remove('active');
+                    // すべてのアコーディオンを閉じる
+                    document.querySelectorAll('.accordion-header').forEach(h => {
+                        h.classList.remove('active');
+                        h.nextElementSibling.classList.remove('active');
+                    });
+
+                    // クリックされたものが閉じていた場合、開く
+                    if (!wasActive) {
+                        header.classList.add('active');
+                        content.classList.add('active');
+                    }
+                });
             });
-
-            // クリックされたものが開いていなかった場合、開く
-            if (!wasActive) {
-                clickedHeader.classList.add('active');
-                content.classList.add('active');
-            }
         }
 
         // コードを表示する関数
@@ -524,28 +529,11 @@
             const code3 = `// ③アイスクラス：複数のアイスクリームを一括説明する\n// インスタンス生成時に全プロパティを一気に初期化するパターン：\nclass FrozenDessert {\n    constructor(name, type, taste, howeat) {\n        this.name = name;\n        this.type = type;\n        this.taste = taste;\n        this.howeat = howeat;\n    }\n\n    describe(){\n        console.log(this.name + 'は' + this.type + 'です。'+ this.taste + 'で、' + this.howeat + 'のがおすすめの食べ方です。' );\n    }\n}\n\nconst ice1 = new FrozenDessert('パルム', 'アイスクリーム', '絶妙な口溶けがなんとも言えないの', '可愛いフォルムをそっと愛でながらやさしい気持ちで味わう');\nconst ice2 = new FrozenDessert('パリッテ', 'アイスミルク', 'パリパリチョコが存分に楽しめるの', 'とにかくパリパリを楽しみたい時に食べる');\nconst ice3 = new FrozenDessert('ブルーシールアイス', 'ラクトアイス', '種類が多くて楽しいの', '気分によってフレーバーを選ぶ');\nconst ice4 = new FrozenDessert('ガリガリくん大人のパイン', '氷菓', 'リアルパイナップルを思わせる食感', 'パイナップルに想いを馳せて食べる');\n\n// 配列にまとめて一括説明\nconst menu = [ice1, ice2, ice3,ice4 ];\nmenu.forEach(item => item.describe());`;
 
             // 演習④のコード
-            const code4 = `// ④IcecreamBrand（アイスクリーム）\n// アイスクリームクラス:ブランドごとにアイスクリームをまとめる\n// アイスクリームクラスの中にフレーバーオブジェクトを入れる\n\n// アイスクリームブランドクラス（親）\nclass IcecreamBrand {\n    constructor(brand) {\n      this.brand = brand;\n      this.flavors = []; // フレーバーをしまっておく場所\n    }\n\n    // addFlavorメソッドを使用してflavorプロパティを登録できるようにする\n    addFlavor({ brand, name, taste, eatfeel }) {\n        const flavor = new Flavor({\n          brand,name,taste,eatfeel\n        });\n        this.flavors.push(flavor); // ブランドに登録！\n        return flavor; // 外でも使えるように返す\n      }\n    }\n\n// フレーバークラス（子）\nclass Flavor {\n    constructor({ brand, name, taste, eatfeel }) {\n      this.brand = brand;\n      this.name = name;\n      this.taste = taste;\n      this.eatfeel = eatfeel;  \n    }\n\n  \n    describe() {\n      console.log(\n        \
-\${this.brand}「\
-\${this.name}」味は\
-\${this.taste}ます。\
-\${this.eatfeel}気分の時に一緒に食べよ？\
-\`);\n    }\n}\n\n// （ブランドオブジェクト）\nconst icecreamBrand1 = new IcecreamBrand('ハーゲンダッツ');\nconst icecreamBrand2 = new IcecreamBrand('レディボーデン');\nconst icecreamBrand3 = new IcecreamBrand('ピノ');\n  \n// （インスタンスオブジェクト）\n\n  const macadamia = icecreamBrand1.addFlavor({\n    brand: 'ハーゲンダッツ',\n    name: 'マカダミアナッツ',\n    taste: '期待以上のマカダミアナッツ感があり',\n    eatfeel: '美味しいナッツが食べた'\n  });\n\n  const strawberry = icecreamBrand2.addFlavor({\n    brand: 'レディボーデン',\n    name: 'ストロベリー',\n    taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',\n    eatfeel: '思う存分満足するまでアイスクリームを食べたい'\n  });\n\n  const pinot = icecreamBrand3.addFlavor({\n    brand: 'ピノ',\n    name: 'アーモンド',\n    taste: '３種類の中で私の断トツお気に入りになり',\n    eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'\n  });\n  \n  macadamia.describe();\n  strawberry.describe();\n  pinot.describe();\n  `;
+            const code4 = `// ④IcecreamBrand（アイスクリーム）\n// アイスクリームクラス:ブランドごとにアイスクリームをまとめる\n// アイスクリームクラスの中にフレーバーオブジェクトを入れる\n\n// アイスクリームブランドクラス（親）\nclass IcecreamBrand {\n    constructor(brand) {\n      this.brand = brand;\n      this.flavors = []; // フレーバーをしまっておく場所\n    }\n\n    // addFlavorメソッドを使用してflavorプロパティを登録できるようにする\n    addFlavor({ brand, name, taste, eatfeel }) {\n        const flavor = new Flavor({\n          brand,name,taste,eatfeel\n        });\n        this.flavors.push(flavor); // ブランドに登録！\n        return flavor; // 外でも使えるように返す\n      }\n    }\n\n// フレーバークラス（子）\nclass Flavor {\n    constructor({ brand, name, taste, eatfeel }) {\n      this.brand = brand;\n      this.name = name;\n      this.taste = taste;\n      this.eatfeel = eatfeel;  \n    }\n\n  \n    describe() {\n      console.log(\n        \`\${this.brand}「\${this.name}」味は\${this.taste}ます。\${this.eatfeel}気分の時に一緒に食べよ？\`\n);\n    }\n}\n\n// （ブランドオブジェクト）\nconst icecreamBrand1 = new IcecreamBrand('ハーゲンダッツ');\nconst icecreamBrand2 = new IcecreamBrand('レディボーデン');\nconst icecreamBrand3 = new IcecreamBrand('ピノ');\n  \n// （インスタンスオブジェクト）\n\n  const macadamia = icecreamBrand1.addFlavor({\n    brand: 'ハーゲンダッツ',\n    name: 'マカダミアナッツ',\n    taste: '期待以上のマカダミアナッツ感があり',\n    eatfeel: '美味しいナッツが食べた'\n  });\n\n  const strawberry = icecreamBrand2.addFlavor({\n    brand: 'レディボーデン',\n    name: 'ストロベリー',\n    taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',\n    eatfeel: '思う存分満足するまでアイスクリームを食べたい'\n  });\n\n  const pinot = icecreamBrand3.addFlavor({\n    brand: 'ピノ',\n    name: 'アーモンド',\n    taste: '３種類の中で私の断トツお気に入りになり',\n    eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'\n  });\n  \n  macadamia.describe();\n  strawberry.describe();\n  pinot.describe();\n  `;
 
             // 演習⑤のコード
             const code5 = `// 演習⑤のコード\n// 朝のやることリストを入れ子構造で定義\n// ① 朝のやることリスト（子要素）\nconst morning = [ "顔を洗う", "歯を磨く", "朝ごはんを食べる", "服を着る" ];\n\n// ② お仕事クラス（親要素）\nclass MorningRoutine {\n  constructor(name) {\n    this.name = name;\n    this.routine = morning;  // 朝のリストをセット\n  }\n\n  // ここがポイント！m1とm2には「何番目のやること」を入れるよ\n  // 引数なし → m1=0, m2=1 になる（デフォルト値）\n  describe(m1 = 0, m2 = 1) {\n    console.log(this.name + "の朝のやること：");\n    console.log("１つ目 → " + this.routine[m1]);\n    console.log("２つ目 → " + this.routine[m2]);\n  }\n}\n\n// インスタンスを作ってみる\nconst rin = new MorningRoutine("りんちゃん");\n\n// デフォルト(0番目と1番目)を使うなら…\nrin.describe();\n\n// もし「2番目と3番目」を見せたければ、こうする\nrin.describe(2, 3);\n`;
-            // 演習⑥のコード\n            const code6 = `// 演習⑥のコード\n// HumanJobクラス: 職業と日課を入れ子構造で定義\n//(子要素) \nclass JobRoutine  {\n  constructor() {\n    this.AmRoutine = ["麦茶を沸かす","野菜を切る","重たいお鍋を持つ","お皿を洗う"];\n    this.PmRoutine = ["slackを開く","献立ソフトと睨めっこ","子どもとおやつを食べる"];\n  }\n};\n\n// 親要素  \nclass HumanJob {\n  constructor(name, job, year, item) {\n    this.name = name;\n    this.job = job;\n    this.year = year;\n    this.item = item;\n    this.routine = new JobRoutine(); //クラスを呼び出す時はnewを使う\n  }\n  \n  describe(amIdx , pmIdx) {\n    console.log(\`\
-\${this.name}のお仕事は\
-\${this.job}です。このお仕事をして\
-\${this.year}年目です。\
-      必須アイテムは\
-\${this.item.join('、')}です。\
-\`);//join('、')を使うことで、配列を使って複数のアイテムを表示できる\n    console.log(\`午前の日課: \
-\${this.routine.AmRoutine[amIdx[0]]} ・ \
-\${this.routine.AmRoutine[amIdx[1]]}。\
-\`);\n    console.log(\`午後の日課: \
-\${this.routine.PmRoutine[pmIdx[0]]} ・ \
-\${this.routine.PmRoutine[pmIdx[1]]}。\
-\`);\n  }\n}\n\nconst h = new HumanJob('りんちゃん','栄養士',7,['包丁']);\n// OK:\nh.describe([1,3], [0,2]); //配列から呼び出す\n`;
+            // 演習⑥のコード\n            const code6 = `// 演習⑥のコード\n// HumanJobクラス: 職業と日課を入れ子構造で定義\n//(子要素) \nclass JobRoutine  {\n  constructor() {\n    this.AmRoutine = ["麦茶を沸かす","野菜を切る","重たいお鍋を持つ","お皿を洗う"];\n    this.PmRoutine = ["slackを開く","献立ソフトと睨めっこ","子どもとおやつを食べる"];\n  }\n};\n\n// 親要素  \nclass HumanJob {\n  constructor(name, job, year, item) {\n    this.name = name;\n    this.job = job;\n    this.year = year;\n    this.item = item;\n    this.routine = new JobRoutine(); //クラスを呼び出す時はnewを使う\n  }\n  \n  describe(amIdx , pmIdx) {\n    console.log(\`\${this.name}のお仕事は\${this.job}です。このお仕事をして\${this.year}年目です。\n      必須アイテムは\${this.item.join('、')}です。\`\n);//join('、')を使うことで、配列を使って複数のアイテムを表示できる\n    console.log(\`午前の日課: \${this.routine.AmRoutine[amIdx[0]]} ・ \${this.routine.AmRoutine[amIdx[1]]}。\`\n);\n    console.log(\`午後の日課: \${this.routine.PmRoutine[pmIdx[0]]} ・ \${this.routine.PmRoutine[pmIdx[1]]}。\`\n);\n  }\n}\n\nconst h = new HumanJob('りんちゃん','栄養士',7,['包丁']);\n// OK:\nh.describe([1,3], [0,2]); //配列から呼び出す\n`;
 
             // コードを各要素に設定
             document.getElementById('code1').textContent = code1;
@@ -686,7 +674,7 @@
                 }
                 describe() {
                   console.log(
-                    `${this.brand}「${this.name}」味は${this.taste}ます。${this.eatfeel}気分の時に一緒に食べよ？`);
+                    `${this.brand}「${this.name}」味は${this.taste}ます。${this.eatfeel}気分の時に一緒に食べよ?`);
                 }
             }
             const icecreamBrand1 = new IcecreamBrand('ハーゲンダッツ');
@@ -749,8 +737,7 @@
                 this.routine = new JobRoutine();
               }
               describe(amIdx , pmIdx) {
-                console.log(`${this.name}のお仕事は${this.job}です。このお仕事をして${this.year}年目です。
-      必須アイテムは${this.item.join('、')}です。`);
+                console.log(`${this.name}のお仕事は${this.job}です。このお仕事をして${this.year}年目です.\n      必須アイテムは${this.item.join('、')}です.`);
                 console.log(`午前の日課: ${this.routine.AmRoutine[amIdx[0]]} ・ ${this.routine.AmRoutine[amIdx[1]]}。`);
                 console.log(`午後の日課: ${this.routine.PmRoutine[pmIdx[0]]} ・ ${this.routine.PmRoutine[pmIdx[1]]}。`);
               }
@@ -786,33 +773,31 @@
         }
 
         // PrismJSの初期化と実行
-        function initializePrism() {
-            displayCode();
-            runCode();
+        function initializeApp() {
+            // 最初にアコーディオンの機能を設定
+            setupAccordion();
             
-            // PrismJSが読み込まれているかチェック
+            try {
+                // 次にコードの表示と実行
+                displayCode();
+                runCode();
+            } catch (e) {
+                console.error("コードの実行中にエラーが発生しました:", e);
+            }
+            
+            // 最後にシンタックスハイライトを適用
             if (typeof Prism !== 'undefined') {
-                console.log('PrismJS loaded successfully');
                 Prism.highlightAll();
             } else {
-                console.log('PrismJS not loaded, retrying...');
-                // 500ms後に再試行
-                setTimeout(() => {
-                    if (typeof Prism !== 'undefined') {
-                        Prism.highlightAll();
-                        console.log('PrismJS loaded on retry');
-                    } else {
-                        console.log('PrismJS failed to load');
-                    }
-                }, 500);
+                console.error('PrismJS not loaded');
             }
         }
 
         // ページ読み込み時に実行
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initializePrism);
+            document.addEventListener('DOMContentLoaded', initializeApp);
         } else {
-            initializePrism();
+            initializeApp();
         }
     </script>
 </body>
