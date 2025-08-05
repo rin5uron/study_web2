@@ -57,6 +57,10 @@ https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81
 - 独自ドメイン
 <br><br><br><br><br>
 # 🕊️共有サイト
+## 2025/8/5
+- データベース 
+　- 師匠
+　　- https://docs.google.com/spreadsheets/d/1NBCXRS8B6KH4x8ZeJ4sSaOQeGh0Y1sN-_GLAEEKRigk/edit?gid=1192545774#gid=1192545774
 ## 2025/7/18 
 - https://four-seven-website-main-git-develop-slotdata2020s-projects.vercel.app/
 ## 2025/7/15
