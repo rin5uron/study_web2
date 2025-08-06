@@ -23,7 +23,8 @@
   - https://docs.google.com/spreadsheets/d/176_B4uKKwoofBbsgxFLm9ay6rJT3vGqMdKti8yd7bNY/edit?gid=914548662#gid=914548662
 - 改善版
 　- https://docs.google.com/spreadsheets/d/1EawEE0J8PmQbWlWYhM2yZEoo40eaeDVu/edit?gid=1189953518#gid=1189953518
-
+　- 単位等は後から付与すればいいので、int型で表す
+　- ファイル名等はキャメルケースが一般的
 
 ### 正規化
 
