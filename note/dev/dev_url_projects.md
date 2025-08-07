@@ -21,7 +21,7 @@
     - https://sqli-xss.vercel.app/
 
 - n進数と基数変換
-　- https://vercel.com/rs-projects-9c94598c/learn-n-bases
+　- https://learn-n-bases.vercel.app/
 - シフト変換
 　- https://learn-bit-shift.vercel.app/
  
