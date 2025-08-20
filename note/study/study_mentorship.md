@@ -1,3 +1,6 @@
+# 【2025/08/20】
+- npm
+ - ライブラリを缶リスモジュール
 # 【2025/08/19】
 - gemini
 - claude.yml
@@ -6,7 +9,7 @@ https://github.com/dataanalytics2020/slotpi-nextjs/blob/main/.github/workflows/c
  - ci/cd 
  - cd：プッシュしたら勝手にデプロイされる
 
- 
+
 # 【2025/08/15】
 - ローカルでサーバーを立てる
 　- nextjsのポート番号3000
