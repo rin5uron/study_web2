@@ -40,14 +40,13 @@ study_web2/
 101日目以降に学んだ技術概念やツールを体系的に整理した学習記録。
 
 #### 📚 学習記録 (`note/study/`)
-- **技術学習**: [`study_technical.md`](note/study/study_technical.md) - 技術概念・ツールの学習記録
-- **エラー解決**: [`study_errors.md`](note/study/study_errors.md) - エラーと解決方法の記録・学習
+
+- リポジトリ内での学びを記録
+- 各プロジェクトでの学びは各リポジトリごとにまとめている
 
 #### 🔧 開発記録 (`note/dev/`)
-- **プロジェクト**: [`dev_url_projects.md`](note/dev/dev_url_projects.md) - 作成したURL・プロジェクト一覧
-- **開発手法**: [`dev_process.md`](note/dev/dev_process.md) - 開発プロセス・テンプレート
-- **目標設定**: [`dev_vision.md`](note/dev/dev_vision.md) - エンジニア像・キャリア目標
-
+- **プロジェクト**: [`dev_url_projects.md`](note/dev/dev_url_projects.md) 
+    - これまでに作成したプロジェクトや学習のまとめURL一覧
 <br><br><br><br>
 
 ### 💻 実践演習
@@ -58,27 +57,29 @@ study_web2/
 #### 📂 学習内容別ディレクトリ構成
 
 ##### 💻 JavaScript体系学習
- [`practice/JavaScript/`](practice/JavaScript/)
-- JavaScript絵本での基礎学習
-- オブジェクト指向プログラミング
-- 実践的なコーディング演習
-- 毎日JSドリルによる継続的スキル向上
+ [`practice/JavaScript/`](practice/JavaScript/) - JavaScript基礎学習とオブジェクト指向プログラミング実践
 
 ##### 🖥️ CLI学習
- [`practice/CLI/`](practice/CLI/)
-- コマンドライン操作の基礎習得
-- 脱マウス実践トレーニング
-- ターミナル効率化技術
-- Git操作とバージョン管理
+ [`practice/CLI/`](practice/CLI/) - コマンドライン操作と脱マウス実践トレーニング
 
-##### 🖥️ SEO実践学習
- [`practice/SEO/`](practice/SEO/)
-- Webサイトの検索エンジン最適化（SEO）に関する実践的な学習と実装
-- 検索エンジンの仕組みとランキング要因の理解
-- キーワード選定とコンテンツ最適化
-- 技術的SEO（サイト構造、表示速度など）
+##### 🔍 SEO実践学習
+ [`practice/SEO/`](practice/SEO/) - Webサイトの検索エンジン最適化に関する実践学習
+
+##### ⚛️ Next.js学習
+ [`practice/nextjs/`](practice/nextjs/) - Next.jsフレームワークの基礎学習と実践（詳細は[nextjs_practice](https://github.com/rin5uron/nextjs_practice)参照）
+
+
+##### 🛠️ ワークショップ
+ [`practice/workshop/`](practice/workshop/) - 各種技術ワークショップと実践演習
+
+##### 🗄️ データベース学習
+ [`practice/db/`](practice/db/) - データベース基礎とSQL実践学習
+
+##### 🔒 セキュリティ学習
+ [`practice/security/`](practice/security/) - セキュリティ基礎と実践的な対策学習
+
 <br><br>
-**詳細・成果物**: [`practice/readme.md`](practice/readme.md)を参照してください
+**詳細・成果物**: 各ディレクトリのREADME参照
 
 <br><br><br><br>
 ## 別リポジトリでの学び
@@ -90,11 +91,6 @@ study_web2/
 
 思いつきメモ、見かけて気になったものの実践。新しい技術やアイデアを気軽に試して学ぶ実験スペース。
 
-<br><br><br>
-
-### 🎮 JavaScriptアプリ実践　[counterapp-collection](https://github.com/rin5uron/counterapp-collection)
-
-JavaScriptを使ったアプリ実践。
 
 
 <br><br><br>
@@ -116,6 +112,15 @@ IT用語を実践的に学び、体験デモ付きの学習サイトを構築。
 
 実践的なIT用語学習と並行して、学習成果をWebサイトとして形にする実務的なプロジェクト。
 
+<br><br><br>
+### 📚 基本情報技術者試験学習　[fe-study](https://github.com/rin5uron/fe-study)
+
+基本情報技術者試験の学習ログと問題演習をGitHub Issuesで管理。ITパスポート取得済みから基本情報技術者試験合格を目指す学習記録。
+
+**主な特徴**:
+- GitHub Issuesを活用した学習進捗管理
+- 実践的に学んだ記録
+- 生成AIやGoogleツールを使った単語帳作りの記録
 
 ---
 <br><br>
@@ -124,4 +129,4 @@ IT用語を実践的に学び、体験デモ付きの学習サイトを構築。
 
 ### 最終更新日
 
-2025年7月27日
+2025年10月4日
