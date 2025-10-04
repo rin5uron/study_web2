@@ -1,105 +1,117 @@
-##  目次
+# 🚀 プロジェクト一覧
 
-- [vercelプロジェクト一覧](#vercelプロジェクト一覧)
-- [課金しているもの一覧](#課金しているもの一覧)
-- [共有サイト](#共有サイト)
-- [共有デモサイト](#共有デモサイト)
-<br><br><br><br><br>
-# 🌱vercelプロジェクト一覧
+> これまでの実践プロジェクトや学習記録のURL一覧（2025/3/15-）
 
-#### IT用語
-- フールプルーフ①
-  - https://foolproof1.vercel.app/
+**最終更新**: 2025年10月4日（204日目）  
+**総プロジェクト数**: 11個  
+**完成率**: 91%（10/11）
 
-- フールプルーフ②
-  - https://foolproof2.vercel.app/
+## 📋 目次
 
-- sqlxss
-  - study_webワンカラム版
-    - https://sqlixss.vercel.app/
-  - it-terms-labブラッシュアップ版
-    - https://sqli-xss.vercel.app/
+- [💫 学習・教材サイト](#-学習教材サイト)
+- [💫 実践アプリケーション](#️-実践アプリケーション)
+- [💫 案件・デモサイト](#-案件デモサイト)
+- [📊 プロジェクト統計](#-プロジェクト統計)
+- [🎯 今後の予定](#-今後の予定)
 
-- n進数と基数変換
-　- https://learn-n-bases.vercel.app/
-- シフト変換
-　- https://learn-bit-shift.vercel.app/
-- 宛先ポートと送信ポート/プロキシ
- - https://port-flow-navy.vercel.app/
- 
-#### ニコデモ
-- https://nico-demo-green.vercel.app/
+---
 
-#### カウンター
-- ネガポジ
-  - https://negaposi-counter.vercel.app/
-<br><br><br><br><br>
+## 💫 学習・教材サイト
 
-# 🌱vercelプロジェクト一覧
-#### CLI
-- 脱マウス
-https://basiccli.vercel.app/
-#### おしゃべり
-- オブジェクト30個PJ
-  - https://objectclass30.vercel.app/
-- 2025/07/02
-  - オブジェクトについて：https://20250702osyaberi.vercel.app/
+> 学習目的のサイト（教育・実験・記録すべて含む）
 
-- 2025/04/16
-    - 日付ループ作ってみた
-https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81%A7%E3%81%AE%E6%97%A5%E4%BB%98%E3%83%AB%E3%83%BC%E3%83%97
+### IT用語・セキュリティ学習
+| プロジェクト | ステータス | 技術スタック | 作成日 | URL |
+|-------------|-----------|-------------|--------|-----|
+| **フールプルーフ①** | ✅ 完了 | HTML/CSS/JS | 2025/08 | [https://foolproof1.vercel.app/](https://foolproof1.vercel.app/) |
+| **フールプルーフ②** | ✅ 完了 | HTML/CSS/JS | 2025/08 | [https://foolproof2.vercel.app/](https://foolproof2.vercel.app/) |
+| **SQL・XSS（改良版）** | ✅ 完了 | HTML/CSS/JS | 2025/08 | [https://sqli-xss.vercel.app/](https://sqli-xss.vercel.app/) |
+| **SQL・XSS学習** | ✅ 完了 | HTML/CSS/JS | 2025/07 | [https://sqlixss.vercel.app/](https://sqlixss.vercel.app/) |
 
+### 基本情報技術者試験対策
+| プロジェクト | ステータス | 技術スタック | 作成日 | URL |
+|-------------|-----------|-------------|--------|-----|
+| **ポート・プロキシ学習** | ✅ 完了 | HTML/CSS/JS | 2025/08 | [https://port-flow-navy.vercel.app/](https://port-flow-navy.vercel.app/) |
+| **n進数と基数変換** | ✅ 完了 | HTML/CSS/JS | 2025/07 | [https://learn-n-bases.vercel.app/](https://learn-n-bases.vercel.app/) |
+| **シフト変換** | ✅ 完了 | HTML/CSS/JS | 2025/07 | [https://learn-bit-shift.vercel.app/](https://learn-bit-shift.vercel.app/) |
 
-  
-<br><br><br><br><br>
-# 💰課金しているもの一覧
+### JavaScript学習・実験
+| プロジェクト | ステータス | 技術スタック | 作成日 | URL |
+|-------------|-----------|-------------|--------|-----|
+| **オブジェクト学習（2025/07/02）** | ✅ 完了 | HTML/CSS/JS | 2025/07 | [https://20250702osyaberi.vercel.app/](https://20250702osyaberi.vercel.app/) |
+| **オブジェクト30個PJ** | ✅ 完了 | HTML/CSS/JS | 2025/06 | [https://objectclass30.vercel.app/](https://objectclass30.vercel.app/) |
+| **日付ループ処理** | ✅ 完了 | JavaScript | 2025/04 | [GitHub詳細](https://github.com/rin5uron/study_web?tab=readme-ov-file#-11-1231%E3%81%BE%E3%81%A7%E3%81%AE%E6%97%A5%E4%BB%98%E3%83%AB%E3%83%BC%E3%83%97) |
 
-- cursor（年間契約、3月末くらい更新）
-- OPENAI(2025/5/6-自動引き落とし)
-- 独自ドメイン
-<br><br><br><br><br>
-# 🕊️共有サイト
-## 2025/8/5
-- データベース 
-　- 師匠
-　　- https://docs.google.com/spreadsheets/d/1NBCXRS8B6KH4x8ZeJ4sSaOQeGh0Y1sN-_GLAEEKRigk/edit?gid=1192545774#gid=1192545774
-## 2025/7/18 
-- https://four-seven-website-main-git-develop-slotdata2020s-projects.vercel.app/
-## 2025/7/15
-有料級サイト、開発これに沿って
-- https://izanami.dev/kojin-kaihatsu
+---
 
-## 2025/7/14
-- ポチョムキン理論
-　- https://www.youtube.com/watch?v=-Roj2TFpEgc
+## 💫 実践アプリケーション
 
-## 2025/6/22
-- これ便利そうって https://zenn.dev/yutafujii/articles/41c137eca83177
+> 実際に使える機能的なアプリケーション
 
-## 2025/6/27
-- ターミナル同時進行 https://x.com/akira_papa_it/status/1932547492199182733?s=46&t=HvIkxZtzo6Fyc-wZKrgyiQ
-- ここ誘われたんだって。HPが素敵でお話しながら見惚れてしまった。
-  - https://pixiedusttech.com
+### CLI・コマンドライン
+| プロジェクト | ステータス | 技術スタック | 作成日 | URL |
+|-------------|-----------|-------------|--------|-----|
+| **脱マウスCLI** | ✅ 完了 | HTML/CSS/JS | 2025/08 | [https://basiccli.vercel.app/](https://basiccli.vercel.app/) |
 
-## 2025/6/30
-- claudecodeのパクリ
-  - https://zenn.dev/shinshin86/articles/e02fac5d3ae75a
-- 毎回おこな案件解決策
-  - https://zenn.dev/sesere/articles/0420ecec9526dc
+### JavaScriptアプリ
+| プロジェクト | ステータス | 技術スタック | 作成日 | URL |
+|-------------|-----------|-------------|--------|-----|
+| **ネガポジカウンター** | ✅ 完了 | HTML/CSS/JS | 2025/07 | [https://negaposi-counter.vercel.app/](https://negaposi-counter.vercel.app/) |
 
-<br><br><br><br><br>
-# 🔗共有デモサイト
-## 2025/07/12
-- slo-map.com
-　- https://izanami.dev/post/54bb99d2-c5d9-4b9c-a299-faf6587417ae
-## 2025/07/12
-- aiable
-　- https://www.aiable.jp/
-## 2025/07/08
-- パチスロサイト:サブドメインについて
-  - slo-map.com
-  - stg.slo-map.com
-  - dev.slo-map.com
-## 2025/06/03
-- キャバ嬢向け顧客管理アプリ：UI、UX
-  - http://18.178.214.78/crm/visits/
+---
+
+## 💫 案件・デモサイト
+
+> クライアント向けの案件やデモサイト
+
+### クライアント案件
+| プロジェクト | ステータス | 技術スタック | 作成日 | URL |
+|-------------|-----------|-------------|--------|-----|
+| **ニコ酒店デモサイト** | 🔄 進行中 | Next.js/React | 2025/09 | [https://nico-demo-green.vercel.app/](https://nico-demo-green.vercel.app/) |
+
+---
+
+## 📊 プロジェクト統計
+
+### ステータス別
+| ステータス | プロジェクト数 | 割合 |
+|-----------|-------------|------|
+| ✅ 完了 | 10 | 91% |
+| 🔄 進行中 | 1 | 9% |
+| ⬜ 計画中 | 0 | 0% |
+| **合計** | **11** | **100%** |
+
+### 技術スタック別
+| 技術スタック | プロジェクト数 | 割合 |
+|-------------|-------------|------|
+| HTML/CSS/JavaScript | 9 | 82% |
+| Next.js/React | 1 | 9% |
+| JavaScript | 1 | 9% |
+| **合計** | **11** | **100%** |
+
+### カテゴリ別
+| カテゴリ | プロジェクト数 | 割合 |
+|---------|-------------|------|
+| 💫 学習・教材サイト | 10 | 91% |
+| 💫 実践アプリケーション | 2 | 18% |
+| 💫 案件・デモサイト | 1 | 9% |
+| **合計** | **11** | **100%** |
+
+---
+
+## 🎯 今後の予定
+
+### 進行中プロジェクト
+- **ニコ酒店サイト**: Next.js実装、ドメイン紐付け、他2店舗対応
+
+### 計画中プロジェクト
+- **データベース連携アプリ**: アイスサイトからの発展
+- **API活用アプリ**: ログインフォームサイトからの発展
+- **TypeScript学習**: 基礎取得
+- **React/Vue.js学習**: フレームワーク習得
+
+---
+
+**最終更新**: 2025年10月4日（204日目）  
+**総プロジェクト数**: 11個  
+**完成率**: 91%（10/11）
