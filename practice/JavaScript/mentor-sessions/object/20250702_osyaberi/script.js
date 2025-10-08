@@ -20,7 +20,7 @@ const person1 = {
 
 let result1Html = '';
 result1Html += person1.walk(10);
-result1Html += person1.speak('うーろんくん');
+result1Html += person1.speak('師匠');
 result1Html += person1.cooking('チキン南蛮');
 document.getElementById('result1').innerHTML = result1Html;
 
@@ -125,14 +125,14 @@ function eat(food) {
 }
 
 function selfControl() {
-    console.log("・オナニーしました。");
+    console.log("・ひとりでしました。");
     console.log("　出てきたもの：🤍");
     return "🤍";
 }
 
 let eatResult = eat("トマト");
 let selfControlResult = selfControl();
-let result3Html = `・食べ物「トマト」を食べました。<br>　出てきたもの：${eatResult}<br>・オナニーしました。<br>　出てきたもの：${selfControlResult}`;
+let result3Html = `・食べ物「トマト」を食べました。<br>　出てきたもの：${eatResult}<br>・ひとりでしました。<br>　出てきたもの：${selfControlResult}`;
 document.getElementById('result3').innerHTML = result3Html;
 
 // (4)おやすみライブラリの実行
@@ -155,7 +155,7 @@ let result4Html = '';
 result4Html += '--- おやすみライブラリ ---<br>';
 result4Html += OyasumiLib.saynemui() + '<br>';
 result4Html += OyasumiLib.sweetDreams() + '<br>';
-result4Html += OyasumiLib.sayGoodnight("うーろんくん") + '<br>';
+result4Html += OyasumiLib.sayGoodnight("師匠") + '<br>';
 
 document.getElementById('result4').innerHTML = result4Html;
 
