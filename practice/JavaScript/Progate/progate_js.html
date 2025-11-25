@@ -13,54 +13,67 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }1
+    }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #f5f5f5;
-      padding: 40px 20px;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      background-color: #fbfbfd;
+      padding: 60px 20px;
+      line-height: 1.47059;
+      color: #1d1d1f;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 60%;
       margin: 0 auto;
     }
 
     h1 {
       text-align: center;
-      color: #333;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
+      color: #1d1d1f;
+      margin-bottom: 48px;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.05;
     }
 
     /* アコーディオンスタイル */
     .accordion-item {
       background: white;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-item:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     .accordion-header {
-      background: #d4ebf2;
-      color: #5a6c7d;
-      padding: 20px;
+      background: #e8f5e9;
+      color: #1d1d1f;
+      padding: 24px 32px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
     }
 
     .accordion-header:hover {
-      background: #c0e3f0;
+      background: #d4edda;
     }
 
     .accordion-header h2 {
-      font-size: 1.5rem;
+      font-size: 1.375rem;
       margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     .accordion-icon {
@@ -84,23 +97,26 @@
     }
 
     .accordion-body {
-      padding: 30px;
+      padding: 40px 48px 48px;
     }
 
     .description {
-      color: #555;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      line-height: 1.8;
+      color: #6e6e73;
+      margin-bottom: 28px;
+      font-size: 1.0625rem;
+      line-height: 1.58824;
+      font-weight: 400;
     }
 
     .section-title {
-      color: #34495e;
-      margin-top: 25px;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-      border-bottom: 2px solid #ecf0f1;
-      padding-bottom: 8px;
+      color: #1d1d1f;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+      border-bottom: 1px solid #d2d2d7;
+      padding-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     /* コードブロック */
@@ -117,26 +133,31 @@
 
     /* 実行結果 */
     .result {
-      background: #e8f4f8;
-      border-left: 4px solid #3498db;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 4px;
+      background: #f5f5f7;
+      border: 1px solid #d2d2d7;
+      padding: 32px 40px;
+      margin: 32px 0;
+      border-radius: 16px;
     }
 
     .result h4 {
-      color: #2980b9;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
+      color: #86868b;
+      margin-bottom: 24px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .output {
-      font-family: 'Courier New', monospace;
-      color: #2c3e50;
-      line-height: 1.8;
-      background: white;
-      padding: 15px;
-      border-radius: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      color: #1d1d1f;
+      line-height: 1.58824;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      font-size: 1.0625rem;
+      font-weight: 400;
     }
 
     code {
@@ -155,34 +176,35 @@
 
     li {
       margin-bottom: 8px;
-      color: #555;
+      color: #6e6e73;
+      font-weight: 400;
     }
 
     /* スマホ対応 */
     @media (max-width: 768px) {
       body {
-        padding: 20px 10px;
+        padding: 40px 15px;
       }
 
       h1 {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
+        font-size: 2rem;
+        margin-bottom: 32px;
       }
 
       .accordion-header {
-        padding: 15px;
+        padding: 18px 20px;
       }
 
       .accordion-header h2 {
-        font-size: 1.2rem;
+        font-size: 1.125rem;
       }
 
       .accordion-icon {
-        font-size: 1.2rem;
+        font-size: 1.25rem;
       }
 
       .accordion-body {
-        padding: 20px 15px;
+        padding: 28px 24px 32px;
       }
 
       .description {
@@ -190,35 +212,34 @@
       }
 
       .section-title {
-        font-size: 1.1rem;
+        font-size: 1.125rem;
       }
 
       pre code {
-        font-size: 0.85rem;
+        font-size: 0.875rem;
       }
 
       .result {
-        padding: 15px;
+        padding: 24px 28px;
       }
 
       .result h4 {
-        font-size: 1rem;
+        font-size: 0.75rem;
       }
 
       .output {
-        padding: 10px;
-        font-size: 0.9rem;
+        font-size: 1rem;
       }
     }
 
     /* 小さいスマホ対応 */
     @media (max-width: 480px) {
       h1 {
-        font-size: 1.5rem;
+        font-size: 1.75rem;
       }
 
       .accordion-header {
-        padding: 12px;
+        padding: 16px 18px;
       }
 
       .accordion-header h2 {
@@ -226,18 +247,85 @@
       }
 
       .accordion-body {
-        padding: 15px 10px;
+        padding: 24px 20px 28px;
       }
 
       pre code {
         font-size: 0.8rem;
       }
     }
+    /* 説明カード */
+    .intro-card {
+      background: white;
+      border-radius: 18px;
+      padding: 40px 48px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro-card h2 {
+      color: #1d1d1f;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .intro-card p {
+      color: #6e6e73;
+      font-size: 1.0625rem;
+      line-height: 1.58824;
+      margin-bottom: 24px;
+    }
+
+    .intro-card ol {
+      color: #1d1d1f;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      margin-left: 20px;
+    }
+
+    .intro-card ol li {
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
+    .tip {
+      background: #f5f5f7;
+      border-left: 4px solid #86868b;
+      padding: 16px 20px;
+      margin-top: 24px;
+      border-radius: 4px;
+      font-size: 0.9375rem;
+      color: #6e6e73;
+    }
+
+    .tip strong {
+      color: #1d1d1f;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>JavaScript I</h1>
+
+    <!-- 学習内容の説明 -->
+    <div class="intro-card">
+
+      <h2>学んだこと</h2>
+      <ol>
+        <li>console.log() - コンソールに値を表示する</li>
+        <li>文字列型と数字型 - データ型の違いを理解する</li>
+        <li>テンプレートリテラル - 変数を文字列に埋め込む</li>
+        <li>演算子 - 計算と比較を行う</li>
+        <li>変数と定数 - let と const の使い分け</li>
+        <li>条件分岐 - if文とswitch文</li>
+      </ol>
+
+      <div class="tip">
+        <strong>💡 </strong> コード入力中に予測候補が表示されたら、<strong>ESCキー</strong>を押すと消える
+      </div>
+    </div>
 
     <!-- 1. console.log() -->
     <div class="accordion-item">
@@ -254,17 +342,21 @@
           <h3 class="section-title">ポイント</h3>
           <ul>
             <li>()内に表示したい値を書く</li>
-            <li>複数の値をカンマで区切って表示可能</li>
+            <li>①複数の値をカンマで区切る、②+で連結、③テンプレートリテラルのいずれかで表示</li>
             <li>文字列は引用符で囲む、数字はそのまま</li>
           </ul>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
+          <pre><code class="language-javascript">// 基本的な表示
+console.log('こんにちは');
+console.log(100);
 
-</code></pre>
+// 複数の値を表示
+console.log('私の名前は', 'りん', 'です');
+console.log('年齢:', 25);</code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result1"></div>
           </div>
         </div>
@@ -287,17 +379,21 @@
           <ul>
             <li>文字列：引用符（'または"）で囲む</li>
             <li>数字：引用符なしでそのまま書く</li>
-            <li>文字列同士は+で連結できる</li>
-            <li>数字同士は+で計算される</li>
+            <li>文字列同士は+で連結でき、数字同士は+で計算される</li>
           </ul>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
+          <pre><code class="language-javascript">// 1. 文字列の連結
+console.log('1' + '1');  // "11"
 
-</code></pre>
+// 2. 文字列の表示
+console.log('1+1');      // "1+1"
+
+// 3. 計算
+console.log(1 + 1);      // 2</code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result2"></div>
           </div>
         </div>
@@ -330,7 +426,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result3"></div>
           </div>
         </div>
@@ -363,7 +459,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result4"></div>
           </div>
         </div>
@@ -388,7 +484,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result5"></div>
           </div>
         </div>
@@ -413,7 +509,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result6"></div>
           </div>
         </div>
@@ -438,7 +534,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result7"></div>
           </div>
         </div>
@@ -463,7 +559,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result8"></div>
           </div>
         </div>
@@ -488,7 +584,7 @@
 </code></pre>
 
           <div class="result">
-            <h4>🖥️ 実行結果</h4>
+            <h4>RESULT</h4>
             <div class="output" id="result9"></div>
           </div>
         </div>
@@ -522,9 +618,27 @@
     // ===== ここから各セクションのコードを書いてね =====
 
     // 1. console.log()
+    console.log('Hello, World!');
+    console.log(100);
+    console.log('好きな果物は', 'りんご', 'です');
+    console.log('1+1', "は", (1+1),'です');
 
+    // HTML上にも表示
+    print('result1', 'Hello, World!');
+    print('result1', '100');
+    print('result1', '好きな果物は りんご です');
+    print('result1', '1+1 は ' + (1+1) + 'です');
 
     // 2. 文字列型と数字型
+    // コンソールとRESULT欄に値だけ表示
+    console.log('1' + '1');  // 11
+    print('result2', '1' + '1');
+
+    console.log('1+1');      // 1+1
+    print('result2', '1+1');
+
+    console.log(1 + 1);      // 2
+    print('result2', 1 + 1);
 
 
     // 3. 変数
@@ -543,10 +657,37 @@
 
 
     // 8. if文
-
+    // 数字占い
+    let i=1;
+    if(i === 1){
+      console.log("大吉！");
+    }else if(i === 2){
+      console.log("吉！");
+    }else if(i === 3){
+      console.log("末吉！");
+    }else{
+      console.log("凶！");
+    }
 
     // 9. switch文
-
+    // フレーバー番号からフレーバー名を表示
+let taste = 1;
+switch(taste){
+  case 1:
+    console.log(taste + "番のアイスクリームはピスタチオです");
+    break;
+  case 2:
+    console.log(taste + "番のアイスクリームはストロベリーです");
+    break;
+  case 3:
+    console.log(taste + "番のアイスクリームはチョコレートです");
+    break;
+  case 4:
+    console.log(taste + "番のアイスクリームはバニラです");
+    break;
+  default:
+    console.log(taste + "番のアイスクリームはシェフの気まぐれ味です");
+}
   </script>
 </body>
 </html>

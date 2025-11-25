@@ -16,51 +16,64 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #f5f5f5;
-      padding: 40px 20px;
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      background-color: #fbfbfd;
+      padding: 60px 20px;
+      line-height: 1.47059;
+      color: #1d1d1f;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 60%;
       margin: 0 auto;
     }
 
     h1 {
       text-align: center;
-      color: #333;
-      margin-bottom: 40px;
-      font-size: 2.5rem;
+      color: #1d1d1f;
+      margin-bottom: 48px;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      line-height: 1.05;
     }
 
     /* アコーディオンスタイル */
     .accordion-item {
       background: white;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-radius: 18px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
       overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-item:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
     }
 
     .accordion-header {
-      background: #d4ebf2;
-      color: #5a6c7d;
-      padding: 20px;
+      background: #e8f5e9;
+      color: #1d1d1f;
+      padding: 24px 32px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: background 0.3s;
+      transition: all 0.3s ease;
     }
 
     .accordion-header:hover {
-      background: #c0e3f0;
+      background: #d4edda;
     }
 
     .accordion-header h2 {
-      font-size: 1.5rem;
+      font-size: 1.375rem;
       margin: 0;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     .accordion-icon {
@@ -84,23 +97,26 @@
     }
 
     .accordion-body {
-      padding: 30px;
+      padding: 40px 48px 48px;
     }
 
     .description {
-      color: #555;
-      margin-bottom: 20px;
-      font-size: 1.1rem;
-      line-height: 1.8;
+      color: #6e6e73;
+      margin-bottom: 28px;
+      font-size: 1.0625rem;
+      line-height: 1.58824;
+      font-weight: 400;
     }
 
     .section-title {
-      color: #34495e;
-      margin-top: 25px;
-      margin-bottom: 15px;
-      font-size: 1.3rem;
-      border-bottom: 2px solid #ecf0f1;
-      padding-bottom: 8px;
+      color: #1d1d1f;
+      margin-top: 32px;
+      margin-bottom: 16px;
+      font-size: 1.25rem;
+      border-bottom: 1px solid #d2d2d7;
+      padding-bottom: 12px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
     }
 
     /* コードブロック */
@@ -117,26 +133,31 @@
 
     /* 実行結果 */
     .result {
-      background: #e8f4f8;
-      border-left: 4px solid #3498db;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 4px;
+      background: #f5f5f7;
+      border: 1px solid #d2d2d7;
+      padding: 32px 40px;
+      margin: 32px 0;
+      border-radius: 16px;
     }
 
     .result h4 {
-      color: #2980b9;
-      margin-bottom: 15px;
-      font-size: 1.1rem;
+      color: #86868b;
+      margin-bottom: 24px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .output {
-      font-family: 'Courier New', monospace;
-      color: #2c3e50;
-      line-height: 1.8;
-      background: white;
-      padding: 15px;
-      border-radius: 4px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
+      color: #1d1d1f;
+      line-height: 1.58824;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+      font-size: 1.0625rem;
+      font-weight: 400;
     }
 
     code {
@@ -155,7 +176,8 @@
 
     li {
       margin-bottom: 8px;
-      color: #555;
+      color: #6e6e73;
+      font-weight: 400;
     }
 
     /* スマホ対応 */
@@ -233,76 +255,587 @@
         font-size: 0.8rem;
       }
     }
+    /* 説明カード */
+    .intro-card {
+      background: white;
+      border-radius: 18px;
+      padding: 40px 48px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .intro-card h2 {
+      color: #1d1d1f;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .intro-card p {
+      color: #6e6e73;
+      font-size: 1.0625rem;
+      line-height: 1.58824;
+      margin-bottom: 24px;
+    }
+
+    .intro-card ol {
+      color: #1d1d1f;
+      font-size: 1.0625rem;
+      line-height: 1.8;
+      margin-left: 20px;
+    }
+
+    .intro-card ol li {
+      margin-bottom: 12px;
+      color: #1d1d1f;
+    }
+
+    .tip {
+      background: #f5f5f7;
+      border-left: 4px solid #86868b;
+      padding: 16px 20px;
+      margin-top: 24px;
+      border-radius: 4px;
+      font-size: 0.9375rem;
+      color: #6e6e73;
+    }
+
+    .tip strong {
+      color: #1d1d1f;
+    }
+
+    /* 練習問題セクション */
+    .practice-section {
+      margin-top: 60px;
+    }
+
+    .practice-section > h2 {
+      text-align: center;
+      color: #1d1d1f;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 40px;
+      letter-spacing: -0.015em;
+    }
+
+    .question-card {
+      background: white;
+      border-radius: 18px;
+      margin-bottom: 32px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .question-header {
+      background: #e3f2fd;
+      padding: 20px 32px;
+      border-bottom: 2px solid #2196f3;
+    }
+
+    .question-header h3 {
+      color: #1d1d1f;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .question-body {
+      padding: 32px;
+    }
+
+    .question-text {
+      background: #f5f5f7;
+      padding: 20px;
+      border-radius: 8px;
+      margin-bottom: 24px;
+      color: #1d1d1f;
+      font-size: 1.0625rem;
+      line-height: 1.6;
+    }
+
+    .answer-section {
+      margin-bottom: 24px;
+    }
+
+    .answer-section h4 {
+      color: #86868b;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .evaluation {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin-top: 16px;
+    }
+
+    .evaluation h4 {
+      color: #2e7d32;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .evaluation p {
+      color: #1d1d1f;
+      font-size: 0.9375rem;
+      margin: 0;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>JavaScript I</h1>
+    <h1>JavaScript II - ループ練習</h1>
 
-    <!-- アコーディオン1: 変数 -->
+    <!-- 学習内容の説明 -->
+    <div class="intro-card">
+      <p>
+        この学習では、JavaScriptのループ処理を学びます。while、for、fizzbuzzなど、繰り返し処理の基本を理解するトレーニングです。
+      </p>
+
+      <h2>学んだこと</h2>
+      <ol>
+        <li>while - 条件が真の間ループする</li>
+        <li>for - 回数を指定してループする</li>
+        <li>fizzbuzz - 条件分岐を使った有名な問題</li>
+      </ol>
+    </div>
+
+    <!-- アコーディオン1: while -->
     <div class="accordion-item">
       <div class="accordion-header">
-        <h2>1. 変数（Variables）</h2>
+        <h2>1. while文</h2>
         <span class="accordion-icon">▼</span>
       </div>
       <div class="accordion-content">
         <div class="accordion-body">
           <p class="description">
-            変数は、データを入れておく「箱」のようなもの。<code>const</code>や<code>let</code>を使って宣言する。
+            条件の間だけループする。条件や繰り返し処理の指定を忘れると無限ループになるので注意。
           </p>
 
-          <h3 class="section-title">基本的な使い方</h3>
-          <pre><code class="language-javascript">// constは再代入できない定数
-const name = 'りん';
-const age = 25;
-
-// letは再代入できる変数
-let score = 100;
-score = 150; // 変更可能
-
-console.log(name);  // りん
-console.log(age);   // 25
-console.log(score); // 150</code></pre>
-
-          <h3 class="section-title">ポイント</h3>
-          <ul>
-            <li><code>const</code>：値を変更しない変数（定数）</li>
-            <li><code>let</code>：値を変更する可能性がある変数</li>
-            <li><code>var</code>：古い書き方（使わない）</li>
-          </ul>
-
-          <div class="result">
-            <h4>🖥️ 実行結果</h4>
-            <div class="output" id="result1"></div>
-          </div>
+          <h3 class="section-title">1〜100までの数を表示する</h3>
+          <pre><code class="language-javascript">let i = 1;
+while(i <= 100){
+    console.log(i);
+    i++;
+    // i++ は i += 1（i=i+1）の省略形
+}</code></pre>
         </div>
       </div>
     </div>
 
-    <!-- アコーディオン2: ここに追加 -->
-    <!--
+    <!-- アコーディオン2: for -->
     <div class="accordion-item">
       <div class="accordion-header">
-        <h2>2. タイトル</h2>
+        <h2>2. for文</h2>
         <span class="accordion-icon">▼</span>
       </div>
       <div class="accordion-content">
         <div class="accordion-body">
-          <p class="description">説明文</p>
+          <p class="description">
+            for(初期化/変数定義; 条件; 増減/繰り返し処理)
+          </p>
 
-          <h3 class="section-title">サブタイトル</h3>
-          <pre><code class="language-javascript">// コード例
-const example = 'サンプル';
-console.log(example);</code></pre>
-
-          <div class="result">
-            <h4>🖥️ 実行結果</h4>
-            <div class="output" id="result2"></div>
-          </div>
+          <h3 class="section-title">1〜100までの数を表示する</h3>
+          <pre><code class="language-javascript">for (let number = 1; number<=100; number++){
+    console.log(number);
+}</code></pre>
         </div>
       </div>
     </div>
-    -->
+
+    <!-- 練習問題セクション -->
+    <div class="practice-section">
+      <h2>練習問題</h2>
+
+      <!-- 問題1: 偶数フィルタリング -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題1: 偶数フィルタリング</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              1〜50までの偶数だけをコンソールに表示してください<br>
+              ヒント: i % 2 === 0 で偶数判定
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">let num1 = 1;
+while(num1 <= 50){
+    if(num1 % 2 === 0){
+        console.log(num1);
+    }
+    num1++;
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>whileもforも両方正解です！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題2: ロケット発射カウントダウン -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題2: ロケット発射カウントダウン</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              10から0までカウントダウンして表示してください<br>
+              最後に「発射！」と表示してください
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">for(let i =10;i>=0;i--){
+    console.log(i);
+    if(i === 0){
+        console.log("発射！");
+    }
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>完璧です！デクリメント（i--）の使い方も正確です。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題3: 累積加算 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題3: 累積加算</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              1〜100までの合計を計算して、最後に合計値を表示してください<br>
+              ヒント: let sum = 0; を用意して足していく
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">let sum3 = 0;
+let num3 = 1;
+while(num3 <= 100){
+    sum3 = sum3 + num3;
+    num3++;
+}
+console.log("合計: " + sum3);</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>完璧です！累積加算のロジックがしっかり理解できています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題4: 7の倍数を見つける -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題4: 7の倍数を見つける</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              1〜100までの7の倍数を表示してください
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">for(let i=1;i<=100;i++){
+    if(i % 7 === 0){
+        console.log(i);
+    }
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>正解です！余り演算子を使った倍数判定ができています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題5: 条件付き累積加算 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題5: 条件付き累積加算</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              1から順番に数を足していき、合計が100を超えたらループを終了してください<br>
+              最後に「合計: ○○」「何個足した: ○個」を表示してください<br>
+              ヒント: breakを使うか、条件を工夫する
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">let num5 = 1;
+let sum5 = 0;
+while(num5 <= 100){
+    sum5 = sum5 + num5;
+    num5++;
+    if(sum5 > 100){
+        break;
+    }
+}
+console.log("合計: " + sum5);
+console.log("何個足した: " + num5 + "個");</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>breakの使い方が完璧です！条件に応じてループを抜ける制御ができています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題6: FizzBuzz -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題6: FizzBuzz</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              1〜100までの数を表示してください。ただし：<br>
+              ・3の倍数の時は「Fizz」<br>
+              ・5の倍数の時は「Buzz」<br>
+              ・15の倍数の時は「FizzBuzz」<br>
+              を表示してください
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">for(let number = 1; number<=100; number++){
+    if(number % 15 === 0){
+        console.log("fizzbuzz");
+    }else if(number % 3 === 0){
+        console.log("fizz");
+    }else if(number % 5 === 0){
+        console.log("buzz");
+    }else{
+        console.log(number);
+    }
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>完璧です！FizzBuzzの条件判定が正確にできています。15の倍数を最初にチェックする順序も正しいです。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題7: 5の段の九九 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題7: 5の段の九九</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              5の段の九九を「5 × 1 = 5」の形式で表示してください（5×1から5×9まで）<br>
+              ヒント: テンプレートリテラルを使うと見やすい
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">for (let i=1;i<=9;i++){
+    console.log("5 × " + i + " = " + 5 * i);
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>完璧です！文字列連結で見やすい出力ができています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題8: 三角形パターン -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題8: 三角形パターン</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              以下のように*を表示してください<br>
+              *<br>
+              **<br>
+              ***<br>
+              ****<br>
+              *****<br>
+              ヒント: 文字列を連結していく
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">let star = "";
+let num7 = 1;
+while(num7 <= 5){
+    star = star + "*";
+    console.log(star);
+    num7++;
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>素晴らしい！文字列の累積連結を使ったパターン生成ができています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題9: 九九表を作る -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題9: 九九表を作る</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              1の段から9の段まで全ての九九を表示してください<br>
+              「1 × 1 = 1」から「9 × 9 = 81」まで<br>
+              ヒント: forの中にforを入れる（2重ループ）
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">for(let i=1;i<=9;i++){
+    for(let j=1;j<=9;j++){
+        console.log(i + " × " + j + " = " + i*j);
+    }
+}</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>2重ループの使い方が完璧です！ネストしたループで全ての組み合わせを処理できています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題10: 素数を見つける -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題10: 素数を見つける</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              2〜50までの素数を全て表示してください<br>
+              素数とは：1とその数自身以外に約数を持たない数<br>
+              ヒント: 2重ループで約数を調べる
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">// まだ解いていません</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>挑戦してみましょう！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題11: 数字のピラミッド -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題11: 数字のピラミッド</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              以下のような数字のピラミッドを表示してください<br>
+              1<br>
+              22<br>
+              333<br>
+              4444<br>
+              55555<br>
+              ヒント: 外側のループで行数、内側のループで各行の数字を制御
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">// まだ解いていません</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>挑戦してみましょう！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 問題12: 配列の合計と平均 -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h2>問題12: 配列の合計と平均</h2>
+          <span class="accordion-icon">▼</span>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="question-text">
+              配列 [10, 20, 30, 40, 50] の合計と平均を計算して表示してください<br>
+              ヒント: for...ofやforループで配列の要素を順番に処理
+            </div>
+
+            <div class="answer-section">
+              <h4>あなたの回答</h4>
+              <pre><code class="language-javascript">// まだ解いていません</code></pre>
+            </div>
+
+            <div class="evaluation">
+              <h4>評価</h4>
+              <p>挑戦してみましょう！</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
 
   </div>
 
@@ -319,24 +852,6 @@ console.log(example);</code></pre>
         item.classList.toggle('active');
       });
     });
-
-    // 結果表示用のヘルパー関数
-    function print(elementId, text) {
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.innerHTML += text + '<br>';
-      }
-    }
-
-    // セクション1: 変数の実行結果
-    const name = 'りん';
-    const age = 25;
-    let score = 100;
-    score = 150;
-
-    print('result1', `name = "${name}"`);
-    print('result1', `age = ${age}`);
-    print('result1', `score = ${score}`);
   </script>
 </body>
 </html>
