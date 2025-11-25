@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript I</title>
+
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }1
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    /* アコーディオンスタイル */
+    .accordion-item {
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      background: #d4ebf2;
+      color: #5a6c7d;
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background: #c0e3f0;
+    }
+
+    .accordion-header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .accordion-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 2000px;
+      transition: max-height 0.5s ease-in;
+    }
+
+    .accordion-body {
+      padding: 30px;
+    }
+
+    .description {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      color: #34495e;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #ecf0f1;
+      padding-bottom: 8px;
+    }
+
+    /* コードブロック */
+    pre {
+      margin: 15px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    pre code {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* 実行結果 */
+    .result {
+      background: #e8f4f8;
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .result h4 {
+      color: #2980b9;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .output {
+      font-family: 'Courier New', monospace;
+      color: #2c3e50;
+      line-height: 1.8;
+      background: white;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      color: #e74c3c;
+      font-size: 0.9em;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+      }
+
+      .accordion-header {
+        padding: 15px;
+      }
+
+      .accordion-header h2 {
+        font-size: 1.2rem;
+      }
+
+      .accordion-icon {
+        font-size: 1.2rem;
+      }
+
+      .accordion-body {
+        padding: 20px 15px;
+      }
+
+      .description {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+      }
+
+      pre code {
+        font-size: 0.85rem;
+      }
+
+      .result {
+        padding: 15px;
+      }
+
+      .result h4 {
+        font-size: 1rem;
+      }
+
+      .output {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* 小さいスマホ対応 */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .accordion-header {
+        padding: 12px;
+      }
+
+      .accordion-header h2 {
+        font-size: 1rem;
+      }
+
+      .accordion-body {
+        padding: 15px 10px;
+      }
+
+      pre code {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript I</h1>
+
+    <!-- 1. console.log() -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>1. console.log()</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            コンソールに値を表示するメソッド。デバッグやプログラムの動作確認に使う。
+          </p>
+
+          <h3 class="section-title">ポイント</h3>
+          <ul>
+            <li>()内に表示したい値を書く</li>
+            <li>複数の値をカンマで区切って表示可能</li>
+            <li>文字列は引用符で囲む、数字はそのまま</li>
+          </ul>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. 文字列型と数字型 -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>2. 文字列型と数字型</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            JavaScriptには様々なデータ型がある。文字列型（String）と数字型（Number）は基本的なデータ型。
+          </p>
+
+          <h3 class="section-title">ポイント</h3>
+          <ul>
+            <li>文字列：引用符（'または"）で囲む</li>
+            <li>数字：引用符なしでそのまま書く</li>
+            <li>文字列同士は+で連結できる</li>
+            <li>数字同士は+で計算される</li>
+          </ul>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. テンプレートリテラル -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>3. テンプレートリテラル</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            バッククォート（`）を使って、変数を文字列の中に埋め込むことができる。<code>${変数名}</code>で展開する。
+          </p>
+
+          <h3 class="section-title">ポイント</h3>
+          <ul>
+            <li>バッククォート（`）で囲む</li>
+            <li><code>${変数名}</code>で変数を埋め込む</li>
+            <li>+での連結より読みやすい</li>
+            <li>改行もそのまま使える</li>
+          </ul>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. 演算子 -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>4. 演算子</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            計算や比較を行うための記号。算術演算子（+, -, *, /）、比較演算子（===, !==, >, <）などがある。
+          </p>
+
+          <h3 class="section-title">ポイント</h3>
+          <ul>
+            <li>算術演算子：+（足す）、-（引く）、*（掛ける）、/（割る）、%（余り）</li>
+            <li>比較演算子：===（等しい）、!==（等しくない）、>、<、>=、<=</li>
+            <li>===は厳密な比較（型も確認）</li>
+            <li>比較結果はtrue/falseで返る</li>
+          </ul>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result4"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. 変数 -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>5. 変数</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            データを入れておく「箱」のようなもの。<code>let</code>を使って宣言する。
+          </p>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. 再代入 -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>6. 再代入</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            <code>let</code>で宣言した変数は、後から値を変更（再代入）できる。
+          </p>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result6"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. 定数 -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>7. 定数</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            <code>const</code>で宣言した定数は、再代入ができない。変更しない値に使う。
+          </p>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result7"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. if -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>8. if文</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            条件によって処理を分岐させる構文。条件が真（true）の場合に処理を実行する。
+          </p>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result8"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. switch -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>9. switch文</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            複数の条件分岐をシンプルに書ける構文。値によって処理を分岐させる。
+          </p>
+
+          <h3 class="section-title">コード例</h3>
+          <pre><code class="language-javascript">// ここにコードを書いてね
+
+</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result9"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Highlight.js JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // シンタックスハイライトを適用
+    hljs.highlightAll();
+
+    // アコーディオン機能
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // 結果表示用のヘルパー関数
+    function print(elementId, text) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.innerHTML += text + '<br>';
+      }
+    }
+
+    // ===== ここから各セクションのコードを書いてね =====
+
+    // 1. console.log()
+
+
+    // 2. 文字列型と数字型
+
+
+    // 3. 変数
+
+
+    // 4. 再代入
+
+
+    // 5. 定数
+
+
+    // 6. テンプレートリテラル
+
+
+    // 7. 演算子
+
+
+    // 8. if文
+
+
+    // 9. switch文
+
+  </script>
+</body>
+</html>

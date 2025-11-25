@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript I</title>
+
+  <!-- Highlight.js CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #f5f5f5;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 40px;
+      font-size: 2.5rem;
+    }
+
+    /* アコーディオンスタイル */
+    .accordion-item {
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      background: #d4ebf2;
+      color: #5a6c7d;
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .accordion-header:hover {
+      background: #c0e3f0;
+    }
+
+    .accordion-header h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .accordion-icon {
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 2000px;
+      transition: max-height 0.5s ease-in;
+    }
+
+    .accordion-body {
+      padding: 30px;
+    }
+
+    .description {
+      color: #555;
+      margin-bottom: 20px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .section-title {
+      color: #34495e;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+      border-bottom: 2px solid #ecf0f1;
+      padding-bottom: 8px;
+    }
+
+    /* コードブロック */
+    pre {
+      margin: 15px 0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    pre code {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* 実行結果 */
+    .result {
+      background: #e8f4f8;
+      border-left: 4px solid #3498db;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 4px;
+    }
+
+    .result h4 {
+      color: #2980b9;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .output {
+      font-family: 'Courier New', monospace;
+      color: #2c3e50;
+      line-height: 1.8;
+      background: white;
+      padding: 15px;
+      border-radius: 4px;
+    }
+
+    code {
+      background: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+      color: #e74c3c;
+      font-size: 0.9em;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    li {
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    /* スマホ対応 */
+    @media (max-width: 768px) {
+      body {
+        padding: 20px 10px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+      }
+
+      .accordion-header {
+        padding: 15px;
+      }
+
+      .accordion-header h2 {
+        font-size: 1.2rem;
+      }
+
+      .accordion-icon {
+        font-size: 1.2rem;
+      }
+
+      .accordion-body {
+        padding: 20px 15px;
+      }
+
+      .description {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.1rem;
+      }
+
+      pre code {
+        font-size: 0.85rem;
+      }
+
+      .result {
+        padding: 15px;
+      }
+
+      .result h4 {
+        font-size: 1rem;
+      }
+
+      .output {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* 小さいスマホ対応 */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .accordion-header {
+        padding: 12px;
+      }
+
+      .accordion-header h2 {
+        font-size: 1rem;
+      }
+
+      .accordion-body {
+        padding: 15px 10px;
+      }
+
+      pre code {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript I</h1>
+
+    <!-- アコーディオン1: 変数 -->
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>1. 変数（Variables）</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">
+            変数は、データを入れておく「箱」のようなもの。<code>const</code>や<code>let</code>を使って宣言する。
+          </p>
+
+          <h3 class="section-title">基本的な使い方</h3>
+          <pre><code class="language-javascript">// constは再代入できない定数
+const name = 'りん';
+const age = 25;
+
+// letは再代入できる変数
+let score = 100;
+score = 150; // 変更可能
+
+console.log(name);  // りん
+console.log(age);   // 25
+console.log(score); // 150</code></pre>
+
+          <h3 class="section-title">ポイント</h3>
+          <ul>
+            <li><code>const</code>：値を変更しない変数（定数）</li>
+            <li><code>let</code>：値を変更する可能性がある変数</li>
+            <li><code>var</code>：古い書き方（使わない）</li>
+          </ul>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result1"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- アコーディオン2: ここに追加 -->
+    <!--
+    <div class="accordion-item">
+      <div class="accordion-header">
+        <h2>2. タイトル</h2>
+        <span class="accordion-icon">▼</span>
+      </div>
+      <div class="accordion-content">
+        <div class="accordion-body">
+          <p class="description">説明文</p>
+
+          <h3 class="section-title">サブタイトル</h3>
+          <pre><code class="language-javascript">// コード例
+const example = 'サンプル';
+console.log(example);</code></pre>
+
+          <div class="result">
+            <h4>🖥️ 実行結果</h4>
+            <div class="output" id="result2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    -->
+
+  </div>
+
+  <!-- Highlight.js JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>
+    // シンタックスハイライトを適用
+    hljs.highlightAll();
+
+    // アコーディオン機能
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        item.classList.toggle('active');
+      });
+    });
+
+    // 結果表示用のヘルパー関数
+    function print(elementId, text) {
+      const element = document.getElementById(elementId);
+      if (element) {
+        element.innerHTML += text + '<br>';
+      }
+    }
+
+    // セクション1: 変数の実行結果
+    const name = 'りん';
+    const age = 25;
+    let score = 100;
+    score = 150;
+
+    print('result1', `name = "${name}"`);
+    print('result1', `age = ${age}`);
+    print('result1', `score = ${score}`);
+  </script>
+</body>
+</html>

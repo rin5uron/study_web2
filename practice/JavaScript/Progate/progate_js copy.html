@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavascriptⅡ_Ptogate</title>
+</head>
+<body>
+    <h1>JavascriptⅡ</h1>
+
+    学んだこと
+    ・while
+    ・for
+    ・fizzbazz
+
+</body>
+</html>
+<script>
+// ①while
+// 条件の間だけループする、条件や繰り返し処理の指定を忘れると無限ループになるので注意
+// 1−100までの数を表示する
+let i = 1;
+while(i <= 100){
+    console.log(i);
+    i++;
+    // i++ は i += 1（i=i+1）の省略形
+}
+
+// ②for
+// for(初期化/変数定義; 条件; 増減/繰り返し処理)
+for (let number ; number<=101; number++){
+    console.log(number);
+}
+
+
+③fizzbazz
+// 3の倍数の時にfizz、5の倍数の時にbazz、15の倍数の時にfizzbazzを表示する
+for(let number = 1; number<=100; number++){
+    if(number % 15 === 0){
+        console.log("fizzbazz");
+    }else if(number % 3 === 0){
+        console.log("fizz");
+    }else if(number % 5 === 0){
+        console.log("bazz");
+    }else{
+        console.log(number);
+    }
+}
+
+４fizzbazz
+
+
+const level = 3
+ console.log(level = 2)
+ console.log(level= 3
+ )
+
+</script>
