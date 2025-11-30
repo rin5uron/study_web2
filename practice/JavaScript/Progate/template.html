@@ -368,25 +368,36 @@
     }
 
     .evaluation {
-      background: #e8f5e9;
-      border-left: 4px solid #4caf50;
-      padding: 16px 20px;
-      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       margin-top: 16px;
+      padding: 12px 20px;
+      background: #f5f5f7;
+      border-radius: 8px;
     }
 
-    .evaluation h4 {
-      color: #2e7d32;
-      font-size: 0.9375rem;
-      font-weight: 600;
-      margin-bottom: 8px;
+    .evaluation-mark {
+      font-size: 1.5rem;
+      font-weight: 700;
+      min-width: 30px;
     }
 
-    .evaluation p {
-      color: #1d1d1f;
+    .evaluation-mark.correct {
+      color: #4caf50;
+    }
+
+    .evaluation-mark.incorrect {
+      color: #f44336;
+    }
+
+    .evaluation-mark.pending {
+      color: #9e9e9e;
+    }
+
+    .evaluation-text {
+      color: #6e6e73;
       font-size: 0.9375rem;
-      margin: 0;
-      line-height: 1.6;
     }
   </style>
 </head>
@@ -455,10 +466,10 @@ while(i <= 100){
     <div class="practice-section">
       <h2>練習問題</h2>
 
-      <!-- 問題1: 偶数フィルタリング -->
+      <!-- ①偶数抽出 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題1: 偶数フィルタリング</h2>
+          <h2>① 偶数抽出</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -480,17 +491,17 @@ while(num1 <= 50){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>whileもforも両方正解です！</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題2: ロケット発射カウントダウン -->
+      <!-- ②カウントダウン -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題2: ロケット発射カウントダウン</h2>
+          <h2>② カウントダウン</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -511,17 +522,17 @@ while(num1 <= 50){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>完璧です！デクリメント（i--）の使い方も正確です。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題3: 累積加算 -->
+      <!-- ③合計計算 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題3: 累積加算</h2>
+          <h2>③ 合計計算</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -543,17 +554,17 @@ console.log("合計: " + sum3);</code></pre>
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>完璧です！累積加算のロジックがしっかり理解できています。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題4: 7の倍数を見つける -->
+      <!-- ④7の倍数 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題4: 7の倍数を見つける</h2>
+          <h2>④ 7の倍数</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -572,17 +583,17 @@ console.log("合計: " + sum3);</code></pre>
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>正解です！余り演算子を使った倍数判定ができています。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題5: 条件付き累積加算 -->
+      <!-- ⑤条件付き合計 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題5: 条件付き累積加算</h2>
+          <h2>⑤ 条件付き合計</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -609,17 +620,17 @@ console.log("何個足した: " + num5 + "個");</code></pre>
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>breakの使い方が完璧です！条件に応じてループを抜ける制御ができています。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題6: FizzBuzz -->
+      <!-- ⑥FizzBuzz -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題6: FizzBuzz</h2>
+          <h2>⑥ FizzBuzz</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -648,24 +659,23 @@ console.log("何個足した: " + num5 + "個");</code></pre>
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>完璧です！FizzBuzzの条件判定が正確にできています。15の倍数を最初にチェックする順序も正しいです。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題7: 5の段の九九 -->
+      <!-- ⑦九九（5の段） -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題7: 5の段の九九</h2>
+          <h2>⑦ 九九（5の段）</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
           <div class="accordion-body">
             <div class="question-text">
-              5の段の九九を「5 × 1 = 5」の形式で表示してください（5×1から5×9まで）<br>
-              ヒント: テンプレートリテラルを使うと見やすい
+              5の段の九九を「5 × 1 = 5」の形式で表示してください（5×1から5×9まで）
             </div>
 
             <div class="answer-section">
@@ -676,17 +686,17 @@ console.log("何個足した: " + num5 + "個");</code></pre>
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>完璧です！文字列連結で見やすい出力ができています。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題8: 三角形パターン -->
+      <!-- ⑧三角形 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題8: 三角形パターン</h2>
+          <h2>⑧ 三角形</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -697,8 +707,7 @@ console.log("何個足した: " + num5 + "個");</code></pre>
               **<br>
               ***<br>
               ****<br>
-              *****<br>
-              ヒント: 文字列を連結していく
+              *****
             </div>
 
             <div class="answer-section">
@@ -713,17 +722,17 @@ while(num7 <= 5){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>素晴らしい！文字列の累積連結を使ったパターン生成ができています。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題9: 九九表を作る -->
+      <!-- ⑨九九表 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題9: 九九表を作る</h2>
+          <h2>⑨ 九九表</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -731,7 +740,7 @@ while(num7 <= 5){
             <div class="question-text">
               1の段から9の段まで全ての九九を表示してください<br>
               「1 × 1 = 1」から「9 × 9 = 81」まで<br>
-              ヒント: forの中にforを入れる（2重ループ）
+              ヒント: 2重ループ
             </div>
 
             <div class="answer-section">
@@ -744,17 +753,17 @@ while(num7 <= 5){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>2重ループの使い方が完璧です！ネストしたループで全ての組み合わせを処理できています。</p>
+              <span class="evaluation-mark correct">○</span>
+              <span class="evaluation-text">正解</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題10: 素数を見つける -->
+      <!-- ⑩素数判定 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題10: 素数を見つける</h2>
+          <h2>⑩ 素数判定</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -771,17 +780,17 @@ while(num7 <= 5){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>挑戦してみましょう！</p>
+              <span class="evaluation-mark pending">-</span>
+              <span class="evaluation-text">未回答</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題11: 数字のピラミッド -->
+      <!-- ⑪数字ピラミッド -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題11: 数字のピラミッド</h2>
+          <h2>⑪ 数字ピラミッド</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
@@ -793,7 +802,7 @@ while(num7 <= 5){
               333<br>
               4444<br>
               55555<br>
-              ヒント: 外側のループで行数、内側のループで各行の数字を制御
+              ヒント: 2重ループ
             </div>
 
             <div class="answer-section">
@@ -802,24 +811,24 @@ while(num7 <= 5){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>挑戦してみましょう！</p>
+              <span class="evaluation-mark pending">-</span>
+              <span class="evaluation-text">未回答</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- 問題12: 配列の合計と平均 -->
+      <!-- ⑫配列の計算 -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h2>問題12: 配列の合計と平均</h2>
+          <h2>⑫ 配列の計算</h2>
           <span class="accordion-icon">▼</span>
         </div>
         <div class="accordion-content">
           <div class="accordion-body">
             <div class="question-text">
               配列 [10, 20, 30, 40, 50] の合計と平均を計算して表示してください<br>
-              ヒント: for...ofやforループで配列の要素を順番に処理
+              ヒント: for...ofループ
             </div>
 
             <div class="answer-section">
@@ -828,8 +837,8 @@ while(num7 <= 5){
             </div>
 
             <div class="evaluation">
-              <h4>評価</h4>
-              <p>挑戦してみましょう！</p>
+              <span class="evaluation-mark pending">-</span>
+              <span class="evaluation-text">未回答</span>
             </div>
           </div>
         </div>

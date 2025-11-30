@@ -5,6 +5,9 @@
 - 独自ドメイン
 <br><br><br><br><br>
 # 🕊️共有サイト
+## 2025/11/28
+デザインパターンについて学ばなきゃいけない
+https://www.youtube.com/watch?v=WJ4wncl1e6w
 ## 2025/11/19
 https://sloreach.com/
 

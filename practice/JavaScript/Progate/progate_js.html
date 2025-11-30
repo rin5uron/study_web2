@@ -357,7 +357,7 @@ console.log('年齢:', 25);</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result1"></div>
+            <div class="output" id="result1">こんにちは<br>100<br>私の名前は りん です<br>年齢: 25<br></div>
           </div>
         </div>
       </div>
@@ -384,17 +384,17 @@ console.log('年齢:', 25);</code></pre>
 
           <h3 class="section-title">コード例</h3>
           <pre><code class="language-javascript">// 1. 文字列の連結
-console.log('1' + '1');  // "11"
+console.log('1' + '1');
 
 // 2. 文字列の表示
-console.log('1+1');      // "1+1"
+console.log('1+1');
 
 // 3. 計算
-console.log(1 + 1);      // 2</code></pre>
+console.log(1 + 1);</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result2"></div>
+            <div class="output" id="result2">11<br>1+1<br>2<br></div>
           </div>
         </div>
       </div>
@@ -421,13 +421,15 @@ console.log(1 + 1);      // 2</code></pre>
           </ul>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
+          <pre><code class="language-javascript">const name = 'Gemini';
+const version = 1.5;
 
-</code></pre>
+console.log(`こんにちは、${name}です。
+バージョンは${version}です。`);</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result3"></div>
+            <div class="output" id="result3">こんにちは、Geminiです。<br>バージョンは1.5です。<br></div>
           </div>
         </div>
       </div>
@@ -454,13 +456,16 @@ console.log(1 + 1);      // 2</code></pre>
           </ul>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
+          <pre><code class="language-javascript">console.log(10 * 2); // 20
+console.log(10 % 3); // 1
 
-</code></pre>
+const price = 150;
+console.log(price > 100); // true
+console.log(price === 150); // true</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result4"></div>
+            <div class="output" id="result4">20<br>1<br>true<br>true<br></div>
           </div>
         </div>
       </div>
@@ -479,13 +484,12 @@ console.log(1 + 1);      // 2</code></pre>
           </p>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
-
-</code></pre>
+          <pre><code class="language-javascript">let name = 'にんじゃわんこ';
+console.log(name);</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result5"></div>
+            <div class="output" id="result5">にんじゃわんこ<br></div>
           </div>
         </div>
       </div>
@@ -504,13 +508,15 @@ console.log(1 + 1);      // 2</code></pre>
           </p>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
+          <pre><code class="language-javascript">let level = 1;
+console.log(`レベルは${level}です`);
 
-</code></pre>
+level = 2; // 値を上書き
+console.log(`レベルは${level}です`);</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result6"></div>
+            <div class="output" id="result6">レベルは1です<br>レベルは2です<br></div>
           </div>
         </div>
       </div>
@@ -529,13 +535,15 @@ console.log(1 + 1);      // 2</code></pre>
           </p>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
+          <pre><code class="language-javascript">const taxRate = 0.1;
+console.log(`消費税は${taxRate}です`);
 
+// taxRate = 0.08; // エラーになる
 </code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result7"></div>
+            <div class="output" id="result7">消費税は0.1です<br></div>
           </div>
         </div>
       </div>
@@ -554,13 +562,18 @@ console.log(1 + 1);      // 2</code></pre>
           </p>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
-
-</code></pre>
+          <pre><code class="language-javascript">const rank = 1;
+if (rank === 1) {
+  console.log("大吉！");
+} else if (rank === 2) {
+  console.log("吉！");
+} else {
+  console.log("凶！");
+}</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result8"></div>
+            <div class="output" id="result8">大吉！<br></div>
           </div>
         </div>
       </div>
@@ -579,13 +592,21 @@ console.log(1 + 1);      // 2</code></pre>
           </p>
 
           <h3 class="section-title">コード例</h3>
-          <pre><code class="language-javascript">// ここにコードを書いてね
-
-</code></pre>
+          <pre><code class="language-javascript">const taste = 1;
+switch(taste){
+  case 1:
+    console.log("1番のアイスクリームはピスタチオです");
+    break;
+  case 2:
+    console.log("2番のアイスクリームはストロベリーです");
+    break;
+  default:
+    console.log("該当するアイスクリームはありません");
+}</code></pre>
 
           <div class="result">
             <h4>RESULT</h4>
-            <div class="output" id="result9"></div>
+            <div class="output" id="result9">1番のアイスクリームはピスタチオです<br></div>
           </div>
         </div>
       </div>
@@ -606,88 +627,6 @@ console.log(1 + 1);      // 2</code></pre>
         item.classList.toggle('active');
       });
     });
-
-    // 結果表示用のヘルパー関数
-    function print(elementId, text) {
-      const element = document.getElementById(elementId);
-      if (element) {
-        element.innerHTML += text + '<br>';
-      }
-    }
-
-    // ===== ここから各セクションのコードを書いてね =====
-
-    // 1. console.log()
-    console.log('Hello, World!');
-    console.log(100);
-    console.log('好きな果物は', 'りんご', 'です');
-    console.log('1+1', "は", (1+1),'です');
-
-    // HTML上にも表示
-    print('result1', 'Hello, World!');
-    print('result1', '100');
-    print('result1', '好きな果物は りんご です');
-    print('result1', '1+1 は ' + (1+1) + 'です');
-
-    // 2. 文字列型と数字型
-    // コンソールとRESULT欄に値だけ表示
-    console.log('1' + '1');  // 11
-    print('result2', '1' + '1');
-
-    console.log('1+1');      // 1+1
-    print('result2', '1+1');
-
-    console.log(1 + 1);      // 2
-    print('result2', 1 + 1);
-
-
-    // 3. 変数
-
-
-    // 4. 再代入
-
-
-    // 5. 定数
-
-
-    // 6. テンプレートリテラル
-
-
-    // 7. 演算子
-
-
-    // 8. if文
-    // 数字占い
-    let i=1;
-    if(i === 1){
-      console.log("大吉！");
-    }else if(i === 2){
-      console.log("吉！");
-    }else if(i === 3){
-      console.log("末吉！");
-    }else{
-      console.log("凶！");
-    }
-
-    // 9. switch文
-    // フレーバー番号からフレーバー名を表示
-let taste = 1;
-switch(taste){
-  case 1:
-    console.log(taste + "番のアイスクリームはピスタチオです");
-    break;
-  case 2:
-    console.log(taste + "番のアイスクリームはストロベリーです");
-    break;
-  case 3:
-    console.log(taste + "番のアイスクリームはチョコレートです");
-    break;
-  case 4:
-    console.log(taste + "番のアイスクリームはバニラです");
-    break;
-  default:
-    console.log(taste + "番のアイスクリームはシェフの気まぐれ味です");
-}
   </script>
 </body>
 </html>

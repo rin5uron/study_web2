@@ -3,56 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavascriptⅡ_Ptogate</title>
+    <title>JavascriptⅡ_Progate</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #e8f5e9;
+            padding: 8px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+        pre {
+            background-color: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 5px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
 </head>
 <body>
-    <h1>JavascriptⅡ</h1>
+    <div class="container">
+        <h1>JavascriptⅡ</h1>
+        <h2>学んだこと</h2>
+        <ul>
+            <li>whileループ</li>
+            <li>forループ</li>
+            <li>FizzBuzz問題</li>
+        </ul>
 
-    学んだこと
-    ・while
-    ・for
-    ・fizzbazz
+        <h2>実行結果</h2>
+        <pre id="output"></pre>
+    </div>
+1
+
+<script>
+// 結果を出力する要素を取得
+const outputElement = document.getElementById('output');
+
+// ヘルパー関数：結果をHTMLに追記する
+function print(message) {
+    outputElement.textContent += message + '\n';
+}
+
+// ①while (1−100までの数を表示)
+print('--- whileループ (1-10) ---'); // 100までだと長いので10までにします
+let i = 1;
+while(i <= 10){
+    print(i);
+    i++;
+}
+print('\n');
+
+// ②for (1−100までの数を表示)
+print('--- forループ (1-10) ---'); // こちらも10まで
+for (let number = 1; number <= 10; number++){
+    print(number);
+}
+print('\n');
+
+// ③FizzBuzz (1-20まで)
+print('--- FizzBuzz (1-20) ---');
+for(let number = 1; number <= 20; number++){
+    if(number % 15 === 0){
+        print("FizzBuzz");
+    } else if(number % 3 === 0){
+        print("Fizz");
+    } else if(number % 5 === 0){
+        print("Buzz");
+    } else {
+        print(number);
+    }
+}
+print('\n');
+
+// ④定数の再代入エラーの例
+print('--- constの再代入 ---');
+const level = 3;
+print('constで宣言したlevel: ' + level);
+print('level = 5; を実行しようとするとエラーになります。');
+// level = 5; // この行のコメントを外すとコンソールでエラーが確認できます
+print('TypeError: Assignment to constant variable.');
+
+</script>
 
 </body>
 </html>
-<script>
-// ①while
-// 条件の間だけループする、条件や繰り返し処理の指定を忘れると無限ループになるので注意
-// 1−100までの数を表示する
-let i = 1;
-while(i <= 100){
-    console.log(i);
-    i++;
-    // i++ は i += 1（i=i+1）の省略形
-}
 
-// ②for
-// for(初期化/変数定義; 条件; 増減/繰り返し処理)
-for (let number ; number<=101; number++){
-    console.log(number);
-}
-
-
-③fizzbazz
-// 3の倍数の時にfizz、5の倍数の時にbazz、15の倍数の時にfizzbazzを表示する
-for(let number = 1; number<=100; number++){
-    if(number % 15 === 0){
-        console.log("fizzbazz");
-    }else if(number % 3 === 0){
-        console.log("fizz");
-    }else if(number % 5 === 0){
-        console.log("bazz");
-    }else{
-        console.log(number);
-    }
-}
-
-４fizzbazz
-
-
-const level = 3
- console.log(level = 2)
- console.log(level= 3
- )
-
-</script>
+const arr = lines[1];
+　let stringArray = [];
+ 
+  for (let i = 0; i < arr.length; i++) {
+      console.log(i);
+     if(i!==' ') {  // 半角スペースじゃない場合)
+         i = stringArray[]
+        console.log(stringArray); 
+     }
+     else{
+     }
+     };
