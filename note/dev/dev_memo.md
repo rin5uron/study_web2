@@ -5,6 +5,10 @@
 - 独自ドメイン
 <br><br><br><br><br>
 # 🕊️共有サイト
+## 2025/12/08
+- 勝間和代
+https://youtu.be/vc9AjLdhvLI?si=f1mao8xc81ZA4jU8
+https://youtu.be/Rt930Ip84ek
 ## 2025/11/28
 デザインパターンについて学ばなきゃいけない
 https://www.youtube.com/watch?v=WJ4wncl1e6w
