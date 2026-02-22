@@ -1,6 +1,6 @@
 // (1)人間オブジェクトの実行
 const person1 = {
-    name: 'りんちゃん',
+    name: '太郎',
     walk: function(step){
         let output = person1.name + 'は'+ step + '歩歩けます。<br>';
         console.log(person1.name + 'は'+ step + '歩歩けます');
@@ -105,7 +105,7 @@ document.getElementById('result2_morning').innerHTML = result2MorningHtml;
 
 // (3)複数引数の実行
 const person2 = {
-    name: "りんちゃん",
+    name: "太郎",
     walk: function(forward, sideways) {
         let output = `${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！<br>`;
         console.log(`${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！`);
@@ -114,7 +114,7 @@ const person2 = {
 };
 
 let totalSteps = person2.walk(10, 5);
-let result2Html = `りんちゃんは前に10歩、横に5歩進んだよ！<br>合計${totalSteps}歩歩いたね！`;
+let result2Html = `太郎は前に10歩、横に5歩進んだよ！<br>合計${totalSteps}歩歩いたね！`;
 document.getElementById('result2').innerHTML = result2Html;
 
 // 戻り値の実行（更新されたコードに合わせて修正）
