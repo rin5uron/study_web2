@@ -22,18 +22,18 @@ cooking(food){
    console.log('今日の'+ this.name + 'のご飯は'+ food + 'でした。');
 }
 }
-const person1 = new Human('りんちゃん');
-const person2 = new Human('うーろんくん');
+const person1 = new Human('コトネちゃん');
+const person2 = new Human('りんちゃん');
 
 console.log(person1.name);
 console.log(person2.name);
 
 person1.walk(10);
-person1.speak('うーろんくん');
+person1.speak('りんちゃん');
 person1.cooking('パイナップル');
 
 person2.walk(3);
-person2.speak('りんちゃん');
+person2.speak('コトネちゃん');
 person2.cooking('カレー');
 
 
@@ -201,7 +201,7 @@ class MorningRoutine {
 }
 
 // インスタンスを作ってみる
-const rin = new MorningRoutine("りんちゃん");
+const rin = new MorningRoutine("コトネちゃん");
 
 // デフォルト(0番目と1番目)を使うなら…
 rin.describe();
@@ -242,7 +242,7 @@ class HumanJob {
   }
 }
 
-const h = new HumanJob('りんちゃん','栄養士',7,['包丁']);
+const h = new HumanJob('コトネちゃん','栄養士',7,['包丁']);
 // OK:
 h.describe([1,3], [2,3]); //配列から呼び出す
 

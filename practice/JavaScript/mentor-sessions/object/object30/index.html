@@ -520,7 +520,7 @@
         // コードを表示する関数
         function displayCode() {
             // 演習①のコード
-            const code1 = `// ① Humanクラス：人間についてメソッドで定義\nclass Human {\n  constructor(name) {         // 初期値設定、これをインスタンス生成のために使う\n    this.name = name;\n  }\n  walk(step) {                // 歩くメソッド\n    console.log(\`\${this.name}は\${step}歩歩けます\`);\n  }\n\n  speak(who) {                // 会話メソッド\n    console.log(\`\${this.name}は\${who}とおしゃべりします。\`);\n  }\n\n  cooking(food) {             // 食べたものメソッド\n    console.log(\`今日の\${this.name}のご飯は\${food}でした。\`);\n  }\n}\n\n// インスタンス生成＆メソッド呼び出し\nconst person1 = new Human('りんちゃん');\nconst person2 = new Human('うーろんくん');\n\nperson1.walk(10);\nperson1.speak('うーろんくん');\nperson1.cooking('パイナップル');\n\nperson2.walk(3);\nperson2.speak('りんちゃん');\nperson2.cooking('カレー');`;
+            const code1 = `// ① Humanクラス：人間についてメソッドで定義\nclass Human {\n  constructor(name) {         // 初期値設定、これをインスタンス生成のために使う\n    this.name = name;\n  }\n  walk(step) {                // 歩くメソッド\n    console.log(\`\${this.name}は\${step}歩歩けます\`);\n  }\n\n  speak(who) {                // 会話メソッド\n    console.log(\`\${this.name}は\${who}とおしゃべりします。\`);\n  }\n\n  cooking(food) {             // 食べたものメソッド\n    console.log(\`今日の\${this.name}のご飯は\${food}でした。\`);\n  }\n}\n\n// インスタンス生成＆メソッド呼び出し\nconst person1 = new Human('コトネちゃん');\nconst person2 = new Human('りんちゃん');\n\nperson1.walk(10);\nperson1.speak('りんちゃん');\nperson1.cooking('パイナップル');\n\nperson2.walk(3);\nperson2.speak('コトネちゃん');\nperson2.cooking('カレー');`;
 
             // 演習②のコード
             const code2 = `// ② Sweetsクラス：お菓子の情報をまとめ、表示メソッドを用いてコンソールに表示する\n// 前だけ先に設定してから別メソッドで残りをまとめて設定するパターン\nclass Sweets {\n  constructor(name) {\n    this.name = name;   // お菓子の名前\n    this.taste = '';\n    this.flavor = '';\n    this.point = '';\n    this.place = '';\n  }\n  // printTaste メソッド：引数で受け取った taste をthis.tasteに格納して表示\n  printTaste(taste) {          // 味の説明\n    this.taste = taste;\n    console.log(\`\${this.name}は\${this.taste}です。\`);\n  }\n\n  printFlavor(flavor) {        // 風味の説明\n    this.flavor = flavor;\n    console.log(\`\${this.name}のお気に入りの味は\${this.flavor}です。\`);\n  }\n\n  printPoint(point) {          // ポイントの説明\n    this.point = point;\n    console.log(\`\${this.flavor}味のポイントは\${this.point}です。\`);\n  }\n\n  printBuy(place) {            // 購入場所の説明\n    this.place = place;\n    console.log(\`\${this.flavor}は\${this.place}で買えます。\`);\n  }\n}\n\n// インスタンス生成＆メソッド呼び出し\nconst sweets1 = new Sweets('ハーゲンダッツ');\nsweets1.printTaste('美味しい');\nsweets1.printFlavor('マカダミアナッツ');\nsweets1.printPoint('期待以上のマカダミアナッツ感');\nsweets1.printBuy('どこでも');\n\nconst sweets2 = new Sweets('ポテトチップス');\nsweets2.printTaste('無限に食べられるお菓子');\nsweets2.printFlavor('カルビーのうす塩');\nsweets2.printPoint('パリパリ感');\nsweets2.printBuy('どこでも');`;
@@ -532,8 +532,8 @@
             const code4 = `// ④IcecreamBrand（アイスクリーム）\n// アイスクリームクラス:ブランドごとにアイスクリームをまとめる\n// アイスクリームクラスの中にフレーバーオブジェクトを入れる\n\n// アイスクリームブランドクラス（親）\nclass IcecreamBrand {\n    constructor(brand) {\n      this.brand = brand;\n      this.flavors = []; // フレーバーをしまっておく場所\n    }\n\n    // addFlavorメソッドを使用してflavorプロパティを登録できるようにする\n    addFlavor({ brand, name, taste, eatfeel }) {\n        const flavor = new Flavor({\n          brand,name,taste,eatfeel\n        });\n        this.flavors.push(flavor); // ブランドに登録！\n        return flavor; // 外でも使えるように返す\n      }\n    }\n\n// フレーバークラス（子）\nclass Flavor {\n    constructor({ brand, name, taste, eatfeel }) {\n      this.brand = brand;\n      this.name = name;\n      this.taste = taste;\n      this.eatfeel = eatfeel;  \n    }\n\n  \n    describe() {\n      console.log(\n        \`\${this.brand}「\${this.name}」味は\${this.taste}ます。\${this.eatfeel}気分の時に一緒に食べよ？\`\n);\n    }\n}\n\n// （ブランドオブジェクト）\nconst icecreamBrand1 = new IcecreamBrand('ハーゲンダッツ');\nconst icecreamBrand2 = new IcecreamBrand('レディボーデン');\nconst icecreamBrand3 = new IcecreamBrand('ピノ');\n  \n// （インスタンスオブジェクト）\n\n  const macadamia = icecreamBrand1.addFlavor({\n    brand: 'ハーゲンダッツ',\n    name: 'マカダミアナッツ',\n    taste: '期待以上のマカダミアナッツ感があり',\n    eatfeel: '美味しいナッツが食べた'\n  });\n\n  const strawberry = icecreamBrand2.addFlavor({\n    brand: 'レディボーデン',\n    name: 'ストロベリー',\n    taste: '程よい甘酸っぱさがクセになり、いくらでも食べられ',\n    eatfeel: '思う存分満足するまでアイスクリームを食べたい'\n  });\n\n  const pinot = icecreamBrand3.addFlavor({\n    brand: 'ピノ',\n    name: 'アーモンド',\n    taste: '３種類の中で私の断トツお気に入りになり',\n    eatfeel: 'オレンジは私にちょうだい！あなたが赤と青が食べたい'\n  });\n  \n  macadamia.describe();\n  strawberry.describe();\n  pinot.describe();\n  `;
 
             // 演習⑤のコード
-            const code5 = `// 演習⑤のコード\n// 朝のやることリストを入れ子構造で定義\n// ① 朝のやることリスト（子要素）\nconst morning = [ "顔を洗う", "歯を磨く", "朝ごはんを食べる", "服を着る" ];\n\n// ② お仕事クラス（親要素）\nclass MorningRoutine {\n  constructor(name) {\n    this.name = name;\n    this.routine = morning;  // 朝のリストをセット\n  }\n\n  // ここがポイント！m1とm2には「何番目のやること」を入れるよ\n  // 引数なし → m1=0, m2=1 になる（デフォルト値）\n  describe(m1 = 0, m2 = 1) {\n    console.log(this.name + "の朝のやること：");\n    console.log("１つ目 → " + this.routine[m1]);\n    console.log("２つ目 → " + this.routine[m2]);\n  }\n}\n\n// インスタンスを作ってみる\nconst rin = new MorningRoutine("りんちゃん");\n\n// デフォルト(0番目と1番目)を使うなら…\nrin.describe();\n\n// もし「2番目と3番目」を見せたければ、こうする\nrin.describe(2, 3);\n`;
-            // 演習⑥のコード\n            const code6 = `// 演習⑥のコード\n// HumanJobクラス: 職業と日課を入れ子構造で定義\n//(子要素) \nclass JobRoutine  {\n  constructor() {\n    this.AmRoutine = ["麦茶を沸かす","野菜を切る","重たいお鍋を持つ","お皿を洗う"];\n    this.PmRoutine = ["slackを開く","献立ソフトと睨めっこ","子どもとおやつを食べる"];\n  }\n};\n\n// 親要素  \nclass HumanJob {\n  constructor(name, job, year, item) {\n    this.name = name;\n    this.job = job;\n    this.year = year;\n    this.item = item;\n    this.routine = new JobRoutine(); //クラスを呼び出す時はnewを使う\n  }\n  \n  describe(amIdx , pmIdx) {\n    console.log(\`\${this.name}のお仕事は\${this.job}です。このお仕事をして\${this.year}年目です。\n      必須アイテムは\${this.item.join('、')}です。\`\n);//join('、')を使うことで、配列を使って複数のアイテムを表示できる\n    console.log(\`午前の日課: \${this.routine.AmRoutine[amIdx[0]]} ・ \${this.routine.AmRoutine[amIdx[1]]}。\`\n);\n    console.log(\`午後の日課: \${this.routine.PmRoutine[pmIdx[0]]} ・ \${this.routine.PmRoutine[pmIdx[1]]}。\`\n);\n  }\n}\n\nconst h = new HumanJob('りんちゃん','栄養士',7,['包丁']);\n// OK:\nh.describe([1,3], [0,2]); //配列から呼び出す\n`;
+            const code5 = `// 演習⑤のコード\n// 朝のやることリストを入れ子構造で定義\n// ① 朝のやることリスト（子要素）\nconst morning = [ "顔を洗う", "歯を磨く", "朝ごはんを食べる", "服を着る" ];\n\n// ② お仕事クラス（親要素）\nclass MorningRoutine {\n  constructor(name) {\n    this.name = name;\n    this.routine = morning;  // 朝のリストをセット\n  }\n\n  // ここがポイント！m1とm2には「何番目のやること」を入れるよ\n  // 引数なし → m1=0, m2=1 になる（デフォルト値）\n  describe(m1 = 0, m2 = 1) {\n    console.log(this.name + "の朝のやること：");\n    console.log("１つ目 → " + this.routine[m1]);\n    console.log("２つ目 → " + this.routine[m2]);\n  }\n}\n\n// インスタンスを作ってみる\nconst rin = new MorningRoutine("コトネちゃん");\n\n// デフォルト(0番目と1番目)を使うなら…\nrin.describe();\n\n// もし「2番目と3番目」を見せたければ、こうする\nrin.describe(2, 3);\n`;
+            // 演習⑥のコード\n            const code6 = `// 演習⑥のコード\n// HumanJobクラス: 職業と日課を入れ子構造で定義\n//(子要素) \nclass JobRoutine  {\n  constructor() {\n    this.AmRoutine = ["麦茶を沸かす","野菜を切る","重たいお鍋を持つ","お皿を洗う"];\n    this.PmRoutine = ["slackを開く","献立ソフトと睨めっこ","子どもとおやつを食べる"];\n  }\n};\n\n// 親要素  \nclass HumanJob {\n  constructor(name, job, year, item) {\n    this.name = name;\n    this.job = job;\n    this.year = year;\n    this.item = item;\n    this.routine = new JobRoutine(); //クラスを呼び出す時はnewを使う\n  }\n  \n  describe(amIdx , pmIdx) {\n    console.log(\`\${this.name}のお仕事は\${this.job}です。このお仕事をして\${this.year}年目です。\n      必須アイテムは\${this.item.join('、')}です。\`\n);//join('、')を使うことで、配列を使って複数のアイテムを表示できる\n    console.log(\`午前の日課: \${this.routine.AmRoutine[amIdx[0]]} ・ \${this.routine.AmRoutine[amIdx[1]]}。\`\n);\n    console.log(\`午後の日課: \${this.routine.PmRoutine[pmIdx[0]]} ・ \${this.routine.PmRoutine[pmIdx[1]]}。\`\n);\n  }\n}\n\nconst h = new HumanJob('コトネちゃん','栄養士',7,['包丁']);\n// OK:\nh.describe([1,3], [0,2]); //配列から呼び出す\n`;
 
             // コードを各要素に設定
             document.getElementById('code1').textContent = code1;
@@ -576,15 +576,15 @@
               }
             }
 
-            const person1 = new Human('りんちゃん');
-            const person2 = new Human('うーろんくん');
+            const person1 = new Human('コトネちゃん');
+            const person2 = new Human('りんちゃん');
 
             person1.walk(10);
-            person1.speak('うーろんくん');
+            person1.speak('りんちゃん');
             person1.cooking('パイナップル');
 
             person2.walk(3);
-            person2.speak('りんちゃん');
+            person2.speak('コトネちゃん');
             person2.cooking('カレー');
 
             // 演習②の実行
@@ -716,7 +716,7 @@
                 console.log("２つ目 → " + this.routine[m2]);
               }
             }
-            const rin = new MorningRoutine("りんちゃん");
+            const rin = new MorningRoutine("コトネちゃん");
             rin.describe();
             rin.describe(2, 3);
 
@@ -742,7 +742,7 @@
                 console.log(`午後の日課: ${this.routine.PmRoutine[pmIdx[0]]} ・ ${this.routine.PmRoutine[pmIdx[1]]}。`);
               }
             }
-            const h = new HumanJob('りんちゃん','栄養士',7,['包丁']);
+            const h = new HumanJob('コトネちゃん','栄養士',7,['包丁']);
             h.describe([1,3], [0,2]);
 
 
