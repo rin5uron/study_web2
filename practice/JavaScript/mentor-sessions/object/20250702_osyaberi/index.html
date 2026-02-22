@@ -148,14 +148,14 @@
     
     <div class="h2">
 <h2>(1)人間をオブジェクトとして、プロパティとメソッドをつけてみる</h2>
-        <p>プロパティ<code>name</code>に『太郎』という値を入れ、<br>太郎の行動メソッド（関数）を定義してみる。</p>
+        <p>プロパティ<code>name</code>に『りんちゃん』という値を入れ、<br>りんちゃんの行動メソッド（関数）を定義してみる。</p>
         <p>オブジェクト：<code>person</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             プロパティ：<code>name</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             メソッド：<code>walk</code>, <code>speak</code>, <code>cooking</code></p>
         
         <pre><code class="language-javascript">
 const person1 = {
-    name: '太郎',//nameという名のプロパティに太郎という値を入れる
+    name: 'りんちゃん',//nameという名のプロパティにりんちゃんという値を入れる
     walk: function(step){//walkという名のメソッドを定義。引数にstepを取る
         console.log(person1.name + 'は'+ step + '歩歩けます');
         document.write(person1.name + 'は'+ step + '歩歩けます。');
@@ -172,7 +172,7 @@ const person1 = {
 };
 // オブジェクト定義が終わったあとに呼び出す！メソッドを呼び出し()内の引数を渡す
 person1.walk(10)
-person1.speak('師匠')
+person1.speak('コトネちゃん')
 person1.cooking('チキン南蛮')
         </code></pre>
         
@@ -272,7 +272,7 @@ if(morningrutine.ready.changeclothes && morningrutine.ready.grabbag){
             <p>引数を複数つけると、より複雑な動作を表せる。<br>marginやpadding設定と同じイメージ。</p>
             <pre><code class="language-javascript">
 const person2 = {
-    name: "太郎",
+    name: "りんちゃん",
     
     walk: function(forward, sideways) {
         console.log(`${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！`);
@@ -280,7 +280,7 @@ const person2 = {
     }
 };
 // 呼び出し例
-let totalSteps = person2.walk(10, 5);  // → 太郎は前に10歩、横に5歩進んだよ！
+let totalSteps = person2.walk(10, 5);  // → りんちゃんは前に10歩、横に5歩進んだよ！
 console.log(`合計${totalSteps}歩歩いたね！`);  // → 合計15歩歩いたね！
             </code></pre>
 
@@ -349,7 +349,7 @@ const OyasumiLib = {
 // 呼び出し例
 OyasumiLib.saynemui();                   // → (｡•́︿•̀｡) もうねむい
 OyasumiLib.sweetDreams();                // → (ღ˘⌣˘ღ) 続きは夢でしよ♡
-OyasumiLib.sayGoodnight("師匠"); // → (*˘︶˘*).｡.:*☆ おやすみ、師匠。また夢でね！
+OyasumiLib.sayGoodnight("コトネちゃん"); // → (*˘︶˘*).｡.:*☆ おやすみ、コトネちゃん。また夢でね！
         </code></pre>
         <div class="result" id="result4">
         </div>

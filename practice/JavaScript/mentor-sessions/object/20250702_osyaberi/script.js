@@ -1,6 +1,6 @@
 // (1)人間オブジェクトの実行
 const person1 = {
-    name: '太郎',
+    name: 'りんちゃん',
     walk: function(step){
         let output = person1.name + 'は'+ step + '歩歩けます。<br>';
         console.log(person1.name + 'は'+ step + '歩歩けます');
@@ -20,7 +20,7 @@ const person1 = {
 
 let result1Html = '';
 result1Html += person1.walk(10);
-result1Html += person1.speak('師匠');
+result1Html += person1.speak('コトネちゃん');
 result1Html += person1.cooking('チキン南蛮');
 document.getElementById('result1').innerHTML = result1Html;
 
@@ -105,7 +105,7 @@ document.getElementById('result2_morning').innerHTML = result2MorningHtml;
 
 // (3)複数引数の実行
 const person2 = {
-    name: "太郎",
+    name: "りんちゃん",
     walk: function(forward, sideways) {
         let output = `${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！<br>`;
         console.log(`${this.name}は前に${forward}歩、横に${sideways}歩進んだよ！`);
@@ -114,7 +114,7 @@ const person2 = {
 };
 
 let totalSteps = person2.walk(10, 5);
-let result2Html = `太郎は前に10歩、横に5歩進んだよ！<br>合計${totalSteps}歩歩いたね！`;
+let result2Html = `りんちゃんは前に10歩、横に5歩進んだよ！<br>合計${totalSteps}歩歩いたね！`;
 document.getElementById('result2').innerHTML = result2Html;
 
 // 戻り値の実行（更新されたコードに合わせて修正）
@@ -155,7 +155,7 @@ let result4Html = '';
 result4Html += '--- おやすみライブラリ ---<br>';
 result4Html += OyasumiLib.saynemui() + '<br>';
 result4Html += OyasumiLib.sweetDreams() + '<br>';
-result4Html += OyasumiLib.sayGoodnight("師匠") + '<br>';
+result4Html += OyasumiLib.sayGoodnight("コトネちゃん") + '<br>';
 
 document.getElementById('result4').innerHTML = result4Html;
 
